@@ -5,6 +5,7 @@ import itertools
 import random
 import time
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Callable, Dict, List, Optional
 
 from .execution import RunResult, evaluate_io, fitness, guided_fitness, prefix_score, run_bounded
@@ -12,7 +13,7 @@ from .relation import Relation
 from .state import MalbolgeSnapshot
 from .transition import valid_opcode_chars
 
-DEFAULT_CATALOG_PATH = r"C:\Development\ISyCo Git\Autobolge\experiments\catalog_cache"
+DEFAULT_CATALOG_PATH = str(Path(__file__).resolve().parent.parent / "experiments" / "catalog_cache")
 
 
 @dataclass

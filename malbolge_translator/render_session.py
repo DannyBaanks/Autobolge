@@ -11,6 +11,7 @@ Creates a session.gif similar to FLOW's but for Malbolge translation:
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any, List, Tuple, Optional
 
@@ -359,7 +360,7 @@ if __name__ == "__main__":
     print("Generating Malbolge session GIF for Quijote Chapter I...")
     
     # Load Quijote text
-    quijote_path = Path("C:/Development/ISyCo/quijote.txt")
+    quijote_path = Path(os.environ.get("QUIJOTE_PATH", "quijote.txt"))
     if quijote_path.exists():
         text = quijote_path.read_text(encoding="utf-8")
         chapters = split_quijote_chapters(text)

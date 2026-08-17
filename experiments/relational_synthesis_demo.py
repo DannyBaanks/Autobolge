@@ -11,8 +11,9 @@ with SHA-256, step counts, and stop reasons. No ranking, no winners.
 import sys
 import json
 import time
+from pathlib import Path
 
-sys.path.insert(0, r"C:\Development\ISyCo Git\Autobolge")
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from relational import Materialization, run_bounded, prefix_score
 from relational.materialization import DEFAULT_CATALOG_PATH
