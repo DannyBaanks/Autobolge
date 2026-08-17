@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Generated catalog caches are reproducible but too large for the source repo.
+experiments/catalog_cache/
+
+# Local reports and renderer output.
+experiments/output/
+dist/
+build/
