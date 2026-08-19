@@ -1,0 +1,1157 @@
+{
+  "status_dist": {
+    "executed": 190
+  },
+  "output_lens": {
+    "min": 0,
+    "max": 1,
+    "avg": 0.0
+  },
+  "steps": {
+    "min": 1,
+    "max": 2,
+    "avg": 1.0
+  },
+  "halt_survivors": [
+    {
+      "program": "",
+      "input": "",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "!",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "\"",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "#",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "$",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "%",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "&",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "'",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "(",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": ")",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "*",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "+",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": ",",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "-",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": ".",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "/",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "0",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "1",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "2",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "3",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "4",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "5",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "6",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "7",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "8",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "9",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": ":",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": ";",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "<",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "=",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": ">",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "?",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "@",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "A",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "B",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "C",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "D",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "E",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "F",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "G",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "H",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "I",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "J",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "K",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "L",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "M",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "N",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "O",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "P",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "Q",
+      "input": "",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "R",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "S",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "T",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "U",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "V",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "W",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "X",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "Y",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "Z",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "[",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "\\",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "]",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "^",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "_",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "`",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "a",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "b",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "c",
+      "input": "",
+      "steps": 2,
+      "output": "\u0000"
+    },
+    {
+      "program": "d",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "e",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "f",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "g",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "h",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "i",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "j",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "k",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "l",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "m",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "n",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "o",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "p",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "q",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "r",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "s",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "t",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "u",
+      "input": "",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "v",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "w",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "x",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "y",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "z",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "{",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "|",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "}",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "~",
+      "input": "",
+      "steps": 2,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "!",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "\"",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "#",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "$",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "%",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "&",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "'",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "(",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": ")",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "*",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "+",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": ",",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "-",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": ".",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "/",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "0",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "1",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "2",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "3",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "4",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "5",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "6",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "7",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "8",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "9",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": ":",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": ";",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "<",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "=",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": ">",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "?",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "@",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "A",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "B",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "C",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "D",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "E",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "F",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "G",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "H",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "I",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "J",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "K",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "L",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "M",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "N",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "O",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "P",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "Q",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "R",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "S",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "T",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "U",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "V",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "W",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "X",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "Y",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "Z",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "[",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "\\",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "]",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "^",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "_",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "`",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "a",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "b",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "c",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "d",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "e",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "f",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "g",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "h",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "i",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "j",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "k",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "l",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "m",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "n",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "o",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "p",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "q",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "r",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "s",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "t",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "u",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "v",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "w",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "x",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "y",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "z",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "{",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "|",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "}",
+      "steps": 1,
+      "output": ""
+    },
+    {
+      "program": "",
+      "input": "~",
+      "steps": 1,
+      "output": ""
+    }
+  ]
+}

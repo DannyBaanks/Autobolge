@@ -1,0 +1,1 @@
+{"target":"HI","input":"","length":8,"max_steps":3000,"total_programs":16777216,"elapsed_s":134.682,"rate_prog_per_s":124569.0,"engine":"zig/vm.zig + zig/dsl.zig","hits":[],"negative":true,"sha256":"23ae49e94ea6adbdee52d5739012408c201fc66c78e694a45e8ffd51b7f227b7"}

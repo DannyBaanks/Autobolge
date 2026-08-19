@@ -1,0 +1,19 @@
+{
+  "candidate_id": "B2_key0",
+  "family": "B2",
+  "params": {
+    "key": 0
+  },
+  "source_size": 59852,
+  "code_size": 29516,
+  "data_size": 29516,
+  "execution_steps": 69547437,
+  "elapsed_s": 30.12,
+  "valid": true,
+  "halted": true,
+  "output_matches_source": true,
+  "output_hash": "dca8476f8b70c846",
+  "source_hash": "dca8476f8b70c846",
+  "rejection_reason": "",
+  "steps_per_sec": 2309026
+}

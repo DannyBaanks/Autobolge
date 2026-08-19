@@ -1,0 +1,107 @@
+{
+  "mode": "full_plen3_program",
+  "plen": 3,
+  "ilen": 0,
+  "S0": 839515,
+  "S1": 839515,
+  "S2": 839515,
+  "S3": 25670,
+  "output_distribution": {
+    "1": 25394,
+    "2": 275,
+    "3": 1
+  },
+  "max_output_len": 3,
+  "S4": 25670,
+  "prefix_distribution": {
+    "0": 25669,
+    "1": 1
+  },
+  "best_prefix": 1,
+  "S5": 0,
+  "gen_time_s": 0.63,
+  "exec_time_s": 6.31,
+  "throughput": 102702.8,
+  "top10": [
+    {
+      "program": "r=a",
+      "input": "",
+      "output": "r",
+      "prefix": 1,
+      "ratio": 0.2,
+      "steps": 4
+    },
+    {
+      "program": "c",
+      "input": "",
+      "output": "\u0000",
+      "prefix": 0,
+      "ratio": 0.0,
+      "steps": 2
+    },
+    {
+      "program": "cP",
+      "input": "",
+      "output": "\u0000",
+      "prefix": 0,
+      "ratio": 0.0,
+      "steps": 2
+    },
+    {
+      "program": "ct",
+      "input": "",
+      "output": "\u0000",
+      "prefix": 0,
+      "ratio": 0.0,
+      "steps": 2
+    },
+    {
+      "program": "cP!",
+      "input": "",
+      "output": "\u0000",
+      "prefix": 0,
+      "ratio": 0.0,
+      "steps": 2
+    },
+    {
+      "program": "cP\"",
+      "input": "",
+      "output": "\u0000",
+      "prefix": 0,
+      "ratio": 0.0,
+      "steps": 2
+    },
+    {
+      "program": "cP#",
+      "input": "",
+      "output": "\u0000",
+      "prefix": 0,
+      "ratio": 0.0,
+      "steps": 2
+    },
+    {
+      "program": "cP$",
+      "input": "",
+      "output": "\u0000",
+      "prefix": 0,
+      "ratio": 0.0,
+      "steps": 2
+    },
+    {
+      "program": "cP%",
+      "input": "",
+      "output": "\u0000",
+      "prefix": 0,
+      "ratio": 0.0,
+      "steps": 2
+    },
+    {
+      "program": "cP&",
+      "input": "",
+      "output": "\u0000",
+      "prefix": 0,
+      "ratio": 0.0,
+      "steps": 2
+    }
+  ]
+}

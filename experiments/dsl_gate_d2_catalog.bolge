@@ -1,0 +1,3 @@
+# GATE D2: el DSL debe producir el catalogo len-6 identico al baseline de
+# referencia (catalog_e6dfb345.json, 299,593 entradas) -- ENUMERATE+DEDUP+EMIT.
+CATALOG LENGTH 6 MAX_STEPS 3000 EMIT "experiments\evidence\dsl_catalog_len6.json"

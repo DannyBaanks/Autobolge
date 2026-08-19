@@ -1,0 +1,64 @@
+{
+  "search_type": "hybrid_translator",
+  "stats": {
+    "mode": "hybrid_translator",
+    "targets_count": 3,
+    "max_search_depth": 5,
+    "max_steps": 5000000,
+    "generation_time_s": 0.255,
+    "generated_count": 3,
+    "verify_time_s": 0.001,
+    "matched": 3,
+    "unmatched": 0,
+    "errors": 0,
+    "match_rate": 1.0,
+    "total_time_s": 0.256,
+    "candidates_per_sec": 11.7,
+    "status": "COMPLETE"
+  },
+  "best_matched": [
+    {
+      "program_source": "bCBA@?>=<;:9876543210/.-,+*)('&%$#\"!~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?!7};:9y1w/u3sr0po-,%$)ih&%$dcyx`v^]sxwpuWsUTSohmlNdcKJI_^FEa`Y^WVzT<XQ9ONSR4JI1G/.-,HG@('=BA#\">=}|:92165u3s+*/.-,%$)(!E2",
+      "opcodes_len": 220,
+      "target": "AB",
+      "output": "AB",
+      "output_len": 2,
+      "steps": 122,
+      "halt_reason": "halt_opcode",
+      "match": true,
+      "target_len": 2,
+      "error": null,
+      "program_len": 220,
+      "opcodes": "iooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo*p*ooo*p*p*o**o**ooppo**ooo**pp*p**poopo*o***opoo*pp***pp**oopopp<p*op*ppoo*pp*p****oop**poo**oo**ooppoo*o*ppooooppoop<v"
+    },
+    {
+      "program_source": "bCBA@?>=<;:9876543210/.-,+*)('&%$#\"!~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?!~6;43y1wv.t2rqpon,l$#i!g}C{z@-",
+      "opcodes_len": 131,
+      "target": "HI",
+      "output": "HI",
+      "output_len": 2,
+      "steps": 33,
+      "halt_reason": "halt_opcode",
+      "match": true,
+      "target_len": 2,
+      "error": null,
+      "program_len": 131,
+      "opcodes": "iooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo**popp*p**p*o*****o*pp*p*p<pp<v"
+    },
+    {
+      "program_source": "bCBA@?>=<;:9876543210/.-,+*)('&%$#\"!~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>7<;{9810543s+Op(-,l*)\"'~}|d\"ya`vut\\[ZvoWVUkSinmfedcbJfed]\\aC_^]\\[TxXWPOs`",
+      "opcodes_len": 174,
+      "target": "XYZ",
+      "output": "XYZ",
+      "output_len": 3,
+      "steps": 76,
+      "halt_reason": "halt_opcode",
+      "match": true,
+      "target_len": 3,
+      "error": null,
+      "program_len": 174,
+      "opcodes": "ioooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooopoo*ooppooo*p<*poo*oopoppp*op**ppp***op***p*pooppppp*oooppo*ooooop<oopp<v"
+    }
+  ],
+  "best_unmatched_by_output_len": []
+}

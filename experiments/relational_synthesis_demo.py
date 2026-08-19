@@ -100,7 +100,9 @@ def main():
 
     # ---------------------------------------------------------------
     print("\n[4] The honest stretch: synthesize 'HI'")
-    print("    exhaustive scan of all 2,097,152 valid len-7 programs: no 'HI' hit")
+    print("    exhaustive scans with the Zig motor (evidence files under")
+    print("    experiments/evidence/): len-7 2,097,152, len-8 16,777,216,")
+    print("    len-9 134,217,728 programs -- no 'HI' hit at any length")
     t0 = time.perf_counter()
     report = mat.synthesize(
         target_output="HI",

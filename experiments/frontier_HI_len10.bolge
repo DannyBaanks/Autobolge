@@ -1,0 +1,3 @@
+# PRODUCCION: frontier 'HI' sin input a longitud 10 (1,073,741,824 programas).
+# Negativo honesto o primer hit -- decidido en DSL, no en Python.
+FRONTIER "HI" LENGTH 10 MAX_STEPS 3000 EMIT "experiments\evidence\frontier_HI_len10.json"

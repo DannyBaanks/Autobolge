@@ -1,0 +1,100 @@
+{
+  "prefix_dist": {
+    "1": 1,
+    "0": 25669
+  },
+  "total_s4": 25670,
+  "best_prefix": 1,
+  "top10": [
+    {
+      "prefix": 1,
+      "ratio": 0.2,
+      "program": "r=a",
+      "input": "",
+      "output": "r",
+      "source": "r=a\n\n",
+      "steps": 4
+    },
+    {
+      "prefix": 0,
+      "ratio": 0.0,
+      "program": "c",
+      "input": "",
+      "output": "\u0000",
+      "source": "c\n\n",
+      "steps": 2
+    },
+    {
+      "prefix": 0,
+      "ratio": 0.0,
+      "program": "cP",
+      "input": "",
+      "output": "\u0000",
+      "source": "cP\n\n",
+      "steps": 2
+    },
+    {
+      "prefix": 0,
+      "ratio": 0.0,
+      "program": "ct",
+      "input": "",
+      "output": "\u0000",
+      "source": "ct\n\n",
+      "steps": 2
+    },
+    {
+      "prefix": 0,
+      "ratio": 0.0,
+      "program": "cP!",
+      "input": "",
+      "output": "\u0000",
+      "source": "cP!\n\n",
+      "steps": 2
+    },
+    {
+      "prefix": 0,
+      "ratio": 0.0,
+      "program": "cP\"",
+      "input": "",
+      "output": "\u0000",
+      "source": "cP\"\n\n",
+      "steps": 2
+    },
+    {
+      "prefix": 0,
+      "ratio": 0.0,
+      "program": "cP#",
+      "input": "",
+      "output": "\u0000",
+      "source": "cP#\n\n",
+      "steps": 2
+    },
+    {
+      "prefix": 0,
+      "ratio": 0.0,
+      "program": "cP$",
+      "input": "",
+      "output": "\u0000",
+      "source": "cP$\n\n",
+      "steps": 2
+    },
+    {
+      "prefix": 0,
+      "ratio": 0.0,
+      "program": "cP%",
+      "input": "",
+      "output": "\u0000",
+      "source": "cP%\n\n",
+      "steps": 2
+    },
+    {
+      "prefix": 0,
+      "ratio": 0.0,
+      "program": "cP&",
+      "input": "",
+      "output": "\u0000",
+      "source": "cP&\n\n",
+      "steps": 2
+    }
+  ]
+}

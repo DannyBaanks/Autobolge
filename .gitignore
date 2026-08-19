@@ -12,3 +12,14 @@ experiments/catalog_cache/
 experiments/output/
 dist/
 build/
+
+# Artefactos de compilacion de Zig. Los .pdb embeben la ruta absoluta de la
+# maquina de build (cwd), asi que ademas de pesar filtran el layout local.
+zig/*.exe
+zig/*.pdb
+*.pdb
+
+# Dependen del toolkit privado (rutas a un repo que no se publica).
+# Pendiente: desacoplarlos o dejarlos fuera definitivamente.
+quine_research/search_quine_malbolge/hybrid_scale_ABC.py
+quine_research/search_quine_malbolge/translator_hybrid.py

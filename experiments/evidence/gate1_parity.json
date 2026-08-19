@@ -1,0 +1,11 @@
+{
+  "gate": "gate1_parity",
+  "engine": "run_bounded_fast (zig/bolge.exe)",
+  "reference": "run_bounded (malbolge package debugger, SPARSE_CONFIG)",
+  "seed": 20260817,
+  "cases_total": 417,
+  "mismatches": 0,
+  "elapsed_s": 10.69,
+  "sha256": "47264f9b2dba95e8f89fc6dc64131dd4007779955ab0f626dbf70f2767ab18a7",
+  "mismatch_details": []
+}

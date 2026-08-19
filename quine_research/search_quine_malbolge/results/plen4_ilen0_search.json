@@ -1,0 +1,21 @@
+{
+  "plen": 4,
+  "ilen": 0,
+  "limit": 1000,
+  "S0": 1000,
+  "S1": 1000,
+  "S2": 1000,
+  "S3": 10,
+  "output_distribution": {
+    "1": 10
+  },
+  "max_output_len": 1,
+  "gen_time_s": 0.0,
+  "exec_time_s": 0.05,
+  "candidates_per_sec": 17910.4,
+  "prefix_distribution": {
+    "0": 10
+  },
+  "best_prefix": 0,
+  "S5": 0
+}

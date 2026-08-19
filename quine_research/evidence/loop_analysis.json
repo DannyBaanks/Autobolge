@@ -1,0 +1,16 @@
+{
+  "total_steps": 69547437,
+  "output_len": 59852,
+  "printable_count": 59032,
+  "newline_count": 820,
+  "unique_data_cells_read": 29516,
+  "total_data_cells": 29516,
+  "all_data_read_fraction": 1.0,
+  "unread_data_count": 0,
+  "unread_data_cells": [],
+  "data_read_frequencies": {
+    "min": 4,
+    "max": 8,
+    "mean": 7.999864480281881
+  }
+}

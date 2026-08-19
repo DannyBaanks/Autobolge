@@ -1,0 +1,19 @@
+{
+  "mode": "both",
+  "method": "beam",
+  "max_program_length": 2,
+  "max_input_length": 1,
+  "beam": 16,
+  "max_steps": 50000,
+  "baseline_target": null,
+  "search_type": "quine",
+  "found": false,
+  "exact_match": false,
+  "program_length": 1,
+  "input_length": 0,
+  "source": "Q\n\n",
+  "quine_definition": "encode_candidate = <program>\\n<input>\\n",
+  "engine_version": "0.1.0-malbolge",
+  "evidence_hash": "0dad8b19d7aca698",
+  "runtime_s": 374.641
+}

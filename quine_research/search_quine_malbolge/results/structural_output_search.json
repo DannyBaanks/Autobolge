@@ -1,0 +1,420 @@
+{
+  "multi_out": {
+    "mode": "multi_out",
+    "plen": 4,
+    "ilen": 1,
+    "limit": 1000,
+    "S0": 1000,
+    "gen_time_s": 0.001,
+    "S1": 1000,
+    "S1_reduction": 0.0,
+    "S1_time_s": 0.038,
+    "S1_status": {
+      "executed": 1000
+    },
+    "S2": 1000,
+    "S2_reduction": 0.0,
+    "S2_time_s": 0.0,
+    "S3": 10,
+    "S3_reduction": 0.99,
+    "S3_time_s": 0.0,
+    "output_distribution": {
+      "1": 10
+    },
+    "max_output_len": 1,
+    "avg_output_len": 1.0,
+    "S4": 10,
+    "prefix_distribution": {
+      "0": 10
+    },
+    "S4_time_s": 0.0,
+    "S5": 0,
+    "S5_time_s": 0.0,
+    "best_candidates": [
+      {
+        "program": "!!!`",
+        "input": "",
+        "source": "!!!`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "!!\"`",
+        "input": "",
+        "source": "!!\"`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "!!#`",
+        "input": "",
+        "source": "!!#`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "!!$`",
+        "input": "",
+        "source": "!!$`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "!!%`",
+        "input": "",
+        "source": "!!%`\n\n",
+        "output": "ï",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "!!&`",
+        "input": "",
+        "source": "!!&`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "!!'`",
+        "input": "",
+        "source": "!!'`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "!!(`",
+        "input": "",
+        "source": "!!(`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "!!)`",
+        "input": "",
+        "source": "!!)`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "!!*`",
+        "input": "",
+        "source": "!!*`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      }
+    ],
+    "total_time_s": 0.039,
+    "candidates_per_sec": 25641.0
+  },
+  "modify_out": {
+    "mode": "modify_out",
+    "plen": 4,
+    "ilen": 1,
+    "limit": 1000,
+    "S0": 1000,
+    "gen_time_s": 0.001,
+    "S1": 1000,
+    "S1_reduction": 0.0,
+    "S1_time_s": 0.038,
+    "S1_status": {
+      "executed": 1000
+    },
+    "S2": 1000,
+    "S2_reduction": 0.0,
+    "S2_time_s": 0.0,
+    "S3": 11,
+    "S3_reduction": 0.989,
+    "S3_time_s": 0.0,
+    "output_distribution": {
+      "1": 11
+    },
+    "max_output_len": 1,
+    "avg_output_len": 1.0,
+    "S4": 11,
+    "prefix_distribution": {
+      "0": 11
+    },
+    "S4_time_s": 0.0,
+    "S5": 0,
+    "S5_time_s": 0.0,
+    "best_candidates": [
+      {
+        "program": "4!\"`",
+        "input": "",
+        "source": "4!\"`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!#`",
+        "input": "",
+        "source": "4!#`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!$`",
+        "input": "",
+        "source": "4!$`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!%`",
+        "input": "",
+        "source": "4!%`\n\n",
+        "output": "ï",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!&`",
+        "input": "",
+        "source": "4!&`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!'`",
+        "input": "",
+        "source": "4!'`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!(`",
+        "input": "",
+        "source": "4!(`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!)`",
+        "input": "",
+        "source": "4!)`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!*`",
+        "input": "",
+        "source": "4!*`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!+`",
+        "input": "",
+        "source": "4!+`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "4!,`",
+        "input": "",
+        "source": "4!,`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      }
+    ],
+    "total_time_s": 0.039,
+    "candidates_per_sec": 25641.0
+  },
+  "loop_seed": {
+    "mode": "loop_seed",
+    "plen": 4,
+    "ilen": 1,
+    "limit": 1000,
+    "S0": 1000,
+    "gen_time_s": 0.0,
+    "S1": 1000,
+    "S1_reduction": 0.0,
+    "S1_time_s": 0.032,
+    "S1_status": {
+      "executed": 1000
+    },
+    "S2": 1000,
+    "S2_reduction": 0.0,
+    "S2_time_s": 0.0,
+    "S3": 10,
+    "S3_reduction": 0.99,
+    "S3_time_s": 0.0,
+    "output_distribution": {
+      "1": 10
+    },
+    "max_output_len": 1,
+    "avg_output_len": 1.0,
+    "S4": 10,
+    "prefix_distribution": {
+      "0": 10
+    },
+    "S4_time_s": 0.0,
+    "S5": 0,
+    "S5_time_s": 0.0,
+    "best_candidates": [
+      {
+        "program": "54!`",
+        "input": "",
+        "source": "54!`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "54\"`",
+        "input": "",
+        "source": "54\"`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "54#`",
+        "input": "",
+        "source": "54#`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "54$`",
+        "input": "",
+        "source": "54$`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "54%`",
+        "input": "",
+        "source": "54%`\n\n",
+        "output": "ï",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "54&`",
+        "input": "",
+        "source": "54&`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "54'`",
+        "input": "",
+        "source": "54'`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "54(`",
+        "input": "",
+        "source": "54(`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "54)`",
+        "input": "",
+        "source": "54)`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      },
+      {
+        "program": "54*`",
+        "input": "",
+        "source": "54*`\n\n",
+        "output": "\u0000",
+        "steps": 5,
+        "output_len": 1,
+        "prefix_len": 0,
+        "prefix_ratio": 0.0
+      }
+    ],
+    "total_time_s": 0.033,
+    "candidates_per_sec": 30303.0
+  }
+}

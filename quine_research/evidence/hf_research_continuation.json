@@ -1,0 +1,158 @@
+{
+  "baseline": {
+    "printable_length": 59032,
+    "raw_length": 59852,
+    "code_section": 29516,
+    "data_section": 29516,
+    "code_equals_data": true,
+    "execution_steps": 69547437,
+    "output_equals_raw_file": true,
+    "quine_property": "VERIFIED",
+    "sha256_raw": "dca8476f8b70c8462c32f661f63c5f8b1ad6c33946b3c7a9a35186c824117d98",
+    "halt_reason": "end_opcode"
+  },
+  "observations": [
+    "99.9% de output proviene de 2 direcciones D: 29454 (59032 chars) y 29282 (820 newlines)",
+    "mem[29454]=124 y mem[29282]=114 son prácticamente constantes durante toda la ejecución (1 y 7 writes respectivamente)",
+    "El boot (28316 pasos) modifica intensamente celdas 152-157; tiene 560 subsecuencias repetidas de longitud 10",
+    "El boot compuesto de ~55% nops; solo ~11% mov_d, ~14% rotr, ~12% crz, ~1.3% jmp",
+    "A_pre mod 256 produce 95 valores únicos; distribución casi-uniforme (~600-900 ocurrencias cada uno)",
+    "No hay periodicidad corta en la secuencia A (max ~3% en periodo 256)",
+    "pc_in_data_region = 0 durante toda la ejecución: DATA no es ejecutada como código, solo leída",
+    "Unique D leídas: 29868; pero en el momento de out solo se usan 2 direcciones"
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "description": "Quine tipo dual-cell: inicializar mem[29454] y mem[29282] con constantes y un boot corto que posicione A/D correctamente, generando toda la secuencia output desde esas 2 celdas sin DATA estática de 29KB",
+      "evidence": "99.9% output concentrado en 2 direcciones; valores constantes (124, 114); boot tiene estructura repetitiva comprimible",
+      "baseline_part_affected": "DATA region completa (29516 bytes) + parte del CODE (boot)",
+      "prediction": "Existe programa de <= 1024 bytes que, con mem[29454]=K1 y mem[29282]=K2, ejecuta un loop que genera exactamente los 59032 chars del source",
+      "risk": "El boot debe posicionar secuencias específicas de rotr/crz para producir A exactos; el espacio de K1,K2 y secuencias de boot es enorme",
+      "experiment_needed": "Diseñar candidato 64B con loop rotr/crz sobre K1,K2; muestrear hasta 1000 seeds para matchear primeros 8-16 bytes del source",
+      "success_criterion": "output[:16] == 'bt&A@?>=<;49876' (primeros chars del baseline)",
+      "failure_criterion": "Ninguna seed en 1000 muestras produce match de primeros 16 bytes"
+    },
+    {
+      "id": "H2",
+      "description": "Transformación ternaria cheap: buscar T en el espacio de rotate/crz/xor-trit tal que T(CODE) = DATA con |T| << |CODE|",
+      "evidence": "rotate tiene solo 10 pares ASCII->ASCII con orden 10; XOR/AND básicos ya fallaron (B1-B4)",
+      "baseline_part_affected": "DATA region",
+      "prediction": "No existe transformación ternaria barata que preserve rango ASCII 33-126 sobre 29516 bytes",
+      "risk": "Búsqueda ciega en espacios de permutaciones 3-arias",
+      "experiment_needed": "Enumerar funciones T candidatas (rotate, permutaciones fijas de trits) sobre bloques de 94 chars y medir compresión",
+      "success_criterion": "Encontrar T con descripción < 5000 bytes tal que T(CODE) decodifica a exactamente los 29516 bytes de DATA",
+      "failure_criterion": "Todas las T exploradas requieren >29516 bytes de descripción"
+    },
+    {
+      "id": "H3",
+      "description": "Deduplicación estructural del boot: extraer el subprograma repetitivo del boot (560 repeticiones len-10) y reemplazarlo por un loop compacto",
+      "evidence": "El boot tiene 560 subsecuencias idénticas de longitud 10; ~13954 nops podrían ser generados por un loop",
+      "baseline_part_affected": "Boot code (primeros 28316 pasos)",
+      "prediction": "Se puede reducir el boot a < 5000 pasos manteniendo el mismo estado final (a=98,c=29358,d=29455)",
+      "risk": "El boot depende de valores específicos en celdas 152-157; acortarlo requiere reprogramar esas celdas",
+      "experiment_needed": "Mapear las 560 repeticiones a un loop rotr/crz/mov_d; simular loop corto para verificar estado final",
+      "success_criterion": "Estado final idéntico tras < 5000 pasos",
+      "failure_criterion": "Las 560 repeticiones no son homogéneas; cada una requiere secuencia distinta"
+    },
+    {
+      "id": "H4",
+      "description": "Layout intercalado: reemplazar esquema CODE|DATA por CODE|DATA intercalados o compartidos, reduciendo redundancia estructural",
+      "evidence": "Baseline usa layout rígido CODE+newline+DATA+newline; no se exploraron layouts alternativos",
+      "baseline_part_affected": "Estructura completa del archivo",
+      "prediction": "Un layout donde CODE contiene el loop y DATA contiene solo K1,K2 permite raw file más corto",
+      "risk": "El parser de Malbolge asume que el source se carga en M[0..src_len-1]; layout intercalado puede cambiar el mapeo",
+      "experiment_needed": "Generar candidato con layout CODE=[loop+constants], DATA=[vacío parcial], verificar QUI_NE",
+      "success_criterion": "Candidato < 59032 bytes que es quine válida",
+      "failure_criterion": "Parser/VM requiere que source se cargue secuencialmente; layout intercalado rompe carga"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "E1",
+      "description": "Trazado completo del boot (28316 pasos) y análisis de opcodes/reads/writes",
+      "status": "COMPLETED",
+      "artifact": "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\boot_trace.json",
+      "key_findings": [
+        "Boot usa 152-157 como celdas de control (escrituras intensivas)",
+        "560 repeticiones de subsecuencia len-10",
+        "Solo 1 write a 29454, 7 writes a 29282 durante TODO el programa",
+        "Final state: a=98, c=29358, d=29455"
+      ]
+    },
+    {
+      "id": "E2",
+      "description": "Análisis de secuencia de output: periodicidad, diferencias A, concentración en D",
+      "status": "COMPLETED",
+      "artifacts": [
+        "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\output_d_stats.json",
+        "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\output_sequence_sample.json",
+        "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\full_output_stats.json"
+      ],
+      "key_findings": [
+        "Unique D en toda la ejecución: 2 (29454, 29282)",
+        "A_pre mod256: 95 valores únicos, distribución casi-uniforme",
+        "No periodicidad corta en A (max 3.1% en periodo 256)"
+      ]
+    },
+    {
+      "id": "E3",
+      "description": "Análisis de orden de permutación crazy(A,124)",
+      "status": "COMPLETED",
+      "artifact": "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\rotate_ternary_analysis.json",
+      "key_findings": [
+        "Order(crazy(A,124)) desde A=0 es 3",
+        "Solo 10 pares ASCII roten a ASCII, todos con orden 10"
+      ]
+    }
+  ],
+  "failed_hypotheses": [
+    {
+      "id": "B1",
+      "family": "Rotate DATA",
+      "result": "11/13 fallidos; solo offset=0,33,66 probados",
+      "rejection_reason": "output_mismatch para todos los offsets no-nulos"
+    },
+    {
+      "id": "B2",
+      "family": "XOR DATA",
+      "result": "Solo key=0 válido (identidad); key=32,64,127 fallan",
+      "rejection_reason": "output_mismatch para keys no-cero"
+    },
+    {
+      "id": "B3",
+      "family": "AND mask DATA",
+      "result": "Solo mask=127 válido (preserva ASCII 33-126); mask=63 falla",
+      "rejection_reason": "output_mismatch para masks distintas a 127"
+    },
+    {
+      "id": "B4",
+      "family": "Chunk repetición DATA",
+      "result": "Todos los chunk sizes (512,1024,2048,4096) fallan",
+      "rejection_reason": "output_mismatch"
+    }
+  ],
+  "promising_hypotheses": [
+    {
+      "id": "H1",
+      "priority": "HIGH",
+      "rationale": "Ataca el cuello de botella estructural: eliminar 29KB de DATA estática. La evidencia muestra que el output se concentra en 2 celdas con valores constantes. Si un boot corto puede posicionar el estado correcto, toda la secuencia podría generarse dinámicamente.",
+      "next_micro_experiment": "Diseñar candidato de 64-128 bytes donde boot inicializa mem[29454] y mem[29282], luego ejecuta un loop fijo de rotr/crz/out. Buscar K1,K2 tales que los primeros 8-16 bytes del output coincidan con el baseline ('bt&A@?>=<;49876...'). Si match: verificar punto fijo completo. Si no match tras 1000 seeds: descartar H1 para esta arquitectura."
+    }
+  ],
+  "next_actions": [
+    "Implementar generador de candidatos H1-tipo en tools/experimental/ (no tocar repo principal)",
+    "Usar verification/pipeline.py para validar cada candidato (max_steps=50M para filtro rápido)",
+    "Si H1-micro-experimento tiene éxito: trazar estado completo y buscar patrón de generación",
+    "Si H1 falla: explorar H3 (compresión del boot) como segunda opción",
+    "Documentar TODOS los resultados en esta representación para continuidad entre agentes"
+  ],
+  "evidence": [
+    "quine_research/evidence/baseline_analysis.json — trazado completo baseline",
+    "quine_research/results/search_manifest.json — 13 candidatos B1-B4",
+    "quine_research/results/candidates.jsonl — resultados individuales",
+    "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\boot_trace.json — trazado del boot",
+    "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\full_output_stats.json — estadísticas de output",
+    "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\output_sequence_sample.json — secuencia sample"
+  ]
+}

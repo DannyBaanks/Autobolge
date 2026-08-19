@@ -1,0 +1,175 @@
+{
+  "level": 5,
+  "candidates": 9973588,
+  "S3": 9973588,
+  "output_distribution": {
+    "1": 5189364,
+    "2": 4701042,
+    "3": 82727,
+    "4": 454,
+    "5": 1
+  },
+  "max_output_len": 5,
+  "prefix_distribution": {
+    "0": 9964705,
+    "1": 8883
+  },
+  "max_prefix": 1,
+  "S5_quines": 0,
+  "top_prefix_matches": [
+    {
+      "program": "(&a@e",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "(&aAc",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "(&aAd",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "(&aA~",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "(&aCe",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "(&aDc",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "(&aDd",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "(&aD~",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "(&aFk",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "(&aGi",
+      "output": "(",
+      "steps": 6,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    }
+  ],
+  "top_by_output_len": [
+    {
+      "program": "cba`_",
+      "output": "\u0000\u0000\u0000\u0000\u0000",
+      "steps": 6,
+      "output_len": 5,
+      "non_nul": false
+    },
+    {
+      "program": "'ba`_",
+      "output": "\r\r\r\r",
+      "steps": 6,
+      "output_len": 4,
+      "non_nul": true
+    },
+    {
+      "program": ">ba`_",
+      "output": "ssss",
+      "steps": 6,
+      "output_len": 4,
+      "non_nul": true
+    },
+    {
+      "program": "c&a`_",
+      "output": "\u0000“““",
+      "steps": 6,
+      "output_len": 4,
+      "non_nul": true
+    },
+    {
+      "program": "c=a`_",
+      "output": "\u0000rrr",
+      "steps": 6,
+      "output_len": 4,
+      "non_nul": true
+    },
+    {
+      "program": "cb%`_",
+      "output": "\u0000\u0000ÔÔ",
+      "steps": 6,
+      "output_len": 4,
+      "non_nul": true
+    },
+    {
+      "program": "cb<`_",
+      "output": "\u0000\u0000rr",
+      "steps": 6,
+      "output_len": 4,
+      "non_nul": true
+    },
+    {
+      "program": "cba$_",
+      "output": "\u0000\u0000\u0000\f",
+      "steps": 6,
+      "output_len": 4,
+      "non_nul": true
+    },
+    {
+      "program": "cba;_",
+      "output": "\u0000\u0000\u0000p",
+      "steps": 6,
+      "output_len": 4,
+      "non_nul": true
+    },
+    {
+      "program": "cba`",
+      "output": "\u0000\u0000\u0000\u0000",
+      "steps": 5,
+      "output_len": 4,
+      "non_nul": false
+    }
+  ],
+  "elapsed_s": 137.0,
+  "frontier_next": 9496642
+}

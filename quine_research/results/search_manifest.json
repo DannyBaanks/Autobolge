@@ -1,0 +1,277 @@
+{
+  "baseline": {
+    "source_size": 59852,
+    "execution_steps": 69547437,
+    "hash": "dca8476f8b70c846"
+  },
+  "candidates": [
+    {
+      "candidate_id": "B1_off0",
+      "family": "B1",
+      "params": {
+        "offset": 0
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 3155,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "d4dede6defe17591",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 1049990
+    },
+    {
+      "candidate_id": "B1_off33",
+      "family": "B1",
+      "params": {
+        "offset": 33
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 2877,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "51b75713d3e92f39",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 958384
+    },
+    {
+      "candidate_id": "B1_off66",
+      "family": "B1",
+      "params": {
+        "offset": 66
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 3131,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "1979260e6ee908c7",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 1564494
+    },
+    {
+      "candidate_id": "B2_key0",
+      "family": "B2",
+      "params": {
+        "key": 0
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 69547437,
+      "elapsed_s": 30.12,
+      "valid": true,
+      "halted": true,
+      "output_matches_source": true,
+      "output_hash": "dca8476f8b70c846",
+      "source_hash": "dca8476f8b70c846",
+      "rejection_reason": "",
+      "steps_per_sec": 2309026
+    },
+    {
+      "candidate_id": "B2_key32",
+      "family": "B2",
+      "params": {
+        "key": 32
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 2924,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "2b732d2458b2df38",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 1461235
+    },
+    {
+      "candidate_id": "B2_key64",
+      "family": "B2",
+      "params": {
+        "key": 64
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 3155,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "a3e6ac08e0ca551c",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 1570686
+    },
+    {
+      "candidate_id": "B2_key127",
+      "family": "B2",
+      "params": {
+        "key": 127
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 2078,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "9f31d2f5f56865fe",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 1036727
+    },
+    {
+      "candidate_id": "B3_mask127",
+      "family": "B3",
+      "params": {
+        "mask": 127
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 69547437,
+      "elapsed_s": 27.16,
+      "valid": true,
+      "halted": true,
+      "output_matches_source": true,
+      "output_hash": "dca8476f8b70c846",
+      "source_hash": "dca8476f8b70c846",
+      "rejection_reason": "",
+      "steps_per_sec": 2560727
+    },
+    {
+      "candidate_id": "B3_mask63",
+      "family": "B3",
+      "params": {
+        "mask": 63
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 2437,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "2c84772050f922e9",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 1219170
+    },
+    {
+      "candidate_id": "B4_chunk512",
+      "family": "B4",
+      "params": {
+        "chunk_size": 512
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 3165,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "4e0acbe6a1a2d0d2",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 1582426
+    },
+    {
+      "candidate_id": "B4_chunk1024",
+      "family": "B4",
+      "params": {
+        "chunk_size": 1024
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 2078,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "10deb59f193b6dfe",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 2077160
+    },
+    {
+      "candidate_id": "B4_chunk2048",
+      "family": "B4",
+      "params": {
+        "chunk_size": 2048
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 2078,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "964d49a2544a46e2",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 1386315
+    },
+    {
+      "candidate_id": "B4_chunk4096",
+      "family": "B4",
+      "params": {
+        "chunk_size": 4096
+      },
+      "source_size": 59852,
+      "code_size": 29516,
+      "data_size": 29516,
+      "execution_steps": 3153,
+      "elapsed_s": 0.0,
+      "valid": false,
+      "halted": true,
+      "output_matches_source": false,
+      "output_hash": "e3b0c44298fc1c14",
+      "source_hash": "c3f94ff3fcf5b0e6",
+      "rejection_reason": "output_mismatch",
+      "steps_per_sec": 1577555
+    }
+  ],
+  "comparison": {
+    "baseline_size": 59852,
+    "baseline_steps": 69547437,
+    "best_candidate_size": 59852,
+    "best_valid_size": 59852,
+    "best_valid_id": "B2_key0",
+    "smallest_overall_size": 59852,
+    "smallest_overall_id": "B1_off0",
+    "reduction_absolute": 0,
+    "reduction_percent": 0.0,
+    "valid_count": 2,
+    "has_reduction": false
+  },
+  "summary": {
+    "total": 13,
+    "valid": 2,
+    "best_valid_id": "B2_key0",
+    "best_valid_size": 59852,
+    "generation_time_s": 0.15713119506835938,
+    "total_verify_time_s": 57.28
+  }
+}

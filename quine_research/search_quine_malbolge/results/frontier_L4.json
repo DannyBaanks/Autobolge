@@ -1,0 +1,174 @@
+{
+  "level": 4,
+  "candidates": 2412980,
+  "S3": 2404614,
+  "output_distribution": {
+    "1": 2354104,
+    "2": 50144,
+    "3": 365,
+    "4": 1
+  },
+  "max_output_len": 4,
+  "prefix_distribution": {
+    "0": 2404520,
+    "1": 94
+  },
+  "max_prefix": 1,
+  "S5_quines": 0,
+  "top_prefix_matches": [
+    {
+      "program": "r=a!",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "r=a\"",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "r=a#",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "r=a$",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "r=a%",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "r=a&",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "r=a'",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "r=a(",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "r=a)",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    },
+    {
+      "program": "r=a*",
+      "output": "r",
+      "steps": 5,
+      "output_len": 1,
+      "non_nul": true,
+      "prefix": 1
+    }
+  ],
+  "top_by_output_len": [
+    {
+      "program": "cba`",
+      "output": "\u0000\u0000\u0000\u0000",
+      "steps": 5,
+      "output_len": 4,
+      "non_nul": false
+    },
+    {
+      "program": "'ba`",
+      "output": "\r\r\r",
+      "steps": 5,
+      "output_len": 3,
+      "non_nul": true
+    },
+    {
+      "program": ">ba`",
+      "output": "sss",
+      "steps": 5,
+      "output_len": 3,
+      "non_nul": true
+    },
+    {
+      "program": "c&a`",
+      "output": "\u0000““",
+      "steps": 5,
+      "output_len": 3,
+      "non_nul": true
+    },
+    {
+      "program": "c=a`",
+      "output": "\u0000rr",
+      "steps": 5,
+      "output_len": 3,
+      "non_nul": true
+    },
+    {
+      "program": "cb%`",
+      "output": "\u0000\u0000Ô",
+      "steps": 5,
+      "output_len": 3,
+      "non_nul": true
+    },
+    {
+      "program": "cb<`",
+      "output": "\u0000\u0000r",
+      "steps": 5,
+      "output_len": 3,
+      "non_nul": true
+    },
+    {
+      "program": "cba",
+      "output": "\u0000\u0000\u0000",
+      "steps": 4,
+      "output_len": 3,
+      "non_nul": false
+    },
+    {
+      "program": "cbaN",
+      "output": "\u0000\u0000\u0000",
+      "steps": 4,
+      "output_len": 3,
+      "non_nul": false
+    },
+    {
+      "program": "cbar",
+      "output": "\u0000\u0000\u0000",
+      "steps": 4,
+      "output_len": 3,
+      "non_nul": false
+    }
+  ],
+  "elapsed_s": 28.6,
+  "frontier_next": 106102
+}

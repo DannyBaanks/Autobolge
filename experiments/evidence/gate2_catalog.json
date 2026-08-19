@@ -1,0 +1,25 @@
+{
+  "gate": "gate2_catalog",
+  "part_a": {
+    "catalog": "experiments\\catalog_cache\\catalog_e6dfb345.json",
+    "entries": 299593,
+    "config": {
+      "max_len": 6,
+      "max_steps": 3000,
+      "input_data": ""
+    },
+    "rebuilt_entries": 299593,
+    "mismatches": 0,
+    "mismatch_details": [],
+    "reference_sha256": "76c83cdbd57ef738f1754fe824c0c14b7231b2c23a814bffe5e900bd056eea40",
+    "rebuilt_sha256": "76c83cdbd57ef738f1754fe824c0c14b7231b2c23a814bffe5e900bd056eea40"
+  },
+  "part_b": {
+    "len5_reference_s": 13.932,
+    "len5_fast_s": 0.534,
+    "len6_fast_s": 3.802,
+    "speedup_len5": 26.1,
+    "rate_reference_prog_per_s": 2688.1,
+    "rate_fast_prog_per_s": 78804.4
+  }
+}

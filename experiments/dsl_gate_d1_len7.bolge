@@ -1,0 +1,3 @@
+# GATE D1: el DSL debe reproducir exactamente la evidencia del frontier len-7
+# (Python legacy: 2,097,152 programas, 0 hits) -- solo que sin Python.
+FRONTIER "HI" LENGTH 7 MAX_STEPS 3000 EMIT "experiments\evidence\dsl_frontier_HI_len7.json"

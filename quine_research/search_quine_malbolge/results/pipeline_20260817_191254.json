@@ -1,0 +1,48 @@
+{
+  "search_type": "quine",
+  "method": "pipeline",
+  "mode": "both",
+  "config": {
+    "mode": "both",
+    "program_length": 1,
+    "input_length": 1,
+    "max_steps": 100000,
+    "tiers": [
+      100,
+      1000,
+      10000,
+      100000,
+      1000000
+    ]
+  },
+  "stats": {
+    "S0_count": 190,
+    "S1_count": 190,
+    "S1_reduction": 0.0,
+    "S1_elapsed": 56.449414014816284,
+    "S1_candidates_per_sec": 3.365845391240566,
+    "S2_count": 1,
+    "S2_reduction": 0.9947368421052631,
+    "S2_elapsed": 0.0,
+    "S2_input": 190,
+    "S3_count": 0,
+    "S3_reduction": 1.0,
+    "S3_elapsed": 0.0,
+    "S3_input": 1,
+    "S4_count": 0,
+    "S4_reduction": 1.0,
+    "S4_elapsed": 0.0,
+    "S4_input": 0,
+    "S4_best_prefix": 0,
+    "S4_best_prefix_ratio": 0.0,
+    "S5_count": 0,
+    "S5_reduction": 1.0,
+    "S5_elapsed": 0.0,
+    "S5_input": 0,
+    "S5_quines": [],
+    "total_elapsed": 56.449414014816284,
+    "total_candidates": 190,
+    "candidates_per_sec": 3.365845391240566
+  },
+  "engine_version": "0.2.0-pipeline"
+}

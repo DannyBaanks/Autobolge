@@ -1,0 +1,23 @@
+{
+  "search_type": "hybrid_translator_pipeline",
+  "stats": {
+    "mode": "hybrid_translator",
+    "backend": "zig_batch",
+    "targets_count": 3,
+    "max_search_depth": 5,
+    "max_steps": 5000000,
+    "generation_time_s": 0.452,
+    "generated_count": 3,
+    "failed_generation": 0,
+    "verify_time_s": 0.0,
+    "matched_count": 0,
+    "unmatched_count": 0,
+    "error_count": 3,
+    "match_rate": 0.0,
+    "total_time_s": 0.452,
+    "candidates_per_sec": 6.6,
+    "status": "COMPLETE"
+  },
+  "matched": [],
+  "best_outputs": []
+}

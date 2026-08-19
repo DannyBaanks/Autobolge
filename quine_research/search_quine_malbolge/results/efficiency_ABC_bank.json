@@ -1,0 +1,127 @@
+{
+  "shortest_programs": [
+    {
+      "target": "XX",
+      "prog_len": 118,
+      "steps": 20,
+      "ratio": 59.0
+    },
+    {
+      "target": "OO",
+      "prog_len": 119,
+      "steps": 21,
+      "ratio": 59.5
+    },
+    {
+      "target": "WW",
+      "prog_len": 119,
+      "steps": 21,
+      "ratio": 59.5
+    },
+    {
+      "target": "XR",
+      "prog_len": 119,
+      "steps": 21,
+      "ratio": 59.5
+    },
+    {
+      "target": "VV",
+      "prog_len": 120,
+      "steps": 22,
+      "ratio": 60.0
+    },
+    {
+      "target": "WX",
+      "prog_len": 120,
+      "steps": 22,
+      "ratio": 60.0
+    },
+    {
+      "target": "XQ",
+      "prog_len": 120,
+      "steps": 22,
+      "ratio": 60.0
+    },
+    {
+      "target": "XV",
+      "prog_len": 120,
+      "steps": 22,
+      "ratio": 60.0
+    },
+    {
+      "target": "OH",
+      "prog_len": 121,
+      "steps": 23,
+      "ratio": 60.5
+    },
+    {
+      "target": "PH",
+      "prog_len": 121,
+      "steps": 23,
+      "ratio": 60.5
+    },
+    {
+      "target": "QQ",
+      "prog_len": 121,
+      "steps": 23,
+      "ratio": 60.5
+    },
+    {
+      "target": "RR",
+      "prog_len": 121,
+      "steps": 23,
+      "ratio": 60.5
+    },
+    {
+      "target": "UU",
+      "prog_len": 121,
+      "steps": 23,
+      "ratio": 60.5
+    },
+    {
+      "target": "WV",
+      "prog_len": 121,
+      "steps": 23,
+      "ratio": 60.5
+    },
+    {
+      "target": "XP",
+      "prog_len": 121,
+      "steps": 23,
+      "ratio": 60.5
+    },
+    {
+      "target": "FZ",
+      "prog_len": 122,
+      "steps": 24,
+      "ratio": 61.0
+    },
+    {
+      "target": "QR",
+      "prog_len": 122,
+      "steps": 24,
+      "ratio": 61.0
+    },
+    {
+      "target": "VR",
+      "prog_len": 122,
+      "steps": 24,
+      "ratio": 61.0
+    },
+    {
+      "target": "WQ",
+      "prog_len": 122,
+      "steps": 24,
+      "ratio": 61.0
+    },
+    {
+      "target": "WR",
+      "prog_len": 122,
+      "steps": 24,
+      "ratio": 61.0
+    }
+  ],
+  "bootstrap_prefix": "bCBA@?>=<;:9876543210/.-,+*)('&%$#\"!~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?!~<|{z2xw5ut2r0).'",
+  "bootstrap_len": 118,
+  "avg_continuation_len": 53.5
+}

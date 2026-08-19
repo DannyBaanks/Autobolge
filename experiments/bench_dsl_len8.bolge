@@ -1,0 +1,2 @@
+# GATE D3 benchmark: DSL vs Zig hardcoded, mismo workload (len-8, target HI)
+FRONTIER "HI" LENGTH 8 MAX_STEPS 3000 EMIT "experiments\evidence\bench_dsl_len8.json"

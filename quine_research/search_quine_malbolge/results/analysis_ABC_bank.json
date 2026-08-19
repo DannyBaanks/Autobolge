@@ -1,0 +1,65 @@
+{
+  "total": 676,
+  "prog_len": {
+    "min": 118,
+    "max": 359,
+    "avg": 171.5
+  },
+  "steps": {
+    "min": 20,
+    "max": 261,
+    "avg": 73.5
+  },
+  "shortest": [
+    {
+      "target": "XX",
+      "prog_len": 118,
+      "steps": 20
+    },
+    {
+      "target": "OO",
+      "prog_len": 119,
+      "steps": 21
+    },
+    {
+      "target": "WW",
+      "prog_len": 119,
+      "steps": 21
+    },
+    {
+      "target": "XR",
+      "prog_len": 119,
+      "steps": 21
+    },
+    {
+      "target": "VV",
+      "prog_len": 120,
+      "steps": 22
+    },
+    {
+      "target": "WX",
+      "prog_len": 120,
+      "steps": 22
+    },
+    {
+      "target": "XQ",
+      "prog_len": 120,
+      "steps": 22
+    },
+    {
+      "target": "XV",
+      "prog_len": 120,
+      "steps": 22
+    },
+    {
+      "target": "OH",
+      "prog_len": 121,
+      "steps": 23
+    },
+    {
+      "target": "PH",
+      "prog_len": 121,
+      "steps": 23
+    }
+  ]
+}

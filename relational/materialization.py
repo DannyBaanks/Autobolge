@@ -16,6 +16,19 @@ from .transition import valid_opcode_chars
 DEFAULT_CATALOG_PATH = str(Path(__file__).resolve().parent.parent / "experiments" / "catalog_cache")
 
 
+def _run_many(programs: List[str], input_data: str, max_steps: int, engine: str = "reference") -> List[RunResult]:
+    """Run a batch of programs; engine='fast' uses the Zig motor (bolge.exe).
+
+    Results are in the same order as ``programs`` and semantically identical
+    to run_bounded (see experiments/gate1_parity.py).
+    """
+    if engine == "fast":
+        from .fast_engine import run_batch_bounded
+
+        return run_batch_bounded([(p, input_data, max_steps) for p in programs])
+    return [run_bounded(p, input_data, max_steps) for p in programs]
+
+
 @dataclass
 class SynthesisReport:
     """Evidence-first report of a synthesis attempt."""
@@ -91,11 +104,18 @@ class Materialization:
         tag = hashlib.md5(f"{max_len}|{input_data}".encode()).hexdigest()[:8]
         return os.path.join(self.catalog_path, f"catalog_{tag}.json")
 
-    def build_catalog(self, max_len: int = 4, max_steps: int = 3000, input_data: str = "") -> List[dict]:
+    def build_catalog(
+        self,
+        max_len: int = 4,
+        max_steps: int = 3000,
+        input_data: str = "",
+        engine: str = "reference",
+    ) -> List[dict]:
         """Exhaustively enumerate all valid programs up to max_len and run them.
 
         Results are cached in-memory and optionally persisted to disk
-        (catalog_path) so repeated builds are instant.
+        (catalog_path) so repeated builds are instant. engine='fast' runs the
+        whole level set in a single bolge.exe batch.
         """
         cache_key = (max_len, input_data)
         if cache_key in self.catalog_cache:
@@ -110,29 +130,32 @@ class Materialization:
                 self.catalog_cache[cache_key] = json.load(f)
             return self.catalog_cache[cache_key]
 
-        catalog: List[dict] = []
+        all_programs: List[str] = []
         level: List[str] = [""]
         for length in range(max_len + 1):
-            for prog in level:
-                r = run_bounded(prog, input_data, max_steps)
-                catalog.append(
-                    {
-                        "program": prog,
-                        "output": r.output,
-                        "steps": r.steps,
-                        "terminated": r.terminated,
-                        "stop_reason": r.stop_reason,
-                        "final_a": r.final_a,
-                        "final_pc": r.final_pc,
-                        "final_d": r.final_d,
-                    }
-                )
+            all_programs.extend(level)
             if length < max_len:
                 nxt = []
                 for prog in level:
                     for cand in valid_opcode_chars(len(prog)):
                         nxt.append(prog + cand["char"])
                 level = nxt
+
+        catalog: List[dict] = []
+        results = _run_many(all_programs, input_data, max_steps, engine)
+        for prog, r in zip(all_programs, results):
+            catalog.append(
+                {
+                    "program": prog,
+                    "output": r.output,
+                    "steps": r.steps,
+                    "terminated": r.terminated,
+                    "stop_reason": r.stop_reason,
+                    "final_a": r.final_a,
+                    "final_pc": r.final_pc,
+                    "final_d": r.final_d,
+                }
+            )
 
         self.catalog_cache[cache_key] = catalog
         if cache_file:
@@ -148,6 +171,7 @@ class Materialization:
         input_data: str = "",
         max_steps: int = 3000,
         target_output: Optional[str] = None,
+        engine: str = "reference",
     ) -> List[dict]:
         """Evaluate every valid suffix for a fixed program prefix.
 
@@ -160,10 +184,12 @@ class Materialization:
             raise ValueError("suffix_len must be non-negative")
 
         levels = [valid_opcode_chars(pos) for pos in range(len(prefix), len(prefix) + suffix_len)]
-        results: List[dict] = []
+        programs: List[str] = []
         for suffix_parts in itertools.product(*levels) if levels else [()]:
-            program = prefix + "".join(part["char"] for part in suffix_parts)
-            result = run_bounded(program, input_data, max_steps)
+            programs.append(prefix + "".join(part["char"] for part in suffix_parts))
+
+        results: List[dict] = []
+        for program, result in zip(programs, _run_many(programs, input_data, max_steps, engine)):
             if target_output is not None and result.output != target_output:
                 continue
             results.append(
@@ -298,6 +324,7 @@ class Materialization:
         progress_cb: Optional[Callable[[dict], None]] = None,
         catalog_len: int = 5,
         guided: bool = False,
+        engine: str = "reference",
     ) -> SynthesisReport:
         start = time.perf_counter()
         rng = random.Random(seed)
@@ -338,8 +365,8 @@ class Materialization:
         # Keep the strongest seed as a valid incumbent. Without this, a
         # guided extension could replace a useful partial output with a
         # lower-prefix candidate merely because its register is promising.
-        for seed_program in frontier:
-            seed_result = run_bounded(seed_program, input_data, max_steps)
+        seed_results = _run_many(frontier, input_data, max_steps, engine)
+        for seed_program, seed_result in zip(frontier, seed_results):
             evals += 1
             seed_score = guided_fitness(seed_result, target_output) if guided else fitness(seed_result, target_output)
             if seed_score > best_score:
@@ -358,36 +385,44 @@ class Materialization:
                 return report
 
         for length in range(0, max_len):
-            candidates: List[tuple] = []
+            level_candidates: List[str] = []
             for prog in frontier:
                 for cand in valid_opcode_chars(len(prog)):
-                    candidate = prog + cand["char"]
-                    r = run_bounded(candidate, input_data, max_steps)
-                    evals += 1
+                    level_candidates.append(prog + cand["char"])
+            if not level_candidates:
+                length_exhausted = False
+                break
+            remaining = max_evals - evals
+            if remaining <= 0:
+                length_exhausted = False
+                break
+            if len(level_candidates) > remaining:
+                level_candidates = level_candidates[:remaining]
 
-                    if r.output == target_output:
-                        report.success = True
-                        report.program = candidate
-                        report.output = r.output
-                        report.steps = r.steps
-                        report.evaluations = evals
-                        report.best_prefix = len(target_output)
-                        report.notes = f"found at length {len(candidate)}"
-                        report.elapsed_s = time.perf_counter() - start
-                        return report
+            candidates: List[tuple] = []
+            level_results = _run_many(level_candidates, input_data, max_steps, engine)
+            for candidate, r in zip(level_candidates, level_results):
+                evals += 1
 
-                    score = guided_fitness(r, target_output) if guided else fitness(r, target_output)
-                    if score > best_score:
-                        best_score = score
-                        best_prog = candidate
-                        best_output = r.output
-                    candidates.append((score, candidate))
+                if r.output == target_output:
+                    report.success = True
+                    report.program = candidate
+                    report.output = r.output
+                    report.steps = r.steps
+                    report.evaluations = evals
+                    report.best_prefix = len(target_output)
+                    report.notes = f"found at length {len(candidate)}"
+                    report.elapsed_s = time.perf_counter() - start
+                    return report
 
-                    if evals >= max_evals:
-                        break
-                if evals >= max_evals:
-                    break
-            if evals >= max_evals or not candidates:
+                score = guided_fitness(r, target_output) if guided else fitness(r, target_output)
+                if score > best_score:
+                    best_score = score
+                    best_prog = candidate
+                    best_output = r.output
+                candidates.append((score, candidate))
+
+            if evals >= max_evals:
                 length_exhausted = False
                 break
 
