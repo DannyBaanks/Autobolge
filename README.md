@@ -64,8 +64,8 @@ rather than hidden — the research record includes both constructions and limit
 ### Specialized DSL — Zero-Cost Abstraction (Gate D3 — MEASURED)
 A minimal search-machine ISA (`.bolge` programs) executed by a Zig runtime
 (`bolge-dsl.exe`) with primitives that exist **only for this workload**:
-`FRONTIER`, `CATALOG`, `ENUMERATE`, `EXECUTE`, `FILTER`, `DEDUP`, `EMIT`,
-`HASH`, `TRACE`.
+`FRONTIER`, `CATALOG`, `BRANCH`, `ENUMERATE`, `EXECUTE`, `FILTER`, `DEDUP`,
+`EMIT`, `HASH`, `TRACE`.
 
 | Workload | Zig Hardcoded | DSL (`bolge-dsl.exe`) | Overhead |
 |----------|---------------|----------------------|----------|
@@ -92,6 +92,9 @@ cd zig
 # Specialized DSL (production frontier scans)
 ..\zig.exe build-exe dsl.zig -O ReleaseFast "-femit-bin=bolge-dsl.exe"
 .\bolge-dsl.exe ..\experiments\frontier_HI_len10.bolge
+
+# Bounded multi-case input relation: one source must satisfy every CASE.
+.\bolge-dsl.exe ..\experiments\dsl_maldoom_input_branch_smoke.bolge
 ```
 
 The demo loads the persisted catalog under `experiments/catalog_cache/`, runs
@@ -206,6 +209,7 @@ print('D2 PASSED: 0/299593 mismatches')
 | Verification pipeline | ✅ Gates 1, 2, D1, D2, D3 passed |
 | Zig fast engine (bolge.exe) | ✅ 0 mismatches, ~28× speedup |
 | Specialized DSL (bolge-dsl.exe) | ✅ Zero-cost abstraction measured |
+| Bounded multi-case `BRANCH` relation | 🔬 MALDOOM V1 primitive search; echo alone does not prove an internal control branch |
 | Frontier `HI` (len ≤ 9) | ✅ Exhaustively negative |
 | **Frontier `HI` (len 10)** | ✅ **Completed: 1.07B programs, 2.85 h, 0 hits** |
 | Multi-character output synthesis | 🔬 Open (next: template composition from len-10 negatives) |

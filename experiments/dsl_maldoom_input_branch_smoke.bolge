@@ -1,0 +1,3 @@
+# MALDOOM V1 input-relation seed: one immutable Classic program handles both inputs.
+# This proves multi-case artifact purity, not an internal control-flow branch.
+BRANCH LENGTH 2 MAX_STEPS 20 CASE "A" "A" CASE "B" "B" EMIT "..\experiments\evidence\dsl_maldoom_input_branch_smoke.json"

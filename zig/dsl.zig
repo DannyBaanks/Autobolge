@@ -8,6 +8,8 @@
 //     = ENUMERATE + EXECUTE + FILTER(output==target) + EMIT(evidencia)
 //   CATALOG LENGTH <n> [MAX_STEPS <n>] [INPUT <s>] [EMIT <path>]
 //     = ENUMERATE + EXECUTE + DEDUP(outputs) + EMIT(catalogo + resumen)
+//   BRANCH LENGTH <n> CASE <input> <output> ... [MAX_STEPS <n>] [EMIT <path>]
+//     = ENUMERATE + EXECUTE(each case) + FILTER(all outputs match) + EMIT
 //
 // Extension de programa: .bolge  (una linea = un comando, '#' = comentario)
 //
@@ -31,6 +33,21 @@ const Options = struct {
     max_steps: u32 = 3000,
     input: []const u8 = "",
     emit: []const u8 = "",
+};
+
+const InputCase = struct {
+    input: []const u8,
+    expected: []const u8,
+};
+
+const MAX_BRANCH_CASES: usize = 16;
+
+const BranchOptions = struct {
+    length: usize = 0,
+    max_steps: u32 = 3000,
+    emit: []const u8 = "",
+    cases: [MAX_BRANCH_CASES]InputCase = undefined,
+    case_count: usize = 0,
 };
 
 const Token = struct {
@@ -124,6 +141,35 @@ fn parseOptions(toks: []const Token, start: usize, opts: *Options) void {
         }
     }
     if (i < toks.len) fail("opcion sin valor");
+}
+
+fn parseBranchOptions(toks: []const Token, start: usize, opts: *BranchOptions) void {
+    var i = start;
+    while (i < toks.len) {
+        const key = toks[i].text;
+        if (std.ascii.eqlIgnoreCase(key, "CASE")) {
+            if (i + 2 >= toks.len) fail("CASE requiere input y output");
+            if (opts.case_count == MAX_BRANCH_CASES) fail("demasiados CASE (max 16)");
+            opts.cases[opts.case_count] = .{ .input = toks[i + 1].text, .expected = toks[i + 2].text };
+            opts.case_count += 1;
+            i += 3;
+        } else {
+            if (i + 1 >= toks.len) fail("opcion sin valor");
+            const val = toks[i + 1];
+            if (std.ascii.eqlIgnoreCase(key, "LENGTH")) {
+                if (val.quoted) fail("LENGTH requiere un numero");
+                opts.length = std.fmt.parseInt(usize, val.text, 10) catch fail("LENGTH mal formado");
+            } else if (std.ascii.eqlIgnoreCase(key, "MAX_STEPS")) {
+                if (val.quoted) fail("MAX_STEPS requiere un numero");
+                opts.max_steps = std.fmt.parseInt(u32, val.text, 10) catch fail("MAX_STEPS mal formado");
+            } else if (std.ascii.eqlIgnoreCase(key, "EMIT")) {
+                opts.emit = val.text;
+            } else {
+                fail("opcion BRANCH desconocida (LENGTH/MAX_STEPS/CASE/EMIT)");
+            }
+            i += 2;
+        }
+    }
 }
 
 fn writeFile(io: std.Io, path: []const u8, data: []const u8) !void {
@@ -237,6 +283,112 @@ fn runFrontier(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
         try writeFile(io, opts.emit, json.items);
     }
     std.debug.print("  FRONTIER FINAL: {d} programas en {d:.1}s ({d:.0} prog/s), {d} hits, sha256 {s}\n", .{ total, elapsed_s, rate, n_hits, evidence_hash });
+}
+
+fn runBranch(io: std.Io, alloc: std.mem.Allocator, opts: BranchOptions) !void {
+    if (opts.length == 0 or opts.length > MAX_LENGTH) fail("BRANCH: LENGTH debe estar en 1..16");
+    if (opts.case_count < 2) fail("BRANCH requiere al menos dos CASE");
+
+    var chars: [MAX_LENGTH][8]u8 = undefined;
+    for (0..opts.length) |pos| {
+        for (OPS_VALID, 0..) |op, k| chars[pos][k] = validCharAt(pos, op);
+    }
+
+    const total: u64 = std.math.pow(u64, 8, @intCast(opts.length));
+    var idx: [MAX_LENGTH]u8 = [_]u8{0} ** MAX_LENGTH;
+    var cells: [MAX_LENGTH]u32 = undefined;
+    for (0..opts.length) |pos| cells[pos] = chars[pos][0];
+
+    const t0 = monoNow(io);
+    var hits = std.ArrayList(u8).empty;
+    try hits.appendSlice(alloc, "[");
+    var n_hits: u64 = 0;
+
+    var index: u64 = 0;
+    while (index < total) : (index += 1) {
+        var matched = true;
+        for (opts.cases[0..opts.case_count]) |case| {
+            const outcome = vm.runProgram(cells[0..opts.length], case.input, opts.max_steps);
+            if (!std.mem.eql(u8, vm.out_buf[0..outcome.output_len], case.expected)) {
+                matched = false;
+                break;
+            }
+        }
+
+        if (matched) {
+            if (n_hits > 0) try hits.append(alloc, ',');
+            n_hits += 1;
+            var prog = std.ArrayList(u8).empty;
+            for (0..opts.length) |pos| try prog.append(alloc, chars[pos][idx[pos]]);
+            try hits.appendSlice(alloc, "{\"program\":\"");
+            try hits.appendSlice(alloc, try escapeJson(alloc, prog.items));
+            try hits.appendSlice(alloc, "\",\"cases\":[");
+            for (opts.cases[0..opts.case_count], 0..) |case, case_index| {
+                if (case_index > 0) try hits.append(alloc, ',');
+                const outcome = vm.runProgram(cells[0..opts.length], case.input, opts.max_steps);
+                const output = vm.out_buf[0..outcome.output_len];
+                try hits.appendSlice(alloc, "{\"input\":\"");
+                try hits.appendSlice(alloc, try escapeJson(alloc, case.input));
+                try hits.appendSlice(alloc, "\",\"expected\":\"");
+                try hits.appendSlice(alloc, try escapeJson(alloc, case.expected));
+                try hits.appendSlice(alloc, "\",\"output\":\"");
+                try hits.appendSlice(alloc, try escapeJson(alloc, output));
+                try hits.appendSlice(alloc, "\",\"match\":true,\"steps\":");
+                var nb: [32]u8 = undefined;
+                try hits.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{outcome.steps}) catch unreachable);
+                try hits.appendSlice(alloc, ",\"terminated\":");
+                try hits.appendSlice(alloc, if (outcome.terminated) "true" else "false");
+                try hits.appendSlice(alloc, "}");
+            }
+            try hits.appendSlice(alloc, "]}");
+        }
+
+        var pos: usize = opts.length;
+        while (pos > 0) {
+            pos -= 1;
+            if (idx[pos] < 7) {
+                idx[pos] += 1;
+                cells[pos] = chars[pos][idx[pos]];
+                break;
+            }
+            idx[pos] = 0;
+            cells[pos] = chars[pos][0];
+        }
+    }
+    try hits.appendSlice(alloc, "]");
+
+    const elapsed_ns = t0.untilNow(io).raw.nanoseconds;
+    const elapsed_s = @as(f64, @floatFromInt(elapsed_ns)) / 1e9;
+    var json = std.ArrayList(u8).empty;
+    try json.appendSlice(alloc, "{\"command\":\"BRANCH\",\"length\":");
+    var nb: [32]u8 = undefined;
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{opts.length}) catch unreachable);
+    try json.appendSlice(alloc, ",\"max_steps\":");
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{opts.max_steps}) catch unreachable);
+    try json.appendSlice(alloc, ",\"total_programs\":");
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{total}) catch unreachable);
+    try json.appendSlice(alloc, ",\"cases\":[");
+    for (opts.cases[0..opts.case_count], 0..) |case, case_index| {
+        if (case_index > 0) try json.append(alloc, ',');
+        try json.appendSlice(alloc, "{\"input\":\"");
+        try json.appendSlice(alloc, try escapeJson(alloc, case.input));
+        try json.appendSlice(alloc, "\",\"expected\":\"");
+        try json.appendSlice(alloc, try escapeJson(alloc, case.expected));
+        try json.appendSlice(alloc, "\"}");
+    }
+    try json.appendSlice(alloc, "],\"elapsed_s\":");
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d:.3}", .{elapsed_s}) catch unreachable);
+    try json.appendSlice(alloc, ",\"engine\":\"zig/vm.zig + zig/dsl.zig\",\"hits\":");
+    try json.appendSlice(alloc, hits.items);
+    try json.appendSlice(alloc, ",\"negative\":");
+    try json.appendSlice(alloc, if (n_hits == 0) "true" else "false");
+    const evidence_hash = try hexDigest(alloc, json.items);
+    try json.appendSlice(alloc, ",\"sha256\":\"");
+    try json.appendSlice(alloc, evidence_hash);
+    try json.appendSlice(alloc, "\"}\n");
+
+    if (opts.emit.len > 0) try writeFile(io, opts.emit, json.items);
+    std.debug.print("  BRANCH FINAL: {d} programas en {d:.1}s, {d} hits, sha256 {s}\n", .{ total, elapsed_s, n_hits, evidence_hash });
 }
 
 fn runCatalog(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
@@ -415,8 +567,13 @@ pub fn main(init: std.process.Init) !void {
             parseOptions(toks.items, 1, &opts);
             std.debug.print("== CATALOG LENGTH {d} MAX_STEPS {d}\n", .{ opts.length, opts.max_steps });
             try runCatalog(io, alloc, opts);
+        } else if (std.ascii.eqlIgnoreCase(cmd, "BRANCH")) {
+            var opts: BranchOptions = .{};
+            parseBranchOptions(toks.items, 1, &opts);
+            std.debug.print("== BRANCH LENGTH {d} MAX_STEPS {d} CASES {d}\n", .{ opts.length, opts.max_steps, opts.case_count });
+            try runBranch(io, alloc, opts);
         } else {
-            fail("comando desconocido (FRONTIER/CATALOG)");
+            fail("comando desconocido (FRONTIER/CATALOG/BRANCH)");
         }
     }
     if (n_cmds == 0) fail("programa vacio");
