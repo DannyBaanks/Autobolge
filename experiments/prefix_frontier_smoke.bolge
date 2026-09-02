@@ -1,0 +1,2 @@
+# Appends one position-correct opcode after a fixed Classic prefix.
+FRONTIER A LENGTH 1 MAX_STEPS 20 INPUT A PREFIX_FILE ../experiments/prefix_echo.mal

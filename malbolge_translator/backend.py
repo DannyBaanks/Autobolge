@@ -180,6 +180,7 @@ class MalbolgeBackend:
         max_search_depth: int = 5,
         random_seed: int = 42,
         opcode_choices: str = "op*",
+        add_halt: bool = True,
     ) -> Tuple[str, MalbolgeMachine, dict]:
         """
         Search for opcodes that produce target_text from start_machine.
@@ -264,14 +265,15 @@ class MalbolgeBackend:
                     combos = list(cfg.opcode_choices)
                     depth = 0
         
-        # Add halt
-        fs, _ = self.get_or_extend_state(
-            cur, "v", GenerationConfig(
-                opcode_choices=cfg.opcode_choices,
-                max_search_depth=cfg.max_search_depth,
-                random_seed=cfg.random_seed
-            ), cache, _InternalGenerationStats()
-        )
+        fs = cur
+        if add_halt:
+            fs, _ = self.get_or_extend_state(
+                cur, "v", GenerationConfig(
+                    opcode_choices=cfg.opcode_choices,
+                    max_search_depth=cfg.max_search_depth,
+                    random_seed=cfg.random_seed
+                ), cache, _InternalGenerationStats()
+            )
         
         cont = fs.opcodes  # This will be the continuation from the prefix
         vr = self._interpreter.execute_from_snapshot(
@@ -288,6 +290,7 @@ class MalbolgeBackend:
         max_search_depth: int = 5,
         random_seed: int = 42,
         opcode_choices: str = "op*",
+        add_halt: bool = True,
     ) -> Tuple[str, MalbolgeMachine, dict]:
         """
         Search for opcodes that produce target_text from start_machine.
@@ -371,14 +374,15 @@ class MalbolgeBackend:
                     combos = list(cfg.opcode_choices)
                     depth = 0
         
-        # Add halt
-        fs, _ = self.get_or_extend_state(
-            cur, "v", GenerationConfig(
-                opcode_choices=cfg.opcode_choices,
-                max_search_depth=cfg.max_search_depth,
-                random_seed=cfg.random_seed
-            ), cache, _InternalGenerationStats()
-        )
+        fs = cur
+        if add_halt:
+            fs, _ = self.get_or_extend_state(
+                cur, "v", GenerationConfig(
+                    opcode_choices=cfg.opcode_choices,
+                    max_search_depth=cfg.max_search_depth,
+                    random_seed=cfg.random_seed
+                ), cache, _InternalGenerationStats()
+            )
         
         cont = fs.opcodes[len(prefix.opcodes):]
         vr = self._interpreter.execute_from_snapshot(

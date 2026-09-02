@@ -1,0 +1,25 @@
+{
+  "schema": "autobolge-streaming-continuity-smoke/0",
+  "timestamp_utc": "2026-09-02",
+  "command": "py -c \"from malbolge_translator.streaming import translate_continuous; r=translate_continuous('Hi', segment_chars=1)\"",
+  "environment": {
+    "generator": "malbolge-generator 0.1.0",
+    "runtime": "workspace/malbolge_toolkit MalbolgeInterpreter"
+  },
+  "input": "Hi",
+  "input_sha256": "3639efcd08abb273b1619e82e78c29a7df02c1051b1820e99fc395dcaa3326b8",
+  "output": "Hi",
+  "output_sha256": "3639efcd08abb273b1619e82e78c29a7df02c1051b1820e99fc395dcaa3326b8",
+  "segments": 2,
+  "segment_opcodes": [27, 85],
+  "evaluations": [1467, 5052],
+  "program_opcodes": 212,
+  "program_opcodes_sha256": "5a5ced4a47a971685b52e466db983a30688734603d76c05c9c674d695d3c14da",
+  "claims": {
+    "same_process_continuity": "PASS",
+    "single_composed_program": "PASS",
+    "fresh_vm_resume": "NOT_DEMONSTRATED",
+    "independent_runtime_parity": "NOT_DEMONSTRATED",
+    "full_don_quixote": "NOT_DEMONSTRATED"
+  }
+}

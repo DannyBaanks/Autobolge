@@ -1,0 +1,3 @@
+# P2 bounded contract: one Classic VM consumes 012 and must emit 120.
+# This rejects the ordinary echo relation and does not model fresh-VM resume.
+FRONTIER 120 LENGTH 3 MAX_STEPS 50 INPUT 012

@@ -4,8 +4,9 @@
 // sintaxis programable. El programa describe LA BUSQUEDA (no el computo),
 // y este runtime Zig sabe exactamente que significa cada primitiva:
 //
-//   FRONTIER <target> LENGTH <n> [MAX_STEPS <n>] [INPUT <s>] [EMIT <path>]
+//   FRONTIER <target> LENGTH <n> [MAX_STEPS <n>] [INPUT <s>] [PREFIX_FILE <path>] [EMIT <path>]
 //     = ENUMERATE + EXECUTE + FILTER(output==target) + EMIT(evidencia)
+//       PREFIX_FILE appends the searched suffix after a fixed Classic seed.
 //   CATALOG LENGTH <n> [MAX_STEPS <n>] [INPUT <s>] [EMIT <path>]
 //     = ENUMERATE + EXECUTE + DEDUP(outputs) + EMIT(catalogo + resumen)
 //   BRANCH LENGTH <n> CASE <input> <output> ... [MAX_STEPS <n>] [EMIT <path>]
@@ -33,6 +34,7 @@ const Options = struct {
     max_steps: u32 = 3000,
     input: []const u8 = "",
     emit: []const u8 = "",
+    prefix_file: []const u8 = "",
 };
 
 const InputCase = struct {
@@ -136,8 +138,10 @@ fn parseOptions(toks: []const Token, start: usize, opts: *Options) void {
             opts.input = val.text;
         } else if (std.ascii.eqlIgnoreCase(key, "EMIT")) {
             opts.emit = val.text;
+        } else if (std.ascii.eqlIgnoreCase(key, "PREFIX_FILE")) {
+            opts.prefix_file = val.text;
         } else {
-            fail("opcion desconocida (LENGTH/MAX_STEPS/INPUT/EMIT)");
+            fail("opcion desconocida (LENGTH/MAX_STEPS/INPUT/EMIT/PREFIX_FILE)");
         }
     }
     if (i < toks.len) fail("opcion sin valor");
@@ -182,18 +186,28 @@ fn runFrontier(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
     if (opts.target.len == 0) fail("FRONTIER requiere target");
     if (opts.length == 0 or opts.length > MAX_LENGTH) fail("FRONTIER: LENGTH debe estar en 1..16");
 
+    var prefix: []const u8 = "";
+    if (opts.prefix_file.len > 0) {
+        prefix = std.Io.Dir.cwd().readFileAlloc(io, opts.prefix_file, alloc, .unlimited) catch |e| {
+            std.debug.print("FRONTIER: no puedo leer PREFIX_FILE {s}: {s}\n", .{ opts.prefix_file, @errorName(e) });
+            return e;
+        };
+        prefix = std.mem.trim(u8, prefix, " \t\r\n");
+    }
+
     var chars: [MAX_LENGTH][8]u8 = undefined;
     for (0..opts.length) |pos| {
         for (OPS_VALID, 0..) |op, k| {
-            chars[pos][k] = validCharAt(pos, op);
+            chars[pos][k] = validCharAt(prefix.len + pos, op);
         }
     }
 
     const total: u64 = std.math.pow(u64, 8, @intCast(opts.length));
     var idx: [MAX_LENGTH]u8 = [_]u8{0} ** MAX_LENGTH;
-    var cells: [MAX_LENGTH]u32 = undefined;
+    const cells = try alloc.alloc(u32, prefix.len + opts.length);
+    for (prefix, 0..) |ch, pos| cells[pos] = ch;
     for (0..opts.length) |pos| {
-        cells[pos] = chars[pos][0];
+        cells[prefix.len + pos] = chars[pos][0];
     }
 
     const t0 = monoNow(io);
@@ -203,12 +217,13 @@ fn runFrontier(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
 
     var index: u64 = 0;
     while (index < total) : (index += 1) {
-        const outcome = vm.runProgram(cells[0..opts.length], opts.input, opts.max_steps);
+        const outcome = vm.runProgram(cells, opts.input, opts.max_steps);
         if (std.mem.eql(u8, vm.out_buf[0..outcome.output_len], opts.target)) {
             if (n_hits > 0) try hits.append(alloc, ',');
             n_hits += 1;
 
             var prog = std.ArrayList(u8).empty;
+            try prog.appendSlice(alloc, prefix);
             for (0..opts.length) |pos| {
                 try prog.append(alloc, chars[pos][idx[pos]]);
             }
@@ -235,11 +250,11 @@ fn runFrontier(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
             pos -= 1;
             if (idx[pos] < 7) {
                 idx[pos] += 1;
-                cells[pos] = chars[pos][idx[pos]];
+                cells[prefix.len + pos] = chars[pos][idx[pos]];
                 break;
             }
             idx[pos] = 0;
-            cells[pos] = chars[pos][0];
+            cells[prefix.len + pos] = chars[pos][0];
         }
 
         if (index + 1 == total or (index + 1) % PROGRESS_FRONTIER == 0) {
@@ -262,6 +277,8 @@ fn runFrontier(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
     try json.appendSlice(alloc, "\",\"length\":");
     var nb: [32]u8 = undefined;
     try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{opts.length}) catch unreachable);
+    try json.appendSlice(alloc, ",\"prefix_bytes\":");
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{prefix.len}) catch unreachable);
     try json.appendSlice(alloc, ",\"max_steps\":");
     try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{opts.max_steps}) catch unreachable);
     try json.appendSlice(alloc, ",\"total_programs\":");

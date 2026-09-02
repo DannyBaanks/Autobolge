@@ -209,11 +209,26 @@ print('D2 PASSED: 0/299593 mismatches')
 | Verification pipeline | ✅ Gates 1, 2, D1, D2, D3 passed |
 | Zig fast engine (bolge.exe) | ✅ 0 mismatches, ~28× speedup |
 | Specialized DSL (bolge-dsl.exe) | ✅ Zero-cost abstraction measured |
+| Streaming continuity prototype | ✅ `Hi` composed from two continuations into one program in the toolkit interpreter |
+| `FRONTIER PREFIX_FILE` | ✅ Searches position-correct suffixes after a fixed Classic seed |
 | Bounded multi-case `BRANCH` relation | 🔬 MALDOOM V1 primitive search; echo alone does not prove an internal control branch |
+| Ternary sequence `012 -> 120` | ❌ No hit in the length-3 bounded frontier |
 | Frontier `HI` (len ≤ 9) | ✅ Exhaustively negative |
 | **Frontier `HI` (len 10)** | ✅ **Completed: 1.07B programs, 2.85 h, 0 hits** |
 | Multi-character output synthesis | 🔬 Open (next: template composition from len-10 negatives) |
 | E33 Busy Beaver verification | ⏳ Pending (champion S(4)=107) |
+
+## Continuation Claim Boundary
+
+`malbolge_translator/streaming.py` keeps a toolkit snapshot while synthesizing
+small fixed-text continuations, then verifies the resulting single Classic
+program from bootstrap. It does **not** serialize state for a fresh VM.
+
+`FRONTIER ... PREFIX_FILE <path>` evaluates suffixes after a fixed seed with
+correct positional opcode encoding. The `truth_machine.mal` probe established
+that its halt branch exits before appended code; it is not a usable continuation
+anchor. Fresh-VM resume, independent-runtime parity for a continuation, and
+full Don Quixote generation remain `NOT_DEMONSTRATED`.
 
 ---
 
