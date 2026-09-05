@@ -74,6 +74,7 @@ class SolverResult(Contract):
     #        zig_output, zig_match}
     matched: int = 0
     mismatched: int = 0
+    errors: list[dict] = field(default_factory=list)  # {target, error}
     total_nodes: int = 0
     gen_time_s: float = 0.0
 

@@ -118,6 +118,12 @@ template (`frontier_campaign.template.json`) uses **logical coordinates**
 assembly B ran an exhaustive physical length-3 frontier (830,584 candidates
 in 6.7 s), solver 4/4 matched, all gates PASS.
 
+First roadmap campaigns executed on it (see ROADMAP.md):
+- **Multi-char synthesis**: 14 targets of 3–9 chars ("HI!" … "AUTOBOLGE"),
+  14/14 matched and Zig-verified.
+- **Busy Beaver**: exhaustive len 1–3 champions (all-NUL at len ≤ 3:
+  `'c'`/`'cb'`/`'cba'`; non-NUL at len 3: `'ba` → `'\r\r'`, `'>ba'` → `'ss'`).
+
 ---
 
 ## Quick Start

@@ -1,0 +1,30 @@
+{
+  "pipeline": "busy_beaver",
+  "description": "Roadmap #2: campeones busy-beaver locales (max output antes de halt) en espacios exhaustivos len 1/2/3. Comparacion con otros lenguajes: NOT_DEMONSTRATED (no hay harness multi-lenguaje en el repo).",
+  "stages": [
+    {"id": "f1", "kind": "frontier",
+     "params": {"level": "1", "seeds": [""], "max_steps": "100000"}},
+    {"id": "f2", "kind": "frontier",
+     "params": {"level": "2", "seeds": [""], "max_steps": "100000"}},
+    {"id": "f3", "kind": "frontier",
+     "params": {"level": "3", "seeds": [""], "max_steps": "100000",
+                "max_rows": "2000000"}},
+    {"id": "bb1", "kind": "busy_beaver", "inputs": ["f1"],
+     "params": {"top_n": "5"}},
+    {"id": "bb2", "kind": "busy_beaver", "inputs": ["f2"],
+     "params": {"top_n": "5"}},
+    {"id": "bb3", "kind": "busy_beaver", "inputs": ["f3"],
+     "params": {"top_n": "5"}},
+    {"id": "bb3_nonnul", "kind": "busy_beaver", "inputs": ["f3"],
+     "params": {"top_n": "5", "non_nul_only": "true"}},
+    {"id": "final", "kind": "verdict", "inputs": ["f1", "f2", "f3"],
+     "params": {"gates": [
+       {"name": "len1_exhausted", "inputs_index": 0,
+        "field": "candidates_examined", "op": "==", "value": "94"},
+       {"name": "len2_exhausted", "inputs_index": 1,
+        "field": "candidates_examined", "op": "==", "value": "8836"},
+       {"name": "len3_exhausted", "inputs_index": 2,
+        "field": "candidates_examined", "op": "==", "value": "830584"}
+     ]}}
+  ]
+}

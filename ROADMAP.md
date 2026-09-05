@@ -11,6 +11,11 @@ Extender el catálogo más allá de longitud 10.
 - Documentar tanto hallazgos como resultados negativos.
 - Hoy: `frontier_campaign.template.json` con `--var L1=… --var L2=… --var L3=…`
   (no-rerun protege lo ya exhausto, ej. len10 0 hits).
+- **EN MARCHA (dirigido por solver)**: `pipelines/multichar_synthesis.json` —
+  14 targets de 3–9 caracteres ("HI!", "BYE", "AUTOBOLGE", "MALBOLGE", …),
+  14/14 matched y verificados por Zig batch, 106,306 nodos en 1.9s (w6).
+  Extensión del CATÁLOGO a programas de len>10: PENDIENTE (exhaustivo
+  inabordable; ir por fronteras selectivas).
 
 ## 2. Verificación Busy Beaver
 
@@ -18,8 +23,15 @@ Campañas para detectar programas que maximizan output antes de halting.
 
 - Comparar con benchmarks de otros lenguajes esotéricos.
 - Guardar evidencia reproducible (JSON + hash).
-- Hoy: `frontier` (SearchResult con output/steps/terminated) → `classify`;
-  falta un criterio de selección `by=output_len` + comparación externa.
+- **EN MARCHA**: `pipelines/busy_beaver.json` con stage `busy_beaver`
+  (pool = terminated con output; solo cuentan programas que haltean).
+  Campeones exhaustivos medidos:
+  - len1 (94): max out 1 — `'c'` → `\x00`
+  - len2 (8,836): max out 2 — `'cb'` → `\x00\x00`
+  - len3 (830,584): max out 3 — `'cba'` → `\x00\x00\x00`;
+    no-NUL: 548 con output, max out 2 — `'ba` → `\r\r`, `>ba` → `ss`
+  Comparación con OTROS lenguajes: NOT_DEMONSTRATED (no hay harness
+  multi-lenguaje en el repo).
 
 ## 3. Composición de templates
 

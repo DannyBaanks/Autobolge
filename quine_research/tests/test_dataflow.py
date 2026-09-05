@@ -14,6 +14,9 @@ from quine_research.dataflow.contracts import (  # noqa: E402
     ClassifierResult, SearchResult, contract_from_dict, contract_to_dict,
 )
 from quine_research.dataflow.engine import PipelineRunner  # noqa: E402
+from quine_research.dataflow.stages import (  # noqa: E402
+    stage_busy_beaver, stage_transform,
+)
 
 
 def _write_spec(tmp_path: Path, stages: list, name: str = "test") -> Path:
@@ -139,6 +142,31 @@ def test_template_missing_variable_fails(tmp_path):
         assert "LEN" in str(e)
     else:
         raise AssertionError("debió fallar por variable sin valor")
+
+
+def test_busy_beaver_unit():
+    from quine_research.dataflow.contracts import SearchResult
+    rows = [
+        {"program": "cb", "output": "\x00\x00", "steps": 3, "terminated": True},
+        {"program": ">ba", "output": "ss", "steps": 4, "terminated": True},
+        {"program": "!x", "output": "", "steps": 2, "terminated": True},
+        {"program": "?", "output": "zzz", "steps": 9, "terminated": False},
+    ]
+    sr = SearchResult(level=2, candidates_examined=4, rows=rows)
+
+    sel, _ = stage_busy_beaver({}, {"top_n": "5"}, [("f", sr)])
+    # '?' excluido (no halt pese a más output), '!x' excluido (sin output)
+    assert set(sel.selected) == {"cb", ">ba"}
+
+    sel_nn, _ = stage_busy_beaver(
+        {}, {"top_n": "5", "non_nul_only": "true"}, [("f", sr)])
+    assert sel_nn.selected == [">ba"]
+
+
+def test_explicit_targets_transform():
+    tr, _ = stage_transform(
+        {}, {"op": "explicit_targets", "targets": ["HI!", "BYE"]}, [])
+    assert tr.derived == ["HI!", "BYE"]
 
 
 def test_verdict_gates(tmp_path):

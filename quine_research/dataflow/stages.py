@@ -207,6 +207,10 @@ def stage_transform(ctx, params, inputs):
                                if r["terminated"] and r["output"])
         derived = sorted(outputs)
         prov = f"unique observed outputs -> solver targets ({len(derived)})"
+    elif op == "explicit_targets":
+        # targets declarados directamente en params (síntesis dirigida)
+        derived = [str(t) for t in params.get("targets", [])]
+        prov = f"explicit targets from params ({len(derived)})"
     else:
         raise ValueError(f"unknown transform op: {op!r}")
 
@@ -286,6 +290,19 @@ def stage_solve(ctx, params, inputs):
         cands = factory.batch(targets)
     gen_s = time.time() - t0
 
+    # fallos del solver: ningún candidato debe desaparecer en silencio
+    errors = [{"target": c["target"], "error": c.get("error", "no candidate")}
+              for c in cands if "program_source" not in c]
+    cands = [c for c in cands if "program_source" in c]
+    solved_targets = {c["target"] for c in cands}
+    errors.extend({"target": t, "error": "no candidate"}
+                  for t in targets if t not in solved_targets and
+                  all(e["target"] != t for e in errors))
+    # dedup de errores por target (un registro por target, no por intento)
+    seen_err: set[str] = set()
+    errors = [e for e in errors
+              if not (e["target"] in seen_err or seen_err.add(e["target"]))]
+
     # verificación zig del lote completo (un lote: la frontera entre
     # ejecutores no se cruza candidato por candidato)
     programs = [c["program_source"] for c in cands]
@@ -311,12 +328,15 @@ def stage_solve(ctx, params, inputs):
         rows=rows,
         matched=matched,
         mismatched=len(rows) - matched,
+        errors=errors,
         total_nodes=sum(r["nodes_expanded"] for r in rows),
         gen_time_s=round(gen_s, 2),
     )
-    return sr, [f"solve: {matched}/{len(rows)} matched, "
-                f"{sr.total_nodes:,} nodes in {gen_s:.1f}s "
-                f"(workers={workers})"]
+    summary = (f"solve: {matched}/{len(rows)} matched, "
+               f"{sr.total_nodes:,} nodes in {gen_s:.1f}s (workers={workers})")
+    if errors:
+        summary += f" | ERRORS: {len(errors)} {[e['target'] for e in errors]}"
+    return sr, [summary]
 
 
 # ── VERDICT ────────────────────────────────────────────────────────
@@ -359,11 +379,48 @@ def stage_verdict(ctx, params, inputs):
     return v, [f"verdict: {v.summary or 'no gates'} closed={v.closed}"]
 
 
+# ── BUSY BEAVER ────────────────────────────────────────────────────
+def stage_busy_beaver(ctx, params, inputs):
+    """BUSY BEAVER local: máximo output antes de halt en un SearchResult.
+
+    Solo cuentan programas terminated=True (un programa que no haltea
+    no "produce output antes de halt"). Campeones = top_n por output_len.
+    Salida: SelectionResult con scores = output_len.
+    """
+    sr = _require(inputs, SearchResult)
+    top_n = int(params.get("top_n", 10))
+    non_nul_only = params.get("non_nul_only", False)
+    if isinstance(non_nul_only, str):
+        non_nul_only = non_nul_only.lower() in ("1", "true", "yes")
+    haltable = [r for r in sr.rows
+                if r["terminated"] and len(r["output"]) > 0]
+    if non_nul_only:
+        haltable = [r for r in haltable
+                    if any(b != "\x00" for b in r["output"])]
+    champs = sorted(haltable, key=lambda r: (-len(r["output"]), r["steps"]))
+    champs = champs[:top_n]
+    sel = SelectionResult(
+        selected=[r["program"] for r in champs],
+        scores={r["program"]: float(len(r["output"])) for r in champs},
+        rule=f"busy_beaver max_output_before_halt top_n={top_n} "
+             f"non_nul_only={non_nul_only} "
+             f"(level={sr.level}, pool={len(haltable)} terminated)",
+    )
+    max_len = len(champs[0]["output"]) if champs else 0
+    detail = [f"busy_beaver: {len(haltable):,} terminated with output; "
+              f"max output_len={max_len}"]
+    for r in champs[:5]:
+        detail.append(f"  champ out_len={len(r['output'])} steps={r['steps']} "
+                      f"prog={r['program']!r} out={r['output']!r}")
+    return sel, detail
+
+
 STAGES = {
     "frontier": stage_frontier,
     "classify": stage_classify,
     "select": stage_select,
     "transform": stage_transform,
+    "busy_beaver": stage_busy_beaver,
     "solve": stage_solve,
     "compare": stage_compare,
     "verdict": stage_verdict,
@@ -380,6 +437,7 @@ EXECUTORS = {
     "select": "python",
     "transform": "python",
     "solve": "python+zig",  # generador python (workers dentro) + verificación zig batch
+    "busy_beaver": "python",
     "compare": "python",
     "verdict": "python",
 }

@@ -1,0 +1,18 @@
+{
+  "pipeline": "multichar_synthesis",
+  "description": "Roadmap #1: sintesis de outputs > 2 caracteres via solver dirigido. No exhaustivo: dirigido por target; los fallos quedan como evidencia (errors), no desaparecen.",
+  "stages": [
+    {"id": "targets", "kind": "transform",
+     "params": {"op": "explicit_targets",
+                "targets": ["HI!", "BYE", "MEOW", "WTF?", "NOPE",
+                            "BEEP", "DATA", "FLOW", "LENS", "BOLGE",
+                            "AUTOBOLGE", "MALBOLGE", "HI WORLD", "DANNY"]}},
+    {"id": "solve", "kind": "solve", "inputs": ["targets"],
+     "params": {"workers": "6", "max_search_depth": "5"}},
+    {"id": "final", "kind": "verdict", "inputs": ["solve"],
+     "params": {"gates": [
+       {"name": "all_matched", "inputs_index": 0,
+        "field": "mismatched", "op": "==", "value": "0"}
+     ]}}
+  ]
+}
