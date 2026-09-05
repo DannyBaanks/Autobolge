@@ -118,11 +118,24 @@ template (`frontier_campaign.template.json`) uses **logical coordinates**
 assembly B ran an exhaustive physical length-3 frontier (830,584 candidates
 in 6.7 s), solver 4/4 matched, all gates PASS.
 
-First roadmap campaigns executed on it (see ROADMAP.md):
+Roadmap campaigns executed on it (see ROADMAP.md):
 - **Multi-char synthesis**: 14 targets of 3–9 chars ("HI!" … "AUTOBOLGE"),
   14/14 matched and Zig-verified.
 - **Busy Beaver**: exhaustive len 1–3 champions (all-NUL at len ≤ 3:
   `'c'`/`'cb'`/`'cba'`; non-NUL at len 3: `'ba` → `'\r\r'`, `'>ba'` → `'ss'`).
+- **Template composition**: 8 verified blocks → catalog → 64 pairwise
+  composites, all executed. Structural negative: naive concatenation is
+  prefix-dominated — the first block's `v` (halt) kills the second block.
+- **Multi-backend difftest**: same programs through Zig and the Python
+  reference interpreter — 428 comparable cases, **0 mismatches**
+  (2,509 invalid-opcode + 63 input-underflow reported honestly as
+  non-comparable). Stage-code hashes are part of artifact keys, so old
+  evidence can't survive an engine fix.
+- **Guided vs brute force** (len 3): exhaustive 830,584 candidates → 15
+  distinct outputs; guided select+extend 4,700 → 6 (40% of classes at
+  0.57% of compute); pure random sampling 4,700 → 4.
+- **Atlas**: `pipelines/atlas.json` exports `runs/atlas_index.json`
+  (102 artifacts with per-node sha256, executable after any campaign).
 
 ---
 
