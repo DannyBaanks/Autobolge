@@ -1,0 +1,5420 @@
+{
+  "mode": "memo",
+  "gen_time_s": 83.09,
+  "per_target": [
+    {
+      "target": "AA",
+      "nodes_expanded": 3686,
+      "states_revisited": 0,
+      "cache_hits": 0,
+      "solution_length": 168,
+      "generation_ms": 64.51
+    },
+    {
+      "target": "AB",
+      "nodes_expanded": 10326,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 281,
+      "generation_ms": 206.188
+    },
+    {
+      "target": "AC",
+      "nodes_expanded": 7751,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 239,
+      "generation_ms": 146.42
+    },
+    {
+      "target": "AD",
+      "nodes_expanded": 6954,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 226,
+      "generation_ms": 153.466
+    },
+    {
+      "target": "AE",
+      "nodes_expanded": 5926,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 210,
+      "generation_ms": 112.554
+    },
+    {
+      "target": "AF",
+      "nodes_expanded": 9915,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 278,
+      "generation_ms": 190.98
+    },
+    {
+      "target": "AG",
+      "nodes_expanded": 9749,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 274,
+      "generation_ms": 192.928
+    },
+    {
+      "target": "AH",
+      "nodes_expanded": 7364,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 236,
+      "generation_ms": 189.415
+    },
+    {
+      "target": "AI",
+      "nodes_expanded": 6106,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 215,
+      "generation_ms": 114.046
+    },
+    {
+      "target": "AJ",
+      "nodes_expanded": 5474,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 203,
+      "generation_ms": 118.184
+    },
+    {
+      "target": "AK",
+      "nodes_expanded": 6217,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 214,
+      "generation_ms": 127.205
+    },
+    {
+      "target": "AL",
+      "nodes_expanded": 5601,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 207,
+      "generation_ms": 128.032
+    },
+    {
+      "target": "AM",
+      "nodes_expanded": 9638,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 274,
+      "generation_ms": 296.291
+    },
+    {
+      "target": "AN",
+      "nodes_expanded": 4319,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 185,
+      "generation_ms": 81.316
+    },
+    {
+      "target": "AO",
+      "nodes_expanded": 5640,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 207,
+      "generation_ms": 110.809
+    },
+    {
+      "target": "AP",
+      "nodes_expanded": 6705,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 225,
+      "generation_ms": 151.738
+    },
+    {
+      "target": "AQ",
+      "nodes_expanded": 6395,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 220,
+      "generation_ms": 289.516
+    },
+    {
+      "target": "AR",
+      "nodes_expanded": 7444,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 233,
+      "generation_ms": 156.897
+    },
+    {
+      "target": "AS",
+      "nodes_expanded": 3450,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 172,
+      "generation_ms": 69.223
+    },
+    {
+      "target": "AT",
+      "nodes_expanded": 3381,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 101.856
+    },
+    {
+      "target": "AU",
+      "nodes_expanded": 8474,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 255,
+      "generation_ms": 274.95
+    },
+    {
+      "target": "AV",
+      "nodes_expanded": 3703,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 176,
+      "generation_ms": 123.229
+    },
+    {
+      "target": "AW",
+      "nodes_expanded": 3080,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 257.499
+    },
+    {
+      "target": "AX",
+      "nodes_expanded": 8423,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 252,
+      "generation_ms": 294.35
+    },
+    {
+      "target": "AY",
+      "nodes_expanded": 5628,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 206,
+      "generation_ms": 193.972
+    },
+    {
+      "target": "AZ",
+      "nodes_expanded": 3291,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 92.345
+    },
+    {
+      "target": "BA",
+      "nodes_expanded": 8856,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 260,
+      "generation_ms": 287.309
+    },
+    {
+      "target": "BB",
+      "nodes_expanded": 6556,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 219,
+      "generation_ms": 213.593
+    },
+    {
+      "target": "BC",
+      "nodes_expanded": 9827,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 274,
+      "generation_ms": 523.227
+    },
+    {
+      "target": "BD",
+      "nodes_expanded": 7436,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 237,
+      "generation_ms": 243.283
+    },
+    {
+      "target": "BE",
+      "nodes_expanded": 13155,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 331,
+      "generation_ms": 454.24
+    },
+    {
+      "target": "BF",
+      "nodes_expanded": 7980,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 245,
+      "generation_ms": 256.178
+    },
+    {
+      "target": "BG",
+      "nodes_expanded": 6918,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 227,
+      "generation_ms": 211.626
+    },
+    {
+      "target": "BH",
+      "nodes_expanded": 9235,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 266,
+      "generation_ms": 315.0
+    },
+    {
+      "target": "BI",
+      "nodes_expanded": 7198,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 233,
+      "generation_ms": 475.166
+    },
+    {
+      "target": "BJ",
+      "nodes_expanded": 7601,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 238,
+      "generation_ms": 266.652
+    },
+    {
+      "target": "BK",
+      "nodes_expanded": 6332,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 219,
+      "generation_ms": 218.602
+    },
+    {
+      "target": "BL",
+      "nodes_expanded": 7583,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 238,
+      "generation_ms": 241.318
+    },
+    {
+      "target": "BM",
+      "nodes_expanded": 5718,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 208,
+      "generation_ms": 189.992
+    },
+    {
+      "target": "BN",
+      "nodes_expanded": 7201,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 232,
+      "generation_ms": 223.623
+    },
+    {
+      "target": "BO",
+      "nodes_expanded": 7586,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 236,
+      "generation_ms": 256.012
+    },
+    {
+      "target": "BP",
+      "nodes_expanded": 3275,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 101.302
+    },
+    {
+      "target": "BQ",
+      "nodes_expanded": 7559,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 238,
+      "generation_ms": 246.207
+    },
+    {
+      "target": "BR",
+      "nodes_expanded": 13254,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 332,
+      "generation_ms": 770.315
+    },
+    {
+      "target": "BS",
+      "nodes_expanded": 7024,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 229,
+      "generation_ms": 228.138
+    },
+    {
+      "target": "BT",
+      "nodes_expanded": 3378,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 114.469
+    },
+    {
+      "target": "BU",
+      "nodes_expanded": 3450,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 178,
+      "generation_ms": 128.809
+    },
+    {
+      "target": "BV",
+      "nodes_expanded": 8127,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 245,
+      "generation_ms": 246.659
+    },
+    {
+      "target": "BW",
+      "nodes_expanded": 10745,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 292,
+      "generation_ms": 357.778
+    },
+    {
+      "target": "BX",
+      "nodes_expanded": 6588,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 221,
+      "generation_ms": 223.239
+    },
+    {
+      "target": "BY",
+      "nodes_expanded": 6196,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 214,
+      "generation_ms": 211.406
+    },
+    {
+      "target": "BZ",
+      "nodes_expanded": 1500,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 137,
+      "generation_ms": 50.709
+    },
+    {
+      "target": "CA",
+      "nodes_expanded": 8802,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 260,
+      "generation_ms": 272.77
+    },
+    {
+      "target": "CB",
+      "nodes_expanded": 2951,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 163,
+      "generation_ms": 88.483
+    },
+    {
+      "target": "CC",
+      "nodes_expanded": 3359,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 110.573
+    },
+    {
+      "target": "CD",
+      "nodes_expanded": 6930,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 226,
+      "generation_ms": 613.684
+    },
+    {
+      "target": "CE",
+      "nodes_expanded": 6732,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 226,
+      "generation_ms": 229.01
+    },
+    {
+      "target": "CF",
+      "nodes_expanded": 13037,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 328,
+      "generation_ms": 457.827
+    },
+    {
+      "target": "CG",
+      "nodes_expanded": 5144,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 168.494
+    },
+    {
+      "target": "CH",
+      "nodes_expanded": 7902,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 243,
+      "generation_ms": 261.895
+    },
+    {
+      "target": "CI",
+      "nodes_expanded": 5159,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 166.047
+    },
+    {
+      "target": "CJ",
+      "nodes_expanded": 7045,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 231,
+      "generation_ms": 227.232
+    },
+    {
+      "target": "CK",
+      "nodes_expanded": 9436,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 273,
+      "generation_ms": 320.731
+    },
+    {
+      "target": "CL",
+      "nodes_expanded": 5487,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 204,
+      "generation_ms": 166.342
+    },
+    {
+      "target": "CM",
+      "nodes_expanded": 7595,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 241,
+      "generation_ms": 245.368
+    },
+    {
+      "target": "CN",
+      "nodes_expanded": 8401,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 250,
+      "generation_ms": 283.845
+    },
+    {
+      "target": "CO",
+      "nodes_expanded": 9948,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 279,
+      "generation_ms": 336.928
+    },
+    {
+      "target": "CP",
+      "nodes_expanded": 8344,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 251,
+      "generation_ms": 291.392
+    },
+    {
+      "target": "CQ",
+      "nodes_expanded": 8882,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 257,
+      "generation_ms": 822.484
+    },
+    {
+      "target": "CR",
+      "nodes_expanded": 3483,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 108.077
+    },
+    {
+      "target": "CS",
+      "nodes_expanded": 6591,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 229,
+      "generation_ms": 214.454
+    },
+    {
+      "target": "CT",
+      "nodes_expanded": 8946,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 262,
+      "generation_ms": 311.683
+    },
+    {
+      "target": "CU",
+      "nodes_expanded": 4022,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 179,
+      "generation_ms": 131.535
+    },
+    {
+      "target": "CV",
+      "nodes_expanded": 3754,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 177,
+      "generation_ms": 122.298
+    },
+    {
+      "target": "CW",
+      "nodes_expanded": 3898,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 178,
+      "generation_ms": 121.426
+    },
+    {
+      "target": "CX",
+      "nodes_expanded": 3245,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 107.549
+    },
+    {
+      "target": "CY",
+      "nodes_expanded": 3670,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 175,
+      "generation_ms": 136.891
+    },
+    {
+      "target": "CZ",
+      "nodes_expanded": 3661,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 174,
+      "generation_ms": 118.377
+    },
+    {
+      "target": "DA",
+      "nodes_expanded": 3098,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 164,
+      "generation_ms": 94.21
+    },
+    {
+      "target": "DB",
+      "nodes_expanded": 3531,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 113.411
+    },
+    {
+      "target": "DC",
+      "nodes_expanded": 2966,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 163,
+      "generation_ms": 95.325
+    },
+    {
+      "target": "DD",
+      "nodes_expanded": 3091,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 163,
+      "generation_ms": 101.37
+    },
+    {
+      "target": "DE",
+      "nodes_expanded": 5396,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 203,
+      "generation_ms": 177.271
+    },
+    {
+      "target": "DF",
+      "nodes_expanded": 3134,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 100.766
+    },
+    {
+      "target": "DG",
+      "nodes_expanded": 5165,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 171.746
+    },
+    {
+      "target": "DH",
+      "nodes_expanded": 5517,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 205,
+      "generation_ms": 179.459
+    },
+    {
+      "target": "DI",
+      "nodes_expanded": 869,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 129,
+      "generation_ms": 29.308
+    },
+    {
+      "target": "DJ",
+      "nodes_expanded": 5345,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 202,
+      "generation_ms": 186.054
+    },
+    {
+      "target": "DK",
+      "nodes_expanded": 6097,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 214,
+      "generation_ms": 202.346
+    },
+    {
+      "target": "DL",
+      "nodes_expanded": 8041,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 246,
+      "generation_ms": 281.611
+    },
+    {
+      "target": "DM",
+      "nodes_expanded": 5673,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 208,
+      "generation_ms": 209.953
+    },
+    {
+      "target": "DN",
+      "nodes_expanded": 833,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 128,
+      "generation_ms": 25.369
+    },
+    {
+      "target": "DO",
+      "nodes_expanded": 1155,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 134,
+      "generation_ms": 41.52
+    },
+    {
+      "target": "DP",
+      "nodes_expanded": 5748,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 209,
+      "generation_ms": 200.544
+    },
+    {
+      "target": "DQ",
+      "nodes_expanded": 6741,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 224,
+      "generation_ms": 927.458
+    },
+    {
+      "target": "DR",
+      "nodes_expanded": 3465,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 170,
+      "generation_ms": 116.596
+    },
+    {
+      "target": "DS",
+      "nodes_expanded": 3501,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 172,
+      "generation_ms": 114.455
+    },
+    {
+      "target": "DT",
+      "nodes_expanded": 3456,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 119.276
+    },
+    {
+      "target": "DU",
+      "nodes_expanded": 3386,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 113.433
+    },
+    {
+      "target": "DV",
+      "nodes_expanded": 3167,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 113.169
+    },
+    {
+      "target": "DW",
+      "nodes_expanded": 3122,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 110.644
+    },
+    {
+      "target": "DX",
+      "nodes_expanded": 3218,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 104.792
+    },
+    {
+      "target": "DY",
+      "nodes_expanded": 6443,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 220,
+      "generation_ms": 220.349
+    },
+    {
+      "target": "DZ",
+      "nodes_expanded": 3119,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 107.99
+    },
+    {
+      "target": "EA",
+      "nodes_expanded": 2984,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 164,
+      "generation_ms": 99.059
+    },
+    {
+      "target": "EB",
+      "nodes_expanded": 2978,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 164,
+      "generation_ms": 101.145
+    },
+    {
+      "target": "EC",
+      "nodes_expanded": 2951,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 163,
+      "generation_ms": 93.118
+    },
+    {
+      "target": "ED",
+      "nodes_expanded": 8600,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 255,
+      "generation_ms": 311.481
+    },
+    {
+      "target": "EE",
+      "nodes_expanded": 372,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 118,
+      "generation_ms": 14.246
+    },
+    {
+      "target": "EF",
+      "nodes_expanded": 2942,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 168,
+      "generation_ms": 98.298
+    },
+    {
+      "target": "EG",
+      "nodes_expanded": 5150,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 171.596
+    },
+    {
+      "target": "EH",
+      "nodes_expanded": 6004,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 213,
+      "generation_ms": 217.269
+    },
+    {
+      "target": "EI",
+      "nodes_expanded": 5141,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 189.127
+    },
+    {
+      "target": "EJ",
+      "nodes_expanded": 6870,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 229,
+      "generation_ms": 245.3
+    },
+    {
+      "target": "EK",
+      "nodes_expanded": 6991,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 228,
+      "generation_ms": 242.354
+    },
+    {
+      "target": "EL",
+      "nodes_expanded": 5493,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 204,
+      "generation_ms": 190.036
+    },
+    {
+      "target": "EM",
+      "nodes_expanded": 5141,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 162.686
+    },
+    {
+      "target": "EN",
+      "nodes_expanded": 5908,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 212,
+      "generation_ms": 206.845
+    },
+    {
+      "target": "EO",
+      "nodes_expanded": 4337,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 183,
+      "generation_ms": 142.536
+    },
+    {
+      "target": "EP",
+      "nodes_expanded": 4313,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 183,
+      "generation_ms": 195.683
+    },
+    {
+      "target": "EQ",
+      "nodes_expanded": 3122,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 110.74
+    },
+    {
+      "target": "ER",
+      "nodes_expanded": 3318,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 115.814
+    },
+    {
+      "target": "ES",
+      "nodes_expanded": 3537,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 177,
+      "generation_ms": 118.823
+    },
+    {
+      "target": "ET",
+      "nodes_expanded": 2948,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 169,
+      "generation_ms": 104.816
+    },
+    {
+      "target": "EU",
+      "nodes_expanded": 7310,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 234,
+      "generation_ms": 245.862
+    },
+    {
+      "target": "EV",
+      "nodes_expanded": 3733,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 176,
+      "generation_ms": 136.69
+    },
+    {
+      "target": "EW",
+      "nodes_expanded": 3074,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 116.568
+    },
+    {
+      "target": "EX",
+      "nodes_expanded": 3300,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 117.984
+    },
+    {
+      "target": "EY",
+      "nodes_expanded": 520,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 14.516
+    },
+    {
+      "target": "EZ",
+      "nodes_expanded": 3312,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 97.244
+    },
+    {
+      "target": "FA",
+      "nodes_expanded": 2981,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 163,
+      "generation_ms": 97.115
+    },
+    {
+      "target": "FB",
+      "nodes_expanded": 5970,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 211,
+      "generation_ms": 1049.927
+    },
+    {
+      "target": "FC",
+      "nodes_expanded": 755,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 126,
+      "generation_ms": 24.064
+    },
+    {
+      "target": "FD",
+      "nodes_expanded": 2734,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 166,
+      "generation_ms": 96.632
+    },
+    {
+      "target": "FE",
+      "nodes_expanded": 9187,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 266,
+      "generation_ms": 330.713
+    },
+    {
+      "target": "FF",
+      "nodes_expanded": 2916,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 105.609
+    },
+    {
+      "target": "FG",
+      "nodes_expanded": 5156,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 178.864
+    },
+    {
+      "target": "FH",
+      "nodes_expanded": 5926,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 213,
+      "generation_ms": 203.618
+    },
+    {
+      "target": "FI",
+      "nodes_expanded": 6100,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 214,
+      "generation_ms": 207.523
+    },
+    {
+      "target": "FJ",
+      "nodes_expanded": 842,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 127,
+      "generation_ms": 28.104
+    },
+    {
+      "target": "FK",
+      "nodes_expanded": 5908,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 212,
+      "generation_ms": 205.666
+    },
+    {
+      "target": "FL",
+      "nodes_expanded": 746,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 125,
+      "generation_ms": 28.747
+    },
+    {
+      "target": "FM",
+      "nodes_expanded": 5526,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 205,
+      "generation_ms": 187.132
+    },
+    {
+      "target": "FN",
+      "nodes_expanded": 9984,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 279,
+      "generation_ms": 366.4
+    },
+    {
+      "target": "FO",
+      "nodes_expanded": 658,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 24.453
+    },
+    {
+      "target": "FP",
+      "nodes_expanded": 3293,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 116.742
+    },
+    {
+      "target": "FQ",
+      "nodes_expanded": 3080,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 101.32
+    },
+    {
+      "target": "FR",
+      "nodes_expanded": 3333,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 120.413
+    },
+    {
+      "target": "FS",
+      "nodes_expanded": 3300,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 111.484
+    },
+    {
+      "target": "FT",
+      "nodes_expanded": 3386,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 112.977
+    },
+    {
+      "target": "FU",
+      "nodes_expanded": 4018,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 178,
+      "generation_ms": 149.573
+    },
+    {
+      "target": "FV",
+      "nodes_expanded": 3149,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 111.449
+    },
+    {
+      "target": "FW",
+      "nodes_expanded": 3032,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 94.573
+    },
+    {
+      "target": "FX",
+      "nodes_expanded": 3721,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 176,
+      "generation_ms": 119.536
+    },
+    {
+      "target": "FY",
+      "nodes_expanded": 3356,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 174,
+      "generation_ms": 121.955
+    },
+    {
+      "target": "FZ",
+      "nodes_expanded": 3101,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 114.671
+    },
+    {
+      "target": "GA",
+      "nodes_expanded": 3215,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 100.576
+    },
+    {
+      "target": "GB",
+      "nodes_expanded": 5369,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 202,
+      "generation_ms": 179.028
+    },
+    {
+      "target": "GC",
+      "nodes_expanded": 6356,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 219,
+      "generation_ms": 212.232
+    },
+    {
+      "target": "GD",
+      "nodes_expanded": 8853,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 260,
+      "generation_ms": 309.588
+    },
+    {
+      "target": "GE",
+      "nodes_expanded": 2328,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 82.81
+    },
+    {
+      "target": "GF",
+      "nodes_expanded": 2283,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 156,
+      "generation_ms": 86.087
+    },
+    {
+      "target": "GG",
+      "nodes_expanded": 826,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 132,
+      "generation_ms": 28.825
+    },
+    {
+      "target": "GH",
+      "nodes_expanded": 1711,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 142,
+      "generation_ms": 62.777
+    },
+    {
+      "target": "GI",
+      "nodes_expanded": 1681,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 142,
+      "generation_ms": 69.298
+    },
+    {
+      "target": "GJ",
+      "nodes_expanded": 1314,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 136,
+      "generation_ms": 50.996
+    },
+    {
+      "target": "GK",
+      "nodes_expanded": 1296,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 141,
+      "generation_ms": 50.057
+    },
+    {
+      "target": "GL",
+      "nodes_expanded": 1218,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 48.405
+    },
+    {
+      "target": "GM",
+      "nodes_expanded": 1239,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 46.345
+    },
+    {
+      "target": "GN",
+      "nodes_expanded": 1248,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 51.27
+    },
+    {
+      "target": "GO",
+      "nodes_expanded": 1206,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 134,
+      "generation_ms": 47.398
+    },
+    {
+      "target": "GP",
+      "nodes_expanded": 2093,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 148,
+      "generation_ms": 77.091
+    },
+    {
+      "target": "GQ",
+      "nodes_expanded": 1564,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 139,
+      "generation_ms": 52.878
+    },
+    {
+      "target": "GR",
+      "nodes_expanded": 3384,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 118.305
+    },
+    {
+      "target": "GS",
+      "nodes_expanded": 3501,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 172,
+      "generation_ms": 116.931
+    },
+    {
+      "target": "GT",
+      "nodes_expanded": 3432,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 124.358
+    },
+    {
+      "target": "GU",
+      "nodes_expanded": 3760,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 176,
+      "generation_ms": 118.365
+    },
+    {
+      "target": "GV",
+      "nodes_expanded": 2821,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 166,
+      "generation_ms": 102.623
+    },
+    {
+      "target": "GW",
+      "nodes_expanded": 3050,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 109.018
+    },
+    {
+      "target": "GX",
+      "nodes_expanded": 3381,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 118.456
+    },
+    {
+      "target": "GY",
+      "nodes_expanded": 1711,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 142,
+      "generation_ms": 55.961
+    },
+    {
+      "target": "GZ",
+      "nodes_expanded": 3137,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 109.862
+    },
+    {
+      "target": "HA",
+      "nodes_expanded": 7294,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 232,
+      "generation_ms": 257.795
+    },
+    {
+      "target": "HB",
+      "nodes_expanded": 5658,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 206,
+      "generation_ms": 188.007
+    },
+    {
+      "target": "HC",
+      "nodes_expanded": 5171,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 205,
+      "generation_ms": 189.114
+    },
+    {
+      "target": "HD",
+      "nodes_expanded": 2749,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 158,
+      "generation_ms": 101.339
+    },
+    {
+      "target": "HE",
+      "nodes_expanded": 2584,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 156,
+      "generation_ms": 1192.482
+    },
+    {
+      "target": "HF",
+      "nodes_expanded": 2581,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 156,
+      "generation_ms": 99.78
+    },
+    {
+      "target": "HG",
+      "nodes_expanded": 1137,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 132,
+      "generation_ms": 35.851
+    },
+    {
+      "target": "HH",
+      "nodes_expanded": 1106,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 130,
+      "generation_ms": 42.129
+    },
+    {
+      "target": "HI",
+      "nodes_expanded": 1113,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 131,
+      "generation_ms": 37.437
+    },
+    {
+      "target": "HJ",
+      "nodes_expanded": 1880,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 145,
+      "generation_ms": 66.199
+    },
+    {
+      "target": "HK",
+      "nodes_expanded": 1483,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 144,
+      "generation_ms": 52.517
+    },
+    {
+      "target": "HL",
+      "nodes_expanded": 2244,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 151,
+      "generation_ms": 82.95
+    },
+    {
+      "target": "HM",
+      "nodes_expanded": 1389,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 140,
+      "generation_ms": 48.597
+    },
+    {
+      "target": "HN",
+      "nodes_expanded": 1254,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 134,
+      "generation_ms": 46.806
+    },
+    {
+      "target": "HO",
+      "nodes_expanded": 1230,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 134,
+      "generation_ms": 41.875
+    },
+    {
+      "target": "HP",
+      "nodes_expanded": 6627,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 222,
+      "generation_ms": 215.841
+    },
+    {
+      "target": "HQ",
+      "nodes_expanded": 1152,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 139,
+      "generation_ms": 38.529
+    },
+    {
+      "target": "HR",
+      "nodes_expanded": 3336,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 127.347
+    },
+    {
+      "target": "HS",
+      "nodes_expanded": 3303,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 115.164
+    },
+    {
+      "target": "HT",
+      "nodes_expanded": 3315,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 100.148
+    },
+    {
+      "target": "HU",
+      "nodes_expanded": 2719,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 158,
+      "generation_ms": 86.814
+    },
+    {
+      "target": "HV",
+      "nodes_expanded": 2875,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 158,
+      "generation_ms": 94.408
+    },
+    {
+      "target": "HW",
+      "nodes_expanded": 2614,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 157,
+      "generation_ms": 89.866
+    },
+    {
+      "target": "HX",
+      "nodes_expanded": 3300,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 104.344
+    },
+    {
+      "target": "HY",
+      "nodes_expanded": 3748,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 175,
+      "generation_ms": 137.707
+    },
+    {
+      "target": "HZ",
+      "nodes_expanded": 3306,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 116.729
+    },
+    {
+      "target": "IA",
+      "nodes_expanded": 3017,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 164,
+      "generation_ms": 101.815
+    },
+    {
+      "target": "IB",
+      "nodes_expanded": 3044,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 164,
+      "generation_ms": 110.959
+    },
+    {
+      "target": "IC",
+      "nodes_expanded": 2866,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 91.748
+    },
+    {
+      "target": "ID",
+      "nodes_expanded": 2689,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 158,
+      "generation_ms": 90.553
+    },
+    {
+      "target": "IE",
+      "nodes_expanded": 2223,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 156,
+      "generation_ms": 67.897
+    },
+    {
+      "target": "IF",
+      "nodes_expanded": 2403,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 69.58
+    },
+    {
+      "target": "IG",
+      "nodes_expanded": 1134,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 132,
+      "generation_ms": 38.028
+    },
+    {
+      "target": "IH",
+      "nodes_expanded": 5529,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 205,
+      "generation_ms": 186.029
+    },
+    {
+      "target": "II",
+      "nodes_expanded": 1127,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 131,
+      "generation_ms": 33.512
+    },
+    {
+      "target": "IJ",
+      "nodes_expanded": 1251,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 47.31
+    },
+    {
+      "target": "IK",
+      "nodes_expanded": 1678,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 54.786
+    },
+    {
+      "target": "IL",
+      "nodes_expanded": 923,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 135,
+      "generation_ms": 32.464
+    },
+    {
+      "target": "IM",
+      "nodes_expanded": 965,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 135,
+      "generation_ms": 36.308
+    },
+    {
+      "target": "IN",
+      "nodes_expanded": 812,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 134,
+      "generation_ms": 30.678
+    },
+    {
+      "target": "IO",
+      "nodes_expanded": 806,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 134,
+      "generation_ms": 25.164
+    },
+    {
+      "target": "IP",
+      "nodes_expanded": 2012,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 147,
+      "generation_ms": 72.911
+    },
+    {
+      "target": "IQ",
+      "nodes_expanded": 1146,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 139,
+      "generation_ms": 41.554
+    },
+    {
+      "target": "IR",
+      "nodes_expanded": 2966,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 169,
+      "generation_ms": 107.85
+    },
+    {
+      "target": "IS",
+      "nodes_expanded": 3675,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 173,
+      "generation_ms": 120.216
+    },
+    {
+      "target": "IT",
+      "nodes_expanded": 3318,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 108.899
+    },
+    {
+      "target": "IU",
+      "nodes_expanded": 2268,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 75.845
+    },
+    {
+      "target": "IV",
+      "nodes_expanded": 3814,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 177,
+      "generation_ms": 139.036
+    },
+    {
+      "target": "IW",
+      "nodes_expanded": 2608,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 157,
+      "generation_ms": 83.746
+    },
+    {
+      "target": "IX",
+      "nodes_expanded": 3721,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 176,
+      "generation_ms": 128.849
+    },
+    {
+      "target": "IY",
+      "nodes_expanded": 2812,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 89.564
+    },
+    {
+      "target": "IZ",
+      "nodes_expanded": 2424,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 74.245
+    },
+    {
+      "target": "JA",
+      "nodes_expanded": 2978,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 164,
+      "generation_ms": 98.637
+    },
+    {
+      "target": "JB",
+      "nodes_expanded": 10977,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 296,
+      "generation_ms": 402.559
+    },
+    {
+      "target": "JC",
+      "nodes_expanded": 8609,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 255,
+      "generation_ms": 305.705
+    },
+    {
+      "target": "JD",
+      "nodes_expanded": 2761,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 158,
+      "generation_ms": 88.813
+    },
+    {
+      "target": "JE",
+      "nodes_expanded": 2569,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 156,
+      "generation_ms": 80.73
+    },
+    {
+      "target": "JF",
+      "nodes_expanded": 2593,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 156,
+      "generation_ms": 93.193
+    },
+    {
+      "target": "JG",
+      "nodes_expanded": 5162,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 177.458
+    },
+    {
+      "target": "JH",
+      "nodes_expanded": 5141,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 204,
+      "generation_ms": 183.984
+    },
+    {
+      "target": "JI",
+      "nodes_expanded": 1886,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 146,
+      "generation_ms": 67.348
+    },
+    {
+      "target": "JJ",
+      "nodes_expanded": 501,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 121,
+      "generation_ms": 13.328
+    },
+    {
+      "target": "JK",
+      "nodes_expanded": 1844,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 144,
+      "generation_ms": 63.776
+    },
+    {
+      "target": "JL",
+      "nodes_expanded": 2238,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 151,
+      "generation_ms": 71.869
+    },
+    {
+      "target": "JM",
+      "nodes_expanded": 2448,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 153,
+      "generation_ms": 81.374
+    },
+    {
+      "target": "JN",
+      "nodes_expanded": 1976,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 153,
+      "generation_ms": 66.345
+    },
+    {
+      "target": "JO",
+      "nodes_expanded": 1164,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 140,
+      "generation_ms": 39.571
+    },
+    {
+      "target": "JP",
+      "nodes_expanded": 1621,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 147,
+      "generation_ms": 56.403
+    },
+    {
+      "target": "JQ",
+      "nodes_expanded": 1176,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 139,
+      "generation_ms": 41.6
+    },
+    {
+      "target": "JR",
+      "nodes_expanded": 2966,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 169,
+      "generation_ms": 102.178
+    },
+    {
+      "target": "JS",
+      "nodes_expanded": 3528,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 172,
+      "generation_ms": 120.885
+    },
+    {
+      "target": "JT",
+      "nodes_expanded": 3495,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 120.558
+    },
+    {
+      "target": "JU",
+      "nodes_expanded": 3158,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 114.007
+    },
+    {
+      "target": "JV",
+      "nodes_expanded": 2271,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 86.788
+    },
+    {
+      "target": "JW",
+      "nodes_expanded": 3149,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 107.371
+    },
+    {
+      "target": "JX",
+      "nodes_expanded": 3323,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 114.86
+    },
+    {
+      "target": "JY",
+      "nodes_expanded": 3886,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 177,
+      "generation_ms": 127.99
+    },
+    {
+      "target": "JZ",
+      "nodes_expanded": 2409,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 88.985
+    },
+    {
+      "target": "KA",
+      "nodes_expanded": 5857,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 216,
+      "generation_ms": 200.892
+    },
+    {
+      "target": "KB",
+      "nodes_expanded": 2767,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 160,
+      "generation_ms": 90.23
+    },
+    {
+      "target": "KC",
+      "nodes_expanded": 2686,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 93.444
+    },
+    {
+      "target": "KD",
+      "nodes_expanded": 6810,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 226,
+      "generation_ms": 225.685
+    },
+    {
+      "target": "KE",
+      "nodes_expanded": 2692,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 98.194
+    },
+    {
+      "target": "KF",
+      "nodes_expanded": 2376,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 82.437
+    },
+    {
+      "target": "KG",
+      "nodes_expanded": 6708,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 225,
+      "generation_ms": 210.873
+    },
+    {
+      "target": "KH",
+      "nodes_expanded": 7899,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 243,
+      "generation_ms": 254.63
+    },
+    {
+      "target": "KI",
+      "nodes_expanded": 1561,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 145,
+      "generation_ms": 1303.422
+    },
+    {
+      "target": "KJ",
+      "nodes_expanded": 1928,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 145,
+      "generation_ms": 61.546
+    },
+    {
+      "target": "KK",
+      "nodes_expanded": 1554,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 144,
+      "generation_ms": 61.538
+    },
+    {
+      "target": "KL",
+      "nodes_expanded": 1844,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 144,
+      "generation_ms": 72.059
+    },
+    {
+      "target": "KM",
+      "nodes_expanded": 1841,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 150,
+      "generation_ms": 64.782
+    },
+    {
+      "target": "KN",
+      "nodes_expanded": 1988,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 153,
+      "generation_ms": 77.558
+    },
+    {
+      "target": "KO",
+      "nodes_expanded": 2120,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 148,
+      "generation_ms": 71.334
+    },
+    {
+      "target": "KP",
+      "nodes_expanded": 1603,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 147,
+      "generation_ms": 51.099
+    },
+    {
+      "target": "KQ",
+      "nodes_expanded": 1973,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 147,
+      "generation_ms": 75.602
+    },
+    {
+      "target": "KR",
+      "nodes_expanded": 3020,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 169,
+      "generation_ms": 110.942
+    },
+    {
+      "target": "KS",
+      "nodes_expanded": 3501,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 172,
+      "generation_ms": 129.048
+    },
+    {
+      "target": "KT",
+      "nodes_expanded": 3432,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 118.352
+    },
+    {
+      "target": "KU",
+      "nodes_expanded": 2668,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 158,
+      "generation_ms": 87.696
+    },
+    {
+      "target": "KV",
+      "nodes_expanded": 3140,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 112.808
+    },
+    {
+      "target": "KW",
+      "nodes_expanded": 3068,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 115.996
+    },
+    {
+      "target": "KX",
+      "nodes_expanded": 3393,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 176,
+      "generation_ms": 122.374
+    },
+    {
+      "target": "KY",
+      "nodes_expanded": 2806,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 95.274
+    },
+    {
+      "target": "KZ",
+      "nodes_expanded": 2782,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 98.091
+    },
+    {
+      "target": "LA",
+      "nodes_expanded": 3194,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 106.293
+    },
+    {
+      "target": "LB",
+      "nodes_expanded": 5522,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 203,
+      "generation_ms": 192.434
+    },
+    {
+      "target": "LC",
+      "nodes_expanded": 2692,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 87.947
+    },
+    {
+      "target": "LD",
+      "nodes_expanded": 2490,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 161,
+      "generation_ms": 100.865
+    },
+    {
+      "target": "LE",
+      "nodes_expanded": 2334,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 79.753
+    },
+    {
+      "target": "LF",
+      "nodes_expanded": 2737,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 160,
+      "generation_ms": 81.461
+    },
+    {
+      "target": "LG",
+      "nodes_expanded": 953,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 130,
+      "generation_ms": 26.196
+    },
+    {
+      "target": "LH",
+      "nodes_expanded": 505,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 22.802
+    },
+    {
+      "target": "LI",
+      "nodes_expanded": 890,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 129,
+      "generation_ms": 36.449
+    },
+    {
+      "target": "LJ",
+      "nodes_expanded": 875,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 129,
+      "generation_ms": 27.534
+    },
+    {
+      "target": "LK",
+      "nodes_expanded": 983,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 131,
+      "generation_ms": 29.154
+    },
+    {
+      "target": "LL",
+      "nodes_expanded": 859,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 127,
+      "generation_ms": 24.223
+    },
+    {
+      "target": "LM",
+      "nodes_expanded": 938,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 130,
+      "generation_ms": 30.452
+    },
+    {
+      "target": "LN",
+      "nodes_expanded": 517,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 129,
+      "generation_ms": 22.314
+    },
+    {
+      "target": "LO",
+      "nodes_expanded": 866,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 128,
+      "generation_ms": 29.615
+    },
+    {
+      "target": "LP",
+      "nodes_expanded": 1991,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 148,
+      "generation_ms": 63.167
+    },
+    {
+      "target": "LQ",
+      "nodes_expanded": 1693,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 142,
+      "generation_ms": 67.117
+    },
+    {
+      "target": "LR",
+      "nodes_expanded": 3411,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 170,
+      "generation_ms": 97.942
+    },
+    {
+      "target": "LS",
+      "nodes_expanded": 3420,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 111.118
+    },
+    {
+      "target": "LT",
+      "nodes_expanded": 3074,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 171,
+      "generation_ms": 108.566
+    },
+    {
+      "target": "LU",
+      "nodes_expanded": 3176,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 115.143
+    },
+    {
+      "target": "LV",
+      "nodes_expanded": 3137,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 121.522
+    },
+    {
+      "target": "LW",
+      "nodes_expanded": 2692,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 165,
+      "generation_ms": 95.702
+    },
+    {
+      "target": "LX",
+      "nodes_expanded": 2806,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 167,
+      "generation_ms": 105.49
+    },
+    {
+      "target": "LY",
+      "nodes_expanded": 1542,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 137,
+      "generation_ms": 46.937
+    },
+    {
+      "target": "LZ",
+      "nodes_expanded": 1383,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 137,
+      "generation_ms": 40.827
+    },
+    {
+      "target": "MA",
+      "nodes_expanded": 7003,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 237,
+      "generation_ms": 225.305
+    },
+    {
+      "target": "MB",
+      "nodes_expanded": 5772,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 208,
+      "generation_ms": 187.157
+    },
+    {
+      "target": "MC",
+      "nodes_expanded": 2334,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 87.82
+    },
+    {
+      "target": "MD",
+      "nodes_expanded": 7857,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 243,
+      "generation_ms": 254.176
+    },
+    {
+      "target": "ME",
+      "nodes_expanded": 2409,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 76.518
+    },
+    {
+      "target": "MF",
+      "nodes_expanded": 2298,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 157,
+      "generation_ms": 81.974
+    },
+    {
+      "target": "MG",
+      "nodes_expanded": 1332,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 142,
+      "generation_ms": 47.834
+    },
+    {
+      "target": "MH",
+      "nodes_expanded": 11488,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 304,
+      "generation_ms": 393.437
+    },
+    {
+      "target": "MI",
+      "nodes_expanded": 1597,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 53.631
+    },
+    {
+      "target": "MJ",
+      "nodes_expanded": 1624,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 52.798
+    },
+    {
+      "target": "MK",
+      "nodes_expanded": 1672,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 70.528
+    },
+    {
+      "target": "ML",
+      "nodes_expanded": 2304,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 151,
+      "generation_ms": 82.197
+    },
+    {
+      "target": "MM",
+      "nodes_expanded": 1175,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 132,
+      "generation_ms": 32.752
+    },
+    {
+      "target": "MN",
+      "nodes_expanded": 2117,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 148,
+      "generation_ms": 60.278
+    },
+    {
+      "target": "MO",
+      "nodes_expanded": 1209,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 139,
+      "generation_ms": 48.188
+    },
+    {
+      "target": "MP",
+      "nodes_expanded": 2105,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 148,
+      "generation_ms": 62.029
+    },
+    {
+      "target": "MQ",
+      "nodes_expanded": 1212,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 139,
+      "generation_ms": 52.545
+    },
+    {
+      "target": "MR",
+      "nodes_expanded": 3032,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 169,
+      "generation_ms": 102.407
+    },
+    {
+      "target": "MS",
+      "nodes_expanded": 3513,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 172,
+      "generation_ms": 118.084
+    },
+    {
+      "target": "MT",
+      "nodes_expanded": 3444,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 102.182
+    },
+    {
+      "target": "MU",
+      "nodes_expanded": 3772,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 176,
+      "generation_ms": 146.518
+    },
+    {
+      "target": "MV",
+      "nodes_expanded": 3197,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 98.075
+    },
+    {
+      "target": "MW",
+      "nodes_expanded": 3053,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 103.641
+    },
+    {
+      "target": "MX",
+      "nodes_expanded": 3769,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 176,
+      "generation_ms": 142.521
+    },
+    {
+      "target": "MY",
+      "nodes_expanded": 5273,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 201,
+      "generation_ms": 167.053
+    },
+    {
+      "target": "MZ",
+      "nodes_expanded": 2719,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 166,
+      "generation_ms": 110.303
+    },
+    {
+      "target": "NA",
+      "nodes_expanded": 3173,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 117.24
+    },
+    {
+      "target": "NB",
+      "nodes_expanded": 5396,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 202,
+      "generation_ms": 181.298
+    },
+    {
+      "target": "NC",
+      "nodes_expanded": 2671,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 93.031
+    },
+    {
+      "target": "ND",
+      "nodes_expanded": 6299,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 219,
+      "generation_ms": 214.6
+    },
+    {
+      "target": "NE",
+      "nodes_expanded": 2890,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 81.576
+    },
+    {
+      "target": "NF",
+      "nodes_expanded": 2565,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 96.397
+    },
+    {
+      "target": "NG",
+      "nodes_expanded": 766,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 130,
+      "generation_ms": 29.367
+    },
+    {
+      "target": "NH",
+      "nodes_expanded": 1061,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 128,
+      "generation_ms": 39.314
+    },
+    {
+      "target": "NI",
+      "nodes_expanded": 1058,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 128,
+      "generation_ms": 37.436
+    },
+    {
+      "target": "NJ",
+      "nodes_expanded": 1428,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 141,
+      "generation_ms": 58.587
+    },
+    {
+      "target": "NK",
+      "nodes_expanded": 1278,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 141,
+      "generation_ms": 42.319
+    },
+    {
+      "target": "NL",
+      "nodes_expanded": 1076,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 135,
+      "generation_ms": 36.541
+    },
+    {
+      "target": "NM",
+      "nodes_expanded": 736,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 130,
+      "generation_ms": 21.162
+    },
+    {
+      "target": "NN",
+      "nodes_expanded": 390,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 119,
+      "generation_ms": 13.834
+    },
+    {
+      "target": "NO",
+      "nodes_expanded": 1067,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 129,
+      "generation_ms": 37.646
+    },
+    {
+      "target": "NP",
+      "nodes_expanded": 1931,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 147,
+      "generation_ms": 62.414
+    },
+    {
+      "target": "NQ",
+      "nodes_expanded": 1549,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 139,
+      "generation_ms": 57.956
+    },
+    {
+      "target": "NR",
+      "nodes_expanded": 3411,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 125.292
+    },
+    {
+      "target": "NS",
+      "nodes_expanded": 3281,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 172,
+      "generation_ms": 108.312
+    },
+    {
+      "target": "NT",
+      "nodes_expanded": 3378,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 200.878
+    },
+    {
+      "target": "NU",
+      "nodes_expanded": 3166,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 167,
+      "generation_ms": 103.979
+    },
+    {
+      "target": "NV",
+      "nodes_expanded": 3329,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 107.187
+    },
+    {
+      "target": "NW",
+      "nodes_expanded": 3266,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 102.693
+    },
+    {
+      "target": "NX",
+      "nodes_expanded": 2734,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 160,
+      "generation_ms": 75.38
+    },
+    {
+      "target": "NY",
+      "nodes_expanded": 1734,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 137,
+      "generation_ms": 46.391
+    },
+    {
+      "target": "NZ",
+      "nodes_expanded": 1548,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 137,
+      "generation_ms": 51.174
+    },
+    {
+      "target": "OA",
+      "nodes_expanded": 8253,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 245,
+      "generation_ms": 292.353
+    },
+    {
+      "target": "OB",
+      "nodes_expanded": 2981,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 164,
+      "generation_ms": 110.189
+    },
+    {
+      "target": "OC",
+      "nodes_expanded": 7537,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 233,
+      "generation_ms": 247.227
+    },
+    {
+      "target": "OD",
+      "nodes_expanded": 3022,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 161,
+      "generation_ms": 93.463
+    },
+    {
+      "target": "OE",
+      "nodes_expanded": 2866,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 93.387
+    },
+    {
+      "target": "OF",
+      "nodes_expanded": 2541,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 86.45
+    },
+    {
+      "target": "OG",
+      "nodes_expanded": 935,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 130,
+      "generation_ms": 29.854
+    },
+    {
+      "target": "OH",
+      "nodes_expanded": 1037,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 128,
+      "generation_ms": 31.28
+    },
+    {
+      "target": "OI",
+      "nodes_expanded": 670,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 25.833
+    },
+    {
+      "target": "OJ",
+      "nodes_expanded": 1624,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 53.488
+    },
+    {
+      "target": "OK",
+      "nodes_expanded": 1780,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 54.27
+    },
+    {
+      "target": "OL",
+      "nodes_expanded": 1043,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 135,
+      "generation_ms": 37.561
+    },
+    {
+      "target": "OM",
+      "nodes_expanded": 514,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 14.12
+    },
+    {
+      "target": "ON",
+      "nodes_expanded": 1422,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 55.011
+    },
+    {
+      "target": "OO",
+      "nodes_expanded": 1027,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 127,
+      "generation_ms": 29.285
+    },
+    {
+      "target": "OP",
+      "nodes_expanded": 2159,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 148,
+      "generation_ms": 69.497
+    },
+    {
+      "target": "OQ",
+      "nodes_expanded": 1137,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 139,
+      "generation_ms": 33.791
+    },
+    {
+      "target": "OR",
+      "nodes_expanded": 3585,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 170,
+      "generation_ms": 114.78
+    },
+    {
+      "target": "OS",
+      "nodes_expanded": 3904,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 177,
+      "generation_ms": 116.397
+    },
+    {
+      "target": "OT",
+      "nodes_expanded": 3606,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 1635.366
+    },
+    {
+      "target": "OU",
+      "nodes_expanded": 3506,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 113.704
+    },
+    {
+      "target": "OV",
+      "nodes_expanded": 2887,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 166,
+      "generation_ms": 100.279
+    },
+    {
+      "target": "OW",
+      "nodes_expanded": 3053,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 89.996
+    },
+    {
+      "target": "OX",
+      "nodes_expanded": 2974,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 167,
+      "generation_ms": 91.627
+    },
+    {
+      "target": "OY",
+      "nodes_expanded": 1157,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 137,
+      "generation_ms": 37.465
+    },
+    {
+      "target": "OZ",
+      "nodes_expanded": 1674,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 137,
+      "generation_ms": 54.803
+    },
+    {
+      "target": "PA",
+      "nodes_expanded": 2851,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 166,
+      "generation_ms": 89.292
+    },
+    {
+      "target": "PB",
+      "nodes_expanded": 5875,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 211,
+      "generation_ms": 206.035
+    },
+    {
+      "target": "PC",
+      "nodes_expanded": 2686,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 89.817
+    },
+    {
+      "target": "PD",
+      "nodes_expanded": 2617,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 158,
+      "generation_ms": 84.477
+    },
+    {
+      "target": "PE",
+      "nodes_expanded": 2274,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 78.578
+    },
+    {
+      "target": "PF",
+      "nodes_expanded": 2584,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 156,
+      "generation_ms": 75.037
+    },
+    {
+      "target": "PG",
+      "nodes_expanded": 4780,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 199,
+      "generation_ms": 159.446
+    },
+    {
+      "target": "PH",
+      "nodes_expanded": 583,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 21.707
+    },
+    {
+      "target": "PI",
+      "nodes_expanded": 7445,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 244,
+      "generation_ms": 247.812
+    },
+    {
+      "target": "PJ",
+      "nodes_expanded": 1985,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 153,
+      "generation_ms": 72.288
+    },
+    {
+      "target": "PK",
+      "nodes_expanded": 505,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 20.041
+    },
+    {
+      "target": "PL",
+      "nodes_expanded": 2238,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 151,
+      "generation_ms": 82.491
+    },
+    {
+      "target": "PM",
+      "nodes_expanded": 1750,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 140,
+      "generation_ms": 58.821
+    },
+    {
+      "target": "PN",
+      "nodes_expanded": 2340,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 153,
+      "generation_ms": 65.786
+    },
+    {
+      "target": "PO",
+      "nodes_expanded": 1940,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 152,
+      "generation_ms": 64.293
+    },
+    {
+      "target": "PP",
+      "nodes_expanded": 2228,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 150,
+      "generation_ms": 71.441
+    },
+    {
+      "target": "PQ",
+      "nodes_expanded": 2244,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 151,
+      "generation_ms": 71.948
+    },
+    {
+      "target": "PR",
+      "nodes_expanded": 3020,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 169,
+      "generation_ms": 95.428
+    },
+    {
+      "target": "PS",
+      "nodes_expanded": 3137,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 172,
+      "generation_ms": 104.827
+    },
+    {
+      "target": "PT",
+      "nodes_expanded": 2948,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 168,
+      "generation_ms": 95.537
+    },
+    {
+      "target": "PU",
+      "nodes_expanded": 2304,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 71.372
+    },
+    {
+      "target": "PV",
+      "nodes_expanded": 2298,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 78.326
+    },
+    {
+      "target": "PW",
+      "nodes_expanded": 2238,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 157,
+      "generation_ms": 68.763
+    },
+    {
+      "target": "PX",
+      "nodes_expanded": 427,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 14.349
+    },
+    {
+      "target": "PY",
+      "nodes_expanded": 2659,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 83.42
+    },
+    {
+      "target": "PZ",
+      "nodes_expanded": 658,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 122,
+      "generation_ms": 20.812
+    },
+    {
+      "target": "QA",
+      "nodes_expanded": 5462,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 208,
+      "generation_ms": 188.192
+    },
+    {
+      "target": "QB",
+      "nodes_expanded": 5513,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 202,
+      "generation_ms": 170.518
+    },
+    {
+      "target": "QC",
+      "nodes_expanded": 2547,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 90.913
+    },
+    {
+      "target": "QD",
+      "nodes_expanded": 2502,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 161,
+      "generation_ms": 85.962
+    },
+    {
+      "target": "QE",
+      "nodes_expanded": 2526,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 75.664
+    },
+    {
+      "target": "QF",
+      "nodes_expanded": 2559,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 71.588
+    },
+    {
+      "target": "QG",
+      "nodes_expanded": 1145,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 130,
+      "generation_ms": 42.291
+    },
+    {
+      "target": "QH",
+      "nodes_expanded": 697,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 20.53
+    },
+    {
+      "target": "QI",
+      "nodes_expanded": 718,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 129,
+      "generation_ms": 23.656
+    },
+    {
+      "target": "QJ",
+      "nodes_expanded": 1431,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 49.975
+    },
+    {
+      "target": "QK",
+      "nodes_expanded": 1485,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 136,
+      "generation_ms": 46.316
+    },
+    {
+      "target": "QL",
+      "nodes_expanded": 450,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 125,
+      "generation_ms": 20.885
+    },
+    {
+      "target": "QM",
+      "nodes_expanded": 1521,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 136,
+      "generation_ms": 44.727
+    },
+    {
+      "target": "QN",
+      "nodes_expanded": 1006,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 125,
+      "generation_ms": 30.701
+    },
+    {
+      "target": "QO",
+      "nodes_expanded": 618,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 125,
+      "generation_ms": 21.91
+    },
+    {
+      "target": "QP",
+      "nodes_expanded": 736,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 124,
+      "generation_ms": 24.379
+    },
+    {
+      "target": "QQ",
+      "nodes_expanded": 687,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 121,
+      "generation_ms": 28.323
+    },
+    {
+      "target": "QR",
+      "nodes_expanded": 694,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 122,
+      "generation_ms": 24.37
+    },
+    {
+      "target": "QS",
+      "nodes_expanded": 3645,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 172,
+      "generation_ms": 128.257
+    },
+    {
+      "target": "QT",
+      "nodes_expanded": 3248,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 171,
+      "generation_ms": 106.973
+    },
+    {
+      "target": "QU",
+      "nodes_expanded": 3368,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 105.521
+    },
+    {
+      "target": "QV",
+      "nodes_expanded": 2965,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 166,
+      "generation_ms": 105.736
+    },
+    {
+      "target": "QW",
+      "nodes_expanded": 2902,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 165,
+      "generation_ms": 104.818
+    },
+    {
+      "target": "QX",
+      "nodes_expanded": 2920,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 160,
+      "generation_ms": 102.639
+    },
+    {
+      "target": "QY",
+      "nodes_expanded": 718,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 25.253
+    },
+    {
+      "target": "QZ",
+      "nodes_expanded": 1698,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 137,
+      "generation_ms": 51.831
+    },
+    {
+      "target": "RA",
+      "nodes_expanded": 2977,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 167,
+      "generation_ms": 100.961
+    },
+    {
+      "target": "RB",
+      "nodes_expanded": 6903,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 226,
+      "generation_ms": 248.675
+    },
+    {
+      "target": "RC",
+      "nodes_expanded": 2899,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 166,
+      "generation_ms": 101.813
+    },
+    {
+      "target": "RD",
+      "nodes_expanded": 2640,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 161,
+      "generation_ms": 83.154
+    },
+    {
+      "target": "RE",
+      "nodes_expanded": 2502,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 79.284
+    },
+    {
+      "target": "RF",
+      "nodes_expanded": 2541,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 81.82
+    },
+    {
+      "target": "RG",
+      "nodes_expanded": 1121,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 130,
+      "generation_ms": 37.183
+    },
+    {
+      "target": "RH",
+      "nodes_expanded": 673,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 19.557
+    },
+    {
+      "target": "RI",
+      "nodes_expanded": 1058,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 129,
+      "generation_ms": 42.09
+    },
+    {
+      "target": "RJ",
+      "nodes_expanded": 1043,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 129,
+      "generation_ms": 31.243
+    },
+    {
+      "target": "RK",
+      "nodes_expanded": 1780,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 61.221
+    },
+    {
+      "target": "RL",
+      "nodes_expanded": 426,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 125,
+      "generation_ms": 12.995
+    },
+    {
+      "target": "RM",
+      "nodes_expanded": 1133,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 136,
+      "generation_ms": 31.82
+    },
+    {
+      "target": "RN",
+      "nodes_expanded": 618,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 125,
+      "generation_ms": 21.349
+    },
+    {
+      "target": "RO",
+      "nodes_expanded": 958,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 125,
+      "generation_ms": 30.916
+    },
+    {
+      "target": "RP",
+      "nodes_expanded": 315,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 123,
+      "generation_ms": 9.63
+    },
+    {
+      "target": "RQ",
+      "nodes_expanded": 685,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 26.081
+    },
+    {
+      "target": "RR",
+      "nodes_expanded": 299,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 121,
+      "generation_ms": 15.201
+    },
+    {
+      "target": "RS",
+      "nodes_expanded": 3257,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 172,
+      "generation_ms": 115.34
+    },
+    {
+      "target": "RT",
+      "nodes_expanded": 2526,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 86.084
+    },
+    {
+      "target": "RU",
+      "nodes_expanded": 3344,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 101.289
+    },
+    {
+      "target": "RV",
+      "nodes_expanded": 3305,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 108.134
+    },
+    {
+      "target": "RW",
+      "nodes_expanded": 2878,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 165,
+      "generation_ms": 100.275
+    },
+    {
+      "target": "RX",
+      "nodes_expanded": 2974,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 167,
+      "generation_ms": 92.129
+    },
+    {
+      "target": "RY",
+      "nodes_expanded": 330,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 123,
+      "generation_ms": 11.814
+    },
+    {
+      "target": "RZ",
+      "nodes_expanded": 1310,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 137,
+      "generation_ms": 44.891
+    },
+    {
+      "target": "SA",
+      "nodes_expanded": 6897,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 232,
+      "generation_ms": 234.872
+    },
+    {
+      "target": "SB",
+      "nodes_expanded": 5878,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 217,
+      "generation_ms": 186.945
+    },
+    {
+      "target": "SC",
+      "nodes_expanded": 7027,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 230,
+      "generation_ms": 228.455
+    },
+    {
+      "target": "SD",
+      "nodes_expanded": 6521,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 220,
+      "generation_ms": 213.509
+    },
+    {
+      "target": "SE",
+      "nodes_expanded": 6377,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 220,
+      "generation_ms": 182.682
+    },
+    {
+      "target": "SF",
+      "nodes_expanded": 4825,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 201,
+      "generation_ms": 153.664
+    },
+    {
+      "target": "SG",
+      "nodes_expanded": 5150,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 161.12
+    },
+    {
+      "target": "SH",
+      "nodes_expanded": 7881,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 244,
+      "generation_ms": 250.015
+    },
+    {
+      "target": "SI",
+      "nodes_expanded": 4789,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 199,
+      "generation_ms": 157.86
+    },
+    {
+      "target": "SJ",
+      "nodes_expanded": 5231,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 205,
+      "generation_ms": 191.022
+    },
+    {
+      "target": "SK",
+      "nodes_expanded": 5550,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 207,
+      "generation_ms": 183.925
+    },
+    {
+      "target": "SL",
+      "nodes_expanded": 5568,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 207,
+      "generation_ms": 186.058
+    },
+    {
+      "target": "SM",
+      "nodes_expanded": 6284,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 219,
+      "generation_ms": 197.207
+    },
+    {
+      "target": "SN",
+      "nodes_expanded": 4843,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 201,
+      "generation_ms": 163.469
+    },
+    {
+      "target": "SO",
+      "nodes_expanded": 5276,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 208,
+      "generation_ms": 177.886
+    },
+    {
+      "target": "SP",
+      "nodes_expanded": 3790,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 183,
+      "generation_ms": 118.98
+    },
+    {
+      "target": "SQ",
+      "nodes_expanded": 7053,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 235,
+      "generation_ms": 230.661
+    },
+    {
+      "target": "SR",
+      "nodes_expanded": 5375,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 202,
+      "generation_ms": 185.604
+    },
+    {
+      "target": "SS",
+      "nodes_expanded": 3644,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 113.76
+    },
+    {
+      "target": "ST",
+      "nodes_expanded": 3432,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 177,
+      "generation_ms": 130.458
+    },
+    {
+      "target": "SU",
+      "nodes_expanded": 3712,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 176,
+      "generation_ms": 117.165
+    },
+    {
+      "target": "SV",
+      "nodes_expanded": 3342,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 176,
+      "generation_ms": 117.054
+    },
+    {
+      "target": "SW",
+      "nodes_expanded": 3309,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 175,
+      "generation_ms": 121.657
+    },
+    {
+      "target": "SX",
+      "nodes_expanded": 3709,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 176,
+      "generation_ms": 122.601
+    },
+    {
+      "target": "SY",
+      "nodes_expanded": 3679,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 175,
+      "generation_ms": 119.612
+    },
+    {
+      "target": "SZ",
+      "nodes_expanded": 3336,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 175,
+      "generation_ms": 100.766
+    },
+    {
+      "target": "TA",
+      "nodes_expanded": 6154,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 213,
+      "generation_ms": 214.662
+    },
+    {
+      "target": "TB",
+      "nodes_expanded": 5171,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 200,
+      "generation_ms": 163.285
+    },
+    {
+      "target": "TC",
+      "nodes_expanded": 5893,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 211,
+      "generation_ms": 206.211
+    },
+    {
+      "target": "TD",
+      "nodes_expanded": 8618,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 255,
+      "generation_ms": 290.899
+    },
+    {
+      "target": "TE",
+      "nodes_expanded": 5426,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 207,
+      "generation_ms": 179.579
+    },
+    {
+      "target": "TF",
+      "nodes_expanded": 5053,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 201,
+      "generation_ms": 166.75
+    },
+    {
+      "target": "TG",
+      "nodes_expanded": 4798,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 199,
+      "generation_ms": 165.136
+    },
+    {
+      "target": "TH",
+      "nodes_expanded": 5132,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 205,
+      "generation_ms": 161.703
+    },
+    {
+      "target": "TI",
+      "nodes_expanded": 4762,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 199,
+      "generation_ms": 2036.198
+    },
+    {
+      "target": "TJ",
+      "nodes_expanded": 6828,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 225,
+      "generation_ms": 222.734
+    },
+    {
+      "target": "TK",
+      "nodes_expanded": 1245,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 141,
+      "generation_ms": 38.992
+    },
+    {
+      "target": "TL",
+      "nodes_expanded": 5243,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 201,
+      "generation_ms": 174.131
+    },
+    {
+      "target": "TM",
+      "nodes_expanded": 5854,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 211,
+      "generation_ms": 197.173
+    },
+    {
+      "target": "TN",
+      "nodes_expanded": 5249,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 201,
+      "generation_ms": 165.513
+    },
+    {
+      "target": "TO",
+      "nodes_expanded": 6212,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 215,
+      "generation_ms": 206.326
+    },
+    {
+      "target": "TP",
+      "nodes_expanded": 4325,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 183,
+      "generation_ms": 146.946
+    },
+    {
+      "target": "TQ",
+      "nodes_expanded": 4259,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 189,
+      "generation_ms": 135.331
+    },
+    {
+      "target": "TR",
+      "nodes_expanded": 4085,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 182,
+      "generation_ms": 133.976
+    },
+    {
+      "target": "TS",
+      "nodes_expanded": 3895,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 177,
+      "generation_ms": 127.197
+    },
+    {
+      "target": "TT",
+      "nodes_expanded": 3293,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 173,
+      "generation_ms": 107.403
+    },
+    {
+      "target": "TU",
+      "nodes_expanded": 3327,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 175,
+      "generation_ms": 122.257
+    },
+    {
+      "target": "TV",
+      "nodes_expanded": 3814,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 177,
+      "generation_ms": 122.043
+    },
+    {
+      "target": "TW",
+      "nodes_expanded": 4040,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 181,
+      "generation_ms": 134.889
+    },
+    {
+      "target": "TX",
+      "nodes_expanded": 3357,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 176,
+      "generation_ms": 108.7
+    },
+    {
+      "target": "TY",
+      "nodes_expanded": 3697,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 175,
+      "generation_ms": 120.195
+    },
+    {
+      "target": "TZ",
+      "nodes_expanded": 3324,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 174,
+      "generation_ms": 107.282
+    },
+    {
+      "target": "UA",
+      "nodes_expanded": 3269,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 108.244
+    },
+    {
+      "target": "UB",
+      "nodes_expanded": 2511,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 85.304
+    },
+    {
+      "target": "UC",
+      "nodes_expanded": 3278,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 101.737
+    },
+    {
+      "target": "UD",
+      "nodes_expanded": 2646,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 161,
+      "generation_ms": 80.917
+    },
+    {
+      "target": "UE",
+      "nodes_expanded": 2490,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 96.718
+    },
+    {
+      "target": "UF",
+      "nodes_expanded": 2893,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 160,
+      "generation_ms": 105.933
+    },
+    {
+      "target": "UG",
+      "nodes_expanded": 1109,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 130,
+      "generation_ms": 36.825
+    },
+    {
+      "target": "UH",
+      "nodes_expanded": 661,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 28.46
+    },
+    {
+      "target": "UI",
+      "nodes_expanded": 682,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 129,
+      "generation_ms": 30.412
+    },
+    {
+      "target": "UJ",
+      "nodes_expanded": 1756,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 53.813
+    },
+    {
+      "target": "UK",
+      "nodes_expanded": 1404,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 141,
+      "generation_ms": 46.199
+    },
+    {
+      "target": "UL",
+      "nodes_expanded": 778,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 125,
+      "generation_ms": 26.512
+    },
+    {
+      "target": "UM",
+      "nodes_expanded": 1121,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 136,
+      "generation_ms": 41.682
+    },
+    {
+      "target": "UN",
+      "nodes_expanded": 970,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 125,
+      "generation_ms": 31.583
+    },
+    {
+      "target": "UO",
+      "nodes_expanded": 582,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 125,
+      "generation_ms": 17.796
+    },
+    {
+      "target": "UP",
+      "nodes_expanded": 2147,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 148,
+      "generation_ms": 70.02
+    },
+    {
+      "target": "UQ",
+      "nodes_expanded": 1485,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 142,
+      "generation_ms": 43.492
+    },
+    {
+      "target": "UR",
+      "nodes_expanded": 1136,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 131,
+      "generation_ms": 33.116
+    },
+    {
+      "target": "US",
+      "nodes_expanded": 303,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 123,
+      "generation_ms": 14.871
+    },
+    {
+      "target": "UT",
+      "nodes_expanded": 673,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 25.542
+    },
+    {
+      "target": "UU",
+      "nodes_expanded": 287,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 121,
+      "generation_ms": 16.643
+    },
+    {
+      "target": "UV",
+      "nodes_expanded": 3293,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 110.756
+    },
+    {
+      "target": "UW",
+      "nodes_expanded": 3230,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 111.523
+    },
+    {
+      "target": "UX",
+      "nodes_expanded": 2962,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 167,
+      "generation_ms": 100.367
+    },
+    {
+      "target": "UY",
+      "nodes_expanded": 682,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 20.887
+    },
+    {
+      "target": "UZ",
+      "nodes_expanded": 1244,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 131,
+      "generation_ms": 41.306
+    },
+    {
+      "target": "VA",
+      "nodes_expanded": 3227,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 114.35
+    },
+    {
+      "target": "VB",
+      "nodes_expanded": 3453,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 171,
+      "generation_ms": 115.881
+    },
+    {
+      "target": "VC",
+      "nodes_expanded": 2698,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 90.884
+    },
+    {
+      "target": "VD",
+      "nodes_expanded": 2319,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 78.612
+    },
+    {
+      "target": "VE",
+      "nodes_expanded": 2298,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 157,
+      "generation_ms": 73.919
+    },
+    {
+      "target": "VF",
+      "nodes_expanded": 2433,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 160,
+      "generation_ms": 82.258
+    },
+    {
+      "target": "VG",
+      "nodes_expanded": 649,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 130,
+      "generation_ms": 25.912
+    },
+    {
+      "target": "VH",
+      "nodes_expanded": 493,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 15.221
+    },
+    {
+      "target": "VI",
+      "nodes_expanded": 532,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 129,
+      "generation_ms": 18.014
+    },
+    {
+      "target": "VJ",
+      "nodes_expanded": 1245,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 43.273
+    },
+    {
+      "target": "VK",
+      "nodes_expanded": 1308,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 141,
+      "generation_ms": 39.102
+    },
+    {
+      "target": "VL",
+      "nodes_expanded": 1254,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 42.354
+    },
+    {
+      "target": "VM",
+      "nodes_expanded": 1025,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 136,
+      "generation_ms": 36.003
+    },
+    {
+      "target": "VN",
+      "nodes_expanded": 1260,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 41.636
+    },
+    {
+      "target": "VO",
+      "nodes_expanded": 851,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 128,
+      "generation_ms": 31.139
+    },
+    {
+      "target": "VP",
+      "nodes_expanded": 159,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 123,
+      "generation_ms": 6.725
+    },
+    {
+      "target": "VQ",
+      "nodes_expanded": 1212,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 139,
+      "generation_ms": 47.809
+    },
+    {
+      "target": "VR",
+      "nodes_expanded": 490,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 122,
+      "generation_ms": 17.047
+    },
+    {
+      "target": "VS",
+      "nodes_expanded": 598,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 124,
+      "generation_ms": 17.409
+    },
+    {
+      "target": "VT",
+      "nodes_expanded": 3080,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 171,
+      "generation_ms": 112.865
+    },
+    {
+      "target": "VU",
+      "nodes_expanded": 153,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 123,
+      "generation_ms": 6.023
+    },
+    {
+      "target": "VV",
+      "nodes_expanded": 474,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 120,
+      "generation_ms": 14.103
+    },
+    {
+      "target": "VW",
+      "nodes_expanded": 2716,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 165,
+      "generation_ms": 100.626
+    },
+    {
+      "target": "VX",
+      "nodes_expanded": 3022,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 168,
+      "generation_ms": 99.071
+    },
+    {
+      "target": "VY",
+      "nodes_expanded": 532,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 18.571
+    },
+    {
+      "target": "VZ",
+      "nodes_expanded": 2785,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 166,
+      "generation_ms": 89.133
+    },
+    {
+      "target": "WA",
+      "nodes_expanded": 7517,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 243,
+      "generation_ms": 257.923
+    },
+    {
+      "target": "WB",
+      "nodes_expanded": 6542,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 219,
+      "generation_ms": 203.836
+    },
+    {
+      "target": "WC",
+      "nodes_expanded": 2866,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 159,
+      "generation_ms": 101.863
+    },
+    {
+      "target": "WD",
+      "nodes_expanded": 2259,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 76.289
+    },
+    {
+      "target": "WE",
+      "nodes_expanded": 2614,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 157,
+      "generation_ms": 81.408
+    },
+    {
+      "target": "WF",
+      "nodes_expanded": 2593,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 156,
+      "generation_ms": 90.717
+    },
+    {
+      "target": "WG",
+      "nodes_expanded": 4798,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 199,
+      "generation_ms": 155.131
+    },
+    {
+      "target": "WH",
+      "nodes_expanded": 809,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 128,
+      "generation_ms": 21.368
+    },
+    {
+      "target": "WI",
+      "nodes_expanded": 902,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 129,
+      "generation_ms": 28.226
+    },
+    {
+      "target": "WJ",
+      "nodes_expanded": 1266,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 141,
+      "generation_ms": 44.339
+    },
+    {
+      "target": "WK",
+      "nodes_expanded": 767,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 126,
+      "generation_ms": 27.365
+    },
+    {
+      "target": "WL",
+      "nodes_expanded": 1874,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 151,
+      "generation_ms": 68.585
+    },
+    {
+      "target": "WM",
+      "nodes_expanded": 1248,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 40.903
+    },
+    {
+      "target": "WN",
+      "nodes_expanded": 902,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 135,
+      "generation_ms": 36.673
+    },
+    {
+      "target": "WO",
+      "nodes_expanded": 439,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 22.805
+    },
+    {
+      "target": "WP",
+      "nodes_expanded": 1648,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 147,
+      "generation_ms": 56.495
+    },
+    {
+      "target": "WQ",
+      "nodes_expanded": 466,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 122,
+      "generation_ms": 16.977
+    },
+    {
+      "target": "WR",
+      "nodes_expanded": 442,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 122,
+      "generation_ms": 15.689
+    },
+    {
+      "target": "WS",
+      "nodes_expanded": 267,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 123,
+      "generation_ms": 8.253
+    },
+    {
+      "target": "WT",
+      "nodes_expanded": 2960,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 169,
+      "generation_ms": 109.307
+    },
+    {
+      "target": "WU",
+      "nodes_expanded": 159,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 123,
+      "generation_ms": 9.486
+    },
+    {
+      "target": "WV",
+      "nodes_expanded": 421,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 121,
+      "generation_ms": 15.894
+    },
+    {
+      "target": "WW",
+      "nodes_expanded": 35,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 119,
+      "generation_ms": 3.153
+    },
+    {
+      "target": "WX",
+      "nodes_expanded": 42,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 120,
+      "generation_ms": 3.265
+    },
+    {
+      "target": "WY",
+      "nodes_expanded": 538,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 123,
+      "generation_ms": 14.425
+    },
+    {
+      "target": "WZ",
+      "nodes_expanded": 1729,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 50.876
+    },
+    {
+      "target": "XA",
+      "nodes_expanded": 6215,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 216,
+      "generation_ms": 215.649
+    },
+    {
+      "target": "XB",
+      "nodes_expanded": 6305,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 217,
+      "generation_ms": 219.142
+    },
+    {
+      "target": "XC",
+      "nodes_expanded": 2978,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 163,
+      "generation_ms": 103.359
+    },
+    {
+      "target": "XD",
+      "nodes_expanded": 2379,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 73.247
+    },
+    {
+      "target": "XE",
+      "nodes_expanded": 2620,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 157,
+      "generation_ms": 88.564
+    },
+    {
+      "target": "XF",
+      "nodes_expanded": 2217,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 156,
+      "generation_ms": 73.442
+    },
+    {
+      "target": "XG",
+      "nodes_expanded": 773,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 132,
+      "generation_ms": 27.395
+    },
+    {
+      "target": "XH",
+      "nodes_expanded": 505,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 14.693
+    },
+    {
+      "target": "XI",
+      "nodes_expanded": 752,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 131,
+      "generation_ms": 27.12
+    },
+    {
+      "target": "XJ",
+      "nodes_expanded": 484,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 127,
+      "generation_ms": 15.995
+    },
+    {
+      "target": "XK",
+      "nodes_expanded": 409,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 126,
+      "generation_ms": 19.939
+    },
+    {
+      "target": "XL",
+      "nodes_expanded": 752,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 125,
+      "generation_ms": 27.001
+    },
+    {
+      "target": "XM",
+      "nodes_expanded": 1389,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 140,
+      "generation_ms": 50.517
+    },
+    {
+      "target": "XN",
+      "nodes_expanded": 697,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 30.534
+    },
+    {
+      "target": "XO",
+      "nodes_expanded": 1025,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 128,
+      "generation_ms": 31.347
+    },
+    {
+      "target": "XP",
+      "nodes_expanded": 457,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 121,
+      "generation_ms": 20.065
+    },
+    {
+      "target": "XQ",
+      "nodes_expanded": 36,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 120,
+      "generation_ms": 4.862
+    },
+    {
+      "target": "XR",
+      "nodes_expanded": 21,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 119,
+      "generation_ms": 2.933
+    },
+    {
+      "target": "XS",
+      "nodes_expanded": 3303,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 103.996
+    },
+    {
+      "target": "XT",
+      "nodes_expanded": 3384,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 169,
+      "generation_ms": 117.519
+    },
+    {
+      "target": "XU",
+      "nodes_expanded": 2881,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 158,
+      "generation_ms": 92.414
+    },
+    {
+      "target": "XV",
+      "nodes_expanded": 30,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 120,
+      "generation_ms": 4.041
+    },
+    {
+      "target": "XW",
+      "nodes_expanded": 2250,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 157,
+      "generation_ms": 73.401
+    },
+    {
+      "target": "XX",
+      "nodes_expanded": 378,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 118,
+      "generation_ms": 13.974
+    },
+    {
+      "target": "XY",
+      "nodes_expanded": 379,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 124,
+      "generation_ms": 14.436
+    },
+    {
+      "target": "XZ",
+      "nodes_expanded": 661,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 122,
+      "generation_ms": 26.733
+    },
+    {
+      "target": "YA",
+      "nodes_expanded": 5863,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 210,
+      "generation_ms": 207.137
+    },
+    {
+      "target": "YB",
+      "nodes_expanded": 8928,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 267,
+      "generation_ms": 312.455
+    },
+    {
+      "target": "YC",
+      "nodes_expanded": 2502,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 91.51
+    },
+    {
+      "target": "YD",
+      "nodes_expanded": 2325,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 68.912
+    },
+    {
+      "target": "YE",
+      "nodes_expanded": 2241,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 157,
+      "generation_ms": 68.443
+    },
+    {
+      "target": "YF",
+      "nodes_expanded": 2229,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 156,
+      "generation_ms": 78.696
+    },
+    {
+      "target": "YG",
+      "nodes_expanded": 767,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 132,
+      "generation_ms": 25.091
+    },
+    {
+      "target": "YH",
+      "nodes_expanded": 445,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 128,
+      "generation_ms": 20.583
+    },
+    {
+      "target": "YI",
+      "nodes_expanded": 538,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 129,
+      "generation_ms": 18.917
+    },
+    {
+      "target": "YJ",
+      "nodes_expanded": 1266,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 141,
+      "generation_ms": 39.207
+    },
+    {
+      "target": "YK",
+      "nodes_expanded": 1612,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 50.783
+    },
+    {
+      "target": "YL",
+      "nodes_expanded": 1874,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 151,
+      "generation_ms": 62.962
+    },
+    {
+      "target": "YM",
+      "nodes_expanded": 5183,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 206,
+      "generation_ms": 170.641
+    },
+    {
+      "target": "YN",
+      "nodes_expanded": 803,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 134,
+      "generation_ms": 27.592
+    },
+    {
+      "target": "YO",
+      "nodes_expanded": 1167,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 134,
+      "generation_ms": 46.569
+    },
+    {
+      "target": "YP",
+      "nodes_expanded": 2003,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 147,
+      "generation_ms": 77.602
+    },
+    {
+      "target": "YQ",
+      "nodes_expanded": 1510,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 139,
+      "generation_ms": 54.733
+    },
+    {
+      "target": "YR",
+      "nodes_expanded": 2966,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 169,
+      "generation_ms": 94.682
+    },
+    {
+      "target": "YS",
+      "nodes_expanded": 3315,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 168,
+      "generation_ms": 112.725
+    },
+    {
+      "target": "YT",
+      "nodes_expanded": 3086,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 171,
+      "generation_ms": 109.092
+    },
+    {
+      "target": "YU",
+      "nodes_expanded": 2289,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 77.825
+    },
+    {
+      "target": "YV",
+      "nodes_expanded": 3814,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 177,
+      "generation_ms": 128.798
+    },
+    {
+      "target": "YW",
+      "nodes_expanded": 2722,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 165,
+      "generation_ms": 80.207
+    },
+    {
+      "target": "YX",
+      "nodes_expanded": 2948,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 167,
+      "generation_ms": 98.598
+    },
+    {
+      "target": "YY",
+      "nodes_expanded": 763,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 125,
+      "generation_ms": 20.827
+    },
+    {
+      "target": "YZ",
+      "nodes_expanded": 2343,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 71.891
+    },
+    {
+      "target": "ZA",
+      "nodes_expanded": 6368,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 226,
+      "generation_ms": 203.369
+    },
+    {
+      "target": "ZB",
+      "nodes_expanded": 5884,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 217,
+      "generation_ms": 205.077
+    },
+    {
+      "target": "ZC",
+      "nodes_expanded": 2484,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 87.157
+    },
+    {
+      "target": "ZD",
+      "nodes_expanded": 2478,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 158,
+      "generation_ms": 88.639
+    },
+    {
+      "target": "ZE",
+      "nodes_expanded": 2490,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 159,
+      "generation_ms": 72.074
+    },
+    {
+      "target": "ZF",
+      "nodes_expanded": 2743,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 160,
+      "generation_ms": 89.503
+    },
+    {
+      "target": "ZG",
+      "nodes_expanded": 5225,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 199,
+      "generation_ms": 192.169
+    },
+    {
+      "target": "ZH",
+      "nodes_expanded": 4939,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 202,
+      "generation_ms": 172.08
+    },
+    {
+      "target": "ZI",
+      "nodes_expanded": 1789,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 142,
+      "generation_ms": 55.642
+    },
+    {
+      "target": "ZJ",
+      "nodes_expanded": 1774,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 141,
+      "generation_ms": 63.973
+    },
+    {
+      "target": "ZK",
+      "nodes_expanded": 1837,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 142,
+      "generation_ms": 50.838
+    },
+    {
+      "target": "ZL",
+      "nodes_expanded": 1251,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 135,
+      "generation_ms": 45.721
+    },
+    {
+      "target": "ZM",
+      "nodes_expanded": 2056,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 149,
+      "generation_ms": 67.075
+    },
+    {
+      "target": "ZN",
+      "nodes_expanded": 1849,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 148,
+      "generation_ms": 65.701
+    },
+    {
+      "target": "ZO",
+      "nodes_expanded": 379,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 125,
+      "generation_ms": 17.434
+    },
+    {
+      "target": "ZP",
+      "nodes_expanded": 1783,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 148,
+      "generation_ms": 77.41
+    },
+    {
+      "target": "ZQ",
+      "nodes_expanded": 1485,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 142,
+      "generation_ms": 56.715
+    },
+    {
+      "target": "ZR",
+      "nodes_expanded": 3200,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 169,
+      "generation_ms": 106.592
+    },
+    {
+      "target": "ZS",
+      "nodes_expanded": 3609,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 172,
+      "generation_ms": 121.621
+    },
+    {
+      "target": "ZT",
+      "nodes_expanded": 3230,
+      "states_revisited": 0,
+      "cache_hits": 727,
+      "solution_length": 171,
+      "generation_ms": 107.378
+    },
+    {
+      "target": "ZU",
+      "nodes_expanded": 3335,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 110.784
+    },
+    {
+      "target": "ZV",
+      "nodes_expanded": 3293,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 166,
+      "generation_ms": 107.033
+    },
+    {
+      "target": "ZW",
+      "nodes_expanded": 3230,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 165,
+      "generation_ms": 90.529
+    },
+    {
+      "target": "ZX",
+      "nodes_expanded": 3326,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 167,
+      "generation_ms": 111.989
+    },
+    {
+      "target": "ZY",
+      "nodes_expanded": 1873,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 143,
+      "generation_ms": 59.538
+    },
+    {
+      "target": "ZZ",
+      "nodes_expanded": 1743,
+      "states_revisited": 0,
+      "cache_hits": 363,
+      "solution_length": 139,
+      "generation_ms": 58.919
+    }
+  ],
+  "totals": {
+    "nodes_expanded": 2222181,
+    "cache_hits": 328381,
+    "states_revisited": 0,
+    "generation_ms": 82836.4
+  }
+}
