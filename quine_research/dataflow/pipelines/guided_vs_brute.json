@@ -1,0 +1,33 @@
+{
+  "pipeline": "guided_vs_brute",
+  "description": "Roadmap #5: eficiencia guiada vs exhaustiva en len3. Guiada = select output_only(50) de len2 exhaustivo + extend (4,700 candidatos). Baselines: exhaustivo len3 (830,584) y muestra aleatoria pura del mismo tamaño que la guiada (4,700, seed 42). Metrica: distinct_outputs por candidato. NOTA HONESTA: las rayas toroidales estilo Meowbolge quedan NOT_IMPLEMENTED; lo guiado aqui es la cadena selectiva del dataflow.",
+  "stages": [
+    {"id": "f2", "kind": "frontier",
+     "params": {"level": "2", "seeds": [""], "max_steps": "100000"}},
+    {"id": "c2", "kind": "classify", "inputs": ["f2"], "params": {}},
+    {"id": "s2", "kind": "select", "inputs": ["c2"],
+     "params": {"class": "output_only", "top_n": "50"}},
+    {"id": "t_g", "kind": "transform", "inputs": ["s2"],
+     "params": {"op": "extend_length"}},
+    {"id": "f3_guided", "kind": "frontier", "inputs": ["t_g"],
+     "params": {"level": "3", "max_steps": "100000"}},
+    {"id": "f3_fill", "kind": "frontier",
+     "params": {"level": "3", "seeds": [""], "max_steps": "100000",
+                "max_rows": "2000000"}},
+    {"id": "f3_random", "kind": "frontier",
+     "params": {"level": "3", "sample": "4700", "sample_seed": "42",
+                "max_steps": "100000"}},
+    {"id": "cmp", "kind": "compare", "inputs": ["f3_fill", "f3_guided"],
+     "params": {}},
+    {"id": "final", "kind": "verdict",
+     "inputs": ["f3_fill", "f3_guided", "f3_random"],
+     "params": {"gates": [
+       {"name": "exhaustive_size", "inputs_index": 0,
+        "field": "candidates_examined", "op": "==", "value": "830584"},
+       {"name": "guided_size", "inputs_index": 1,
+        "field": "candidates_examined", "op": "==", "value": "4700"},
+       {"name": "random_size", "inputs_index": 2,
+        "field": "candidates_examined", "op": "==", "value": "4700"}
+     ]}}
+  ]
+}

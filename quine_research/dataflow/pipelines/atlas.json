@@ -1,0 +1,7 @@
+{
+  "pipeline": "atlas",
+  "description": "Roadmap #6: indice publicable de todos los artefactos del repo (runs/**/*.json -> atlas_index.json). Re-correr despues de cualquier campana.",
+  "stages": [
+    {"id": "index", "kind": "atlas", "params": {"runs_root": "runs"}}
+  ]
+}

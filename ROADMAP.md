@@ -71,8 +71,17 @@ Heurísticas de búsqueda guiada (ej. rayos toroidales estilo Meowbolge).
 
 - Objetivo: reducir tiempo en longitudes > 12.
 - Documentar eficiencia comparada vs brute force.
-- Hoy: baseline brute-force ya medido (len 7–10 en el README); falta la
-  variante guiada + etapa `compare` contra esa baseline.
+- **EN MARCHA**: `pipelines/guided_vs_brute.json` (métrica: outputs
+  distintos por candidato, len3):
+  - exhaustivo: 830,584 candidatos → **15 outputs distintos**
+  - guiado (select output_only en len2 → extend): 4,700 candidatos → **6**
+    (40% de las clases con 0.57% del cómputo)
+  - aleatorio puro (misma talla, seed 42): 4,700 → **4**
+  → la guía supera al azar a igual cómputo (6 vs 4) pero está lejos del
+  oracle exhaustivo. Rayos toroidales estilo Meowbolge: NOT_IMPLEMENTED.
+  Escala a len 12 sin cambiar código: `frontier` + `select` + `extend` con
+  los niveles que quieras; el exhaustivo no corre ahí, y el no-rerun guarda
+  lo ya hecho.
 
 ## 6. Repositorio de evidencia pública
 
@@ -80,5 +89,10 @@ Centralizar resultados en el MB-Database.
 
 - Cada campaña → JSON + hash + log reproducible.
 - "Atlas Malbolge" abierto para la comunidad.
-- Hoy: `runs/<pipeline>/<stage>__<hash>/artifact.json` con provenance
-  sha256 por nodo; falta el índice/publicación del atlas.
+- **EN MARCHA**: stage `atlas` (pipeline `pipelines/atlas.json`) genera
+  `runs/atlas_index.json`: todas las campañas indexadas (102 artefactos en
+  la primera pasada) con pipeline, kind, executor, sha256 y ruta. Correrlo
+  tras cualquier campaña actualiza el índice; la clave por código de stage
+  impide que un artefacto viejo sobreviva a un arreglo del motor.
+- Publicar el árbol completo en MB-Database: PENDIENTE (decisión de
+  hosting/tamaño; el índice ya es exportable).

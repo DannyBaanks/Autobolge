@@ -23,6 +23,8 @@ class SearchResult(Contract):
     seeds: list[str] = field(default_factory=list)
     candidates_examined: int = 0
     exhaustive: bool = False
+    sampled: int = 0  # >0 => muestra aleatoria con seed, NO exhaustivo
+    distinct_outputs: int = 0
     rows: list[dict] = field(default_factory=list)  # {program, output, steps, terminated}
     rows_truncated: bool = False
 

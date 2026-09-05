@@ -62,8 +62,18 @@ def stage_frontier(ctx, params, inputs):
     level = int(params.get("level", 1))
     seeds = params.get("seeds", [""])
     max_steps = int(params.get("max_steps", 100_000))
+    sample = int(params.get("sample", 0))
+    sample_seed = int(params.get("sample_seed", 42))
 
-    if inputs:
+    if sample and not inputs:
+        # muestra aleatoria uniforme del espacio completo sin enumerarlo
+        import random
+        rng = random.Random(sample_seed)
+        programs = ["".join(rng.choice(PRINTABLE) for _ in range(level))
+                    for _ in range(sample)]
+        exhaustive = False
+        source = f"sampled(sample={sample}, seed={sample_seed})"
+    elif inputs:
         programs = []
         for _sid, contract in inputs:
             if isinstance(contract, (SelectionResult, TransformResult)):
@@ -86,6 +96,8 @@ def stage_frontier(ctx, params, inputs):
                 programs.append(seed + "".join(comb))
         exhaustive = True
         source = "exhaustive"
+    if sample and inputs:
+        raise ValueError("sample solo aplica a frontier exhaustivo (sin inputs)")
 
     t0 = time.time()
     results = _zig_execute(programs, max_steps)
@@ -103,10 +115,14 @@ def stage_frontier(ctx, params, inputs):
 
     sr = SearchResult(
         level=level, seeds=list(seeds), candidates_examined=len(programs),
-        exhaustive=exhaustive, rows=rows, rows_truncated=truncated,
+        exhaustive=exhaustive, sampled=sample if not inputs else 0,
+        distinct_outputs=len({r["output"] for r in rows}),
+        rows=rows, rows_truncated=truncated,
     )
     return sr, [f"frontier level={level} source={source} "
-                f"candidates={len(programs):,} in {time.time()-t0:.1f}s"]
+                f"candidates={len(programs):,} "
+                f"distinct_outputs={sr.distinct_outputs:,} "
+                f"in {time.time()-t0:.1f}s"]
 
 
 # ── CLASSIFY ───────────────────────────────────────────────────────
@@ -516,6 +532,51 @@ def stage_catalog(ctx, params, inputs):
     return tc, [f"catalog: {len(blocks)} bloques verificados publicados"]
 
 
+# ── ATLAS EXPORT (roadmap #6) ──────────────────────────────────────
+def stage_atlas(ctx, params, inputs):
+    """ATLAS: índice público de todos los artefactos de runs/.
+
+    Escribe runs/atlas_index.json: entrada por artefacto con pipeline,
+    stage, kind, executor, sha256 y un extracto corto. El índice ES el
+    atlas MB-Database: publicable tal cual.
+    """
+    import hashlib
+    import json
+    from pathlib import Path
+
+    runs_root = Path(params.get("runs_root", "runs"))
+    entries = []
+    for art in sorted(runs_root.rglob("artifact.json")):
+        try:
+            d = json.loads(art.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        meta = d.get("_meta", {})
+        data = d.get("data", {})
+        entries.append({
+            "pipeline": art.parent.parent.name,
+            "stage": meta.get("stage_id"),
+            "kind": data.get("kind"),
+            "executor": meta.get("executor"),
+            "status": meta.get("status"),
+            "elapsed_s": meta.get("elapsed_s"),
+            "sha256": meta.get("artifact_sha256"),
+            "path": str(art).replace("\\", "/"),
+        })
+    index = {"atlas": "Autobolge MB-Database index",
+             "generated_by": "dataflow.atlas",
+             "entries": entries}
+    out_path = runs_root / "atlas_index.json"
+    out_path.write_text(json.dumps(index, indent=2, ensure_ascii=False),
+                        encoding="utf-8")
+    tr = TransformResult(
+        op="atlas_export",
+        derived=[e["path"] for e in entries],
+        provenance=f"atlas index over {len(entries)} artifacts -> {out_path}",
+    )
+    return tr, [f"atlas: {len(entries)} artefactos indexados -> {out_path}"]
+
+
 STAGES = {
     "frontier": stage_frontier,
     "classify": stage_classify,
@@ -525,6 +586,7 @@ STAGES = {
     "solve": stage_solve,
     "difftest": stage_difftest,
     "catalog": stage_catalog,
+    "atlas": stage_atlas,
     "compare": stage_compare,
     "verdict": stage_verdict,
 }
@@ -543,6 +605,7 @@ EXECUTORS = {
     "busy_beaver": "python",
     "difftest": "python+zig",
     "catalog": "python",
+    "atlas": "python",
     "compare": "python",
     "verdict": "python",
 }
