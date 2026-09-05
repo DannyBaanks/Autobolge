@@ -23,3 +23,6 @@ zig/*.pdb
 # Pendiente: desacoplarlos o dejarlos fuera definitivamente.
 quine_research/search_quine_malbolge/hybrid_scale_ABC.py
 quine_research/search_quine_malbolge/translator_hybrid.py
+
+# Artefactos runtime del dataflow (regenerables desde pipelines/).
+runs/

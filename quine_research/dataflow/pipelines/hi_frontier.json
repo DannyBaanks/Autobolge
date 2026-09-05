@@ -1,0 +1,24 @@
+{
+  "pipeline": "hi_frontier",
+  "stages": [
+    {"id": "len2", "kind": "frontier",
+     "params": {"level": 2, "seeds": [""], "max_steps": 100000}},
+    {"id": "class2", "kind": "classify", "inputs": ["len2"], "params": {}},
+    {"id": "sel2", "kind": "select", "inputs": ["class2"],
+     "params": {"class": "output_only", "top_n": 50}},
+    {"id": "ext2", "kind": "transform", "inputs": ["sel2"],
+     "params": {"op": "extend_length"}},
+    {"id": "len3", "kind": "frontier", "inputs": ["ext2"],
+     "params": {"level": 3, "max_steps": 100000}},
+    {"id": "class3", "kind": "classify", "inputs": ["len3"], "params": {}},
+    {"id": "cmp", "kind": "compare", "inputs": ["len2", "len3"], "params": {}},
+    {"id": "final", "kind": "verdict", "inputs": ["class2", "class3"],
+     "params": {"closed_if": "no_hits",
+                "gates": [
+                  {"name": "len2_exhaustive", "inputs_index": 0,
+                   "field": "counts", "op": "!=", "value": {}},
+                  {"name": "len3_ran", "inputs_index": 1,
+                   "field": "counts", "op": "!=", "value": {}}
+                ]}}
+  ]
+}
