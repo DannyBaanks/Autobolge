@@ -1,0 +1,39 @@
+{
+  "pipeline": "frontier_campaign",
+  "description": "Assembly rebasable: lens logicos 1,2,3 -> longitudes fisicas L1,L2,L3. Correr con: --var L1=3 --var L2=4 --var L3=5 (donde quepa; no tienen que ser consecutivas)",
+  "stages": [
+    {"id": "f1", "kind": "frontier",
+     "params": {"level": "${L1}", "seeds": [""], "max_steps": "100000",
+                "max_rows": "2000000"}},
+    {"id": "c1", "kind": "classify", "inputs": ["f1"], "params": {}},
+    {"id": "s1", "kind": "select", "inputs": ["c1"],
+     "params": {"class": "output_only", "top_n": "${TOP_N}"}},
+    {"id": "t1", "kind": "transform", "inputs": ["s1"],
+     "params": {"op": "extend_length"}},
+    {"id": "f2", "kind": "frontier", "inputs": ["t1"],
+     "params": {"level": "${L2}", "max_steps": "100000"}},
+    {"id": "c2", "kind": "classify", "inputs": ["f2"], "params": {}},
+    {"id": "s2", "kind": "select", "inputs": ["c2"],
+     "params": {"class": "output_only", "top_n": "${TOP_N}"}},
+    {"id": "t2", "kind": "transform", "inputs": ["s2"],
+     "params": {"op": "extend_length"}},
+    {"id": "f3", "kind": "frontier", "inputs": ["t2"],
+     "params": {"level": "${L3}", "max_steps": "100000"}},
+    {"id": "c3", "kind": "classify", "inputs": ["f3"], "params": {}},
+    {"id": "seed", "kind": "transform", "inputs": ["f3"],
+     "params": {"op": "seed_solver"}},
+    {"id": "solve", "kind": "solve", "inputs": ["seed"],
+     "params": {"workers": "${WORKERS}", "max_search_depth": "5"}},
+    {"id": "cmp", "kind": "compare", "inputs": ["f1", "f3"], "params": {}},
+    {"id": "final", "kind": "verdict", "inputs": ["c1", "c3", "solve"],
+     "params": {"closed_if": "no_hits",
+                "gates": [
+                  {"name": "lens1_ran", "inputs_index": 0,
+                   "field": "counts", "op": "!=", "value": {}},
+                  {"name": "lens3_ran", "inputs_index": 1,
+                   "field": "counts", "op": "!=", "value": {}},
+                  {"name": "solver_clean", "inputs_index": 2,
+                   "field": "mismatched", "op": "==", "value": "0"}
+                ]}}
+  ]
+}

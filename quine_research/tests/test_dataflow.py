@@ -111,6 +111,36 @@ def test_seed_solver_then_solve(tmp_path):
     assert all(t for t in seed["derived"])  # outputs no vacíos
 
 
+def test_template_variables(tmp_path):
+    tmpl = tmp_path / "t.template.json"
+    tmpl.write_text(json.dumps({
+        "pipeline": "tvars",
+        "stages": [
+            {"id": "f${LEN}", "kind": "frontier",
+             "params": {"level": "${LEN}", "seeds": [""], "max_steps": "100000"}},
+        ],
+    }), encoding="utf-8")
+    runner = PipelineRunner(tmpl, runs_root=tmp_path / "runs",
+                            variables={"LEN": "1"})
+    statuses = runner.run()
+    assert statuses == {"f1": "complete"}
+    assert runner.artifacts["f1"]["data"]["candidates_examined"] == 94
+
+
+def test_template_missing_variable_fails(tmp_path):
+    tmpl = tmp_path / "t.template.json"
+    tmpl.write_text(json.dumps({
+        "pipeline": "tvars",
+        "stages": [{"id": "f${LEN}", "kind": "frontier", "params": {}}],
+    }), encoding="utf-8")
+    try:
+        PipelineRunner(tmpl, runs_root=tmp_path / "runs")
+    except ValueError as e:
+        assert "LEN" in str(e)
+    else:
+        raise AssertionError("debió fallar por variable sin valor")
+
+
 def test_verdict_gates(tmp_path):
     spec = _write_spec(tmp_path, [
         {"id": "f1", "kind": "frontier",

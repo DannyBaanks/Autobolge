@@ -13,11 +13,17 @@ from quine_research.dataflow.engine import run_pipeline
 
 def main() -> None:
     if len(sys.argv) < 2:
-        print("uso: py quine_research/dataflow/run_pipeline.py <pipeline.json> [--force]")
+        print("uso: py quine_research/dataflow/run_pipeline.py <pipeline.json> "
+              "[--force] [--var k=v ...]")
         raise SystemExit(2)
     force = "--force" in sys.argv
     spec = sys.argv[1]
-    statuses = run_pipeline(spec, force=force)
+    variables = {}
+    for i, arg in enumerate(sys.argv):
+        if arg == "--var" and i + 1 < len(sys.argv):
+            key, _, value = sys.argv[i + 1].partition("=")
+            variables[key] = value
+    statuses = run_pipeline(spec, force=force, variables=variables or None)
     print(f"[dataflow] done: {statuses}")
 
 

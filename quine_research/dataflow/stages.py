@@ -68,6 +68,10 @@ def stage_frontier(ctx, params, inputs):
                 programs.extend(contract.selected
                                 if isinstance(contract, SelectionResult)
                                 else contract.derived)
+        # provenance honesta: con mappings no consecutivos (L1=2 -> L2=4)
+        # los programas recibidos pueden no medir `level` chars
+        if programs:
+            level = len(programs[0])
         exhaustive = False
         source = "upstream"
     else:
@@ -90,9 +94,10 @@ def stage_frontier(ctx, params, inputs):
         "terminated": r.get("terminated", False),
     } for p, r in zip(programs, results)]
 
-    truncated = len(rows) > MAX_ROWS_IN_ARTIFACT
+    max_rows = int(params.get("max_rows", MAX_ROWS_IN_ARTIFACT))
+    truncated = len(rows) > max_rows
     if truncated:
-        rows = rows[:MAX_ROWS_IN_ARTIFACT]
+        rows = rows[:max_rows]
 
     sr = SearchResult(
         level=level, seeds=list(seeds), candidates_examined=len(programs),
@@ -330,7 +335,17 @@ def stage_verdict(ctx, params, inputs):
         idx = int(gate.get("inputs_index", 0))
         _sid, contract = inputs[idx]
         value = getattr(contract, gate["field"])
-        ok = _OPS[gate["op"]](value, gate["value"])
+        expected = gate["value"]
+        # templates inyectan strings; coaccionar numéricamente si aplica
+        if isinstance(expected, str) and isinstance(value, (int, float)):
+            try:
+                expected = int(expected)
+            except ValueError:
+                try:
+                    expected = float(expected)
+                except ValueError:
+                    pass
+        ok = _OPS[gate["op"]](value, expected)
         gates[gate["name"]] = bool(ok)
         if not ok and gate.get("required", False):
             pass  # marcado en closed

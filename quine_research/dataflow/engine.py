@@ -26,9 +26,16 @@ def _sha256_file(path: Path) -> str:
 
 class PipelineRunner:
     def __init__(self, spec_path: str | Path, runs_root: str | Path = "runs",
-                 force: bool = False):
+                 force: bool = False, variables: dict | None = None):
         self.spec_path = Path(spec_path)
-        self.spec = json.loads(self.spec_path.read_text(encoding="utf-8"))
+        text = self.spec_path.read_text(encoding="utf-8")
+        if variables:
+            for key, value in variables.items():
+                text = text.replace("${" + key + "}", str(value))
+        if "${" in text:
+            missing = text[text.index("${"):].split("}", 1)[0] + "}"
+            raise ValueError(f"variable sin valor en el template: {missing}")
+        self.spec = json.loads(text)
         self.pipeline = self.spec["pipeline"]
         self.runs_root = Path(runs_root) / self.pipeline
         self.force = force
@@ -117,6 +124,7 @@ class PipelineRunner:
 
 
 def run_pipeline(spec_path: str, force: bool = False,
-                 runs_root: str = "runs") -> dict:
+                 runs_root: str = "runs",
+                 variables: dict | None = None) -> dict:
     return PipelineRunner(spec_path, runs_root=runs_root,
-                          force=force).run()
+                          force=force, variables=variables).run()
