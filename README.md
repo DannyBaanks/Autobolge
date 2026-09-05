@@ -279,8 +279,19 @@ print('D2 PASSED: 0/299593 mismatches')
 | Ternary sequence `012 -> 120` | ❌ No hit in the length-3 bounded frontier |
 | Frontier `HI` (len ≤ 9) | ✅ Exhaustively negative |
 | **Frontier `HI` (len 10)** | ✅ **Completed: 1.07B programs, 2.85 h, 0 hits** |
-| Multi-character output synthesis | 🔬 Open (next: template composition from len-10 negatives) |
-| E33 Busy Beaver verification | ⏳ Pending (champion S(4)=107) |
+| Dataflow orchestrator | ✅ Contracts + hash-keyed artifacts + no-rerun + executor routing |
+| Solver H3 (cross-target memoization) | ✅ Measured: structure exists (12.9% hits) but wall-clock flat — memo kept opt-in |
+| Solver H4 (parallel generation) | ✅ Deterministic; serial 76.3s → 14.7s at 8 workers, 676/676 |
+| Multi-character output synthesis | ✅ Directed solve: 14/14 targets of 3–9 chars, Zig-verified |
+| Busy Beaver (len ≤ 3) | ✅ Champions hashed in artifacts (NUL: `'c'`/`'cb'`/`'cba'`; non-NUL: `>ba`→`ss`) |
+| Template composition | 🔬 Measured with structural negative: concat is prefix-dominated (halt kills block 2) |
+| Multi-backend difftest | ✅ Zig vs Python reference: 0 mismatches on 428 comparable cases |
+| Guided vs brute search | ✅ Guided beats random at same compute (6 vs 4 classes); toroidal heuristics unimplemented |
+| Atlas index | ✅ `atlas_index.json` export over 102 hash-keyed artifacts |
+
+Roadmap detail: [ROADMAP.md](ROADMAP.md) — items 1–6 executed; open
+extensions are exhaustives > len 10, cross-language Busy Beaver benchmark,
+and semantic reassembly of blocks.
 
 ## Continuation Claim Boundary
 
