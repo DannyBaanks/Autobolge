@@ -75,6 +75,47 @@ A minimal search-machine ISA (`.bolge` programs) executed by a Zig runtime
 The DSL adds **programmability at ~0 cost** because each primitive maps 1:1
 to a native runtime operation; there is no general-purpose interpreter layer.
 
+### Solver Campaigns — Hybrid Generator + Dataflow (H3/H4 — MEASURED)
+The quine-research solver (`quine_research/search_quine_malbolge/`) generates
+Malbolge programs for target outputs via the `malbolge` package translator,
+batch-verified through the Zig VM.
+
+- **H3 cross-target memoization** — split verdict. H3a SUPPORTED: shared
+  structure exists (12.9% cache hits, −15% evaluations over 676 ABC targets).
+  H3b FALSIFIED: wall-clock unchanged (83.1 s vs baseline band 79.3–83.7 s);
+  per-node cost rose ~23% from dict/hash overhead. Kept as an opt-in
+  `shared_state_cache` hook.
+- **H4 parallelization by target** — SUPPORTED. With `random_seed=42` now
+  actually passed through (it was silently dropped before), generation is
+  fully deterministic: identical 2,730,128 nodes and byte-identical programs
+  across serial and all worker counts. 676/676 matched, 0 mismatched.
+
+| Workers | Generation | Targets/s | Peak worker RSS |
+|---------|-----------|-----------|-----------------|
+| 1 (serial) | 76.3 s | 8.9 | — |
+| 2 | 44.6 s | 15.2 | 95 MB |
+| 4 | 23.8 s | 28.4 | 161 MB |
+| 6 | 18.0 s | 37.5 | 226 MB |
+| 8 | 14.7 s | 45.9 | 294 MB |
+
+Evidence: `quine_research/search_quine_malbolge/results/h4_sweep.json` plus
+per-config banks (`program_bank_ABC_zig*.json`).
+
+### Dataflow Orchestrator (`quine_research/dataflow/`)
+Autobolge is no longer a single search: nodes are typed contracts
+(`SearchResult → ClassifierResult → SelectionResult → TransformResult →
+SolverResult → CompareResult → Verdict`), each persisted as an explicit
+`runs/<pipeline>/<stage>__<hash>/artifact.json`. Node identity is
+`sha256(params + upstream artifact hashes)` — unchanged nodes SKIP, changed
+params invalidate only downstream (no accidental 200M-program reruns).
+Executors are routed per node (`frontier` → Zig batch, the rest → Python),
+crossing the language boundary per batch, never per candidate. The lens
+template (`frontier_campaign.template.json`) uses **logical coordinates**
+(`L1/L2/L3` via `--var`, non-consecutive allowed), so assemblies rebase
+(2,3,4) → (3,4,5) and share artifacts by hash. Verified end-to-end:
+assembly B ran an exhaustive physical length-3 frontier (830,584 candidates
+in 6.7 s), solver 4/4 matched, all gates PASS.
+
 ---
 
 ## Quick Start
@@ -150,6 +191,8 @@ canonical Hello World program.
 | `experiments/printer_loop.py` | Gate 2: recompiles `bolge.exe`, runs 299,593 molds, 0 mismatches |
 | `experiments/gate1_parity.py` | Gate 1: 417 randomized cases vs `run_bounded` |
 | `experiments/*.bolge` | DSL programs (declarative search specs) |
+| `quine_research/dataflow/` | Dataflow orchestrator: contract nodes, hash-keyed artifacts, no-rerun, per-node executors (Zig/Python), lens template |
+| `quine_research/search_quine_malbolge/` | Hybrid solver (translator generator + Zig batch verification), `--workers N` parallel generation |
 
 ---
 
