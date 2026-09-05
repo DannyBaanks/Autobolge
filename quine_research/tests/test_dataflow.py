@@ -169,6 +169,34 @@ def test_explicit_targets_transform():
     assert tr.derived == ["HI!", "BYE"]
 
 
+def test_difftest_and_catalog(tmp_path):
+    from quine_research.dataflow.stages import stage_catalog, stage_difftest
+    from quine_research.dataflow.contracts import SearchResult, SolverResult
+
+    # dos programas que haltean: zig debe ejecutarlos y python acordar
+    rows = [{"program": "c=", "output": "", "steps": 0, "terminated": False},
+            {"program": "(=", "output": "", "steps": 0, "terminated": False}]
+    # zig real sobre esos programas:
+    from quine_research.dataflow.stages import _zig_execute
+    zres = _zig_execute(["c=", "(="], 1000)
+    rows = [{"program": p, "output": r.get("output", ""),
+             "steps": r.get("steps", 0),
+             "terminated": r.get("terminated", False)}
+            for p, r in zip(["c=", "(="], zres)]
+    sr = SearchResult(level=2, candidates_examined=2, rows=rows)
+    dr, summary = stage_difftest(
+        {}, {"limit": "10", "max_steps": "1000"}, [("f", sr)])
+    assert dr.mismatched == 0, f"divergencia semántica: {dr.mismatches}"
+    assert dr.matched == 2
+
+    sol = SolverResult(rows=[{
+        "target": "A", "program": rows[0]["program"], "opcodes": "",
+        "nodes_expanded": 1, "generation_ms": 0.1,
+        "zig_output": "A", "zig_match": True}])
+    tc, _ = stage_catalog({}, {}, [("s", sol)])
+    assert len(tc.blocks) == 1 and tc.blocks[0]["zig_verified"]
+
+
 def test_verdict_gates(tmp_path):
     spec = _write_spec(tmp_path, [
         {"id": "f1", "kind": "frontier",

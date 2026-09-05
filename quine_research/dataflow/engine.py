@@ -50,8 +50,12 @@ class PipelineRunner:
                 raise ValueError(f"stage {stage['id']!r}: input {dep!r} no resuelto")
             upstream.append({"stage": dep,
                              "sha256": art["_meta"]["artifact_sha256"]})
+        import inspect
+        code_hash = hashlib.sha256(
+            inspect.getsource(STAGES[stage["kind"]]).encode()).hexdigest()[:8]
         return {"id": stage["id"], "kind": stage["kind"],
-                "params": stage.get("params", {}), "inputs": upstream}
+                "params": stage.get("params", {}), "inputs": upstream,
+                "stage_code": code_hash}
 
     def stage_dir(self, key_data: dict) -> Path:
         digest = hashlib.sha256(

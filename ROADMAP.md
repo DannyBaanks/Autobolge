@@ -39,8 +39,16 @@ Sistema de "plantillas de comportamiento" (eco, suma, loop).
 
 - Beam search para ensamblar programas complejos a partir de bloques conocidos.
 - Publicar un catálogo de templates reutilizables.
-- Hoy: `transform` ya tiene `compose` (pairwise); falta catálogo persistente
-  de bloques y beam assembly.
+- **EN MARCHA**: `pipelines/template_composition.json` + stages `catalog`
+  (publica bloques verificados por Zig como TemplateCatalog) y
+  `compose` sobre el catálogo. Resultado medido: 8 primitivos → 64
+  compuestos → 64/64 ejecutan y haltean, PERO negativo estructural
+  importante: la concatenación es **prefix-dominated** — el `v` (halt)
+  del primer bloque termina el programa y el segundo bloque nunca
+  ejecuta (todos los compuestos que empiezan por el bloque "A" imprimen
+  "A"). La composición real necesita reensamblado semántico (ej. quitar
+  el halt del primer bloque), no concatenación cruda.
+- Catálogo persistente versionado (`catalogs/`): PENDIENTE.
 
 ## 4. Integración multi-backend
 
@@ -49,8 +57,13 @@ Differential).
 
 - Validar outputs en paralelo para detectar divergencias semánticas.
 - Reportar mismatches como evidencia forense.
-- Hoy: verificación dual Python↔Zig existe en el solver; falta generalizar
-  `difftest` como etapa del dataflow (un SearchResult por backend + compare).
+- **EN MARCHA**: stage `difftest` (Zig vs intérprete Python de referencia).
+  `pipelines/multi_backend_difftest.json`: 3,000 programas len2 muestreados
+  (seed 42) → **428 comparables, 0 mismatches**; 2,572 no-comparables
+  por backend (desglose honesto: 2,509 InvalidOpcodeError — instrucción
+  inválida al cargar, Zig la trata como dato — y 63 InputUnderflowError).
+  La clave del artefacto incluye el hash del CÓDIGO del stage: un fix del
+  motor invalida la evidencia vieja, no se cuele silenciosa.
 
 ## 5. Exploración probabilística
 

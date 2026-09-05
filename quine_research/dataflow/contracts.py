@@ -80,6 +80,30 @@ class SolverResult(Contract):
 
 
 @dataclass
+class DifftestResult(Contract):
+    """Comparación dual-backend (Zig vs Python referencia) sobre programas.
+
+    Cualquier mismatch es evidencia forense y se conserva entero.
+    """
+    kind: str = "difftest_result"
+    backends: list[str] = field(default_factory=list)  # ["zig", "python"]
+    matched: int = 0
+    mismatched: int = 0
+    errors: int = 0
+    errors_by_kind: dict[str, int] = field(default_factory=dict)
+    mismatches: list[dict] = field(default_factory=list)
+    # {program, zig_output, py_output}
+
+
+@dataclass
+class TemplateCatalog(Contract):
+    """Catálogo de bloques de comportamiento verificados y reutilizables."""
+    kind: str = "template_catalog"
+    blocks: list[dict] = field(default_factory=list)
+    # {name, program, behavior, output, zig_verified}
+
+
+@dataclass
 class Verdict(Contract):
     """Dictamen de campaña: gates evaluados + resumen legible."""
     kind: str = "verdict"
@@ -91,7 +115,8 @@ class Verdict(Contract):
 CONTRACTS = {
     c.kind: c
     for c in (SearchResult, ClassifierResult, SelectionResult,
-              TransformResult, CompareResult, SolverResult, Verdict)
+              TransformResult, CompareResult, SolverResult,
+              DifftestResult, TemplateCatalog, Verdict)
 }
 
 

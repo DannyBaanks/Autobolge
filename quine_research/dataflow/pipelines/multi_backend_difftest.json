@@ -1,0 +1,15 @@
+{
+  "pipeline": "multi_backend_difftest",
+  "description": "Roadmap #4: los mismos programas exhaustivos len2 ejecutados por Zig y por el interprete Python de referencia. Mismatch = evidencia forense de divergencia semantica. (La paridad historica gate2 299,593/299,593 sugiere 0 esperado.)",
+  "stages": [
+    {"id": "f2", "kind": "frontier",
+     "params": {"level": "2", "seeds": [""], "max_steps": "100000"}},
+    {"id": "dt", "kind": "difftest", "inputs": ["f2"],
+     "params": {"limit": "3000", "max_steps": "100000"}},
+    {"id": "final", "kind": "verdict", "inputs": ["dt"],
+     "params": {"gates": [
+       {"name": "backends_agree", "inputs_index": 0,
+        "field": "mismatched", "op": "==", "value": "0"}
+     ]}}
+  ]
+}

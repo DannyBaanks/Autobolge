@@ -1,0 +1,26 @@
+{
+  "pipeline": "template_composition",
+  "description": "Roadmap #3: bloques verificados -> catalogo publicado -> composicion pairwise -> verificacion de compuestos. La concatenacion de programas Malbolge NO garantiza la composicion del comportamiento (memoria self-modifying); los compuestos se verifican ejecutando, y los negativos quedan como evidencia.",
+  "stages": [
+    {"id": "prim", "kind": "transform",
+     "params": {"op": "explicit_targets",
+                "targets": ["A", "B", "O", "X", "HI", "OK", "GO", "NO"]}},
+    {"id": "solve", "kind": "solve", "inputs": ["prim"],
+     "params": {"workers": "2", "max_search_depth": "5"}},
+    {"id": "catalog", "kind": "catalog", "inputs": ["solve"], "params": {}},
+    {"id": "comp", "kind": "transform", "inputs": ["catalog"],
+     "params": {"op": "compose", "pair_limit": "8"}},
+    {"id": "fcomp", "kind": "frontier", "inputs": ["comp"],
+     "params": {"level": "0", "max_steps": "100000"}},
+    {"id": "ccomp", "kind": "classify", "inputs": ["fcomp"], "params": {}},
+    {"id": "dt", "kind": "difftest", "inputs": ["fcomp"],
+     "params": {"limit": "200", "max_steps": "100000"}},
+    {"id": "final", "kind": "verdict", "inputs": ["ccomp", "dt"],
+     "params": {"gates": [
+       {"name": "composites_ran", "inputs_index": 0,
+        "field": "counts", "op": "!=", "value": {}},
+       {"name": "backends_agree", "inputs_index": 1,
+        "field": "mismatched", "op": "==", "value": "0"}
+     ]}}
+  ]
+}

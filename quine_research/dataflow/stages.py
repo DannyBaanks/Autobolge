@@ -17,9 +17,11 @@ import time
 from .contracts import (
     ClassifierResult,
     CompareResult,
+    DifftestResult,
     SearchResult,
     SelectionResult,
     SolverResult,
+    TemplateCatalog,
     TransformResult,
     Verdict,
 )
@@ -182,6 +184,8 @@ def stage_transform(ctx, params, inputs):
     for _sid, contract in inputs:
         if isinstance(contract, SelectionResult):
             base.extend(contract.selected)
+        elif isinstance(contract, TemplateCatalog):
+            base.extend(b["program"] for b in contract.blocks)
         elif isinstance(contract, ClassifierResult):
             for progs in contract.classes.values():
                 base.extend(progs)
@@ -415,6 +419,103 @@ def stage_busy_beaver(ctx, params, inputs):
     return sel, detail
 
 
+# ── DIFFTEST (multi-backend) ───────────────────────────────────────
+def _python_execute(programs: list[str], max_steps: int) -> list[dict]:
+    """Backend de referencia (intérprete Python del paquete malbolge)."""
+    from malbolge.encoding import normalize
+    from malbolge.interpreter import MalbolgeInterpreter
+
+    interp = MalbolgeInterpreter()
+    out = []
+    for p in programs:
+        try:
+            opcodes = normalize(p)
+            r = interp.execute(opcodes, max_steps=max_steps)
+            out.append({"output": r.output, "steps": r.steps,
+                        "terminated": r.halted})
+        except Exception as e:
+            out.append({"output": "", "steps": 0, "terminated": False,
+                        "error": f"{type(e).__name__}: {e}"})
+    return out
+
+
+def stage_difftest(ctx, params, inputs):
+    """DIFFTEST: valida outputs en paralelo con dos backends.
+
+    Input: SearchResult (ya trae outputs Zig) o SolverResult.
+    Ejecuta el backend Python de referencia sobre los mismos programas y
+    compara contra el output Zig. Mismatch => evidencia forense, jamás
+    silenciada.
+
+    params: limit (max programas, muestreo determinista con seed 42),
+            max_steps
+    """
+    import random
+
+    rows = None
+    for _sid, contract in inputs:
+        if isinstance(contract, (SearchResult, SolverResult)):
+            rows = contract.rows
+    if rows is None:
+        raise ValueError("difftest requiere SearchResult o SolverResult")
+
+    limit = int(params.get("limit", 1000))
+    max_steps = int(params.get("max_steps", 100_000))
+    if len(rows) > limit:
+        rows = random.Random(42).sample(list(rows), limit)
+
+    programs = [r["program"] for r in rows]
+    zig_outs = [r.get("zig_output", r.get("output", "")) for r in rows]
+    py = _python_execute(programs, max_steps)
+
+    mismatches = []
+    errors = 0
+    errors_by_kind: dict[str, int] = {}
+    for prog, zout, pres in zip(programs, zig_outs, py):
+        if "error" in pres:
+            errors += 1
+            key = pres["error"].split(":")[0]
+            errors_by_kind[key] = errors_by_kind.get(key, 0) + 1
+            continue
+        if pres["output"] != zout:
+            mismatches.append({"program": prog, "zig_output": zout,
+                               "py_output": pres["output"]})
+    matched = len(programs) - errors - len(mismatches)
+    dr = DifftestResult(
+        backends=["zig", "python-reference"],
+        matched=matched, mismatched=len(mismatches), errors=errors,
+        errors_by_kind=errors_by_kind,
+        mismatches=mismatches,
+    )
+    summary = (f"difftest zig vs python: {matched} match, "
+               f"{len(mismatches)} MISMATCH, {errors} errors "
+               f"de {len(programs)} programas {errors_by_kind}")
+    for m in mismatches[:5]:
+        summary += (f"\n  FORENSE prog={m['program']!r} "
+                    f"zig={m['zig_output']!r} py={m['py_output']!r}")
+    return dr, [summary]
+
+
+# ── TEMPLATE CATALOG ───────────────────────────────────────────────
+def stage_catalog(ctx, params, inputs):
+    """CATÁLOGO de bloques reutilizables desde un SolverResult verificado.
+
+    Publica bloques {name=target, program, behavior=output, zig_verified}.
+    Solo entran bloques verificados por Zig (zig_match); los fallos quedan
+    fuera del catálogo pero visibles en el artefacto input.
+    """
+    sr = _require(inputs, SolverResult)
+    blocks = [{
+        "name": r["target"],
+        "program": r["program"],
+        "behavior": r["zig_output"],
+        "zig_verified": True,
+        "nodes_expanded": r["nodes_expanded"],
+    } for r in sr.rows if r.get("zig_match")]
+    tc = TemplateCatalog(blocks=blocks)
+    return tc, [f"catalog: {len(blocks)} bloques verificados publicados"]
+
+
 STAGES = {
     "frontier": stage_frontier,
     "classify": stage_classify,
@@ -422,6 +523,8 @@ STAGES = {
     "transform": stage_transform,
     "busy_beaver": stage_busy_beaver,
     "solve": stage_solve,
+    "difftest": stage_difftest,
+    "catalog": stage_catalog,
     "compare": stage_compare,
     "verdict": stage_verdict,
 }
@@ -438,6 +541,8 @@ EXECUTORS = {
     "transform": "python",
     "solve": "python+zig",  # generador python (workers dentro) + verificación zig batch
     "busy_beaver": "python",
+    "difftest": "python+zig",
+    "catalog": "python",
     "compare": "python",
     "verdict": "python",
 }
