@@ -6088,13 +6088,17 @@
     }
   ],
   "stats": {
-    "mode": "baseline",
+    "mode": "par_w8",
     "total": 676,
     "matched": 676,
     "mismatched": 0,
     "quine_candidates": 0,
-    "gen_time_s": 76.3,
+    "gen_time_s": 14.72,
+    "workers": 8,
+    "chunks": 31,
+    "startup_overhead_s": 2.02,
+    "peak_worker_rss_mb": 293.8,
     "zig_time_s": 0.03,
-    "zig_throughput": 20310.2
+    "zig_throughput": 21888.7
   }
 }

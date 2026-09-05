@@ -1,6 +1,10 @@
 {
-  "mode": "baseline",
-  "gen_time_s": 76.3,
+  "mode": "par_w8",
+  "gen_time_s": 14.72,
+  "workers": 8,
+  "chunks": 31,
+  "startup_overhead_s": 2.02,
+  "peak_worker_rss_mb": 293.8,
   "per_target": [
     {
       "target": "AA",
@@ -8,7 +12,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 227,
-      "generation_ms": 141.763
+      "generation_ms": 219.49
     },
     {
       "target": "AB",
@@ -16,7 +20,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 325,
-      "generation_ms": 268.742
+      "generation_ms": 410.885
     },
     {
       "target": "AC",
@@ -24,7 +28,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 279,
-      "generation_ms": 197.657
+      "generation_ms": 311.06
     },
     {
       "target": "AD",
@@ -32,7 +36,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 236,
-      "generation_ms": 141.397
+      "generation_ms": 224.01
     },
     {
       "target": "AE",
@@ -40,7 +44,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 235,
-      "generation_ms": 150.814
+      "generation_ms": 210.638
     },
     {
       "target": "AF",
@@ -48,7 +52,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 266,
-      "generation_ms": 205.684
+      "generation_ms": 276.454
     },
     {
       "target": "AG",
@@ -56,7 +60,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 143.557
+      "generation_ms": 208.057
     },
     {
       "target": "AH",
@@ -64,7 +68,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 289,
-      "generation_ms": 206.698
+      "generation_ms": 328.197
     },
     {
       "target": "AI",
@@ -72,7 +76,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 231,
-      "generation_ms": 140.527
+      "generation_ms": 217.053
     },
     {
       "target": "AJ",
@@ -80,7 +84,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 242,
-      "generation_ms": 154.043
+      "generation_ms": 217.773
     },
     {
       "target": "AK",
@@ -88,7 +92,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 249,
-      "generation_ms": 160.296
+      "generation_ms": 264.447
     },
     {
       "target": "AL",
@@ -96,7 +100,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 229,
-      "generation_ms": 138.26
+      "generation_ms": 294.138
     },
     {
       "target": "AM",
@@ -104,7 +108,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 234,
-      "generation_ms": 147.183
+      "generation_ms": 313.733
     },
     {
       "target": "AN",
@@ -112,7 +116,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 143.433
+      "generation_ms": 305.676
     },
     {
       "target": "AO",
@@ -120,7 +124,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 140.589
+      "generation_ms": 306.567
     },
     {
       "target": "AP",
@@ -128,7 +132,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 279,
-      "generation_ms": 208.377
+      "generation_ms": 431.024
     },
     {
       "target": "AQ",
@@ -136,7 +140,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 236,
-      "generation_ms": 150.915
+      "generation_ms": 333.599
     },
     {
       "target": "AR",
@@ -144,7 +148,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 267,
-      "generation_ms": 283.251
+      "generation_ms": 420.721
     },
     {
       "target": "AS",
@@ -152,7 +156,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 252,
-      "generation_ms": 249.205
+      "generation_ms": 369.904
     },
     {
       "target": "AT",
@@ -160,7 +164,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 267,
-      "generation_ms": 278.222
+      "generation_ms": 395.876
     },
     {
       "target": "AU",
@@ -168,7 +172,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 283,
-      "generation_ms": 305.765
+      "generation_ms": 445.615
     },
     {
       "target": "AV",
@@ -176,7 +180,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 259,
-      "generation_ms": 259.186
+      "generation_ms": 403.635
     },
     {
       "target": "AW",
@@ -184,7 +188,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 267,
-      "generation_ms": 273.705
+      "generation_ms": 277.215
     },
     {
       "target": "AX",
@@ -192,7 +196,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 279,
-      "generation_ms": 324.803
+      "generation_ms": 297.867
     },
     {
       "target": "AY",
@@ -200,7 +204,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 243,
-      "generation_ms": 222.892
+      "generation_ms": 247.377
     },
     {
       "target": "AZ",
@@ -208,7 +212,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 204.102
+      "generation_ms": 213.641
     },
     {
       "target": "BA",
@@ -216,7 +220,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 231,
-      "generation_ms": 216.019
+      "generation_ms": 207.963
     },
     {
       "target": "BB",
@@ -224,7 +228,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 227,
-      "generation_ms": 213.378
+      "generation_ms": 192.376
     },
     {
       "target": "BC",
@@ -232,7 +236,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 237,
-      "generation_ms": 218.951
+      "generation_ms": 241.65
     },
     {
       "target": "BD",
@@ -240,7 +244,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 231,
-      "generation_ms": 208.518
+      "generation_ms": 212.817
     },
     {
       "target": "BE",
@@ -248,7 +252,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 235,
-      "generation_ms": 213.573
+      "generation_ms": 208.909
     },
     {
       "target": "BF",
@@ -256,7 +260,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 212.297
+      "generation_ms": 204.295
     },
     {
       "target": "BG",
@@ -264,7 +268,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 231,
-      "generation_ms": 208.379
+      "generation_ms": 217.947
     },
     {
       "target": "BH",
@@ -272,7 +276,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 231,
-      "generation_ms": 204.138
+      "generation_ms": 217.07
     },
     {
       "target": "BI",
@@ -280,7 +284,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 229,
-      "generation_ms": 203.564
+      "generation_ms": 264.836
     },
     {
       "target": "BJ",
@@ -288,7 +292,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 242,
-      "generation_ms": 241.14
+      "generation_ms": 333.446
     },
     {
       "target": "BK",
@@ -296,7 +300,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 249,
-      "generation_ms": 247.727
+      "generation_ms": 355.168
     },
     {
       "target": "BL",
@@ -304,7 +308,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 243,
-      "generation_ms": 236.355
+      "generation_ms": 324.587
     },
     {
       "target": "BM",
@@ -312,7 +316,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 234,
-      "generation_ms": 218.2
+      "generation_ms": 318.82
     },
     {
       "target": "BN",
@@ -320,7 +324,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 236,
-      "generation_ms": 235.384
+      "generation_ms": 326.854
     },
     {
       "target": "BO",
@@ -328,7 +332,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 212.232
+      "generation_ms": 347.405
     },
     {
       "target": "BP",
@@ -336,7 +340,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 279,
-      "generation_ms": 295.435
+      "generation_ms": 439.083
     },
     {
       "target": "BQ",
@@ -344,7 +348,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 236,
-      "generation_ms": 228.699
+      "generation_ms": 304.118
     },
     {
       "target": "BR",
@@ -352,7 +356,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 267,
-      "generation_ms": 305.316
+      "generation_ms": 417.389
     },
     {
       "target": "BS",
@@ -360,7 +364,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 252,
-      "generation_ms": 249.824
+      "generation_ms": 273.491
     },
     {
       "target": "BT",
@@ -368,7 +372,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 267,
-      "generation_ms": 289.63
+      "generation_ms": 288.594
     },
     {
       "target": "BU",
@@ -376,7 +380,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 283,
-      "generation_ms": 334.974
+      "generation_ms": 299.222
     },
     {
       "target": "BV",
@@ -384,7 +388,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 259,
-      "generation_ms": 268.511
+      "generation_ms": 273.432
     },
     {
       "target": "BW",
@@ -392,7 +396,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 267,
-      "generation_ms": 277.998
+      "generation_ms": 275.381
     },
     {
       "target": "BX",
@@ -400,7 +404,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 279,
-      "generation_ms": 319.884
+      "generation_ms": 312.769
     },
     {
       "target": "BY",
@@ -408,7 +412,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 243,
-      "generation_ms": 231.846
+      "generation_ms": 225.179
     },
     {
       "target": "BZ",
@@ -416,7 +420,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 209.341
+      "generation_ms": 198.435
     },
     {
       "target": "CA",
@@ -424,7 +428,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 241,
-      "generation_ms": 219.453
+      "generation_ms": 218.279
     },
     {
       "target": "CB",
@@ -432,7 +436,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 183.7
+      "generation_ms": 203.179
     },
     {
       "target": "CC",
@@ -440,7 +444,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 214,
-      "generation_ms": 185.985
+      "generation_ms": 196.068
     },
     {
       "target": "CD",
@@ -448,7 +452,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 236,
-      "generation_ms": 218.607
+      "generation_ms": 297.483
     },
     {
       "target": "CE",
@@ -456,7 +460,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 179.129
+      "generation_ms": 264.838
     },
     {
       "target": "CF",
@@ -464,7 +468,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 235,
-      "generation_ms": 220.255
+      "generation_ms": 331.03
     },
     {
       "target": "CG",
@@ -472,7 +476,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 218,
-      "generation_ms": 193.753
+      "generation_ms": 282.765
     },
     {
       "target": "CH",
@@ -480,7 +484,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 222,
-      "generation_ms": 190.164
+      "generation_ms": 281.692
     },
     {
       "target": "CI",
@@ -488,7 +492,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 216,
-      "generation_ms": 180.383
+      "generation_ms": 256.387
     },
     {
       "target": "CJ",
@@ -496,7 +500,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 234,
-      "generation_ms": 220.759
+      "generation_ms": 308.118
     },
     {
       "target": "CK",
@@ -504,7 +508,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 246,
-      "generation_ms": 245.054
+      "generation_ms": 373.253
     },
     {
       "target": "CL",
@@ -512,7 +516,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 228,
-      "generation_ms": 208.493
+      "generation_ms": 303.298
     },
     {
       "target": "CM",
@@ -520,7 +524,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 229,
-      "generation_ms": 212.278
+      "generation_ms": 293.496
     },
     {
       "target": "CN",
@@ -528,7 +532,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 184.57
+      "generation_ms": 273.109
     },
     {
       "target": "CO",
@@ -536,7 +540,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 224,
-      "generation_ms": 203.314
+      "generation_ms": 213.521
     },
     {
       "target": "CP",
@@ -544,7 +548,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 219.075
+      "generation_ms": 209.043
     },
     {
       "target": "CQ",
@@ -552,7 +556,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 224,
-      "generation_ms": 205.532
+      "generation_ms": 197.76
     },
     {
       "target": "CR",
@@ -560,7 +564,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 269,
-      "generation_ms": 283.367
+      "generation_ms": 300.711
     },
     {
       "target": "CS",
@@ -568,7 +572,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 252,
-      "generation_ms": 270.235
+      "generation_ms": 250.711
     },
     {
       "target": "CT",
@@ -576,7 +580,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 223,
-      "generation_ms": 205.852
+      "generation_ms": 181.242
     },
     {
       "target": "CU",
@@ -584,7 +588,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 224,
-      "generation_ms": 196.568
+      "generation_ms": 229.557
     },
     {
       "target": "CV",
@@ -592,7 +596,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 216.385
+      "generation_ms": 199.352
     },
     {
       "target": "CW",
@@ -600,7 +604,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 223,
-      "generation_ms": 195.261
+      "generation_ms": 201.194
     },
     {
       "target": "CX",
@@ -608,7 +612,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 224,
-      "generation_ms": 223.232
+      "generation_ms": 201.187
     },
     {
       "target": "CY",
@@ -616,7 +620,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 230,
-      "generation_ms": 213.67
+      "generation_ms": 221.108
     },
     {
       "target": "CZ",
@@ -624,7 +628,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 229,
-      "generation_ms": 208.309
+      "generation_ms": 209.2
     },
     {
       "target": "DA",
@@ -632,7 +636,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 164,
-      "generation_ms": 94.464
+      "generation_ms": 91.815
     },
     {
       "target": "DB",
@@ -640,7 +644,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 238,
-      "generation_ms": 240.19
+      "generation_ms": 283.472
     },
     {
       "target": "DC",
@@ -648,7 +652,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 95.826
+      "generation_ms": 132.129
     },
     {
       "target": "DD",
@@ -656,7 +660,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 163,
-      "generation_ms": 96.491
+      "generation_ms": 139.07
     },
     {
       "target": "DE",
@@ -664,7 +668,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 203,
-      "generation_ms": 169.628
+      "generation_ms": 222.437
     },
     {
       "target": "DF",
@@ -672,7 +676,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 94.187
+      "generation_ms": 141.826
     },
     {
       "target": "DG",
@@ -680,7 +684,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 213,
-      "generation_ms": 172.606
+      "generation_ms": 245.636
     },
     {
       "target": "DH",
@@ -688,7 +692,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 244,
-      "generation_ms": 240.411
+      "generation_ms": 335.151
     },
     {
       "target": "DI",
@@ -696,7 +700,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 221,
-      "generation_ms": 192.155
+      "generation_ms": 280.296
     },
     {
       "target": "DJ",
@@ -704,7 +708,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 199,
-      "generation_ms": 153.478
+      "generation_ms": 229.027
     },
     {
       "target": "DK",
@@ -712,7 +716,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 215,
-      "generation_ms": 184.181
+      "generation_ms": 196.426
     },
     {
       "target": "DL",
@@ -720,7 +724,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 220,
-      "generation_ms": 191.182
+      "generation_ms": 184.651
     },
     {
       "target": "DM",
@@ -728,7 +732,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 219,
-      "generation_ms": 199.542
+      "generation_ms": 191.13
     },
     {
       "target": "DN",
@@ -736,7 +740,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 203,
-      "generation_ms": 162.385
+      "generation_ms": 183.111
     },
     {
       "target": "DO",
@@ -744,7 +748,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 213,
-      "generation_ms": 178.057
+      "generation_ms": 186.422
     },
     {
       "target": "DP",
@@ -752,7 +756,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 250,
-      "generation_ms": 247.201
+      "generation_ms": 251.176
     },
     {
       "target": "DQ",
@@ -760,7 +764,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 224,
-      "generation_ms": 192.258
+      "generation_ms": 198.826
     },
     {
       "target": "DR",
@@ -768,7 +772,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 170,
-      "generation_ms": 105.887
+      "generation_ms": 108.53
     },
     {
       "target": "DS",
@@ -776,7 +780,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 106.763
+      "generation_ms": 117.378
     },
     {
       "target": "DT",
@@ -784,7 +788,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 104.678
+      "generation_ms": 98.463
     },
     {
       "target": "DU",
@@ -792,7 +796,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 97.376
+      "generation_ms": 101.933
     },
     {
       "target": "DV",
@@ -800,7 +804,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 95.635
+      "generation_ms": 89.472
     },
     {
       "target": "DW",
@@ -808,7 +812,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 93.88
+      "generation_ms": 95.553
     },
     {
       "target": "DX",
@@ -816,7 +820,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 95.927
+      "generation_ms": 111.66
     },
     {
       "target": "DY",
@@ -824,7 +828,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 203,
-      "generation_ms": 159.722
+      "generation_ms": 164.142
     },
     {
       "target": "DZ",
@@ -832,7 +836,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 99.072
+      "generation_ms": 87.528
     },
     {
       "target": "EA",
@@ -840,7 +844,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 164,
-      "generation_ms": 87.96
+      "generation_ms": 113.612
     },
     {
       "target": "EB",
@@ -848,7 +852,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 164,
-      "generation_ms": 86.118
+      "generation_ms": 96.359
     },
     {
       "target": "EC",
@@ -856,7 +860,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 163,
-      "generation_ms": 90.607
+      "generation_ms": 100.608
     },
     {
       "target": "ED",
@@ -864,7 +868,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 219,
-      "generation_ms": 207.513
+      "generation_ms": 208.024
     },
     {
       "target": "EE",
@@ -872,7 +876,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 161,
-      "generation_ms": 93.581
+      "generation_ms": 134.905
     },
     {
       "target": "EF",
@@ -880,7 +884,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 201,
-      "generation_ms": 155.754
+      "generation_ms": 236.544
     },
     {
       "target": "EG",
@@ -888,7 +892,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 199,
-      "generation_ms": 162.474
+      "generation_ms": 175.286
     },
     {
       "target": "EH",
@@ -896,7 +900,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 204,
-      "generation_ms": 159.136
+      "generation_ms": 169.558
     },
     {
       "target": "EI",
@@ -904,7 +908,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 206,
-      "generation_ms": 156.843
+      "generation_ms": 175.47
     },
     {
       "target": "EJ",
@@ -912,7 +916,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 242,
-      "generation_ms": 230.882
+      "generation_ms": 230.283
     },
     {
       "target": "EK",
@@ -920,7 +924,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 207,
-      "generation_ms": 162.109
+      "generation_ms": 183.177
     },
     {
       "target": "EL",
@@ -928,7 +932,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 199,
-      "generation_ms": 154.511
+      "generation_ms": 160.069
     },
     {
       "target": "EM",
@@ -936,7 +940,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 183,
-      "generation_ms": 125.1
+      "generation_ms": 137.233
     },
     {
       "target": "EN",
@@ -944,7 +948,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 211,
-      "generation_ms": 168.821
+      "generation_ms": 168.412
     },
     {
       "target": "EO",
@@ -952,7 +956,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 183,
-      "generation_ms": 123.783
+      "generation_ms": 125.084
     },
     {
       "target": "EP",
@@ -960,7 +964,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 183,
-      "generation_ms": 121.061
+      "generation_ms": 146.212
     },
     {
       "target": "EQ",
@@ -968,7 +972,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 93.279
+      "generation_ms": 110.625
     },
     {
       "target": "ER",
@@ -976,7 +980,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 100.272
+      "generation_ms": 105.391
     },
     {
       "target": "ES",
@@ -984,7 +988,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 173,
-      "generation_ms": 116.961
+      "generation_ms": 119.848
     },
     {
       "target": "ET",
@@ -992,7 +996,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 98.963
+      "generation_ms": 108.135
     },
     {
       "target": "EU",
@@ -1000,7 +1004,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 111.714
+      "generation_ms": 118.137
     },
     {
       "target": "EV",
@@ -1008,7 +1012,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 108.915
+      "generation_ms": 115.029
     },
     {
       "target": "EW",
@@ -1016,7 +1020,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 89.881
+      "generation_ms": 100.302
     },
     {
       "target": "EX",
@@ -1024,7 +1028,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 113.966
+      "generation_ms": 117.172
     },
     {
       "target": "EY",
@@ -1032,7 +1036,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 175,
-      "generation_ms": 103.902
+      "generation_ms": 110.953
     },
     {
       "target": "EZ",
@@ -1040,7 +1044,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 174,
-      "generation_ms": 110.943
+      "generation_ms": 118.793
     },
     {
       "target": "FA",
@@ -1048,7 +1052,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 163,
-      "generation_ms": 102.186
+      "generation_ms": 131.778
     },
     {
       "target": "FB",
@@ -1056,7 +1060,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 238,
-      "generation_ms": 218.866
+      "generation_ms": 320.309
     },
     {
       "target": "FC",
@@ -1064,7 +1068,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 104.506
+      "generation_ms": 99.9
     },
     {
       "target": "FD",
@@ -1072,7 +1076,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 92.727
+      "generation_ms": 96.351
     },
     {
       "target": "FE",
@@ -1080,7 +1084,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 200,
-      "generation_ms": 154.4
+      "generation_ms": 160.803
     },
     {
       "target": "FF",
@@ -1088,7 +1092,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 162,
-      "generation_ms": 92.335
+      "generation_ms": 94.606
     },
     {
       "target": "FG",
@@ -1096,7 +1100,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 159.243
+      "generation_ms": 163.718
     },
     {
       "target": "FH",
@@ -1104,7 +1108,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 166.766
+      "generation_ms": 160.965
     },
     {
       "target": "FI",
@@ -1112,7 +1116,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 206,
-      "generation_ms": 165.237
+      "generation_ms": 166.173
     },
     {
       "target": "FJ",
@@ -1120,7 +1124,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 157.075
+      "generation_ms": 165.088
     },
     {
       "target": "FK",
@@ -1128,7 +1132,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 207,
-      "generation_ms": 161.517
+      "generation_ms": 162.837
     },
     {
       "target": "FL",
@@ -1136,7 +1140,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 213,
-      "generation_ms": 169.291
+      "generation_ms": 190.699
     },
     {
       "target": "FM",
@@ -1144,7 +1148,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 213,
-      "generation_ms": 174.71
+      "generation_ms": 190.549
     },
     {
       "target": "FN",
@@ -1152,7 +1156,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 208,
-      "generation_ms": 173.461
+      "generation_ms": 172.708
     },
     {
       "target": "FO",
@@ -1160,7 +1164,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 207,
-      "generation_ms": 156.75
+      "generation_ms": 182.953
     },
     {
       "target": "FP",
@@ -1168,7 +1172,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 97.695
+      "generation_ms": 102.067
     },
     {
       "target": "FQ",
@@ -1176,7 +1180,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 90.702
+      "generation_ms": 97.793
     },
     {
       "target": "FR",
@@ -1184,7 +1188,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 100.284
+      "generation_ms": 111.345
     },
     {
       "target": "FS",
@@ -1192,7 +1196,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 168,
-      "generation_ms": 94.538
+      "generation_ms": 104.217
     },
     {
       "target": "FT",
@@ -1200,7 +1204,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 100.435
+      "generation_ms": 118.552
     },
     {
       "target": "FU",
@@ -1208,7 +1212,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 178,
-      "generation_ms": 112.051
+      "generation_ms": 131.435
     },
     {
       "target": "FV",
@@ -1216,7 +1220,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 97.568
+      "generation_ms": 91.627
     },
     {
       "target": "FW",
@@ -1224,7 +1228,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 92.762
+      "generation_ms": 105.737
     },
     {
       "target": "FX",
@@ -1232,7 +1236,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 109.993
+      "generation_ms": 175.763
     },
     {
       "target": "FY",
@@ -1240,7 +1244,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 208,
-      "generation_ms": 165.002
+      "generation_ms": 179.128
     },
     {
       "target": "FZ",
@@ -1248,7 +1252,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 89.79
+      "generation_ms": 96.73
     },
     {
       "target": "GA",
@@ -1256,7 +1260,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 96.858
+      "generation_ms": 104.416
     },
     {
       "target": "GB",
@@ -1264,7 +1268,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 91.274
+      "generation_ms": 90.423
     },
     {
       "target": "GC",
@@ -1272,7 +1276,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 80.335
+      "generation_ms": 81.045
     },
     {
       "target": "GD",
@@ -1280,7 +1284,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 88.051
+      "generation_ms": 88.754
     },
     {
       "target": "GE",
@@ -1288,7 +1292,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 85.452
+      "generation_ms": 82.761
     },
     {
       "target": "GF",
@@ -1296,7 +1300,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 79.793
+      "generation_ms": 81.446
     },
     {
       "target": "GG",
@@ -1304,7 +1308,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 132,
-      "generation_ms": 41.695
+      "generation_ms": 37.664
     },
     {
       "target": "GH",
@@ -1312,7 +1316,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 155.714
+      "generation_ms": 161.389
     },
     {
       "target": "GI",
@@ -1320,7 +1324,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 55.584
+      "generation_ms": 57.135
     },
     {
       "target": "GJ",
@@ -1328,7 +1332,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 136,
-      "generation_ms": 43.566
+      "generation_ms": 40.447
     },
     {
       "target": "GK",
@@ -1336,7 +1340,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 51.615
+      "generation_ms": 47.44
     },
     {
       "target": "GL",
@@ -1344,7 +1348,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 40.823
+      "generation_ms": 39.431
     },
     {
       "target": "GM",
@@ -1352,7 +1356,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 45.663
+      "generation_ms": 45.264
     },
     {
       "target": "GN",
@@ -1360,7 +1364,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 52.09
+      "generation_ms": 48.725
     },
     {
       "target": "GO",
@@ -1368,7 +1372,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 134,
-      "generation_ms": 55.115
+      "generation_ms": 48.78
     },
     {
       "target": "GP",
@@ -1376,7 +1380,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 68.869
+      "generation_ms": 73.91
     },
     {
       "target": "GQ",
@@ -1384,7 +1388,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 139,
-      "generation_ms": 48.088
+      "generation_ms": 51.694
     },
     {
       "target": "GR",
@@ -1392,7 +1396,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 99.031
+      "generation_ms": 104.596
     },
     {
       "target": "GS",
@@ -1400,7 +1404,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 168,
-      "generation_ms": 99.947
+      "generation_ms": 107.978
     },
     {
       "target": "GT",
@@ -1408,7 +1412,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 100.791
+      "generation_ms": 106.878
     },
     {
       "target": "GU",
@@ -1416,7 +1420,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 178,
-      "generation_ms": 118.469
+      "generation_ms": 112.445
     },
     {
       "target": "GV",
@@ -1424,7 +1428,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 95.073
+      "generation_ms": 100.598
     },
     {
       "target": "GW",
@@ -1432,7 +1436,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 95.747
+      "generation_ms": 96.167
     },
     {
       "target": "GX",
@@ -1440,7 +1444,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 111.086
+      "generation_ms": 118.646
     },
     {
       "target": "GY",
@@ -1448,7 +1452,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 208,
-      "generation_ms": 178.37
+      "generation_ms": 172.573
     },
     {
       "target": "GZ",
@@ -1456,7 +1460,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 101.523
+      "generation_ms": 96.6
     },
     {
       "target": "HA",
@@ -1464,7 +1468,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 210,
-      "generation_ms": 174.087
+      "generation_ms": 173.927
     },
     {
       "target": "HB",
@@ -1472,7 +1476,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 187.54
+      "generation_ms": 209.565
     },
     {
       "target": "HC",
@@ -1480,7 +1484,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 212,
-      "generation_ms": 181.369
+      "generation_ms": 276.675
     },
     {
       "target": "HD",
@@ -1488,7 +1492,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 84.631
+      "generation_ms": 121.393
     },
     {
       "target": "HE",
@@ -1496,7 +1500,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 82.916
+      "generation_ms": 112.63
     },
     {
       "target": "HF",
@@ -1504,7 +1508,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 76.958
+      "generation_ms": 112.028
     },
     {
       "target": "HG",
@@ -1512,7 +1516,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 132,
-      "generation_ms": 41.208
+      "generation_ms": 60.463
     },
     {
       "target": "HH",
@@ -1520,7 +1524,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 40.067
+      "generation_ms": 60.212
     },
     {
       "target": "HI",
@@ -1528,7 +1532,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 131,
-      "generation_ms": 40.277
+      "generation_ms": 56.18
     },
     {
       "target": "HJ",
@@ -1536,7 +1540,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 62.448
+      "generation_ms": 92.438
     },
     {
       "target": "HK",
@@ -1544,7 +1548,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 144,
-      "generation_ms": 58.507
+      "generation_ms": 89.441
     },
     {
       "target": "HL",
@@ -1552,7 +1556,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 151,
-      "generation_ms": 67.772
+      "generation_ms": 87.771
     },
     {
       "target": "HM",
@@ -1560,7 +1564,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 140,
-      "generation_ms": 57.353
+      "generation_ms": 85.538
     },
     {
       "target": "HN",
@@ -1568,7 +1572,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 134,
-      "generation_ms": 42.012
+      "generation_ms": 64.777
     },
     {
       "target": "HO",
@@ -1576,7 +1580,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 134,
-      "generation_ms": 41.437
+      "generation_ms": 57.653
     },
     {
       "target": "HP",
@@ -1584,7 +1588,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 184,
-      "generation_ms": 133.529
+      "generation_ms": 193.352
     },
     {
       "target": "HQ",
@@ -1592,7 +1596,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 139,
-      "generation_ms": 47.284
+      "generation_ms": 71.799
     },
     {
       "target": "HR",
@@ -1600,7 +1604,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 109.658
+      "generation_ms": 152.756
     },
     {
       "target": "HS",
@@ -1608,7 +1612,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 168,
-      "generation_ms": 99.6
+      "generation_ms": 136.857
     },
     {
       "target": "HT",
@@ -1616,7 +1620,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 99.738
+      "generation_ms": 153.956
     },
     {
       "target": "HU",
@@ -1624,7 +1628,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 83.142
+      "generation_ms": 130.478
     },
     {
       "target": "HV",
@@ -1632,7 +1636,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 80.681
+      "generation_ms": 129.851
     },
     {
       "target": "HW",
@@ -1640,7 +1644,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 80.57
+      "generation_ms": 123.526
     },
     {
       "target": "HX",
@@ -1648,7 +1652,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 101.353
+      "generation_ms": 153.006
     },
     {
       "target": "HY",
@@ -1656,7 +1660,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 100.411
+      "generation_ms": 142.893
     },
     {
       "target": "HZ",
@@ -1664,7 +1668,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 168,
-      "generation_ms": 96.667
+      "generation_ms": 155.878
     },
     {
       "target": "IA",
@@ -1672,7 +1676,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 237,
-      "generation_ms": 233.879
+      "generation_ms": 345.294
     },
     {
       "target": "IB",
@@ -1680,7 +1684,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 180.205
+      "generation_ms": 317.329
     },
     {
       "target": "IC",
@@ -1688,7 +1692,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 86.473
+      "generation_ms": 133.752
     },
     {
       "target": "ID",
@@ -1696,7 +1700,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 82.072
+      "generation_ms": 133.082
     },
     {
       "target": "IE",
@@ -1704,7 +1708,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 78.665
+      "generation_ms": 119.816
     },
     {
       "target": "IF",
@@ -1712,7 +1716,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 79.148
+      "generation_ms": 114.085
     },
     {
       "target": "IG",
@@ -1720,7 +1724,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 132,
-      "generation_ms": 38.787
+      "generation_ms": 57.658
     },
     {
       "target": "IH",
@@ -1728,7 +1732,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 204,
-      "generation_ms": 159.129
+      "generation_ms": 247.615
     },
     {
       "target": "II",
@@ -1736,7 +1740,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 131,
-      "generation_ms": 40.7
+      "generation_ms": 56.186
     },
     {
       "target": "IJ",
@@ -1744,7 +1748,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 50.774
+      "generation_ms": 64.684
     },
     {
       "target": "IK",
@@ -1752,7 +1756,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 57.2
+      "generation_ms": 83.25
     },
     {
       "target": "IL",
@@ -1760,7 +1764,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 43.719
+      "generation_ms": 67.279
     },
     {
       "target": "IM",
@@ -1768,7 +1772,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 44.148
+      "generation_ms": 65.168
     },
     {
       "target": "IN",
@@ -1776,7 +1780,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 134,
-      "generation_ms": 41.516
+      "generation_ms": 60.098
     },
     {
       "target": "IO",
@@ -1784,7 +1788,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 134,
-      "generation_ms": 41.559
+      "generation_ms": 61.226
     },
     {
       "target": "IP",
@@ -1792,7 +1796,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 147,
-      "generation_ms": 64.527
+      "generation_ms": 91.602
     },
     {
       "target": "IQ",
@@ -1800,7 +1804,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 139,
-      "generation_ms": 47.828
+      "generation_ms": 74.424
     },
     {
       "target": "IR",
@@ -1808,7 +1812,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 102.986
+      "generation_ms": 154.243
     },
     {
       "target": "IS",
@@ -1816,7 +1820,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 173,
-      "generation_ms": 117.019
+      "generation_ms": 163.774
     },
     {
       "target": "IT",
@@ -1824,7 +1828,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 103.965
+      "generation_ms": 149.533
     },
     {
       "target": "IU",
@@ -1832,7 +1836,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 81.277
+      "generation_ms": 116.421
     },
     {
       "target": "IV",
@@ -1840,7 +1844,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 88.607
+      "generation_ms": 122.652
     },
     {
       "target": "IW",
@@ -1848,7 +1852,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 86.771
+      "generation_ms": 119.5
     },
     {
       "target": "IX",
@@ -1856,7 +1860,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 113.779
+      "generation_ms": 169.131
     },
     {
       "target": "IY",
@@ -1864,7 +1868,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 85.104
+      "generation_ms": 131.895
     },
     {
       "target": "IZ",
@@ -1872,7 +1876,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 88.071
+      "generation_ms": 145.209
     },
     {
       "target": "JA",
@@ -1880,7 +1884,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 225,
-      "generation_ms": 208.667
+      "generation_ms": 298.11
     },
     {
       "target": "JB",
@@ -1888,7 +1892,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 190.78
+      "generation_ms": 283.838
     },
     {
       "target": "JC",
@@ -1896,7 +1900,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 89.887
+      "generation_ms": 126.134
     },
     {
       "target": "JD",
@@ -1904,7 +1908,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 91.535
+      "generation_ms": 120.889
     },
     {
       "target": "JE",
@@ -1912,7 +1916,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 80.606
+      "generation_ms": 116.018
     },
     {
       "target": "JF",
@@ -1920,7 +1924,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 84.929
+      "generation_ms": 118.082
     },
     {
       "target": "JG",
@@ -1928,7 +1932,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 199,
-      "generation_ms": 156.215
+      "generation_ms": 221.205
     },
     {
       "target": "JH",
@@ -1936,7 +1940,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 204,
-      "generation_ms": 167.621
+      "generation_ms": 237.054
     },
     {
       "target": "JI",
@@ -1944,7 +1948,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 146,
-      "generation_ms": 61.665
+      "generation_ms": 90.263
     },
     {
       "target": "JJ",
@@ -1952,7 +1956,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 143,
-      "generation_ms": 57.332
+      "generation_ms": 81.479
     },
     {
       "target": "JK",
@@ -1960,7 +1964,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 144,
-      "generation_ms": 59.635
+      "generation_ms": 80.647
     },
     {
       "target": "JL",
@@ -1968,7 +1972,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 151,
-      "generation_ms": 66.642
+      "generation_ms": 103.404
     },
     {
       "target": "JM",
@@ -1976,7 +1980,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 155,
-      "generation_ms": 82.37
+      "generation_ms": 117.793
     },
     {
       "target": "JN",
@@ -1984,7 +1988,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 153,
-      "generation_ms": 77.915
+      "generation_ms": 101.311
     },
     {
       "target": "JO",
@@ -1992,7 +1996,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 151,
-      "generation_ms": 71.832
+      "generation_ms": 108.592
     },
     {
       "target": "JP",
@@ -2000,7 +2004,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 147,
-      "generation_ms": 64.117
+      "generation_ms": 88.073
     },
     {
       "target": "JQ",
@@ -2008,7 +2012,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 147,
-      "generation_ms": 62.477
+      "generation_ms": 90.537
     },
     {
       "target": "JR",
@@ -2016,7 +2020,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 101.77
+      "generation_ms": 137.322
     },
     {
       "target": "JS",
@@ -2024,7 +2028,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 173,
-      "generation_ms": 110.593
+      "generation_ms": 166.635
     },
     {
       "target": "JT",
@@ -2032,7 +2036,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 104.225
+      "generation_ms": 138.119
     },
     {
       "target": "JU",
@@ -2040,7 +2044,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 83.252
+      "generation_ms": 123.225
     },
     {
       "target": "JV",
@@ -2048,7 +2052,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 81.054
+      "generation_ms": 130.048
     },
     {
       "target": "JW",
@@ -2056,7 +2060,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 77.649
+      "generation_ms": 124.85
     },
     {
       "target": "JX",
@@ -2064,7 +2068,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 122.133
+      "generation_ms": 167.209
     },
     {
       "target": "JY",
@@ -2072,7 +2076,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 85.714
+      "generation_ms": 127.91
     },
     {
       "target": "JZ",
@@ -2080,7 +2084,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 82.29
+      "generation_ms": 122.999
     },
     {
       "target": "KA",
@@ -2088,7 +2092,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 101.064
+      "generation_ms": 139.215
     },
     {
       "target": "KB",
@@ -2096,7 +2100,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 86.319
+      "generation_ms": 125.016
     },
     {
       "target": "KC",
@@ -2104,7 +2108,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 83.873
+      "generation_ms": 120.638
     },
     {
       "target": "KD",
@@ -2112,7 +2116,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 81.05
+      "generation_ms": 120.915
     },
     {
       "target": "KE",
@@ -2120,7 +2124,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 80.444
+      "generation_ms": 116.554
     },
     {
       "target": "KF",
@@ -2128,7 +2132,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 80.319
+      "generation_ms": 103.573
     },
     {
       "target": "KG",
@@ -2136,7 +2140,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 168.566
+      "generation_ms": 247.039
     },
     {
       "target": "KH",
@@ -2144,7 +2148,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 156.574
+      "generation_ms": 254.704
     },
     {
       "target": "KI",
@@ -2152,7 +2156,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 145,
-      "generation_ms": 63.328
+      "generation_ms": 89.51
     },
     {
       "target": "KJ",
@@ -2160,7 +2164,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 145,
-      "generation_ms": 56.221
+      "generation_ms": 79.635
     },
     {
       "target": "KK",
@@ -2168,7 +2172,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 144,
-      "generation_ms": 55.776
+      "generation_ms": 91.321
     },
     {
       "target": "KL",
@@ -2176,7 +2180,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 69.466
+      "generation_ms": 101.072
     },
     {
       "target": "KM",
@@ -2184,7 +2188,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 154,
-      "generation_ms": 71.145
+      "generation_ms": 110.519
     },
     {
       "target": "KN",
@@ -2192,7 +2196,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 66.575
+      "generation_ms": 90.678
     },
     {
       "target": "KO",
@@ -2200,7 +2204,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 60.071
+      "generation_ms": 98.315
     },
     {
       "target": "KP",
@@ -2208,7 +2212,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 147,
-      "generation_ms": 61.047
+      "generation_ms": 94.0
     },
     {
       "target": "KQ",
@@ -2216,7 +2220,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 147,
-      "generation_ms": 61.186
+      "generation_ms": 85.587
     },
     {
       "target": "KR",
@@ -2224,7 +2228,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 101.622
+      "generation_ms": 154.305
     },
     {
       "target": "KS",
@@ -2232,7 +2236,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 168,
-      "generation_ms": 104.604
+      "generation_ms": 152.403
     },
     {
       "target": "KT",
@@ -2240,7 +2244,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 103.392
+      "generation_ms": 147.133
     },
     {
       "target": "KU",
@@ -2248,7 +2252,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 178,
-      "generation_ms": 116.716
+      "generation_ms": 177.633
     },
     {
       "target": "KV",
@@ -2256,7 +2260,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 95.152
+      "generation_ms": 144.053
     },
     {
       "target": "KW",
@@ -2264,7 +2268,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 95.504
+      "generation_ms": 137.106
     },
     {
       "target": "KX",
@@ -2272,7 +2276,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 112.129
+      "generation_ms": 227.382
     },
     {
       "target": "KY",
@@ -2280,7 +2284,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 208,
-      "generation_ms": 172.664
+      "generation_ms": 241.002
     },
     {
       "target": "KZ",
@@ -2288,7 +2292,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 97.03
+      "generation_ms": 142.217
     },
     {
       "target": "LA",
@@ -2296,7 +2300,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 226,
-      "generation_ms": 190.928
+      "generation_ms": 333.599
     },
     {
       "target": "LB",
@@ -2304,7 +2308,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 245,
-      "generation_ms": 229.98
+      "generation_ms": 351.588
     },
     {
       "target": "LC",
@@ -2312,7 +2316,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 248,
-      "generation_ms": 239.584
+      "generation_ms": 337.523
     },
     {
       "target": "LD",
@@ -2320,7 +2324,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 161,
-      "generation_ms": 84.012
+      "generation_ms": 131.916
     },
     {
       "target": "LE",
@@ -2328,7 +2332,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 82.347
+      "generation_ms": 121.023
     },
     {
       "target": "LF",
@@ -2336,7 +2340,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 87.478
+      "generation_ms": 123.717
     },
     {
       "target": "LG",
@@ -2344,7 +2348,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 32.476
+      "generation_ms": 57.351
     },
     {
       "target": "LH",
@@ -2352,7 +2356,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 30.736
+      "generation_ms": 43.832
     },
     {
       "target": "LI",
@@ -2360,7 +2364,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 31.128
+      "generation_ms": 50.161
     },
     {
       "target": "LJ",
@@ -2368,7 +2372,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 31.637
+      "generation_ms": 49.073
     },
     {
       "target": "LK",
@@ -2376,7 +2380,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 131,
-      "generation_ms": 35.004
+      "generation_ms": 53.245
     },
     {
       "target": "LL",
@@ -2384,7 +2388,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 127,
-      "generation_ms": 30.523
+      "generation_ms": 45.735
     },
     {
       "target": "LM",
@@ -2392,7 +2396,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 31.91
+      "generation_ms": 53.443
     },
     {
       "target": "LN",
@@ -2400,7 +2404,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 30.646
+      "generation_ms": 49.604
     },
     {
       "target": "LO",
@@ -2408,7 +2412,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 29.469
+      "generation_ms": 49.022
     },
     {
       "target": "LP",
@@ -2416,7 +2420,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 61.509
+      "generation_ms": 99.237
     },
     {
       "target": "LQ",
@@ -2424,7 +2428,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 53.526
+      "generation_ms": 84.305
     },
     {
       "target": "LR",
@@ -2432,7 +2436,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 170,
-      "generation_ms": 102.041
+      "generation_ms": 203.134
     },
     {
       "target": "LS",
@@ -2440,7 +2444,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 98.633
+      "generation_ms": 149.395
     },
     {
       "target": "LT",
@@ -2448,7 +2452,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 108.325
+      "generation_ms": 152.662
     },
     {
       "target": "LU",
@@ -2456,7 +2460,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 104.483
+      "generation_ms": 150.722
     },
     {
       "target": "LV",
@@ -2464,7 +2468,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 97.178
+      "generation_ms": 147.06
     },
     {
       "target": "LW",
@@ -2472,7 +2476,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 87.204
+      "generation_ms": 139.227
     },
     {
       "target": "LX",
@@ -2480,7 +2484,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 89.986
+      "generation_ms": 148.34
     },
     {
       "target": "LY",
@@ -2488,7 +2492,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 137,
-      "generation_ms": 49.006
+      "generation_ms": 69.53
     },
     {
       "target": "LZ",
@@ -2496,7 +2500,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 137,
-      "generation_ms": 48.73
+      "generation_ms": 76.353
     },
     {
       "target": "MA",
@@ -2504,7 +2508,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 91.665
+      "generation_ms": 143.314
     },
     {
       "target": "MB",
@@ -2512,7 +2516,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 78.005
+      "generation_ms": 114.362
     },
     {
       "target": "MC",
@@ -2520,7 +2524,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 79.615
+      "generation_ms": 129.548
     },
     {
       "target": "MD",
@@ -2528,7 +2532,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 78.247
+      "generation_ms": 119.743
     },
     {
       "target": "ME",
@@ -2536,7 +2540,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 79.694
+      "generation_ms": 150.612
     },
     {
       "target": "MF",
@@ -2544,7 +2548,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 82.331
+      "generation_ms": 110.97
     },
     {
       "target": "MG",
@@ -2552,7 +2556,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 55.31
+      "generation_ms": 81.011
     },
     {
       "target": "MH",
@@ -2560,7 +2564,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 51.483
+      "generation_ms": 71.904
     },
     {
       "target": "MI",
@@ -2568,7 +2572,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 50.083
+      "generation_ms": 81.203
     },
     {
       "target": "MJ",
@@ -2576,7 +2580,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 51.063
+      "generation_ms": 75.57
     },
     {
       "target": "MK",
@@ -2584,7 +2588,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 52.255
+      "generation_ms": 86.607
     },
     {
       "target": "ML",
@@ -2592,7 +2596,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 151,
-      "generation_ms": 73.952
+      "generation_ms": 100.775
     },
     {
       "target": "MM",
@@ -2600,7 +2604,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 138,
-      "generation_ms": 48.557
+      "generation_ms": 72.814
     },
     {
       "target": "MN",
@@ -2608,7 +2612,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 64.411
+      "generation_ms": 95.902
     },
     {
       "target": "MO",
@@ -2616,7 +2620,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 139,
-      "generation_ms": 52.952
+      "generation_ms": 70.583
     },
     {
       "target": "MP",
@@ -2624,7 +2628,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 62.174
+      "generation_ms": 93.161
     },
     {
       "target": "MQ",
@@ -2632,7 +2636,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 139,
-      "generation_ms": 50.105
+      "generation_ms": 71.198
     },
     {
       "target": "MR",
@@ -2640,7 +2644,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 102.77
+      "generation_ms": 144.856
     },
     {
       "target": "MS",
@@ -2648,7 +2652,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 168,
-      "generation_ms": 112.815
+      "generation_ms": 154.232
     },
     {
       "target": "MT",
@@ -2656,7 +2660,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 102.281
+      "generation_ms": 155.057
     },
     {
       "target": "MU",
@@ -2664,7 +2668,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 178,
-      "generation_ms": 117.022
+      "generation_ms": 177.489
     },
     {
       "target": "MV",
@@ -2672,7 +2676,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 91.788
+      "generation_ms": 144.387
     },
     {
       "target": "MW",
@@ -2680,7 +2684,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 88.282
+      "generation_ms": 138.762
     },
     {
       "target": "MX",
@@ -2688,7 +2692,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 109.093
+      "generation_ms": 194.488
     },
     {
       "target": "MY",
@@ -2696,7 +2700,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 208,
-      "generation_ms": 163.671
+      "generation_ms": 246.888
     },
     {
       "target": "MZ",
@@ -2704,7 +2708,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 90.841
+      "generation_ms": 148.248
     },
     {
       "target": "NA",
@@ -2712,7 +2716,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 223,
-      "generation_ms": 196.386
+      "generation_ms": 308.931
     },
     {
       "target": "NB",
@@ -2720,7 +2724,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 221,
-      "generation_ms": 192.917
+      "generation_ms": 269.835
     },
     {
       "target": "NC",
@@ -2728,7 +2732,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 226,
-      "generation_ms": 190.296
+      "generation_ms": 284.798
     },
     {
       "target": "ND",
@@ -2736,7 +2740,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 161,
-      "generation_ms": 91.221
+      "generation_ms": 135.632
     },
     {
       "target": "NE",
@@ -2744,7 +2748,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 87.162
+      "generation_ms": 133.781
     },
     {
       "target": "NF",
@@ -2752,7 +2756,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 83.445
+      "generation_ms": 138.102
     },
     {
       "target": "NG",
@@ -2760,7 +2764,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 36.496
+      "generation_ms": 53.244
     },
     {
       "target": "NH",
@@ -2768,7 +2772,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 42.224
+      "generation_ms": 47.915
     },
     {
       "target": "NI",
@@ -2776,7 +2780,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 33.477
+      "generation_ms": 62.535
     },
     {
       "target": "NJ",
@@ -2784,7 +2788,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 55.481
+      "generation_ms": 91.346
     },
     {
       "target": "NK",
@@ -2792,7 +2796,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 56.507
+      "generation_ms": 91.147
     },
     {
       "target": "NL",
@@ -2800,7 +2804,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 149,
-      "generation_ms": 71.526
+      "generation_ms": 107.019
     },
     {
       "target": "NM",
@@ -2808,7 +2812,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 36.183
+      "generation_ms": 53.047
     },
     {
       "target": "NN",
@@ -2816,7 +2820,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 127,
-      "generation_ms": 36.071
+      "generation_ms": 49.176
     },
     {
       "target": "NO",
@@ -2824,7 +2828,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 37.16
+      "generation_ms": 56.064
     },
     {
       "target": "NP",
@@ -2832,7 +2836,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 66.367
+      "generation_ms": 105.594
     },
     {
       "target": "NQ",
@@ -2840,7 +2844,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 57.636
+      "generation_ms": 91.582
     },
     {
       "target": "NR",
@@ -2848,7 +2852,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 170,
-      "generation_ms": 108.113
+      "generation_ms": 165.955
     },
     {
       "target": "NS",
@@ -2856,7 +2860,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 108.608
+      "generation_ms": 165.698
     },
     {
       "target": "NT",
@@ -2864,7 +2868,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 103.987
+      "generation_ms": 178.827
     },
     {
       "target": "NU",
@@ -2872,7 +2876,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 97.079
+      "generation_ms": 151.243
     },
     {
       "target": "NV",
@@ -2880,7 +2884,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 95.839
+      "generation_ms": 145.817
     },
     {
       "target": "NW",
@@ -2888,7 +2892,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 92.339
+      "generation_ms": 162.279
     },
     {
       "target": "NX",
@@ -2896,7 +2900,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 93.334
+      "generation_ms": 155.144
     },
     {
       "target": "NY",
@@ -2904,7 +2908,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 137,
-      "generation_ms": 51.567
+      "generation_ms": 78.85
     },
     {
       "target": "NZ",
@@ -2912,7 +2916,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 137,
-      "generation_ms": 50.501
+      "generation_ms": 85.242
     },
     {
       "target": "OA",
@@ -2920,7 +2924,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 226,
-      "generation_ms": 195.387
+      "generation_ms": 283.592
     },
     {
       "target": "OB",
@@ -2928,7 +2932,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 245,
-      "generation_ms": 244.825
+      "generation_ms": 353.637
     },
     {
       "target": "OC",
@@ -2936,7 +2940,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 226,
-      "generation_ms": 198.04
+      "generation_ms": 307.345
     },
     {
       "target": "OD",
@@ -2944,7 +2948,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 161,
-      "generation_ms": 85.844
+      "generation_ms": 146.26
     },
     {
       "target": "OE",
@@ -2952,7 +2956,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 80.8
+      "generation_ms": 138.99
     },
     {
       "target": "OF",
@@ -2960,7 +2964,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 83.101
+      "generation_ms": 142.979
     },
     {
       "target": "OG",
@@ -2968,7 +2972,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 36.398
+      "generation_ms": 60.313
     },
     {
       "target": "OH",
@@ -2976,7 +2980,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 35.523
+      "generation_ms": 52.405
     },
     {
       "target": "OI",
@@ -2984,7 +2988,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 34.11
+      "generation_ms": 55.022
     },
     {
       "target": "OJ",
@@ -2992,7 +2996,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 56.178
+      "generation_ms": 89.938
     },
     {
       "target": "OK",
@@ -3000,7 +3004,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 58.476
+      "generation_ms": 82.985
     },
     {
       "target": "OL",
@@ -3008,7 +3012,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 149,
-      "generation_ms": 69.842
+      "generation_ms": 107.956
     },
     {
       "target": "OM",
@@ -3016,7 +3020,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 41.647
+      "generation_ms": 54.634
     },
     {
       "target": "ON",
@@ -3024,7 +3028,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 45.362
+      "generation_ms": 73.409
     },
     {
       "target": "OO",
@@ -3032,7 +3036,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 127,
-      "generation_ms": 34.678
+      "generation_ms": 54.023
     },
     {
       "target": "OP",
@@ -3040,7 +3044,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 65.981
+      "generation_ms": 110.118
     },
     {
       "target": "OQ",
@@ -3048,7 +3052,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 57.758
+      "generation_ms": 94.749
     },
     {
       "target": "OR",
@@ -3056,7 +3060,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 170,
-      "generation_ms": 102.862
+      "generation_ms": 190.495
     },
     {
       "target": "OS",
@@ -3064,7 +3068,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 105.746
+      "generation_ms": 156.352
     },
     {
       "target": "OT",
@@ -3072,7 +3076,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 102.063
+      "generation_ms": 160.561
     },
     {
       "target": "OU",
@@ -3080,7 +3084,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 97.173
+      "generation_ms": 159.517
     },
     {
       "target": "OV",
@@ -3088,7 +3092,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 95.899
+      "generation_ms": 156.916
     },
     {
       "target": "OW",
@@ -3096,7 +3100,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 89.382
+      "generation_ms": 135.662
     },
     {
       "target": "OX",
@@ -3104,7 +3108,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 105.724
+      "generation_ms": 141.741
     },
     {
       "target": "OY",
@@ -3112,7 +3116,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 137,
-      "generation_ms": 53.613
+      "generation_ms": 78.698
     },
     {
       "target": "OZ",
@@ -3120,7 +3124,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 137,
-      "generation_ms": 54.855
+      "generation_ms": 73.979
     },
     {
       "target": "PA",
@@ -3128,7 +3132,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 94.823
+      "generation_ms": 134.24
     },
     {
       "target": "PB",
@@ -3136,7 +3140,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 81.273
+      "generation_ms": 118.687
     },
     {
       "target": "PC",
@@ -3144,7 +3148,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 77.89
+      "generation_ms": 123.978
     },
     {
       "target": "PD",
@@ -3152,7 +3156,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 77.025
+      "generation_ms": 117.077
     },
     {
       "target": "PE",
@@ -3160,7 +3164,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 75.673
+      "generation_ms": 121.01
     },
     {
       "target": "PF",
@@ -3168,7 +3172,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 78.457
+      "generation_ms": 123.123
     },
     {
       "target": "PG",
@@ -3176,7 +3180,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 151.579
+      "generation_ms": 230.611
     },
     {
       "target": "PH",
@@ -3184,7 +3188,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 156.655
+      "generation_ms": 231.301
     },
     {
       "target": "PI",
@@ -3192,7 +3196,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 206,
-      "generation_ms": 163.072
+      "generation_ms": 266.209
     },
     {
       "target": "PJ",
@@ -3200,7 +3204,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 153,
-      "generation_ms": 71.058
+      "generation_ms": 102.59
     },
     {
       "target": "PK",
@@ -3208,7 +3212,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 153,
-      "generation_ms": 68.214
+      "generation_ms": 112.995
     },
     {
       "target": "PL",
@@ -3216,7 +3220,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 151,
-      "generation_ms": 67.833
+      "generation_ms": 106.973
     },
     {
       "target": "PM",
@@ -3224,7 +3228,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 154,
-      "generation_ms": 72.937
+      "generation_ms": 104.042
     },
     {
       "target": "PN",
@@ -3232,7 +3236,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 153,
-      "generation_ms": 74.98
+      "generation_ms": 106.146
     },
     {
       "target": "PO",
@@ -3240,7 +3244,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 152,
-      "generation_ms": 67.606
+      "generation_ms": 106.952
     },
     {
       "target": "PP",
@@ -3248,7 +3252,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 150,
-      "generation_ms": 68.609
+      "generation_ms": 100.114
     },
     {
       "target": "PQ",
@@ -3256,7 +3260,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 151,
-      "generation_ms": 77.711
+      "generation_ms": 100.447
     },
     {
       "target": "PR",
@@ -3264,7 +3268,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 102.116
+      "generation_ms": 140.25
     },
     {
       "target": "PS",
@@ -3272,7 +3276,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 168,
-      "generation_ms": 97.674
+      "generation_ms": 137.072
     },
     {
       "target": "PT",
@@ -3280,7 +3284,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 101.473
+      "generation_ms": 140.211
     },
     {
       "target": "PU",
@@ -3288,7 +3292,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 178,
-      "generation_ms": 112.382
+      "generation_ms": 180.262
     },
     {
       "target": "PV",
@@ -3296,7 +3300,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 95.152
+      "generation_ms": 112.237
     },
     {
       "target": "PW",
@@ -3304,7 +3308,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 87.451
+      "generation_ms": 112.575
     },
     {
       "target": "PX",
@@ -3312,7 +3316,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 109.153
+      "generation_ms": 141.225
     },
     {
       "target": "PY",
@@ -3320,7 +3324,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 208,
-      "generation_ms": 169.576
+      "generation_ms": 212.65
     },
     {
       "target": "PZ",
@@ -3328,7 +3332,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 93.07
+      "generation_ms": 138.237
     },
     {
       "target": "QA",
@@ -3336,7 +3340,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 251,
-      "generation_ms": 261.886
+      "generation_ms": 364.943
     },
     {
       "target": "QB",
@@ -3344,7 +3348,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 221,
-      "generation_ms": 188.476
+      "generation_ms": 294.375
     },
     {
       "target": "QC",
@@ -3352,7 +3356,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 248,
-      "generation_ms": 254.444
+      "generation_ms": 366.402
     },
     {
       "target": "QD",
@@ -3360,7 +3364,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 161,
-      "generation_ms": 93.183
+      "generation_ms": 144.238
     },
     {
       "target": "QE",
@@ -3368,7 +3372,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 85.236
+      "generation_ms": 137.297
     },
     {
       "target": "QF",
@@ -3376,7 +3380,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 90.715
+      "generation_ms": 123.002
     },
     {
       "target": "QG",
@@ -3384,7 +3388,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 47.079
+      "generation_ms": 61.375
     },
     {
       "target": "QH",
@@ -3392,7 +3396,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 37.891
+      "generation_ms": 45.916
     },
     {
       "target": "QI",
@@ -3400,7 +3404,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 39.481
+      "generation_ms": 52.775
     },
     {
       "target": "QJ",
@@ -3408,7 +3412,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 59.651
+      "generation_ms": 83.087
     },
     {
       "target": "QK",
@@ -3416,7 +3420,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 59.346
+      "generation_ms": 79.07
     },
     {
       "target": "QL",
@@ -3424,7 +3428,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 34.123
+      "generation_ms": 39.554
     },
     {
       "target": "QM",
@@ -3432,7 +3436,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 136,
-      "generation_ms": 50.312
+      "generation_ms": 64.613
     },
     {
       "target": "QN",
@@ -3440,7 +3444,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 33.504
+      "generation_ms": 49.931
     },
     {
       "target": "QO",
@@ -3448,7 +3452,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 33.979
+      "generation_ms": 43.963
     },
     {
       "target": "QP",
@@ -3456,7 +3460,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 124,
-      "generation_ms": 27.092
+      "generation_ms": 41.302
     },
     {
       "target": "QQ",
@@ -3464,7 +3468,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 121,
-      "generation_ms": 26.267
+      "generation_ms": 41.167
     },
     {
       "target": "QR",
@@ -3472,7 +3476,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 122,
-      "generation_ms": 26.521
+      "generation_ms": 42.597
     },
     {
       "target": "QS",
@@ -3480,7 +3484,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 107.071
+      "generation_ms": 158.03
     },
     {
       "target": "QT",
@@ -3488,7 +3492,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 109.595
+      "generation_ms": 161.782
     },
     {
       "target": "QU",
@@ -3496,7 +3500,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 96.182
+      "generation_ms": 155.79
     },
     {
       "target": "QV",
@@ -3504,7 +3508,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 100.135
+      "generation_ms": 157.38
     },
     {
       "target": "QW",
@@ -3512,7 +3516,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 99.52
+      "generation_ms": 152.901
     },
     {
       "target": "QX",
@@ -3520,7 +3524,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 99.252
+      "generation_ms": 147.526
     },
     {
       "target": "QY",
@@ -3528,7 +3532,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 27.31
+      "generation_ms": 42.155
     },
     {
       "target": "QZ",
@@ -3536,7 +3540,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 137,
-      "generation_ms": 52.98
+      "generation_ms": 85.731
     },
     {
       "target": "RA",
@@ -3544,7 +3548,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 251,
-      "generation_ms": 249.632
+      "generation_ms": 364.158
     },
     {
       "target": "RB",
@@ -3552,7 +3556,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 245,
-      "generation_ms": 242.444
+      "generation_ms": 346.821
     },
     {
       "target": "RC",
@@ -3560,7 +3564,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 218,
-      "generation_ms": 190.154
+      "generation_ms": 292.174
     },
     {
       "target": "RD",
@@ -3568,7 +3572,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 161,
-      "generation_ms": 85.909
+      "generation_ms": 146.506
     },
     {
       "target": "RE",
@@ -3576,7 +3580,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 82.386
+      "generation_ms": 113.523
     },
     {
       "target": "RF",
@@ -3584,7 +3588,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 92.1
+      "generation_ms": 101.116
     },
     {
       "target": "RG",
@@ -3592,7 +3596,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 38.463
+      "generation_ms": 51.755
     },
     {
       "target": "RH",
@@ -3600,7 +3604,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 35.982
+      "generation_ms": 44.897
     },
     {
       "target": "RI",
@@ -3608,7 +3612,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 38.2
+      "generation_ms": 48.076
     },
     {
       "target": "RJ",
@@ -3616,7 +3620,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 60.325
+      "generation_ms": 68.834
     },
     {
       "target": "RK",
@@ -3624,7 +3628,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 53.565
+      "generation_ms": 80.294
     },
     {
       "target": "RL",
@@ -3632,7 +3636,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 33.283
+      "generation_ms": 47.5
     },
     {
       "target": "RM",
@@ -3640,7 +3644,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 136,
-      "generation_ms": 48.583
+      "generation_ms": 68.368
     },
     {
       "target": "RN",
@@ -3648,7 +3652,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 33.642
+      "generation_ms": 43.208
     },
     {
       "target": "RO",
@@ -3656,7 +3660,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 33.599
+      "generation_ms": 51.596
     },
     {
       "target": "RP",
@@ -3664,7 +3668,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 25.74
+      "generation_ms": 44.05
     },
     {
       "target": "RQ",
@@ -3672,7 +3676,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 27.363
+      "generation_ms": 40.998
     },
     {
       "target": "RR",
@@ -3680,7 +3684,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 121,
-      "generation_ms": 25.103
+      "generation_ms": 43.629
     },
     {
       "target": "RS",
@@ -3688,7 +3692,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 108.787
+      "generation_ms": 154.522
     },
     {
       "target": "RT",
@@ -3696,7 +3700,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 101.954
+      "generation_ms": 163.45
     },
     {
       "target": "RU",
@@ -3704,7 +3708,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 94.023
+      "generation_ms": 144.974
     },
     {
       "target": "RV",
@@ -3712,7 +3716,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 93.291
+      "generation_ms": 133.609
     },
     {
       "target": "RW",
@@ -3720,7 +3724,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 91.492
+      "generation_ms": 137.652
     },
     {
       "target": "RX",
@@ -3728,7 +3732,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 100.336
+      "generation_ms": 139.938
     },
     {
       "target": "RY",
@@ -3736,7 +3740,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 26.792
+      "generation_ms": 38.658
     },
     {
       "target": "RZ",
@@ -3744,7 +3748,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 137,
-      "generation_ms": 54.516
+      "generation_ms": 72.535
     },
     {
       "target": "SA",
@@ -3752,7 +3756,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 241,
-      "generation_ms": 222.378
+      "generation_ms": 334.777
     },
     {
       "target": "SB",
@@ -3760,7 +3764,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 238,
-      "generation_ms": 214.248
+      "generation_ms": 326.324
     },
     {
       "target": "SC",
@@ -3768,7 +3772,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 201,
-      "generation_ms": 149.258
+      "generation_ms": 205.068
     },
     {
       "target": "SD",
@@ -3776,7 +3780,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 236,
-      "generation_ms": 214.966
+      "generation_ms": 307.499
     },
     {
       "target": "SE",
@@ -3784,7 +3788,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 200,
-      "generation_ms": 157.106
+      "generation_ms": 225.732
     },
     {
       "target": "SF",
@@ -3792,7 +3796,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 201,
-      "generation_ms": 149.708
+      "generation_ms": 219.729
     },
     {
       "target": "SG",
@@ -3800,7 +3804,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 154.501
+      "generation_ms": 235.445
     },
     {
       "target": "SH",
@@ -3808,7 +3812,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 151.405
+      "generation_ms": 231.298
     },
     {
       "target": "SI",
@@ -3816,7 +3820,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 206,
-      "generation_ms": 156.953
+      "generation_ms": 239.987
     },
     {
       "target": "SJ",
@@ -3824,7 +3828,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 202,
-      "generation_ms": 158.835
+      "generation_ms": 228.594
     },
     {
       "target": "SK",
@@ -3832,7 +3836,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 207,
-      "generation_ms": 157.725
+      "generation_ms": 240.477
     },
     {
       "target": "SL",
@@ -3840,7 +3844,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 213,
-      "generation_ms": 169.647
+      "generation_ms": 280.906
     },
     {
       "target": "SM",
@@ -3848,7 +3852,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 213,
-      "generation_ms": 166.368
+      "generation_ms": 251.494
     },
     {
       "target": "SN",
@@ -3856,7 +3860,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 208,
-      "generation_ms": 160.451
+      "generation_ms": 243.661
     },
     {
       "target": "SO",
@@ -3864,7 +3868,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 207,
-      "generation_ms": 180.607
+      "generation_ms": 239.613
     },
     {
       "target": "SP",
@@ -3872,7 +3876,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 200,
-      "generation_ms": 146.508
+      "generation_ms": 217.928
     },
     {
       "target": "SQ",
@@ -3880,7 +3884,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 224,
-      "generation_ms": 194.143
+      "generation_ms": 268.123
     },
     {
       "target": "SR",
@@ -3888,7 +3892,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 182,
-      "generation_ms": 126.867
+      "generation_ms": 185.446
     },
     {
       "target": "SS",
@@ -3896,7 +3900,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 174,
-      "generation_ms": 110.632
+      "generation_ms": 176.804
     },
     {
       "target": "ST",
@@ -3904,7 +3908,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 177,
-      "generation_ms": 108.44
+      "generation_ms": 172.7
     },
     {
       "target": "SU",
@@ -3912,7 +3916,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 108.219
+      "generation_ms": 172.487
     },
     {
       "target": "SV",
@@ -3920,7 +3924,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 112.645
+      "generation_ms": 155.251
     },
     {
       "target": "SW",
@@ -3928,7 +3932,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 175,
-      "generation_ms": 110.266
+      "generation_ms": 157.507
     },
     {
       "target": "SX",
@@ -3936,7 +3940,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 109.944
+      "generation_ms": 166.61
     },
     {
       "target": "SY",
@@ -3944,7 +3948,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 177,
-      "generation_ms": 111.665
+      "generation_ms": 167.182
     },
     {
       "target": "SZ",
@@ -3952,7 +3956,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 175,
-      "generation_ms": 106.202
+      "generation_ms": 165.711
     },
     {
       "target": "TA",
@@ -3960,7 +3964,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 225,
-      "generation_ms": 192.763
+      "generation_ms": 313.84
     },
     {
       "target": "TB",
@@ -3968,7 +3972,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 192.836
+      "generation_ms": 276.518
     },
     {
       "target": "TC",
@@ -3976,7 +3980,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 225,
-      "generation_ms": 188.177
+      "generation_ms": 302.487
     },
     {
       "target": "TD",
@@ -3984,7 +3988,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 219,
-      "generation_ms": 188.539
+      "generation_ms": 293.955
     },
     {
       "target": "TE",
@@ -3992,7 +3996,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 237,
-      "generation_ms": 214.157
+      "generation_ms": 335.562
     },
     {
       "target": "TF",
@@ -4000,7 +4004,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 201,
-      "generation_ms": 157.07
+      "generation_ms": 238.172
     },
     {
       "target": "TG",
@@ -4008,7 +4012,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 199,
-      "generation_ms": 152.23
+      "generation_ms": 218.48
     },
     {
       "target": "TH",
@@ -4016,7 +4020,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 204,
-      "generation_ms": 162.336
+      "generation_ms": 220.7
     },
     {
       "target": "TI",
@@ -4024,7 +4028,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 206,
-      "generation_ms": 158.362
+      "generation_ms": 223.876
     },
     {
       "target": "TJ",
@@ -4032,7 +4036,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 242,
-      "generation_ms": 233.331
+      "generation_ms": 319.159
     },
     {
       "target": "TK",
@@ -4040,7 +4044,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 207,
-      "generation_ms": 169.43
+      "generation_ms": 220.07
     },
     {
       "target": "TL",
@@ -4048,7 +4052,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 199,
-      "generation_ms": 157.843
+      "generation_ms": 196.569
     },
     {
       "target": "TM",
@@ -4056,7 +4060,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 183,
-      "generation_ms": 124.085
+      "generation_ms": 171.163
     },
     {
       "target": "TN",
@@ -4064,7 +4068,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 211,
-      "generation_ms": 166.329
+      "generation_ms": 215.339
     },
     {
       "target": "TO",
@@ -4072,7 +4076,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 183,
-      "generation_ms": 118.931
+      "generation_ms": 177.515
     },
     {
       "target": "TP",
@@ -4080,7 +4084,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 183,
-      "generation_ms": 123.62
+      "generation_ms": 163.023
     },
     {
       "target": "TQ",
@@ -4088,7 +4092,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 224,
-      "generation_ms": 193.435
+      "generation_ms": 298.267
     },
     {
       "target": "TR",
@@ -4096,7 +4100,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 306,
-      "generation_ms": 356.732
+      "generation_ms": 559.23
     },
     {
       "target": "TS",
@@ -4104,7 +4108,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 177,
-      "generation_ms": 108.056
+      "generation_ms": 157.499
     },
     {
       "target": "TT",
@@ -4112,7 +4116,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 173,
-      "generation_ms": 106.522
+      "generation_ms": 148.401
     },
     {
       "target": "TU",
@@ -4120,7 +4124,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 175,
-      "generation_ms": 102.846
+      "generation_ms": 169.18
     },
     {
       "target": "TV",
@@ -4128,7 +4132,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 177,
-      "generation_ms": 108.625
+      "generation_ms": 157.207
     },
     {
       "target": "TW",
@@ -4136,7 +4140,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 200,
-      "generation_ms": 153.321
+      "generation_ms": 233.137
     },
     {
       "target": "TX",
@@ -4144,7 +4148,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 112.812
+      "generation_ms": 165.68
     },
     {
       "target": "TY",
@@ -4152,7 +4156,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 175,
-      "generation_ms": 106.493
+      "generation_ms": 166.084
     },
     {
       "target": "TZ",
@@ -4160,7 +4164,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 174,
-      "generation_ms": 104.64
+      "generation_ms": 176.74
     },
     {
       "target": "UA",
@@ -4168,7 +4172,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 251,
-      "generation_ms": 245.649
+      "generation_ms": 374.018
     },
     {
       "target": "UB",
@@ -4176,7 +4180,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 245,
-      "generation_ms": 237.212
+      "generation_ms": 339.233
     },
     {
       "target": "UC",
@@ -4184,7 +4188,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 221,
-      "generation_ms": 199.841
+      "generation_ms": 260.39
     },
     {
       "target": "UD",
@@ -4192,7 +4196,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 161,
-      "generation_ms": 88.284
+      "generation_ms": 112.501
     },
     {
       "target": "UE",
@@ -4200,7 +4204,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 86.484
+      "generation_ms": 111.516
     },
     {
       "target": "UF",
@@ -4208,7 +4212,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 84.937
+      "generation_ms": 101.402
     },
     {
       "target": "UG",
@@ -4216,7 +4220,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 37.612
+      "generation_ms": 56.528
     },
     {
       "target": "UH",
@@ -4224,7 +4228,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 34.779
+      "generation_ms": 38.954
     },
     {
       "target": "UI",
@@ -4232,7 +4236,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 36.226
+      "generation_ms": 60.625
     },
     {
       "target": "UJ",
@@ -4240,7 +4244,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 54.857
+      "generation_ms": 81.373
     },
     {
       "target": "UK",
@@ -4248,7 +4252,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 56.649
+      "generation_ms": 79.203
     },
     {
       "target": "UL",
@@ -4256,7 +4260,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 26.838
+      "generation_ms": 46.034
     },
     {
       "target": "UM",
@@ -4264,7 +4268,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 136,
-      "generation_ms": 44.635
+      "generation_ms": 73.907
     },
     {
       "target": "UN",
@@ -4272,7 +4276,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 31.334
+      "generation_ms": 53.154
     },
     {
       "target": "UO",
@@ -4280,7 +4284,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 32.09
+      "generation_ms": 46.986
     },
     {
       "target": "UP",
@@ -4288,7 +4292,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 65.001
+      "generation_ms": 94.614
     },
     {
       "target": "UQ",
@@ -4296,7 +4300,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 58.596
+      "generation_ms": 81.267
     },
     {
       "target": "UR",
@@ -4304,7 +4308,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 170,
-      "generation_ms": 102.984
+      "generation_ms": 157.507
     },
     {
       "target": "US",
@@ -4312,7 +4316,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 26.065
+      "generation_ms": 38.745
     },
     {
       "target": "UT",
@@ -4320,7 +4324,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 23.834
+      "generation_ms": 44.934
     },
     {
       "target": "UU",
@@ -4328,7 +4332,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 121,
-      "generation_ms": 27.516
+      "generation_ms": 40.223
     },
     {
       "target": "UV",
@@ -4336,7 +4340,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 97.182
+      "generation_ms": 157.029
     },
     {
       "target": "UW",
@@ -4344,7 +4348,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 93.015
+      "generation_ms": 141.767
     },
     {
       "target": "UX",
@@ -4352,7 +4356,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 92.995
+      "generation_ms": 151.981
     },
     {
       "target": "UY",
@@ -4360,7 +4364,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 24.576
+      "generation_ms": 40.339
     },
     {
       "target": "UZ",
@@ -4368,7 +4372,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 137,
-      "generation_ms": 50.348
+      "generation_ms": 88.741
     },
     {
       "target": "VA",
@@ -4376,7 +4380,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 90.949
+      "generation_ms": 140.241
     },
     {
       "target": "VB",
@@ -4384,7 +4388,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 78.468
+      "generation_ms": 119.6
     },
     {
       "target": "VC",
@@ -4392,7 +4396,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 80.946
+      "generation_ms": 123.106
     },
     {
       "target": "VD",
@@ -4400,7 +4404,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 80.956
+      "generation_ms": 116.165
     },
     {
       "target": "VE",
@@ -4408,7 +4412,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 81.097
+      "generation_ms": 122.962
     },
     {
       "target": "VF",
@@ -4416,7 +4420,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 78.478
+      "generation_ms": 111.716
     },
     {
       "target": "VG",
@@ -4424,7 +4428,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 34.02
+      "generation_ms": 54.879
     },
     {
       "target": "VH",
@@ -4432,7 +4436,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 29.962
+      "generation_ms": 50.087
     },
     {
       "target": "VI",
@@ -4440,7 +4444,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 31.432
+      "generation_ms": 50.236
     },
     {
       "target": "VJ",
@@ -4448,7 +4452,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 127,
-      "generation_ms": 30.483
+      "generation_ms": 47.807
     },
     {
       "target": "VK",
@@ -4456,7 +4460,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 50.772
+      "generation_ms": 81.231
     },
     {
       "target": "VL",
@@ -4464,7 +4468,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 126,
-      "generation_ms": 31.686
+      "generation_ms": 45.989
     },
     {
       "target": "VM",
@@ -4472,7 +4476,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 130,
-      "generation_ms": 35.728
+      "generation_ms": 57.948
     },
     {
       "target": "VN",
@@ -4480,7 +4484,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 29.716
+      "generation_ms": 51.439
     },
     {
       "target": "VO",
@@ -4488,7 +4492,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 32.069
+      "generation_ms": 49.86
     },
     {
       "target": "VP",
@@ -4496,7 +4500,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 22.12
+      "generation_ms": 33.027
     },
     {
       "target": "VQ",
@@ -4504,7 +4508,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 139,
-      "generation_ms": 49.767
+      "generation_ms": 78.145
     },
     {
       "target": "VR",
@@ -4512,7 +4516,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 122,
-      "generation_ms": 20.784
+      "generation_ms": 37.925
     },
     {
       "target": "VS",
@@ -4520,7 +4524,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 124,
-      "generation_ms": 26.884
+      "generation_ms": 45.065
     },
     {
       "target": "VT",
@@ -4528,7 +4532,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 102.339
+      "generation_ms": 144.924
     },
     {
       "target": "VU",
@@ -4536,7 +4540,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 20.87
+      "generation_ms": 35.028
     },
     {
       "target": "VV",
@@ -4544,7 +4548,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 120,
-      "generation_ms": 20.531
+      "generation_ms": 25.329
     },
     {
       "target": "VW",
@@ -4552,7 +4556,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 96.87
+      "generation_ms": 135.301
     },
     {
       "target": "VX",
@@ -4560,7 +4564,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 113.741
+      "generation_ms": 173.377
     },
     {
       "target": "VY",
@@ -4568,7 +4572,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 24.144
+      "generation_ms": 32.895
     },
     {
       "target": "VZ",
@@ -4576,7 +4580,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 106.624
+      "generation_ms": 143.166
     },
     {
       "target": "WA",
@@ -4584,7 +4588,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 219,
-      "generation_ms": 212.308
+      "generation_ms": 299.533
     },
     {
       "target": "WB",
@@ -4592,7 +4596,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 192.694
+      "generation_ms": 279.412
     },
     {
       "target": "WC",
@@ -4600,7 +4604,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 92.237
+      "generation_ms": 129.072
     },
     {
       "target": "WD",
@@ -4608,7 +4612,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 82.66
+      "generation_ms": 125.179
     },
     {
       "target": "WE",
@@ -4616,7 +4620,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 90.171
+      "generation_ms": 125.093
     },
     {
       "target": "WF",
@@ -4624,7 +4628,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 102.42
+      "generation_ms": 118.007
     },
     {
       "target": "WG",
@@ -4632,7 +4636,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 132,
-      "generation_ms": 41.542
+      "generation_ms": 59.886
     },
     {
       "target": "WH",
@@ -4640,7 +4644,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 30.953
+      "generation_ms": 43.783
     },
     {
       "target": "WI",
@@ -4648,7 +4652,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 31.66
+      "generation_ms": 48.01
     },
     {
       "target": "WJ",
@@ -4656,7 +4660,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 45.902
+      "generation_ms": 59.662
     },
     {
       "target": "WK",
@@ -4664,7 +4668,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 53.508
+      "generation_ms": 89.906
     },
     {
       "target": "WL",
@@ -4672,7 +4676,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 40.133
+      "generation_ms": 68.518
     },
     {
       "target": "WM",
@@ -4680,7 +4684,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 42.44
+      "generation_ms": 68.821
     },
     {
       "target": "WN",
@@ -4688,7 +4692,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 134,
-      "generation_ms": 41.839
+      "generation_ms": 61.675
     },
     {
       "target": "WO",
@@ -4696,7 +4700,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 134,
-      "generation_ms": 39.274
+      "generation_ms": 57.165
     },
     {
       "target": "WP",
@@ -4704,7 +4708,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 147,
-      "generation_ms": 72.285
+      "generation_ms": 101.29
     },
     {
       "target": "WQ",
@@ -4712,7 +4716,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 122,
-      "generation_ms": 21.967
+      "generation_ms": 30.237
     },
     {
       "target": "WR",
@@ -4720,7 +4724,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 122,
-      "generation_ms": 24.245
+      "generation_ms": 30.781
     },
     {
       "target": "WS",
@@ -4728,7 +4732,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 26.332
+      "generation_ms": 36.314
     },
     {
       "target": "WT",
@@ -4736,7 +4740,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 104.643
+      "generation_ms": 158.456
     },
     {
       "target": "WU",
@@ -4744,7 +4748,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 21.456
+      "generation_ms": 32.353
     },
     {
       "target": "WV",
@@ -4752,7 +4756,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 121,
-      "generation_ms": 19.87
+      "generation_ms": 33.229
     },
     {
       "target": "WW",
@@ -4760,7 +4764,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 119,
-      "generation_ms": 19.332
+      "generation_ms": 28.333
     },
     {
       "target": "WX",
@@ -4768,7 +4772,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 120,
-      "generation_ms": 17.834
+      "generation_ms": 28.681
     },
     {
       "target": "WY",
@@ -4776,7 +4780,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 123,
-      "generation_ms": 22.818
+      "generation_ms": 31.938
     },
     {
       "target": "WZ",
@@ -4784,7 +4788,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 87.56
+      "generation_ms": 138.618
     },
     {
       "target": "XA",
@@ -4792,7 +4796,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 210,
-      "generation_ms": 176.067
+      "generation_ms": 274.811
     },
     {
       "target": "XB",
@@ -4800,7 +4804,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 191.007
+      "generation_ms": 279.597
     },
     {
       "target": "XC",
@@ -4808,7 +4812,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 212,
-      "generation_ms": 171.508
+      "generation_ms": 266.282
     },
     {
       "target": "XD",
@@ -4816,7 +4820,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 80.954
+      "generation_ms": 121.841
     },
     {
       "target": "XE",
@@ -4824,7 +4828,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 77.814
+      "generation_ms": 115.53
     },
     {
       "target": "XF",
@@ -4832,7 +4836,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 78.721
+      "generation_ms": 120.425
     },
     {
       "target": "XG",
@@ -4840,7 +4844,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 132,
-      "generation_ms": 38.391
+      "generation_ms": 58.755
     },
     {
       "target": "XH",
@@ -4848,7 +4852,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 34.896
+      "generation_ms": 44.594
     },
     {
       "target": "XI",
@@ -4856,7 +4860,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 131,
-      "generation_ms": 36.725
+      "generation_ms": 49.995
     },
     {
       "target": "XJ",
@@ -4864,7 +4868,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 127,
-      "generation_ms": 29.774
+      "generation_ms": 45.576
     },
     {
       "target": "XK",
@@ -4872,7 +4876,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 126,
-      "generation_ms": 28.219
+      "generation_ms": 47.517
     },
     {
       "target": "XL",
@@ -4880,7 +4884,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 28.439
+      "generation_ms": 44.915
     },
     {
       "target": "XM",
@@ -4888,7 +4892,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 140,
-      "generation_ms": 51.294
+      "generation_ms": 89.116
     },
     {
       "target": "XN",
@@ -4896,7 +4900,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 36.598
+      "generation_ms": 54.647
     },
     {
       "target": "XO",
@@ -4904,7 +4908,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 34.011
+      "generation_ms": 51.193
     },
     {
       "target": "XP",
@@ -4912,7 +4916,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 121,
-      "generation_ms": 19.418
+      "generation_ms": 32.191
     },
     {
       "target": "XQ",
@@ -4920,7 +4924,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 120,
-      "generation_ms": 18.776
+      "generation_ms": 32.493
     },
     {
       "target": "XR",
@@ -4928,7 +4932,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 119,
-      "generation_ms": 17.114
+      "generation_ms": 26.108
     },
     {
       "target": "XS",
@@ -4936,7 +4940,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 168,
-      "generation_ms": 95.644
+      "generation_ms": 155.2
     },
     {
       "target": "XT",
@@ -4944,7 +4948,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 98.809
+      "generation_ms": 172.417
     },
     {
       "target": "XU",
@@ -4952,7 +4956,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 77.416
+      "generation_ms": 127.703
     },
     {
       "target": "XV",
@@ -4960,7 +4964,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 120,
-      "generation_ms": 21.219
+      "generation_ms": 28.922
     },
     {
       "target": "XW",
@@ -4968,7 +4972,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 75.325
+      "generation_ms": 119.194
     },
     {
       "target": "XX",
@@ -4976,7 +4980,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 118,
-      "generation_ms": 18.362
+      "generation_ms": 25.563
     },
     {
       "target": "XY",
@@ -4984,7 +4988,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 97.703
+      "generation_ms": 150.097
     },
     {
       "target": "XZ",
@@ -4992,7 +4996,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 122,
-      "generation_ms": 26.603
+      "generation_ms": 35.569
     },
     {
       "target": "YA",
@@ -5000,7 +5004,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 237,
-      "generation_ms": 219.038
+      "generation_ms": 328.704
     },
     {
       "target": "YB",
@@ -5008,7 +5012,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 217,
-      "generation_ms": 176.09
+      "generation_ms": 275.413
     },
     {
       "target": "YC",
@@ -5016,7 +5020,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 85.449
+      "generation_ms": 133.254
     },
     {
       "target": "YD",
@@ -5024,7 +5028,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 80.142
+      "generation_ms": 121.815
     },
     {
       "target": "YE",
@@ -5032,7 +5036,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 78.987
+      "generation_ms": 124.313
     },
     {
       "target": "YF",
@@ -5040,7 +5044,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 156,
-      "generation_ms": 81.332
+      "generation_ms": 109.1
     },
     {
       "target": "YG",
@@ -5048,7 +5052,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 132,
-      "generation_ms": 36.668
+      "generation_ms": 54.951
     },
     {
       "target": "YH",
@@ -5056,7 +5060,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 128,
-      "generation_ms": 30.063
+      "generation_ms": 42.621
     },
     {
       "target": "YI",
@@ -5064,7 +5068,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 129,
-      "generation_ms": 30.358
+      "generation_ms": 46.185
     },
     {
       "target": "YJ",
@@ -5072,7 +5076,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 46.843
+      "generation_ms": 52.484
     },
     {
       "target": "YK",
@@ -5080,7 +5084,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 52.557
+      "generation_ms": 86.452
     },
     {
       "target": "YL",
@@ -5088,7 +5092,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 40.342
+      "generation_ms": 60.546
     },
     {
       "target": "YM",
@@ -5096,7 +5100,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 135,
-      "generation_ms": 40.36
+      "generation_ms": 60.585
     },
     {
       "target": "YN",
@@ -5104,7 +5108,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 134,
-      "generation_ms": 41.111
+      "generation_ms": 59.843
     },
     {
       "target": "YO",
@@ -5112,7 +5116,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 134,
-      "generation_ms": 38.542
+      "generation_ms": 58.641
     },
     {
       "target": "YP",
@@ -5120,7 +5124,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 147,
-      "generation_ms": 63.83
+      "generation_ms": 94.478
     },
     {
       "target": "YQ",
@@ -5128,7 +5132,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 139,
-      "generation_ms": 49.486
+      "generation_ms": 80.19
     },
     {
       "target": "YR",
@@ -5136,7 +5140,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 95.973
+      "generation_ms": 154.425
     },
     {
       "target": "YS",
@@ -5144,7 +5148,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 173,
-      "generation_ms": 103.781
+      "generation_ms": 162.314
     },
     {
       "target": "YT",
@@ -5152,7 +5156,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 98.375
+      "generation_ms": 168.932
     },
     {
       "target": "YU",
@@ -5160,7 +5164,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 79.801
+      "generation_ms": 128.791
     },
     {
       "target": "YV",
@@ -5168,7 +5172,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 158,
-      "generation_ms": 82.108
+      "generation_ms": 123.4
     },
     {
       "target": "YW",
@@ -5176,7 +5180,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 157,
-      "generation_ms": 86.799
+      "generation_ms": 111.373
     },
     {
       "target": "YX",
@@ -5184,7 +5188,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 176,
-      "generation_ms": 107.594
+      "generation_ms": 164.962
     },
     {
       "target": "YY",
@@ -5192,7 +5196,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 125,
-      "generation_ms": 29.508
+      "generation_ms": 45.511
     },
     {
       "target": "YZ",
@@ -5200,7 +5204,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 83.761
+      "generation_ms": 120.073
     },
     {
       "target": "ZA",
@@ -5208,7 +5212,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 225,
-      "generation_ms": 193.134
+      "generation_ms": 251.626
     },
     {
       "target": "ZB",
@@ -5216,7 +5220,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 245,
-      "generation_ms": 232.304
+      "generation_ms": 321.632
     },
     {
       "target": "ZC",
@@ -5224,7 +5228,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 225,
-      "generation_ms": 219.924
+      "generation_ms": 248.183
     },
     {
       "target": "ZD",
@@ -5232,7 +5236,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 161,
-      "generation_ms": 87.652
+      "generation_ms": 115.758
     },
     {
       "target": "ZE",
@@ -5240,7 +5244,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 159,
-      "generation_ms": 84.292
+      "generation_ms": 111.563
     },
     {
       "target": "ZF",
@@ -5248,7 +5252,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 160,
-      "generation_ms": 109.607
+      "generation_ms": 111.728
     },
     {
       "target": "ZG",
@@ -5256,7 +5260,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 213,
-      "generation_ms": 204.219
+      "generation_ms": 240.442
     },
     {
       "target": "ZH",
@@ -5264,7 +5268,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 239,
-      "generation_ms": 234.242
+      "generation_ms": 281.667
     },
     {
       "target": "ZI",
@@ -5272,7 +5276,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 60.063
+      "generation_ms": 76.295
     },
     {
       "target": "ZJ",
@@ -5280,7 +5284,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 141,
-      "generation_ms": 64.0
+      "generation_ms": 63.059
     },
     {
       "target": "ZK",
@@ -5288,7 +5292,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 70.394
+      "generation_ms": 84.958
     },
     {
       "target": "ZL",
@@ -5296,7 +5300,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 149,
-      "generation_ms": 76.745
+      "generation_ms": 110.778
     },
     {
       "target": "ZM",
@@ -5304,7 +5308,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 149,
-      "generation_ms": 77.312
+      "generation_ms": 116.501
     },
     {
       "target": "ZN",
@@ -5312,7 +5316,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 68.77
+      "generation_ms": 105.481
     },
     {
       "target": "ZO",
@@ -5320,7 +5324,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 140,
-      "generation_ms": 56.77
+      "generation_ms": 84.14
     },
     {
       "target": "ZP",
@@ -5328,7 +5332,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 148,
-      "generation_ms": 67.57
+      "generation_ms": 100.645
     },
     {
       "target": "ZQ",
@@ -5336,7 +5340,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 142,
-      "generation_ms": 56.979
+      "generation_ms": 88.915
     },
     {
       "target": "ZR",
@@ -5344,7 +5348,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 170,
-      "generation_ms": 112.56
+      "generation_ms": 157.782
     },
     {
       "target": "ZS",
@@ -5352,7 +5356,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 171,
-      "generation_ms": 107.237
+      "generation_ms": 140.888
     },
     {
       "target": "ZT",
@@ -5360,7 +5364,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 169,
-      "generation_ms": 110.83
+      "generation_ms": 145.216
     },
     {
       "target": "ZU",
@@ -5368,7 +5372,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 98.866
+      "generation_ms": 139.302
     },
     {
       "target": "ZV",
@@ -5376,7 +5380,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 166,
-      "generation_ms": 104.526
+      "generation_ms": 115.799
     },
     {
       "target": "ZW",
@@ -5384,7 +5388,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 165,
-      "generation_ms": 95.179
+      "generation_ms": 125.435
     },
     {
       "target": "ZX",
@@ -5392,7 +5396,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 167,
-      "generation_ms": 103.962
+      "generation_ms": 137.879
     },
     {
       "target": "ZY",
@@ -5400,7 +5404,7 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 143,
-      "generation_ms": 64.494
+      "generation_ms": 66.971
     },
     {
       "target": "ZZ",
@@ -5408,13 +5412,13 @@
       "states_revisited": 0,
       "cache_hits": 0,
       "solution_length": 139,
-      "generation_ms": 57.057
+      "generation_ms": 67.518
     }
   ],
   "totals": {
     "nodes_expanded": 2730128,
     "cache_hits": 0,
     "states_revisited": 0,
-    "generation_ms": 73963.5
+    "generation_ms": 100995.1
   }
 }

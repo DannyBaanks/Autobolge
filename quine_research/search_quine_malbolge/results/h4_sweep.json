@@ -1,0 +1,66 @@
+{
+  "hypothesis": "H4 parallelization by target",
+  "config": {
+    "targets": 676,
+    "seed": 42,
+    "max_search_depth": 5
+  },
+  "runs": [
+    {
+      "workers": "1 (serial)",
+      "gen_time_s": 76.3,
+      "targets_per_s": 8.9,
+      "total_nodes": 2730128,
+      "nodes_per_target": 4039,
+      "startup_overhead_s": null,
+      "peak_worker_rss_mb": null,
+      "matched": "676/676",
+      "verdict": "deterministic: programs identical across all worker counts"
+    },
+    {
+      "workers": "2",
+      "gen_time_s": 44.57,
+      "targets_per_s": 15.2,
+      "total_nodes": 2730128,
+      "nodes_per_target": 4039,
+      "startup_overhead_s": 10.65,
+      "peak_worker_rss_mb": 94.8,
+      "matched": "676/676",
+      "verdict": "deterministic: programs identical across all worker counts"
+    },
+    {
+      "workers": "4",
+      "gen_time_s": 23.82,
+      "targets_per_s": 28.4,
+      "total_nodes": 2730128,
+      "nodes_per_target": 4039,
+      "startup_overhead_s": 4.18,
+      "peak_worker_rss_mb": 160.8,
+      "matched": "676/676",
+      "verdict": "deterministic: programs identical across all worker counts"
+    },
+    {
+      "workers": "6",
+      "gen_time_s": 18.01,
+      "targets_per_s": 37.5,
+      "total_nodes": 2730128,
+      "nodes_per_target": 4039,
+      "startup_overhead_s": 2.34,
+      "peak_worker_rss_mb": 226.2,
+      "matched": "676/676",
+      "verdict": "deterministic: programs identical across all worker counts"
+    },
+    {
+      "workers": "8",
+      "gen_time_s": 14.72,
+      "targets_per_s": 45.9,
+      "total_nodes": 2730128,
+      "nodes_per_target": 4039,
+      "startup_overhead_s": 2.02,
+      "peak_worker_rss_mb": 293.8,
+      "matched": "676/676",
+      "verdict": "deterministic: programs identical across all worker counts"
+    }
+  ],
+  "verdict": "SUPPORTED"
+}

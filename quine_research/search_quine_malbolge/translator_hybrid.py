@@ -61,7 +61,7 @@ class TranslatorCandidateFactory:
     def generate(self, target: str, shared_state_cache: dict | None = None) -> dict:
         """Genera un programa que produce `target`. Retorna dict con metadata."""
         result = self.generator.generate_for_string(
-            target, shared_state_cache=shared_state_cache
+            target, config=self.config, shared_state_cache=shared_state_cache
         )
         opcodes = result.opcodes
         program_source = "".join(reverse_normalize(opcodes))
@@ -90,6 +90,27 @@ class TranslatorCandidateFactory:
             except Exception as e:
                 print(f"[WARN] target={target!r}: {e}")
         return candidates
+
+
+def generate_chunk_worker(args: tuple) -> list:
+    """
+    Worker para ejecución paralela (H4). Module-level para ser picklable.
+
+    Recibe (items, max_search_depth) donde items = [(index, target), ...].
+    Cada target es independiente: el config random_seed=42 se aplica por
+    target, así el resultado no depende del worker ni del orden.
+    """
+    items, max_search_depth = args
+    factory = TranslatorCandidateFactory(max_search_depth=max_search_depth)
+    out = []
+    for index, target in items:
+        try:
+            c = factory.generate(target)
+            c["_index"] = index
+            out.append(c)
+        except Exception as e:
+            out.append({"_index": index, "target": target, "error": str(e)})
+    return out
 
 
 # ──────────────────────────────────────────────────────────────
