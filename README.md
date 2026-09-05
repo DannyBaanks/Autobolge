@@ -4,6 +4,8 @@
 
 **Autobolge is an evidence-first relational synthesizer for Malbolge.**
 
+Campaign roadmap: see [ROADMAP.md](ROADMAP.md).
+
 It searches for Malbolge programs from behavioral relations, executes every
 candidate through a canonical debugger, and verifies the resulting program
 against explicit I/O cases. The project combines exhaustive short-program
