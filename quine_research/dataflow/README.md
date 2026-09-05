@@ -5,6 +5,9 @@ Motor de campañas experimentales. Autobolge deja de ser "un buscador"
 
 ```
 frontier -> classify -> select -> transform -> frontier' -> compare -> verdict
+    \-> transform(seed_solver: outputs observados como targets)
+        -> solve (translator generator + verificación zig, workers opcionales)
+        -> verdict
 ```
 
 ## Principios

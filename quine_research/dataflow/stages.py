@@ -19,6 +19,7 @@ from .contracts import (
     CompareResult,
     SearchResult,
     SelectionResult,
+    SolverResult,
     TransformResult,
     Verdict,
 )
@@ -192,9 +193,15 @@ def stage_transform(ctx, params, inputs):
         derived = [a + b for a in head for b in head]
         prov = f"pairwise compose of first {len(head)} programs"
     elif op == "seed_solver":
-        # extrae targets candidatos: outputs distintos observados
-        derived = sorted(set(base))
-        prov = f"unique outputs -> solver targets ({len(derived)})"
+        # extrae targets para el solver: outputs no vacíos observados
+        # en un SearchResult upstream (la evidencia SIEMBRA la búsqueda)
+        outputs: set[str] = set()
+        for _sid, contract in inputs:
+            if isinstance(contract, SearchResult):
+                outputs.update(r["output"] for r in contract.rows
+                               if r["terminated"] and r["output"])
+        derived = sorted(outputs)
+        prov = f"unique observed outputs -> solver targets ({len(derived)})"
     else:
         raise ValueError(f"unknown transform op: {op!r}")
 
@@ -226,6 +233,85 @@ def stage_compare(ctx, params, inputs):
     )
     return cr, [f"compare {lid} vs {rid}: shared={cr.shared} "
                 f"only_left={cr.only_left} only_right={cr.only_right}"]
+
+
+# ── SOLVE ──────────────────────────────────────────────────────────
+def stage_solve(ctx, params, inputs):
+    """SOLVE: generator sembrado + verificación zig.
+
+    Input: TransformResult(op=seed_solver) con targets en `derived`.
+    params:
+      workers          int   1 = serial; >1 = ProcessPoolExecutor (H4)
+      max_search_depth int
+      max_steps        int   presupuesto VM en la verificación zig
+    """
+    tr = _require(inputs, TransformResult)
+    targets = list(tr.derived)
+    workers = int(params.get("workers", 1))
+    max_search_depth = int(params.get("max_search_depth", 5))
+    max_steps = int(params.get("max_steps", 5_000_000))
+
+    if not targets:
+        return SolverResult(), ["solve: 0 targets (nada que hacer)"]
+
+    from translator_hybrid import (
+        TranslatorCandidateFactory,
+        generate_chunk_worker,
+    )
+
+    t0 = time.time()
+    if workers > 1:
+        import math
+        from concurrent.futures import ProcessPoolExecutor
+
+        items = list(enumerate(targets))
+        chunk_size = math.ceil(len(items) / (workers * 4))
+        chunks = [items[i:i + chunk_size]
+                  for i in range(0, len(items), chunk_size)]
+        with ProcessPoolExecutor(max_workers=workers) as pool:
+            results = []
+            for chunk_out in pool.map(
+                    generate_chunk_worker,
+                    [(c, max_search_depth) for c in chunks]):
+                results.extend(chunk_out)
+        results.sort(key=lambda c: c["_index"])
+        cands = results
+    else:
+        factory = TranslatorCandidateFactory(max_search_depth=max_search_depth)
+        cands = factory.batch(targets)
+    gen_s = time.time() - t0
+
+    # verificación zig del lote completo (un lote: la frontera entre
+    # ejecutores no se cruza candidato por candidato)
+    programs = [c["program_source"] for c in cands]
+    zig = _zig_execute(programs, max_steps)
+
+    rows = []
+    matched = 0
+    for c, zr in zip(cands, zig):
+        zout = zr.get("output", "")
+        ok = zout == c["target"]
+        matched += ok
+        rows.append({
+            "target": c["target"],
+            "program": c["program_source"],
+            "opcodes": c["opcodes"],
+            "nodes_expanded": c["stats"]["evaluations"],
+            "generation_ms": round(c["stats"]["duration_ns"] / 1e6, 3),
+            "zig_output": zout,
+            "zig_match": ok,
+        })
+
+    sr = SolverResult(
+        rows=rows,
+        matched=matched,
+        mismatched=len(rows) - matched,
+        total_nodes=sum(r["nodes_expanded"] for r in rows),
+        gen_time_s=round(gen_s, 2),
+    )
+    return sr, [f"solve: {matched}/{len(rows)} matched, "
+                f"{sr.total_nodes:,} nodes in {gen_s:.1f}s "
+                f"(workers={workers})"]
 
 
 # ── VERDICT ────────────────────────────────────────────────────────
@@ -263,6 +349,7 @@ STAGES = {
     "classify": stage_classify,
     "select": stage_select,
     "transform": stage_transform,
+    "solve": stage_solve,
     "compare": stage_compare,
     "verdict": stage_verdict,
 }
@@ -277,6 +364,7 @@ EXECUTORS = {
     "classify": "python",   # partición sobre artefactos
     "select": "python",
     "transform": "python",
+    "solve": "python+zig",  # generador python (workers dentro) + verificación zig batch
     "compare": "python",
     "verdict": "python",
 }

@@ -12,13 +12,19 @@
      "params": {"level": 3, "max_steps": 100000}},
     {"id": "class3", "kind": "classify", "inputs": ["len3"], "params": {}},
     {"id": "cmp", "kind": "compare", "inputs": ["len2", "len3"], "params": {}},
-    {"id": "final", "kind": "verdict", "inputs": ["class2", "class3"],
+    {"id": "seed", "kind": "transform", "inputs": ["len3"],
+     "params": {"op": "seed_solver", "limit": 60}},
+    {"id": "solve3", "kind": "solve", "inputs": ["seed"],
+     "params": {"workers": 4, "max_search_depth": 5}},
+    {"id": "final", "kind": "verdict", "inputs": ["class2", "class3", "solve3"],
      "params": {"closed_if": "no_hits",
                 "gates": [
                   {"name": "len2_exhaustive", "inputs_index": 0,
                    "field": "counts", "op": "!=", "value": {}},
                   {"name": "len3_ran", "inputs_index": 1,
-                   "field": "counts", "op": "!=", "value": {}}
+                   "field": "counts", "op": "!=", "value": {}},
+                  {"name": "solver_match", "inputs_index": 2,
+                   "field": "mismatched", "op": "==", "value": 0}
                 ]}}
   ]
 }

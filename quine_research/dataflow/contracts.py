@@ -66,6 +66,19 @@ class CompareResult(Contract):
 
 
 @dataclass
+class SolverResult(Contract):
+    """Salida del solver sembrado: targets -> programas + verificación zig."""
+    kind: str = "solver_result"
+    rows: list[dict] = field(default_factory=list)
+    # row = {target, program, opcodes, nodes_expanded, generation_ms,
+    #        zig_output, zig_match}
+    matched: int = 0
+    mismatched: int = 0
+    total_nodes: int = 0
+    gen_time_s: float = 0.0
+
+
+@dataclass
 class Verdict(Contract):
     """Dictamen de campaña: gates evaluados + resumen legible."""
     kind: str = "verdict"
@@ -77,7 +90,7 @@ class Verdict(Contract):
 CONTRACTS = {
     c.kind: c
     for c in (SearchResult, ClassifierResult, SelectionResult,
-              TransformResult, CompareResult, Verdict)
+              TransformResult, CompareResult, SolverResult, Verdict)
 }
 
 

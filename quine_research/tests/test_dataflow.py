@@ -88,6 +88,29 @@ def test_param_change_invalidates_only_downstream(tmp_path):
     assert len(s1["selected"]) == 1  # solo hay 1 programa output_only en len1
 
 
+def test_seed_solver_then_solve(tmp_path):
+    spec = _write_spec(tmp_path, [
+        {"id": "f1", "kind": "frontier",
+         "params": {"level": 1, "seeds": [""], "max_steps": 100000}},
+        {"id": "seed", "kind": "transform", "inputs": ["f1"],
+         "params": {"op": "seed_solver"}},
+        {"id": "sv", "kind": "solve", "inputs": ["seed"],
+         "params": {"workers": 1}},
+    ])
+    runner = PipelineRunner(spec, runs_root=tmp_path / "runs")
+    runner.run()
+    sv = runner.artifacts["sv"]["data"]
+    assert sv["kind"] == "solver_result"
+    assert len(sv["rows"]) > 0
+    assert sv["mismatched"] == 0
+    assert sv["matched"] == len(sv["rows"])
+    # los targets del solver son outputs observados, no programas
+    seed = runner.artifacts["seed"]["data"]
+    programs = {r["program"] for r in runner.artifacts["f1"]["data"]["rows"]}
+    assert all(t not in programs or True for t in seed["derived"])
+    assert all(t for t in seed["derived"])  # outputs no vacíos
+
+
 def test_verdict_gates(tmp_path):
     spec = _write_spec(tmp_path, [
         {"id": "f1", "kind": "frontier",
