@@ -21,6 +21,7 @@ Uso:
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -33,11 +34,7 @@ from relational.materialization import DEFAULT_CATALOG_PATH
 ZIG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "zig")
 ZIG_SRC = os.path.join(ZIG_DIR, "bolge.zig")
 ZIG_EXE = os.path.join(ZIG_DIR, "bolge.exe")
-ZIG_BIN = os.environ.get("ZIG_EXE") or os.path.join(
-    r"C:\Users\progr\AppData\Local\Microsoft\WinGet\Packages",
-    "zig.zig_Microsoft.Winget.Source_8wekyb3d8bbwe",
-    "zig-x86_64-windows-0.16.0", "zig.exe",
-)
+ZIG_BIN = os.environ.get("ZIG_EXE") or shutil.which("zig")
 EVIDENCE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "evidence")
 REFERENCE_CACHE = os.path.join(DEFAULT_CATALOG_PATH, "catalog_e6dfb345.json")
 FIELDS = ("program", "output", "steps", "terminated", "stop_reason",
@@ -49,6 +46,10 @@ def rebuild():
         print("[1] bolge.exe al dia, sin recompilar")
         return
     print("[1] recompilando bolge.zig ...")
+    if not ZIG_BIN:
+        print("    ERROR: zig no encontrado. Define la variable de entorno "
+              "ZIG_EXE con la ruta a zig.exe o pon `zig` en PATH.")
+        sys.exit(1)
     t0 = time.perf_counter()
     r = subprocess.run(
         [ZIG_BIN, "build-exe", "bolge.zig", "-O", "ReleaseFast", "-femit-bin=bolge.exe"],

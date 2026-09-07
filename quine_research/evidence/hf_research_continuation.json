@@ -72,7 +72,7 @@
       "id": "E1",
       "description": "Trazado completo del boot (28316 pasos) y análisis de opcodes/reads/writes",
       "status": "COMPLETED",
-      "artifact": "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\boot_trace.json",
+      "artifact": "<TEMP>\\boot_trace.json",
       "key_findings": [
         "Boot usa 152-157 como celdas de control (escrituras intensivas)",
         "560 repeticiones de subsecuencia len-10",
@@ -85,9 +85,9 @@
       "description": "Análisis de secuencia de output: periodicidad, diferencias A, concentración en D",
       "status": "COMPLETED",
       "artifacts": [
-        "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\output_d_stats.json",
-        "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\output_sequence_sample.json",
-        "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\full_output_stats.json"
+        "<TEMP>\\output_d_stats.json",
+        "<TEMP>\\output_sequence_sample.json",
+        "<TEMP>\\full_output_stats.json"
       ],
       "key_findings": [
         "Unique D en toda la ejecución: 2 (29454, 29282)",
@@ -99,7 +99,7 @@
       "id": "E3",
       "description": "Análisis de orden de permutación crazy(A,124)",
       "status": "COMPLETED",
-      "artifact": "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\rotate_ternary_analysis.json",
+      "artifact": "<TEMP>\\rotate_ternary_analysis.json",
       "key_findings": [
         "Order(crazy(A,124)) desde A=0 es 3",
         "Solo 10 pares ASCII roten a ASCII, todos con orden 10"
@@ -151,8 +151,8 @@
     "quine_research/evidence/baseline_analysis.json — trazado completo baseline",
     "quine_research/results/search_manifest.json — 13 candidatos B1-B4",
     "quine_research/results/candidates.jsonl — resultados individuales",
-    "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\boot_trace.json — trazado del boot",
-    "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\full_output_stats.json — estadísticas de output",
-    "C:\\Users\\progr\\AppData\\Local\\Temp\\opencode\\output_sequence_sample.json — secuencia sample"
+    "<TEMP>\\boot_trace.json — trazado del boot",
+    "<TEMP>\\full_output_stats.json — estadísticas de output",
+    "<TEMP>\\output_sequence_sample.json — secuencia sample"
   ]
 }
