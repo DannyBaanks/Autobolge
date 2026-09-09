@@ -437,18 +437,20 @@ def stage_busy_beaver(ctx, params, inputs):
 
 # ── DIFFTEST (multi-backend) ───────────────────────────────────────
 def _python_execute(programs: list[str], max_steps: int) -> list[dict]:
-    """Backend de referencia (intérprete Python del paquete malbolge)."""
-    from malbolge.encoding import normalize
-    from malbolge.interpreter import MalbolgeInterpreter
+    """Backend de referencia: run_bounded de la relational (Classic densa).
 
-    interp = MalbolgeInterpreter()
+    Sustituye al MalbolgeInterpreter del paquete malbolge (semantica sparse,
+    divergia del motor Classic). La referencia canonica ahora es la misma que
+    gate1/printer_loop validan contra el motor Zig.
+    """
+    from relational.execution import run_bounded
+
     out = []
     for p in programs:
         try:
-            opcodes = normalize(p)
-            r = interp.execute(opcodes, max_steps=max_steps)
+            r = run_bounded(p, "", max_steps)
             out.append({"output": r.output, "steps": r.steps,
-                        "terminated": r.halted})
+                        "terminated": r.terminated})
         except Exception as e:
             out.append({"output": "", "steps": 0, "terminated": False,
                         "error": f"{type(e).__name__}: {e}"})

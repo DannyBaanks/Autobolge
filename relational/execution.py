@@ -3,15 +3,36 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 
-from malbolge import MalbolgeConfig, MalbolgeDebugger, MalbolgeVariant
-
-SPARSE_CONFIG = MalbolgeConfig(
-    variant=MalbolgeVariant.ORIGINAL,
-    trit_width=10,
-    memory_size=3**10,
-    rotate_multiplier=3**9,
-    use_sparse_memory=True,
+from .classic import (
+    MEM_SIZE,
+    OPS_VALID,
+    OUT_CAP,
+    REASON_RUNNING,
+    REASON_TERMINATED,
+    WHITESPACE,
+    ClassicDebugger,
+    _compute_tail,
+    _fill_memory,
+    parse_cells,
 )
+
+__all__ = [
+    "MEM_SIZE",
+    "OPS_VALID",
+    "OUT_CAP",
+    "REASON_RUNNING",
+    "REASON_TERMINATED",
+    "WHITESPACE",
+    "ClassicDebugger",
+    "parse_cells",
+    "RunResult",
+    "run_bounded",
+    "run_bounded_many",
+    "prefix_score",
+    "fitness",
+    "guided_fitness",
+    "evaluate_io",
+]
 
 
 @dataclass
@@ -33,15 +54,20 @@ class RunResult:
         return self.error is None
 
 
-def run_bounded(program: str, input_data: str = "", max_steps: int = 20000) -> RunResult:
-    """Run a Malbolge program with a hard step budget.
+def _run_one(
+    program: str,
+    mem: Optional[List[int]],
+    input_data: str,
+    max_steps: int,
+) -> RunResult:
+    """Loop canonico de la referencia Classic densa (un solo programa).
 
-    Uses the step-level debugger (sparse memory, ~instant init) so runaway
-    programs cannot hang the synthesizer and thousands of candidates can be
-    evaluated quickly. Returns a RunResult with output, step count, and reason.
+    `mem` pre-llenado = None: ClassicDebugger hace el relleno estandar.
+    Es la UNICA implementacion del loop de pasos; run_bounded y
+    run_bounded_many lo comparten, asi que no hay deriva entre rutas.
     """
     try:
-        dbg = MalbolgeDebugger(program, input_data, config=SPARSE_CONFIG)
+        dbg = ClassicDebugger(program, input_data, max_steps, mem=mem)
     except Exception as e:
         return RunResult(
             program=program,
@@ -76,12 +102,87 @@ def run_bounded(program: str, input_data: str = "", max_steps: int = 20000) -> R
         program=program,
         output=dbg.output,
         steps=steps,
-        stop_reason=str(state.stop_reason),
+        stop_reason=state.stop_reason,
         terminated=dbg.is_terminated,
         final_pc=state.c,
         final_a=state.a,
         final_d=state.d,
     )
+
+
+def run_bounded(program: str, input_data: str = "", max_steps: int = 20000) -> RunResult:
+    """Run a Malbolge program with a hard step budget.
+
+    Referencia CLASSIC densa: cinta 59049 celdas rellenada por la recurrencia
+    crazy, decode (cell+pc)%94 con NOP para invalidas, input real con
+    terminacion por bajoflujo -- exactamente la misma maquina que implementa
+    el motor Zig (zig/vm.zig). Anclada en primitivas de la toolkit malbolge
+    (crazy_operation, ENCRYPTION_TRANSLATE), NO en MalbolgeInterpreter del
+    paquete malbolge (ausente de la toolkit y con semantica distinta).
+    """
+    return _run_one(program, None, input_data, max_steps)
+
+
+def run_bounded_many(
+    programs: List[str],
+    input_data: str = "",
+    max_steps: int = 20000,
+) -> List[RunResult]:
+    """Bulk de la referencia Classic densa para catalogos exhaustivos.
+
+    Semantica identica a run_bounded (mismo _run_one / ClassicDebugger.step).
+    Solo cambia el relleno: la cola de la cinta a partir de la posicion n
+    depende unicamente de las dos ultimas celdas, asi que se computa UNA vez
+    por par (prev2, prev1) con _compute_tail y se copia por programa con
+    `cells + tail[:59049-n]`. Cada programa recibe su propia copia, luego los
+    writes de op39/op62 mutan solo la cinta local (fidelidad densa exacta).
+    """
+    # Parse de todos (mismo contrato de error que run_bounded: ValueError -> ERROR)
+    items: List[Optional[Tuple[str, List[int]]]] = [None] * len(programs)
+    parts: List[Optional[RunResult]] = [None] * len(programs)
+    for i, program in enumerate(programs):
+        try:
+            cells = parse_cells(program)
+        except Exception as e:
+            parts[i] = RunResult(
+                program=program,
+                output="",
+                steps=0,
+                stop_reason="ERROR",
+                terminated=False,
+                error=str(e),
+            )
+            continue
+        items[i] = (program, cells)
+
+    # Agrupar por par (prev2, prev1) de las dos ultimas celdas (n>=2).
+    groups: Dict[Tuple[int, int], List[Tuple[int, List[int]]]] = {}
+    direct: List[Tuple[int, List[int]]] = []
+    for i, item in enumerate(items):
+        if item is None:
+            continue
+        cells = item[1]
+        if len(cells) >= 2:
+            groups.setdefault((cells[-2], cells[-1]), []).append((i, cells))
+        else:
+            direct.append((i, cells))
+
+    # n = 0/1: irrelevantes en volumen (<= 9 programas); relleno estandar.
+    for i, cells in direct:
+        program = items[i][0]
+        parts[i] = _run_one(program, _fill_memory(cells), input_data, max_steps)
+
+    # n >= 2: cola compartida por par (una vez), copia list(tail) por programa.
+    for (p2, p1), entries in groups.items():
+        tail = _compute_tail(p1, p2, MEM_SIZE - 2)
+        for i, cells in entries:
+            n = len(cells)
+            program = items[i][0]
+            mem = cells + list(tail[: MEM_SIZE - n])
+            parts[i] = _run_one(program, mem, input_data, max_steps)
+
+    assert all(part is not None for part in parts)
+    return [part for part in parts if part is not None]
 
 
 def prefix_score(output: str, target: str) -> int:

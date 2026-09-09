@@ -88,7 +88,11 @@ def test_param_change_invalidates_only_downstream(tmp_path):
     new_dirs = [d for d in s1_dirs if d not in s1_before]
     assert len(new_dirs) == 1, "select debió producir un nuevo artefacto"
     s1 = json.loads((new_dirs[0] / "artifact.json").read_text(encoding="utf-8"))["data"]
-    assert len(s1["selected"]) == 1  # solo hay 1 programa output_only en len1
+    # select recorta a top_n; el conteo lo fija classify (semantica Classic densa:
+    # 12 programas output_only en len-1, no 1 como en la semantica sparse vieja)
+    c1 = json.loads((c1_before[0] / "artifact.json").read_text(encoding="utf-8"))["data"]
+    expected = min(stages[2]["params"]["top_n"], c1["counts"]["output_only"])
+    assert len(s1["selected"]) == expected
 
 
 def test_seed_solver_then_solve(tmp_path):

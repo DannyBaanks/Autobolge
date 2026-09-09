@@ -1,17 +1,27 @@
-// vm.zig - Maquina Malbolge (semantica EXACTA del debugger del paquete
-// `malbolge` con SparseMemory), compartida por bolge.zig (CLI batch) y
+// vm.zig - Motor Malbolge CLASSIC denso, port de Malbolge-Translator
+// zig/src/engine.zig. Compartido por bolge.zig (CLI batch) y
 // frontier_scan.zig (escaneos exhaustivos).
 //
-// Quirks replicados del SparseMemory:
-//   - overlay (dict) para source + writes; las lecturas van primero al overlay
-//   - el crazy-fill se materializa por bloques de 243 celdas, PEROZOSAMENTE:
-//     las semillas del bloque cola se leen del overlay (no del source) en el
-//     momento del primer acceso lejano, asi que writes previos (encrypts,
-//     crz, rotr) pueden cambiar los valores del fill
-//   - las semillas del primer bloque tras el cola se derivan de las dos
-//     ultimas celdas del bloque cola via overlay-or-chain (self[242],
-//     self[241] con __getitem__); los bloques siguientes siguen la cadena
-//     pura (equivalente al jump map del paquete)
+// Semantica replicada de engine.zig:
+//   - cinta DENSE [MEM_SIZE]u16, cero-inicializada y rellenada al completo
+//     por la recurrencia crazy (para programas cortos las semillas de la
+//     cola usan wrap a mem[MEM_SIZE-1], que vale 0 por la inicializacion:
+//     la autoridad Python es una cinta pre-rellenada a cero)
+//   - decode con widening: op = (cell + c) % 94
+//   - instrucciones invalidas -> NOP (la ejecucion NO termina por celda no
+//     imprimible)
+//   - opcodes: 4=chase 5=out 23=in 39=rotr 40=mov_d 62=crz 68=nop 81=halt
+//   - post-exec: si hubo jump, c = c_target; encrypt de mem[c] si
+//     33 <= mem[c] <= 126; c++ y d++ con wrap en MEM_SIZE
+//   - steps cuenta TODA instruccion ejecutada, incluida la que termina
+//
+// Divergencia deliberada con engine.zig: OP_IN consume input REAL (engine
+// usa a=0xFFFF); el bajoflujo de input TERMINA la ejecucion (contrato
+// Autobolge: los echoes dependen de ello).
+//
+// La tabla crazy (CRAZY_TBL indexado [bb%3][aa%3]) y ENCRYPT son las
+// canonicas de la toolkit malbolge (malbolge_toolkit) verificadas valor a
+// valor.
 
 const std = @import("std");
 
@@ -28,12 +38,10 @@ pub const ENCRYPT =
 const CRAZY_TBL = [3][3]u8{ .{ 1, 0, 0 }, .{ 1, 0, 2 }, .{ 2, 2, 1 } };
 
 var crazy5: [HALF][HALF]u32 = undefined;
-var chain: [MEM_SIZE]u32 = undefined;
-var ovl_idx: [MAX_OVERLAY]u32 = undefined;
-var ovl_val: [MAX_OVERLAY]u32 = undefined;
-var ovl_len: usize = 0;
-var chain_until: usize = 0;
-var fill_start: usize = 0;
+
+// La cinta densa completa (59049 celdas) vive aqui; no hay overlay ni
+// pereza: se rellena entera al comienzo de cada runProgram.
+var mem: [MEM_SIZE]u16 = undefined;
 
 pub const OUT_CAP: usize = 65536;
 pub var out_buf: [OUT_CAP]u8 = undefined;
@@ -76,78 +84,29 @@ fn rotate(n: u32) u32 {
     return POW9 * (n % 3) + n / 3;
 }
 
-fn ovlGet(x: usize) ?u32 {
+fn decodeOpcode(cell: u16, c: u32) u32 {
+    return (@as(u32, cell) + c) % 94;
+}
+
+/// Carga `cells` en la cinta y la rellena por la recurrencia crazy.
+/// Semillas del wrap (programas de <2 celdas) = mem[MEM_SIZE-1] == 0 porque
+/// la cinta se cero-inicializa antes (autoridad Python: array pre-rellenado).
+fn loadMemory(cells: []const u32) void {
+    @memset(&mem, 0);
     var i: usize = 0;
-    while (i < ovl_len) : (i += 1) {
-        if (ovl_idx[i] == x) return ovl_val[i];
+    while (i < cells.len and i < MEM_SIZE) : (i += 1) {
+        mem[i] = @intCast(cells[i]);
     }
-    return null;
-}
-
-fn ovlSet(x: usize, v: u32) void {
-    var i: usize = 0;
-    while (i < ovl_len) : (i += 1) {
-        if (ovl_idx[i] == x) {
-            ovl_val[i] = v;
-            return;
-        }
+    i = @min(cells.len, MEM_SIZE);
+    while (i < MEM_SIZE) : (i += 1) {
+        const prev1 = if (i >= 1) mem[i - 1] else mem[MEM_SIZE - 1];
+        const prev2 = if (i >= 2) mem[i - 2] else mem[MEM_SIZE - 1];
+        mem[i] = @intCast(crazy(prev1, prev2));
     }
-    if (ovl_len < MAX_OVERLAY) {
-        ovl_idx[ovl_len] = @intCast(x);
-        ovl_val[ovl_len] = v;
-        ovl_len += 1;
-    }
-}
-
-fn ensureFilled(x: usize) void {
-    const block_end = (x / BLOCK_SIZE + 1) * BLOCK_SIZE;
-    const tail_end = (fill_start / BLOCK_SIZE + 1) * BLOCK_SIZE;
-    var p1: u32 = undefined;
-    var p2: u32 = undefined;
-    var i: usize = undefined;
-    if (chain_until == fill_start) {
-        p1 = ovlGet(fill_start - 1) orelse 0;
-        p2 = ovlGet(fill_start - 2) orelse 0;
-        i = fill_start;
-    } else {
-        i = chain_until;
-        p1 = chain[i - 1];
-        p2 = chain[i - 2];
-    }
-    while (i < block_end) : (i += 1) {
-        var nxt: u32 = undefined;
-        if (i == tail_end) {
-            nxt = crazy(memGet(i - 1), memGet(i - 2));
-        } else if (i == tail_end + 1) {
-            nxt = crazy(p1, memGet(i - 2));
-        } else {
-            nxt = crazy(p1, p2);
-        }
-        chain[i] = nxt;
-        p2 = p1;
-        p1 = nxt;
-    }
-    chain_until = block_end;
-}
-
-fn memGet(x: usize) u32 {
-    if (ovlGet(x)) |v| return v;
-    if (x < fill_start) return 0;
-    if (x >= chain_until) ensureFilled(x);
-    return chain[x];
-}
-
-fn memSet(x: usize, v: u32) void {
-    ovlSet(x, v);
 }
 
 pub fn runProgram(cells: []const u32, input: []const u8, max_steps: u32) RunOutcome {
-    fill_start = @max(cells.len, 2);
-    chain_until = fill_start;
-    ovl_len = 0;
-    for (cells, 0..) |cell, i| {
-        ovlSet(i, cell);
-    }
+    loadMemory(cells);
 
     var a: u32 = 0;
     var c: u32 = 0;
@@ -159,14 +118,14 @@ pub fn runProgram(cells: []const u32, input: []const u8, max_steps: u32) RunOutc
 
     while (executed < max_steps) {
         executed += 1;
-        const ins = memGet(c);
-        if (ins < 33 or ins > 126) {
-            terminated = true;
-            break;
-        }
-        const v = (ins + c) % 94;
-        switch (v) {
-            4 => c = memGet(d),
+        const op = decodeOpcode(mem[@intCast(c)], c);
+        var jumped = false;
+        var c_target: u32 = 0;
+        switch (op) {
+            4 => {
+                c_target = mem[@intCast(d)];
+                jumped = true;
+            },
             5 => {
                 if (output_len < OUT_CAP) {
                     out_buf[output_len] = @intCast(a % 256);
@@ -183,14 +142,14 @@ pub fn runProgram(cells: []const u32, input: []const u8, max_steps: u32) RunOutc
                 }
             },
             39 => {
-                const r = rotate(memGet(d));
-                memSet(d, r);
+                const r = rotate(mem[@intCast(d)]);
+                mem[@intCast(d)] = @intCast(r);
                 a = r;
             },
-            40 => d = memGet(d),
+            40 => d = mem[@intCast(d)],
             62 => {
-                const r = crazy(a, memGet(d));
-                memSet(d, r);
+                const r = crazy(a, mem[@intCast(d)]);
+                mem[@intCast(d)] = @intCast(r);
                 a = r;
             },
             81 => {
@@ -199,9 +158,9 @@ pub fn runProgram(cells: []const u32, input: []const u8, max_steps: u32) RunOutc
             },
             else => {},
         }
-        if (terminated) break;
-        const enc = memGet(c);
-        if (enc >= 33 and enc <= 126) memSet(c, ENCRYPT[enc - 33]);
+        if (jumped) c = c_target;
+        const enc = mem[@intCast(c)];
+        if (enc >= 33 and enc <= 126) mem[@intCast(c)] = ENCRYPT[enc - 33];
         c = if (c == LAST) 0 else c + 1;
         d = if (d == LAST) 0 else d + 1;
     }

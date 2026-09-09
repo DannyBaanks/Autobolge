@@ -1,40 +1,40 @@
 from __future__ import annotations
 
-import time
+import sys
+from pathlib import Path
 from typing import Tuple
 
-from malbolge import MalbolgeDebugger, StopReason
-from malbolge.malbolge import eval as eval_classic
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from relational.classic import ClassicDebugger  # noqa: E402
+from relational.execution import run_bounded  # noqa: E402
 
 
 class MalbolgeInterpreter:
-    """Wrapper around the malbolge interpreter for Autobolge."""
+    """Wrapper around the Classic reference engine (relational) for Autobolge."""
 
     def __init__(self, max_steps=100000):
         self.max_steps = max_steps
 
-    def execute(self, program: str, input_data: str = "") -> Tuple[str, StopReason, int]:
-        """Execute a classic Malbolge program with given input."""
-        start = time.perf_counter()
-        try:
-            output = eval_classic(program, input=input_data, eof="stop")
-            elapsed = time.perf_counter() - start
-            steps = int(elapsed * 1e6)
-            return output, StopReason.TERMINATED, steps
-        except Exception as e:
-            elapsed = time.perf_counter() - start
-            steps = int(elapsed * 1e6)
-            return str(e), StopReason.ERROR, steps
+    def execute(self, program: str, input_data: str = "") -> Tuple[str, str, int]:
+        """Execute a Classic Malbolge program with given input.
+
+        Returns (output, status, steps); status is one of
+        "StopReason.TERMINATED", "StopReason.RUNNING", "StopReason.ERROR".
+        """
+        r = run_bounded(program, input_data, self.max_steps)
+        if r.error is not None:
+            return str(r.error), "StopReason.ERROR", r.steps
+        status = "StopReason.TERMINATED" if r.terminated else "StopReason.RUNNING"
+        return r.output, status, r.steps
 
     def step(self, program: str, input_data: str = ""):
-        """Execute one instruction via the debugger, returning the state."""
-        dbg = MalbolgeDebugger(program, input_data)
-        return dbg.step()
+        """Execute one instruction via the Classic debugger, returning the state."""
+        return ClassicDebugger(program, input_data).step()
 
     def get_state(self, program: str, input_data: str = ""):
-        """Get the current state of a program via the debugger."""
-        dbg = MalbolgeDebugger(program, input_data)
-        return dbg.get_state()
+        """Get the current state of a program via the Classic debugger."""
+        return ClassicDebugger(program, input_data).get_state()
 
 
 def run_malbolge(program: str, input_data: str = "", max_steps=100000):

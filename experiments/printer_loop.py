@@ -7,12 +7,21 @@ impresora hace todo lo demas:
   1. Recompila bolge.zig solo si cambio (o --rebuild para forzar).
   2. Corre los 299,593 moldes del catalogo len-6 (input vacio, max_steps=3000)
      con el motor Zig (un solo batch) y los compara campo a campo contra el
-     catalogo de referencia (construido con run_bounded / paquete malbolge).
+     catalogo de referencia (construido con run_bounded / referencia Classic
+     densa anclada en la toolkit malbolge).
+
+     IMPORTANTE (2026-09): la cache (catalog_e6dfb345.json) fue regenerada con
+     la SEMANTICA ACTUAL (referencia Classic densa anclada en la toolkit
+     malbolge; tail-shared, ~152s el len-6 completo). Si vuelve a cambiar la
+     semantica del molde, regenere primero el catalogo
+     (build_catalog(engine="reference") + guardar en experiments/catalog_cache);
+     este gate fallara por diseno hasta que la cache y el molde cuadren.
+     No alterar la comparacion para que "pase".
   3. Guarda evidencia JSON en experiments/evidence/.
   4. Si hay mismatches: imprime el diagnostico del primero (resultados de
-     ambos motores + trace paso a paso de la referencia con los writes del
-     overlay y las semillas del fill) y sale con codigo 1 -- tu cambias el
-     molde y vuelves a imprimir. Si no hay mismatches: GATE PASSED.
+     ambos motores + trace paso a paso de la referencia: maquina Classic
+     densa) y sale con codigo 1 -- tu cambias el molde y vuelves a imprimir.
+     Si no hay mismatches: GATE PASSED.
 
 Uso:
   python experiments/printer_loop.py [--rebuild] [--max-len 6] [--keep-going]
@@ -61,27 +70,19 @@ def rebuild():
 
 
 def trace_reference(program: str, max_steps: int = 3000):
-    """Trace paso a paso de la referencia para diagnostico."""
-    from malbolge import MalbolgeDebugger
-    from relational.execution import SPARSE_CONFIG
+    """Trace paso a paso de la referencia (maquina Classic densa)."""
+    from relational.classic import ClassicDebugger
     lines = []
-    dbg = MalbolgeDebugger(program, "", config=SPARSE_CONFIG)
+    dbg = ClassicDebugger(program, "", max_steps)
     steps = 0
     while not dbg.is_terminated and steps < max_steps:
-        before = (dbg._a, dbg._c, dbg._d)
+        before = (dbg.a, dbg.c, dbg.d)
         state = dbg.step()
         steps += 1
-        mem_changes = []
-        try:
-            for addr, old in dbg._history[-1].mem_changes.items():
-                mem_changes.append(f"{addr}:{old}->{dbg._mem[addr]}")
-        except Exception:
-            pass
         lines.append(
             f"  step {steps}: op={state.opcode_name} raw={state.raw_instruction} "
-            f"a={before[0]} c={before[1]} d={before[2]} -> a={dbg._a} c={dbg._c} d={dbg._d}"
-            + (f" writes=[{', '.join(mem_changes)}]" if mem_changes else "")
-            + f" term={state.stop_reason}")
+            f"a={before[0]} c={before[1]} d={before[2]} -> a={dbg.a} c={dbg.c} d={dbg.d}"
+            f" term={state.stop_reason}")
     return "\n".join(lines), steps
 
 

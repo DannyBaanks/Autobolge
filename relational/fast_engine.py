@@ -22,7 +22,15 @@ import subprocess
 import tempfile
 from typing import List, Optional, Tuple
 
-from .execution import RunResult
+from .execution import (
+    MEM_SIZE,
+    OPS_VALID,
+    REASON_RUNNING,
+    REASON_TERMINATED,
+    WHITESPACE,
+    RunResult,
+    parse_cells,
+)
 
 BOLGE_EXE = os.environ.get(
     "AUTOBOLGE_BOLGE",
@@ -32,32 +40,9 @@ BOLGE_EXE = os.environ.get(
 MAGIC_IN = b"BOLG1"
 MAGIC_OUT = b"BOLG2"
 
-OPS_VALID = (4, 5, 23, 39, 40, 62, 68, 81)
-WHITESPACE = (" ", "\n", "\r", "\t")
-MEM_SIZE = 59049
-
-# str(StopReason.TERMINATED) / str(StopReason.RUNNING) from the malbolge package
-REASON_TERMINATED = "StopReason.TERMINATED"
-REASON_RUNNING = "StopReason.RUNNING"
-
 
 class BolgeError(RuntimeError):
     """The Zig motor failed (missing binary, batch protocol violation, crash)."""
-
-
-def parse_cells(program: str) -> List[int]:
-    """Replicate malbolge.core.parse_source exactly (whitespace skip, validation)."""
-    cells: List[int] = []
-    for char in program:
-        if char in WHITESPACE:
-            continue
-        i = len(cells)
-        if (ord(char) + i) % 94 not in OPS_VALID:
-            raise ValueError(f"Invalid character '{char}' at position {i}")
-        if i >= MEM_SIZE:
-            raise ValueError(f"Source file is too long (max {MEM_SIZE} cells)")
-        cells.append(ord(char))
-    return cells
 
 
 def _encode_input(input_data: str) -> bytes:

@@ -8,7 +8,15 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable, Dict, List, Optional
 
-from .execution import RunResult, evaluate_io, fitness, guided_fitness, prefix_score, run_bounded
+from .execution import (
+    RunResult,
+    evaluate_io,
+    fitness,
+    guided_fitness,
+    prefix_score,
+    run_bounded,
+    run_bounded_many,
+)
 from .relation import Relation
 from .state import MalbolgeSnapshot
 from .transition import valid_opcode_chars
@@ -20,13 +28,16 @@ def _run_many(programs: List[str], input_data: str, max_steps: int, engine: str 
     """Run a batch of programs; engine='fast' uses the Zig motor (bolge.exe).
 
     Results are in the same order as ``programs`` and semantically identical
-    to run_bounded (see experiments/gate1_parity.py).
+    to run_bounded (see experiments/gate1_parity.py). engine='reference' usa
+    run_bounded_many (mismo loop de pasos que run_bounded; el relleno de la
+    cinta se comparte por par de ultimas celdas) para no re-llenar 59049
+    celdas por programa en catalogo exhaustivo.
     """
     if engine == "fast":
         from .fast_engine import run_batch_bounded
 
         return run_batch_bounded([(p, input_data, max_steps) for p in programs])
-    return [run_bounded(p, input_data, max_steps) for p in programs]
+    return run_bounded_many(programs, input_data, max_steps)
 
 
 @dataclass

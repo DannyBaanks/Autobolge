@@ -4,21 +4,8 @@ import hashlib
 from dataclasses import dataclass
 from typing import Callable, Dict, List, Optional
 
-from malbolge import MalbolgeDebugger, OPS_VALID, StopReason
-
-from .execution import SPARSE_CONFIG
+from .classic import OPCODE_NAMES, OPS_VALID, ClassicDebugger
 from .state import MalbolgeSnapshot, MalbolgeStateWrapper
-
-OPCODE_NAMES = {
-    4: "jmp",
-    5: "out",
-    23: "in",
-    39: "rotr",
-    40: "mov_d",
-    62: "crz",
-    68: "nop",
-    81: "end",
-}
 
 
 @dataclass(frozen=True)
@@ -143,7 +130,7 @@ class TransitionSystem:
 def discover_transitions(program: str, input_data: str = "", max_steps: int = 1000) -> List[Transition]:
     """Discover the single-step transitions reachable from a program."""
     transitions: List[Transition] = []
-    dbg = MalbolgeDebugger(program, input_data, config=SPARSE_CONFIG)
+    dbg = ClassicDebugger(program, input_data, max_steps)
     initial = dbg.get_state()
     initial_snap = snapshot_from_state(initial, program)
 
@@ -153,7 +140,7 @@ def discover_transitions(program: str, input_data: str = "", max_steps: int = 10
     next_pos = len(program)
     for candidate in valid_opcode_chars(next_pos):
         test_prog = program + candidate["char"]
-        test_dbg = MalbolgeDebugger(test_prog, input_data, config=SPARSE_CONFIG)
+        test_dbg = ClassicDebugger(test_prog, input_data, max_steps)
         next_state = test_dbg.step()
         to_snap = snapshot_from_state(next_state, test_prog)
         transitions.append(

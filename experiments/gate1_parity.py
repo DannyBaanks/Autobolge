@@ -1,6 +1,6 @@
 from pathlib import Path
-"""Gate 1: differential parity between run_bounded (malbolge package) and
-the Zig motor (run_bounded_fast).
+"""Gate 1: differential parity between run_bounded (referencia Classic densa,
+anclada en la toolkit malbolge) and the Zig motor (run_bounded_fast).
 
 Every record must agree EXACTLY on: output, steps, terminated, stop_reason,
 final_pc, final_a, final_d (and error strings for invalid programs).
@@ -146,7 +146,7 @@ def main():
     result = {
         "gate": "gate1_parity",
         "engine": "run_bounded_fast (zig/bolge.exe)",
-        "reference": "run_bounded (malbolge package debugger, SPARSE_CONFIG)",
+        "reference": "run_bounded (referencia Classic densa, toolkit malbolge)",
         "seed": 20260817,
         "cases_total": len(cases),
         "mismatches": len(mismatches),

@@ -1,7 +1,7 @@
 {
   "gate": "gate2_catalog",
   "part_a": {
-    "catalog": "experiments\\catalog_cache\\catalog_e6dfb345.json",
+    "catalog": "C:\\Development\\ISyCo Git\\Autobolge\\experiments\\catalog_cache\\catalog_e6dfb345.json",
     "entries": 299593,
     "config": {
       "max_len": 6,
@@ -11,15 +11,15 @@
     "rebuilt_entries": 299593,
     "mismatches": 0,
     "mismatch_details": [],
-    "reference_sha256": "76c83cdbd57ef738f1754fe824c0c14b7231b2c23a814bffe5e900bd056eea40",
-    "rebuilt_sha256": "76c83cdbd57ef738f1754fe824c0c14b7231b2c23a814bffe5e900bd056eea40"
+    "reference_sha256": "bce358642b3bac3719c53bb99d401545bce6f432aabd9957b37528d9dc669ccc",
+    "rebuilt_sha256": "bce358642b3bac3719c53bb99d401545bce6f432aabd9957b37528d9dc669ccc"
   },
   "part_b": {
-    "len5_reference_s": 13.932,
-    "len5_fast_s": 0.534,
-    "len6_fast_s": 3.802,
-    "speedup_len5": 26.1,
-    "rate_reference_prog_per_s": 2688.1,
-    "rate_fast_prog_per_s": 78804.4
+    "len5_reference_s": 19.506,
+    "len5_fast_s": 27.736,
+    "len6_fast_s": 156.862,
+    "speedup_len5": 0.7,
+    "rate_reference_prog_per_s": 1919.9,
+    "rate_fast_prog_per_s": 1909.9
   }
 }
