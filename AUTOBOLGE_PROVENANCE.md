@@ -1,26 +1,35 @@
-# Provenance
+# Procedencia semántica
 
-## New Autobolge Components
+La semántica CURRENT de Autobolge es Classic densa, implementada por
+`zig/vm.zig` y reflejada por `relational/classic.py`. El paquete Python
+`malbolge` y su `SparseMemory` ya no son autoridad de ejecución; la evidencia
+que los usó permanece HISTÓRICA.
 
-- `relational/state.py` - compact Malbolge state representations
-- `relational/transition.py` - valid opcode transitions and debugger snapshots
-- `relational/relation.py` - declarative state and I/O relations
-- `relational/composition.py` - relation composition
-- `relational/materialization.py` - catalogs, family scans, and synthesis
-- `relational/execution.py` - bounded canonical execution and evidence
-- `relational/search.py` - relational search API
-- `runner/interpreter.py` - classic Malbolge interpreter wrapper
+La autoridad externa es el `engine.zig` de Malbolge-Translator. Autobolge lo
+trata como solo lectura y registra su remoto, commit, dirty-state y SHA-256 en
+el manifiesto semántico de cada artefacto dataflow.
 
-## External Dependency
+## Manifiesto semántico v1
 
-Autobolge uses the `malbolge` Python package as its execution backend. The
-classic 10-trit interpreter and debugger are configured explicitly through
-`SPARSE_CONFIG`; Malbolge20 is not used for the classic-language results in
-this repository.
+`quine_research/dataflow/semantic_manifest.py` construye
+`autobolge-semantic-manifest/v1`. Incluye, sin rutas absolutas:
 
-## Relationship To Malbolge-Translator
+- epoch y contrato Classic (input real, bajoflujo termina, inválidas son NOP);
+- Git commit/remoto/diff hash de las fuentes semánticas de Autobolge y de la
+  autoridad;
+- hashes de las fuentes Zig/Python que afectan ejecución y dataflow;
+- hash del binario Zig y catálogo cuando existen;
+- versión de Zig, Python, OS y arquitectura.
 
-The sibling `Malbolge-Translator` project is a separate translator and remains
-read-only from Autobolge's perspective. Autobolge does not modify its source,
-backend, or generated artifacts. The two projects share the same research
-interest but use different synthesis strategies.
+Su SHA-256 entra en la clave de cada stage y el manifiesto completo se persiste
+en `_meta` del artefacto. Un cambio a VM, binario, toolkit, catálogo o entorno
+relevante ya no puede reutilizar silenciosamente una corrida anterior.
+
+## Componentes propios
+
+- `relational/classic.py` — referencia Classic densa y debugger.
+- `relational/execution.py` — ejecución bounded y bulk de referencia.
+- `relational/materialization.py` — catálogo, familias y síntesis.
+- `relational/transition.py` / `relational/search.py` — superficies v1 de
+  transiciones; no son todavía anchors epochales v2.
+- `runner/interpreter.py` — wrapper de intérprete Classic.

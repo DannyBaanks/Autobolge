@@ -106,8 +106,9 @@ pub fn main(init: std.process.Init) !void {
     var index: u64 = 0;
     var first = true;
     while (index < total) : (index += 1) {
-        const outcome = vm.runProgram(cells[0..length], "", max_steps);
-        if (std.mem.eql(u8, vm.out_buf[0..outcome.output_len], target)) {
+        var machine = vm.Vm.init();
+        const outcome = machine.runProgram(cells[0..length], "", max_steps);
+        if (std.mem.eql(u8, machine.out_buf[0..outcome.output_len], target)) {
             if (!first) try hits.append(alloc, ',');
             first = false;
 
@@ -119,7 +120,7 @@ pub fn main(init: std.process.Init) !void {
             try hits.appendSlice(alloc, "{\"program\":\"");
             try hits.appendSlice(alloc, try escapeJson(alloc, prog.items));
             try hits.appendSlice(alloc, "\",\"output\":\"");
-            try hits.appendSlice(alloc, try escapeJson(alloc, vm.out_buf[0..outcome.output_len]));
+            try hits.appendSlice(alloc, try escapeJson(alloc, machine.out_buf[0..outcome.output_len]));
             try hits.appendSlice(alloc, "\",\"steps\":");
             var nb: [32]u8 = undefined;
             const steps_s = std.fmt.bufPrint(&nb, "{d}", .{outcome.steps}) catch unreachable;

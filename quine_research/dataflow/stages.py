@@ -106,6 +106,10 @@ def stage_frontier(ctx, params, inputs):
         "output": r.get("output", ""),
         "steps": r.get("steps", 0),
         "terminated": r.get("terminated", False),
+        "reason": r.get("reason", 0),
+        "final_pc": r.get("final_c", 0),
+        "final_a": r.get("final_a", 0),
+        "final_d": r.get("final_d", 0),
     } for p, r in zip(programs, results)]
 
     max_rows = int(params.get("max_rows", MAX_ROWS_IN_ARTIFACT))
@@ -436,12 +440,18 @@ def stage_busy_beaver(ctx, params, inputs):
 
 
 # ── DIFFTEST (multi-backend) ───────────────────────────────────────
+_REASON_MAP_ZIG = {0: "StopReason.RUNNING", 1: "StopReason.TERMINATED",
+                   2: "StopReason.INPUT_UNDERFLOW", 3: "StopReason.OUTPUT_LIMIT",
+                   4: "StopReason.INVALID_PROTOCOL_CELL"}
+
+
 def _python_execute(programs: list[str], max_steps: int) -> list[dict]:
     """Backend de referencia: run_bounded de la relational (Classic densa).
 
-    Sustituye al MalbolgeInterpreter del paquete malbolge (semantica sparse,
-    divergia del motor Classic). La referencia canonica ahora es la misma que
-    gate1/printer_loop validan contra el motor Zig.
+    Implementación hermana del motor Zig, no un oráculo independiente.
+    Ambos comparten la misma semántica (autobolge-classic-dense-input-underflow/v1)
+    validada por Gate1 (417/417). El difftest detecta divergencias entre
+    implementaciones, no contra una autoridad externa.
     """
     from relational.execution import run_bounded
 
@@ -450,20 +460,33 @@ def _python_execute(programs: list[str], max_steps: int) -> list[dict]:
         try:
             r = run_bounded(p, "", max_steps)
             out.append({"output": r.output, "steps": r.steps,
-                        "terminated": r.terminated})
+                        "terminated": r.terminated,
+                        "stop_reason": r.stop_reason,
+                        "final_pc": r.final_pc, "final_a": r.final_a,
+                        "final_d": r.final_d})
         except Exception as e:
             out.append({"output": "", "steps": 0, "terminated": False,
+                        "stop_reason": "ERROR", "final_pc": 0,
+                        "final_a": 0, "final_d": 0,
                         "error": f"{type(e).__name__}: {e}"})
     return out
 
 
+def _compare_field(prog: str, field: str, zig_val, py_val,
+                   mismatches: list, forensic: list):
+    """Compara un campo y registra forensic si difiere."""
+    if zig_val != py_val:
+        mismatches.append(field)
+        forensic.append({"program": prog, "field": field,
+                         "zig": zig_val, "py": py_val})
+
+
 def stage_difftest(ctx, params, inputs):
-    """DIFFTEST: valida outputs en paralelo con dos backends.
+    """DIFFTEST: valida_outputs, steps, stop_reason, pc/a/d en paralelo con dos backends.
 
     Input: SearchResult (ya trae outputs Zig) o SolverResult.
     Ejecuta el backend Python de referencia sobre los mismos programas y
-    compara contra el output Zig. Mismatch => evidencia forense, jamás
-    silenciada.
+    compara contra la salida Zig. Cualquier mismatch es evidencia forense.
 
     params: limit (max programas, muestreo determinista con seed 42),
             max_steps
@@ -484,33 +507,63 @@ def stage_difftest(ctx, params, inputs):
 
     programs = [r["program"] for r in rows]
     zig_outs = [r.get("zig_output", r.get("output", "")) for r in rows]
+    zig_steps = [r.get("steps", 0) for r in rows]
+    zig_term = [r.get("terminated", False) for r in rows]
+    zig_reason = [_REASON_MAP_ZIG.get(r.get("reason", 0), "StopReason.RUNNING")
+                  for r in rows]
+    zig_pc = [r.get("final_pc", 0) for r in rows]
+    zig_a = [r.get("final_a", 0) for r in rows]
+    zig_d = [r.get("final_d", 0) for r in rows]
+
     py = _python_execute(programs, max_steps)
 
     mismatches = []
+    forensic = []
     errors = 0
     errors_by_kind: dict[str, int] = {}
-    for prog, zout, pres in zip(programs, zig_outs, py):
+    field_counts: dict[str, int] = {}
+    for i, (prog, zout, pres) in enumerate(zip(programs, zig_outs, py)):
         if "error" in pres:
             errors += 1
             key = pres["error"].split(":")[0]
             errors_by_kind[key] = errors_by_kind.get(key, 0) + 1
             continue
-        if pres["output"] != zout:
-            mismatches.append({"program": prog, "zig_output": zout,
-                               "py_output": pres["output"]})
+        prog_mismatches = []
+        _compare_field(prog, "output", zout, pres["output"],
+                       prog_mismatches, forensic)
+        _compare_field(prog, "steps", zig_steps[i], pres["steps"],
+                       prog_mismatches, forensic)
+        _compare_field(prog, "terminated", zig_term[i], pres["terminated"],
+                       prog_mismatches, forensic)
+        _compare_field(prog, "stop_reason", zig_reason[i], pres["stop_reason"],
+                       prog_mismatches, forensic)
+        _compare_field(prog, "final_pc", zig_pc[i], pres["final_pc"],
+                       prog_mismatches, forensic)
+        _compare_field(prog, "final_a", zig_a[i], pres["final_a"],
+                       prog_mismatches, forensic)
+        _compare_field(prog, "final_d", zig_d[i], pres["final_d"],
+                       prog_mismatches, forensic)
+        if prog_mismatches:
+            mismatches.append({"program": prog, "fields": prog_mismatches})
+            for f in prog_mismatches:
+                field_counts[f] = field_counts.get(f, 0) + 1
+
     matched = len(programs) - errors - len(mismatches)
     dr = DifftestResult(
         backends=["zig", "python-reference"],
         matched=matched, mismatched=len(mismatches), errors=errors,
         errors_by_kind=errors_by_kind,
-        mismatches=mismatches,
+        mismatches=mismatches, forensic=forensic,
+        field_mismatch_counts=field_counts,
     )
     summary = (f"difftest zig vs python: {matched} match, "
                f"{len(mismatches)} MISMATCH, {errors} errors "
-               f"de {len(programs)} programas {errors_by_kind}")
-    for m in mismatches[:5]:
+               f"de {len(programs)} programas")
+    if field_counts:
+        summary += f" | campos: {field_counts}"
+    for m in forensic[:5]:
         summary += (f"\n  FORENSE prog={m['program']!r} "
-                    f"zig={m['zig_output']!r} py={m['py_output']!r}")
+                    f"campo={m['field']} zig={m['zig']!r} py={m['py']!r}")
     return dr, [summary]
 
 

@@ -83,9 +83,12 @@ class SolverResult(Contract):
 
 @dataclass
 class DifftestResult(Contract):
-    """Comparación dual-backend (Zig vs Python referencia) sobre programas.
+    """Comparación entre implementaciones hermanas (Zig motor vs Python reference).
 
-    Cualquier mismatch es evidencia forense y se conserva entero.
+    Ambas implementan la misma semántica (autobolge-classic-dense-input-underflow/v1).
+    El difftest detecta divergencias entre implementaciones, no contra una
+    autoridad independiente. Cualquier mismatch es evidencia forense.
+    Compara output, steps, terminated, stop_reason, final_pc, final_a, final_d.
     """
     kind: str = "difftest_result"
     backends: list[str] = field(default_factory=list)  # ["zig", "python"]
@@ -94,7 +97,11 @@ class DifftestResult(Contract):
     errors: int = 0
     errors_by_kind: dict[str, int] = field(default_factory=dict)
     mismatches: list[dict] = field(default_factory=list)
-    # {program, zig_output, py_output}
+    # [{program, fields: [field_name, ...]}]
+    forensic: list[dict] = field(default_factory=list)
+    # [{program, field, zig, py}]
+    field_mismatch_counts: dict[str, int] = field(default_factory=dict)
+    # {"output": n, "steps": n, ...}
 
 
 @dataclass

@@ -17,6 +17,8 @@ WHITESPACE = (" ", "\n", "\r", "\t")
 
 REASON_TERMINATED = "StopReason.TERMINATED"
 REASON_RUNNING = "StopReason.RUNNING"
+REASON_INPUT_UNDERFLOW = "StopReason.INPUT_UNDERFLOW"
+REASON_OUTPUT_LIMIT = "StopReason.OUTPUT_LIMIT"
 
 OPCODE_NAMES = {
     4: "jmp",
@@ -54,6 +56,8 @@ def parse_cells(program: str) -> List[int]:
         if char in WHITESPACE:
             continue
         i = len(cells)
+        if ord(char) > 0xFFFF:
+            raise ValueError(f"Cell value for '{char}' exceeds u16 at position {i}")
         if (ord(char) + i) % 94 not in OPS_VALID:
             raise ValueError(f"Invalid character '{char}' at position {i}")
         if i >= MEM_SIZE:
@@ -133,6 +137,23 @@ class ClassicState:
     output: str
     opcode_name: str = ""
     raw_instruction: str = ""
+    reason_code: int = 0
+
+
+@dataclass(frozen=True)
+class TraceEvent:
+    """Canonical per-instruction event used by replay/checkpoint tooling."""
+
+    step: int
+    pre_c: int
+    pre_a: int
+    pre_d: int
+    opcode: int
+    effects: int
+    post_c: int
+    post_a: int
+    post_d: int
+    reason: str
 
 
 class ClassicDebugger:
@@ -149,10 +170,12 @@ class ClassicDebugger:
         input_data: str = "",
         max_steps: int = 20000,
         mem: Optional[List[int]] = None,
+        trace: Optional[List[TraceEvent]] = None,
     ):
         self.program = program
         self.input_data = input_data
         self.max_steps = max_steps
+        self._trace = trace
         self._cells = parse_cells(program)
         self._reset(mem)
 
@@ -166,17 +189,40 @@ class ClassicDebugger:
         self._d = 0
         self._step_count = 0
         self._halted = False
+        self._stopped = False
+        self._reason_code = 0  # 0=step_limit/running, 1=halt, 2=input_underflow
         self._input = self.input_data.encode("utf-8")
         self._input_pos = 0
         self._out: List[int] = []
         self._last_op_name = ""
         self._last_raw = ""
+        if self._trace is not None:
+            self._trace.clear()
+
+    def _record_trace(self, pre_c: int, pre_a: int, pre_d: int, op: int, effects: int) -> None:
+        if self._trace is not None:
+            self._trace.append(TraceEvent(
+                step=self._step_count,
+                pre_c=pre_c,
+                pre_a=pre_a,
+                pre_d=pre_d,
+                opcode=op,
+                effects=effects,
+                post_c=self._c,
+                post_a=self._a,
+                post_d=self._d,
+                reason=self.get_state().stop_reason,
+            ))
 
     # -- public machine view -------------------------------------------------
 
     @property
     def is_terminated(self) -> bool:
         return self._halted
+
+    @property
+    def is_stopped(self) -> bool:
+        return self._halted or self._stopped
 
     @property
     def a(self) -> int:
@@ -208,10 +254,13 @@ class ClassicDebugger:
             a=self._a,
             d=self._d,
             step_count=self._step_count,
-            stop_reason=REASON_TERMINATED if self._halted else REASON_RUNNING,
+            stop_reason=(REASON_INPUT_UNDERFLOW if self._reason_code == 2 else
+                         REASON_TERMINATED if self._halted else
+                         REASON_OUTPUT_LIMIT if self._stopped else REASON_RUNNING),
             output=self.output,
             opcode_name=self._last_op_name,
             raw_instruction=self._last_raw,
+            reason_code=self._reason_code,
         )
 
     def _instruction_at(self, c: int) -> tuple:
@@ -228,46 +277,67 @@ class ClassicDebugger:
             a=self._a,
             d=self._d,
             step_count=self._step_count,
-            stop_reason=REASON_TERMINATED if self._halted else REASON_RUNNING,
+            stop_reason=(REASON_INPUT_UNDERFLOW if self._reason_code == 2 else
+                         REASON_TERMINATED if self._halted else
+                         REASON_OUTPUT_LIMIT if self._stopped else REASON_RUNNING),
             output=self.output,
             opcode_name=OPCODE_NAMES.get(op, "?"),
             raw_instruction=raw,
+            reason_code=self._reason_code,
         )
 
     def step(self) -> ClassicState:
         """Ejecuta UNA instruccion; opcode_name/raw_instruction = la ejecutada."""
         if self._halted:
             return self.get_state()
+        if self._stopped:
+            return self.get_state()
         self._step_count += 1
+        pre_c, pre_a, pre_d = self._c, self._a, self._d
         cell = self._mem[self._c]
         op = (cell + self._c) % 94
+        effects = 0
         self._last_op_name = OPCODE_NAMES.get(op, "?")
         self._last_raw = chr(cell) if 33 <= cell <= 126 else f"<{cell}>"
 
         if op == 4:  # jmp [d]
             self._c = self._mem[self._d]
+            effects |= 1
         elif op == 5:  # out a%256
             if len(self._out) < OUT_CAP:
                 self._out.append(self._a % 256)
+                effects |= 2
+            else:
+                self._stopped = True
+                self._reason_code = 3
+                self._record_trace(pre_c, pre_a, pre_d, op, effects)
+                return self._compose()
         elif op == 23:  # in
             if self._input_pos < len(self._input):
                 self._a = self._input[self._input_pos]
                 self._input_pos += 1
+                effects |= 4
             else:
                 self._halted = True
+                self._reason_code = 2
+                self._record_trace(pre_c, pre_a, pre_d, op, effects)
                 return self._compose()
         elif op == 39:  # rotr [d]
             v = self._mem[self._d]
             self._mem[self._d] = (v // 3) + (v % 3) * POW9
             self._a = self._mem[self._d]
+            effects |= 8
         elif op == 40:  # mov d
             self._d = self._mem[self._d]
         elif op == 62:  # crz
             r = _crazy(self._a, self._mem[self._d])
             self._mem[self._d] = r
             self._a = r
+            effects |= 8
         elif op == 81:  # end
             self._halted = True
+            self._reason_code = 1
+            self._record_trace(pre_c, pre_a, pre_d, op, effects)
             return self._compose()
         # else: NOP
 
@@ -276,8 +346,10 @@ class ClassicDebugger:
             # ENCRYPTION_TRANSLATE es un str: indizar da el caracter; la cinta
             # guarda codigos ASCII (como el motor: ENCRYPT[...] devuelve u8).
             self._mem[self._c] = ord(ENCRYPTION_TRANSLATE[enc - 33])
+            effects |= 16
         self._c = (self._c + 1) % MEM_SIZE
         self._d = (self._d + 1) % MEM_SIZE
+        self._record_trace(pre_c, pre_a, pre_d, op, effects)
         return self._compose()
 
 
@@ -285,7 +357,7 @@ def run_reference(program: str, input_data: str = "", max_steps: int = 20000):
     """Corre una programa con la maquina Classic densa (para extensiones)."""
     dbg = ClassicDebugger(program, input_data, max_steps)
     steps = 0
-    while not dbg.is_terminated and steps < max_steps:
+    while not dbg.is_stopped and steps < max_steps:
         dbg.step()
         steps += 1
     state = dbg.get_state()

@@ -1,3 +1,9 @@
+"""Sister implementation of the Zig Malbolge VM.
+
+Both this module and zig/vm.zig implement autobolge-classic-dense-input-underflow/v1.
+Gate1 (417/417) validates semantic equivalence. The difftest detects divergences
+between implementations, not against an independent authority.
+"""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -9,6 +15,8 @@ from .classic import (
     OUT_CAP,
     REASON_RUNNING,
     REASON_TERMINATED,
+    REASON_INPUT_UNDERFLOW,
+    REASON_OUTPUT_LIMIT,
     WHITESPACE,
     ClassicDebugger,
     _compute_tail,
@@ -48,6 +56,7 @@ class RunResult:
     final_pc: int = 0
     final_a: int = 0
     final_d: int = 0
+    reason_code: int = 0
 
     @property
     def ok(self) -> bool:
@@ -80,7 +89,7 @@ def _run_one(
 
     steps = 0
     try:
-        while not dbg.is_terminated and steps < max_steps:
+        while not dbg.is_stopped and steps < max_steps:
             dbg.step()
             steps += 1
         state = dbg.get_state()
@@ -107,6 +116,7 @@ def _run_one(
         final_pc=state.c,
         final_a=state.a,
         final_d=state.d,
+        reason_code=state.reason_code,
     )
 
 

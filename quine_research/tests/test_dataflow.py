@@ -14,6 +14,9 @@ from quine_research.dataflow.contracts import (  # noqa: E402
     ClassifierResult, SearchResult, contract_from_dict, contract_to_dict,
 )
 from quine_research.dataflow.engine import PipelineRunner  # noqa: E402
+from quine_research.dataflow.semantic_manifest import (  # noqa: E402
+    build_semantic_manifest, manifest_sha256,
+)
 from quine_research.dataflow.stages import (  # noqa: E402
     stage_busy_beaver, stage_transform,
 )
@@ -47,6 +50,8 @@ def test_pipeline_runs_and_second_run_skips(tmp_path):
 
     f1_art = runner.artifacts["f1"]
     assert f1_art["data"]["candidates_examined"] == 94
+    assert f1_art["_meta"]["semantic_manifest_sha256"] == runner.semantic_manifest_sha256
+    assert f1_art["_meta"]["semantic_manifest"]["schema"] == "autobolge-semantic-manifest/v1"
     c1 = runner.artifacts["c1"]["data"]
     assert sum(c1["counts"].values()) == 94
 
@@ -57,6 +62,46 @@ def test_pipeline_runs_and_second_run_skips(tmp_path):
     PipelineRunner(spec, runs_root=tmp_path / "runs").run()
     for p, mt in mtimes.items():
         assert p.stat().st_mtime_ns == mt, f"{p} fue re-escrito"
+
+
+def test_semantic_manifest_is_portable_and_invalidates_stage_key(tmp_path):
+    manifest = build_semantic_manifest(ROOT)
+    encoded = json.dumps(manifest, sort_keys=True)
+    assert str(ROOT) not in encoded
+    assert manifest_sha256(manifest) == manifest_sha256(manifest)
+
+    spec = _write_spec(tmp_path, [{"id": "f1", "kind": "frontier", "params": {}}])
+    runner = PipelineRunner(spec, runs_root=tmp_path / "runs")
+    key_before = runner.stage_key_data(runner.spec["stages"][0])
+    runner.semantic_manifest = {**runner.semantic_manifest, "semantic_epoch": "test-epoch"}
+    runner.semantic_manifest_sha256 = manifest_sha256(runner.semantic_manifest)
+    key_after = runner.stage_key_data(runner.spec["stages"][0])
+
+    assert key_before["semantic_manifest_sha256"] != key_after["semantic_manifest_sha256"]
+    assert runner.stage_dir(key_before) != runner.stage_dir(key_after)
+
+
+def test_semantic_manifest_changes_when_vm_source_changes(tmp_path):
+    vm = tmp_path / "zig" / "vm.zig"
+    vm.parent.mkdir()
+    vm.write_text("const version = 1;\n", encoding="utf-8")
+    before = manifest_sha256(build_semantic_manifest(tmp_path))
+
+    vm.write_text("const version = 2;\n", encoding="utf-8")
+    after = manifest_sha256(build_semantic_manifest(tmp_path))
+
+    assert before != after
+
+
+def test_stop_reason_codes_match_reference_and_zig():
+    from relational.execution import run_bounded
+    from relational.fast_engine import run_bounded_fast
+
+    for program, input_data, max_steps in (("c", "", 1), ("ub", "A", 100), ("u", "", 10)):
+        reference = run_bounded(program, input_data, max_steps)
+        fast = run_bounded_fast(program, input_data, max_steps)
+        assert reference.reason_code == fast.reason_code
+        assert reference.terminated == fast.terminated
 
 
 def test_param_change_invalidates_only_downstream(tmp_path):
@@ -185,7 +230,11 @@ def test_difftest_and_catalog(tmp_path):
     zres = _zig_execute(["c=", "(="], 1000)
     rows = [{"program": p, "output": r.get("output", ""),
              "steps": r.get("steps", 0),
-             "terminated": r.get("terminated", False)}
+             "terminated": r.get("terminated", False),
+             "reason": r.get("reason", 0),
+             "final_pc": r.get("final_c", 0),
+             "final_a": r.get("final_a", 0),
+             "final_d": r.get("final_d", 0)}
             for p, r in zip(["c=", "(="], zres)]
     sr = SearchResult(level=2, candidates_examined=2, rows=rows)
     dr, summary = stage_difftest(

@@ -27,6 +27,7 @@ from .execution import (
     OPS_VALID,
     REASON_RUNNING,
     REASON_TERMINATED,
+    REASON_OUTPUT_LIMIT,
     WHITESPACE,
     RunResult,
     parse_cells,
@@ -63,7 +64,7 @@ def _build_batch(records: List[Tuple[List[int], bytes, int]]) -> bytes:
     return bytes(buf)
 
 
-def _parse_batch_results(data: bytes, count: int) -> List[Tuple[bytes, int, bool, int, int, int]]:
+def _parse_batch_results(data: bytes, count: int) -> List[Tuple[bytes, int, bool, int, int, int, int]]:
     if len(data) < 5 or data[0:5] != MAGIC_OUT:
         raise BolgeError("bolge.exe returned an invalid output file")
     pos = 5
@@ -71,7 +72,7 @@ def _parse_batch_results(data: bytes, count: int) -> List[Tuple[bytes, int, bool
     pos += 8
     if n != count:
         raise BolgeError(f"bolge.exe returned {n} results, expected {count}")
-    results: List[Tuple[bytes, int, bool, int, int, int]] = []
+    results: List[Tuple[bytes, int, bool, int, int, int, int]] = []
     for _ in range(n):
         (olen,) = struct.unpack_from("<I", data, pos)
         pos += 4
@@ -85,9 +86,11 @@ def _parse_batch_results(data: bytes, count: int) -> List[Tuple[bytes, int, bool
         pos += 1
         (final_c, final_a, final_d) = struct.unpack_from("<III", data, pos)
         pos += 12
-        if (reason == 1) != terminated:
+        if reason > 3:
+            raise BolgeError(f"bolge.exe returned unknown stop reason {reason}")
+        if (reason in (1, 2)) != terminated:
             raise BolgeError("bolge.exe returned inconsistent termination flags")
-        results.append((out, steps, terminated, final_c, final_a, final_d))
+        results.append((out, steps, terminated, reason, final_c, final_a, final_d))
     return results
 
 
@@ -150,17 +153,20 @@ def run_batch_bounded(records, workdir: Optional[str] = None) -> List[RunResult]
             if errors[i] is not None:
                 results[i] = errors[i]
             else:
-                out, steps, terminated, final_c, final_a, final_d = raw[v_idx]
+                out, steps, terminated, reason, final_c, final_a, final_d = raw[v_idx]
                 v_idx += 1
                 results[i] = RunResult(
                     program=records[i][0],
                     output=out.decode("latin-1"),
                     steps=steps,
-                    stop_reason=REASON_TERMINATED if terminated else REASON_RUNNING,
+                    stop_reason=(REASON_TERMINATED if reason == 1 else
+                                 "StopReason.INPUT_UNDERFLOW" if reason == 2 else
+                                 REASON_OUTPUT_LIMIT if reason == 3 else REASON_RUNNING),
                     terminated=terminated,
                     final_pc=final_c,
                     final_a=final_a,
                     final_d=final_d,
+                    reason_code=reason,
                 )
 
     return [r for r in results if r is not None]

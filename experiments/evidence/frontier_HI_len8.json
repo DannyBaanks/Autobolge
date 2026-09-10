@@ -6,5 +6,6 @@
   "elapsed_s": 170.69,
   "rate_prog_per_s": 98289.6,
   "hits": [],
-  "negative": true
+  "negative": true,
+  "label": "HISTORICAL"
 }

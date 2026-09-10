@@ -217,8 +217,9 @@ fn runFrontier(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
 
     var index: u64 = 0;
     while (index < total) : (index += 1) {
-        const outcome = vm.runProgram(cells, opts.input, opts.max_steps);
-        if (std.mem.eql(u8, vm.out_buf[0..outcome.output_len], opts.target)) {
+        var machine = vm.Vm.init();
+        const outcome = machine.runProgram(cells, opts.input, opts.max_steps);
+        if (std.mem.eql(u8, machine.out_buf[0..outcome.output_len], opts.target)) {
             if (n_hits > 0) try hits.append(alloc, ',');
             n_hits += 1;
 
@@ -230,7 +231,7 @@ fn runFrontier(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
             try hits.appendSlice(alloc, "{\"program\":\"");
             try hits.appendSlice(alloc, try escapeJson(alloc, prog.items));
             try hits.appendSlice(alloc, "\",\"output\":\"");
-            try hits.appendSlice(alloc, try escapeJson(alloc, vm.out_buf[0..outcome.output_len]));
+            try hits.appendSlice(alloc, try escapeJson(alloc, machine.out_buf[0..outcome.output_len]));
             try hits.appendSlice(alloc, "\",\"steps\":");
             var nb: [32]u8 = undefined;
             try hits.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{outcome.steps}) catch unreachable);
@@ -325,8 +326,9 @@ fn runBranch(io: std.Io, alloc: std.mem.Allocator, opts: BranchOptions) !void {
     while (index < total) : (index += 1) {
         var matched = true;
         for (opts.cases[0..opts.case_count]) |case| {
-            const outcome = vm.runProgram(cells[0..opts.length], case.input, opts.max_steps);
-            if (!std.mem.eql(u8, vm.out_buf[0..outcome.output_len], case.expected)) {
+            var machine = vm.Vm.init();
+            const outcome = machine.runProgram(cells[0..opts.length], case.input, opts.max_steps);
+            if (!std.mem.eql(u8, machine.out_buf[0..outcome.output_len], case.expected)) {
                 matched = false;
                 break;
             }
@@ -342,8 +344,9 @@ fn runBranch(io: std.Io, alloc: std.mem.Allocator, opts: BranchOptions) !void {
             try hits.appendSlice(alloc, "\",\"cases\":[");
             for (opts.cases[0..opts.case_count], 0..) |case, case_index| {
                 if (case_index > 0) try hits.append(alloc, ',');
-                const outcome = vm.runProgram(cells[0..opts.length], case.input, opts.max_steps);
-                const output = vm.out_buf[0..outcome.output_len];
+                var machine = vm.Vm.init();
+                const outcome = machine.runProgram(cells[0..opts.length], case.input, opts.max_steps);
+                const output = machine.out_buf[0..outcome.output_len];
                 try hits.appendSlice(alloc, "{\"input\":\"");
                 try hits.appendSlice(alloc, try escapeJson(alloc, case.input));
                 try hits.appendSlice(alloc, "\",\"expected\":\"");
@@ -443,7 +446,8 @@ fn runCatalog(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
         const level_total: u64 = std.math.pow(u64, 8, @intCast(length));
         var level_index: u64 = 0;
         while (level_index < level_total) : (level_index += 1) {
-            const outcome = vm.runProgram(cells[0..length], opts.input, opts.max_steps);
+            var machine = vm.Vm.init();
+            const outcome = machine.runProgram(cells[0..length], opts.input, opts.max_steps);
             if (n_entries > 0) try entries.append(alloc, ',');
             n_entries += 1;
 
@@ -451,7 +455,7 @@ fn runCatalog(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
             for (0..length) |pos| {
                 try prog.append(alloc, chars[pos][idx[pos]]);
             }
-            const output = try alloc.dupe(u8, vm.out_buf[0..outcome.output_len]);
+            const output = try alloc.dupe(u8, machine.out_buf[0..outcome.output_len]);
             try distinct.put(output, {});
 
             try entries.appendSlice(alloc, "{\"program\":\"");

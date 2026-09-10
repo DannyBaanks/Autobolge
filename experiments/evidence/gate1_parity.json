@@ -1,11 +1,157 @@
 {
   "gate": "gate1_parity",
   "engine": "run_bounded_fast (zig/bolge.exe)",
-  "reference": "run_bounded (referencia Classic densa, toolkit malbolge)",
+  "reference": "run_bounded (sister implementation, Classic dense)",
   "seed": 20260817,
   "cases_total": 417,
   "mismatches": 0,
-  "elapsed_s": 12.49,
-  "sha256": "ead638ba01872021d253f481d27fc122b85e6f6cd349d170a511869254e59546",
+  "elapsed_s": 20.71,
+  "sha256": "49e0bf898111ffdbabe3a61a68c64417443585bd69ce1348c7f8087a1b98be27",
+  "semantic_manifest": {
+    "schema": "autobolge-semantic-manifest/v1",
+    "semantic_epoch": "autobolge-classic-dense-input-underflow/v1",
+    "semantic_contract": {
+      "machine": "classic-dense",
+      "input": "utf8-real-input",
+      "input_underflow": "terminate",
+      "invalid_decoded_opcode": "nop"
+    },
+    "repository": {
+      "available": true,
+      "commit": "d818dbb42974e6caf76a8101599b140c8ca90896",
+      "remote": "https://github.com/DannyBaanks/Autobolge.git",
+      "semantic_dirty": true,
+      "semantic_dirty_sha256": "79d6d02faccca2599f6551a73f0141c99c19b4c51cfbd1ab15b13d1716da4f0b"
+    },
+    "authority": {
+      "engine": {
+        "path": "Malbolge-Translator/zig/src/engine.zig",
+        "present": true,
+        "sha256": "1ca9ec1f30f702c232b75f310ff9b67e738dc64565d5d7a7dd6ca697502345f5"
+      },
+      "repository": {
+        "available": true,
+        "commit": "974a5a3f66f3bd1d8e10f8b5c179ea0ebe2f94c8",
+        "remote": "https://github.com/DannyBaanks/Malbolge-Translator.git",
+        "semantic_dirty": false,
+        "semantic_dirty_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "sources": [
+      {
+        "path": "zig/vm.zig",
+        "present": true,
+        "sha256": "3d4e27761c00139850de5534445f5ef3d293d9939b5acc201c08cdfe43ad39c8"
+      },
+      {
+        "path": "zig/bolge.zig",
+        "present": true,
+        "sha256": "c0bbc6fca00a9e52c9702ed2440ece06679d7c00588552c4a6894f8a01fd47a7"
+      },
+      {
+        "path": "zig/dsl.zig",
+        "present": true,
+        "sha256": "9da8eb86ebd57c9d85c0a6bf768162436ef1b8f268cb7876e3ba2d65c8e61ea0"
+      },
+      {
+        "path": "zig/frontier_scan.zig",
+        "present": true,
+        "sha256": "952077d2640b09a5a5e983709af603a1d64bb090e46819e7dd00763efe3dcd85"
+      },
+      {
+        "path": "experiments/gate1_parity.py",
+        "present": true,
+        "sha256": "fd4f4b8283866ae1a68613b908118830beeda02fff7a46bf7e1a9898da4d991b"
+      },
+      {
+        "path": "experiments/gate2_catalog.py",
+        "present": true,
+        "sha256": "c445e3cae41444e7b8097f4e7dbb6e990b7a86d7a79306c5ade95c765b4aef3b"
+      },
+      {
+        "path": "experiments/printer_loop.py",
+        "present": true,
+        "sha256": "08e8dec4738fe99ba50141f835ecafc5ce98cd4971af3af83e4890b1faeb2383"
+      },
+      {
+        "path": "relational/classic.py",
+        "present": true,
+        "sha256": "b7cfd6c680012f6950190b651ffeafd226bf53980191b5603a0313c244c8cb6b"
+      },
+      {
+        "path": "relational/execution.py",
+        "present": true,
+        "sha256": "cd3e33a6880996191b669f243dfe068d49bd167b8de659fd000445f92308be25"
+      },
+      {
+        "path": "relational/fast_engine.py",
+        "present": true,
+        "sha256": "022d2321207b4a625f8ff5f1fd31bf4c711ebe51f9a7e086a00c7e8732aa4d3c"
+      },
+      {
+        "path": "relational/materialization.py",
+        "present": true,
+        "sha256": "fbe648ffd1190a2960fb8cc91ce0cd90eeb1a508608359bc4bdcf6732b1368ad"
+      },
+      {
+        "path": "relational/transition.py",
+        "present": true,
+        "sha256": "a9c1bb9896f36f95e71b8f4fc74a4f45fbe7f14379f15da598dc4d4fcf5959c0"
+      },
+      {
+        "path": "runner/interpreter.py",
+        "present": true,
+        "sha256": "b927477797565313131f3a6bfd55dadfb3756bb569ff0ad0a626ceacae907341"
+      },
+      {
+        "path": "quine_research/dataflow/contracts.py",
+        "present": true,
+        "sha256": "afbe011ef1c988a1af9891d2535962e062d65761f0e9a108091719f70e5b41e9"
+      },
+      {
+        "path": "quine_research/dataflow/engine.py",
+        "present": true,
+        "sha256": "eaf5a14b1904d1ac71de339994b4fec865758a796c4eb3cbe634b3fc330938c2"
+      },
+      {
+        "path": "quine_research/dataflow/semantic_manifest.py",
+        "present": true,
+        "sha256": "159b7769aa2ad00853ab998204b4b0d4174d7097560ae2490ba06365bd876482"
+      },
+      {
+        "path": "quine_research/dataflow/stages.py",
+        "present": true,
+        "sha256": "8014b0b121fd990754e78d013dcc3422c7a36ccfab51355bb4c3b32a531cbfb4"
+      },
+      {
+        "path": "quine_research/search_quine_malbolge/zig_batch.py",
+        "present": true,
+        "sha256": "2281f176e8f0d21c69f29fb5f415ca1773dd27f3d0d3d464bb551531ce0d9aed"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "zig/bolge.exe",
+        "present": true,
+        "sha256": "10b79ebaf038bb6e1daf51b5eaff2652f27ce8f31d231e43c4e6ba12638196b9"
+      },
+      {
+        "path": "experiments/catalog_cache/catalog_e6dfb345.json",
+        "present": true,
+        "sha256": "296a4f1125cb2e55cdd0c91143ee3a8467bdcc0905d88dc604e11cf8882596ec"
+      }
+    ],
+    "toolchain": {
+      "zig_version": "0.16.0",
+      "python_implementation": "CPython",
+      "python_version": "3.12.4",
+      "packages": {
+        "malbolge": null
+      },
+      "os": "Windows",
+      "machine": "AMD64"
+    }
+  },
+  "semantic_manifest_sha256": "45e5e136290495abd9f581eb3edd66755e32c58a132db23c7b769e140d46cb32",
   "mismatch_details": []
 }

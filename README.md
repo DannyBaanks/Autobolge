@@ -94,39 +94,38 @@ clases de equivalencia de comportamiento.
 - Referencia single `run_bounded` == `run_bounded_fast` (verificado: Gate 1
   sobre 417 casos + len≤5 exhaustivo de 37,449 programas, 0 mismatches).
 
-### Escaneos de frontera — negativos honestos (Gate D1 — `HISTÓRICO` pre-swap)
+### Escaneos de frontera — negativos honestos (Gate D1 — `CURRENT`)
 
-Escaneos negativos exhaustivos con el motor Zig: `HI` sin input **no** aparece
-en todo el espacio de programas válidos a:
+Escaneos negativos exhaustivos con el motor Zig recompilado: `HI` sin input
+**no** aparece en todo el espacio de programas válidos a:
 
-- Longitud 7: 2,097,152 programas (22.7 s Python → 2.7 s DSL)
-- Longitud 8: 16,777,216 programas (170.7 s Python → 2.2 min DSL)
-- Longitud 9: 134,217,728 programas (1,720 s Python → 14.7 min DSL)
-- **Longitud 10: 1,073,741,824 programas — 2.85 h DSL, 0 hits**
-  Evidencia: `experiments/evidence/frontier_HI_len10.json`
-  (sha `2a31218d446c224b8a46536af24cff93ef94f2eba5a88e7f8843e17ef7cd2b44`)
+- Longitud 7: 2,097,152 programas (1153 s @ 1818 prog/s) — **0 hits confirmado**
+  Evidencia: `experiments/evidence/dsl_frontier_HI_len7.json` (label=`CURRENT`)
+- Longitud 8: 16,777,216 programas — estimado ~3.6 h bajo semántica actual
+- Longitud 9: 134,217,728 programas — estimado ~29 h
+- Longitud 10: 1,073,741,824 programas — evidencia pre-swap conservada
 
 Los negativos se conservan como evidencia
 (`experiments/evidence/frontier_HI_len*.json`) en lugar de ocultarse: el
 registro de investigación incluye tanto construcciones como límites.
-**Nota:** estos resultados y sus hashes corresponden a la semántica vieja; su
-re-corrida bajo semántica Classic sigue pendiente.
 
-### DSL especializado — abstracción de costo cero (Gate D3 — `HISTÓRICO` pre-swap)
+**Nota de rendimiento:** la semántica Classic densa actual (~1800 prog/s) es
+~78x más lenta que la pre-swap (~143K prog/s) debido al relleno crazy-fill
+completo de la cinta de 59049 celdas por cada programa.
+
+### DSL especializado — recompilado y verificado (Gate D3 — `CURRENT`)
 
 ISA de máquina de búsqueda mínima (programas `.bolge`) ejecutada por un
-runtime Zig (`bolge-dsl.exe`) con primitivas que existen **solo** para esta
-carga de trabajo: `FRONTIER`, `CATALOG`, `BRANCH`, `ENUMERATE`, `EXECUTE`,
+runtime Zig (`bolge-dsl.exe`) recompilado contra `vm.zig` actualizado.
+Primitivas: `FRONTIER`, `CATALOG`, `BRANCH`, `ENUMERATE`, `EXECUTE`,
 `FILTER`, `DEDUP`, `EMIT`, `HASH`, `TRACE`.
 
-| Workload | Zig hardcodeado | DSL (`bolge-dsl.exe`) | Overhead |
-|----------|-----------------|----------------------|----------|
-| len-8 (16.7M) | 134.6 s @ 124,651 p/s | 134.7 s @ 124,569 p/s | **0.07%** |
-| Pico de memoria | 6.0 MB | 4.1 MB | — |
-
-El DSL agrega **programabilidad a ~cero costo** porque cada primitiva mapea
-1:1 a una operación nativa del runtime; no hay capa de intérprete de propósito
-general. **Nota:** medido sobre el `vm.zig` pre-swap.
+- **Gate D2**: catálogo len-6 (299,593 programas) reconstruido vía DSL:
+  **0 mismatches** contra Python. 1705 outputs distintos (semántica Classic;
+  la semántica vieja daba 802).
+- **Gate D3**: benchmark DSL vs hardcoded — medido pre-swap como 0.07%
+  overhead. Recompilado y funcional; benchmark completo pendiente por la
+  regresión de rendimiento de la semántica actual.
 
 ### Campañas del solver — generador híbrido + dataflow (H3/H4 — `HISTÓRICO` pre-swap)
 
@@ -167,18 +166,16 @@ descendente. Los ejecutores se enrutan por nodo (`frontier` → lote Zig, el
 resto → Python), cruzando la frontera de lenguaje por lote, nunca por
 candidato.
 
-- **Difftest multi-backend actualizado**: el backend Python de referencia es
-  ahora `run_bounded` (semántica Classic densa), no el `MalbolgeInterpreter`
-  del paquete `malbolge` (sparse, divergía del motor). La suite de pruebas
-  pasa **12/12**.
+- **Difftest multi-backend (v2)**: compara **7 campos** entre Zig y Python:
+  `output`, `steps`, `terminated`, `stop_reason`, `final_pc`, `final_a`,
+  `final_d`. Forense por campo, no solo por output final. Python etiquetado
+  como **sister implementation**, no como autoridad independiente.
+- **Catálogo público (`pub_catalog.py`)**: content-addressed de anchors,
+  traces, manifests y campaigns. 130 entries verificables con
+  `py pub_catalog.py --verify`.
 - Plantilla de lente (`frontier_campaign.template.json`) con coordenadas
   lógicas (`L1/L2/L3` vía `--var`), rebase de ensamblajes y compartición de
   artefactos por hash.
-- Campañas del roadmap sobre dataflow (`HISTÓRICO` pre-swap): síntesis
-  multi-char 14/14, Busy Beaver len 1–3, composición de moldes (negativo
-  estructural: la concatenación está dominada por prefijo), difftest multi-
-  backend (428 casos comparables, 0 mismatches — con el intérprete viejo),
-  guided vs brute force, Atlas (`runs/atlas_index.json`, 102 artefactos).
 
 ---
 
@@ -187,7 +184,7 @@ candidato.
 ```bash
 # Demo Python (síntesis relacional, beam search, catálogo)
 pip install malbolge pillow
-python experiments/relational_synthesis_demo.py
+py experiments/relational_synthesis_demo.py
 
 # Motor Zig rápido (runner por lotes, paridad verificada)
 cd zig
@@ -276,13 +273,14 @@ búsqueda.
 
 Archivos de evidencia clave:
 
-- `experiments/evidence/gate1_parity.json` — 417/417 paridad (Classic, sha `ead638ba…`)
+- `experiments/evidence/gate1_parity.json` — 417/417 paridad Zig vs sister impl (Classic)
 - `experiments/evidence/gate2_catalog.json` — reconstrucción completa del catálogo (0 mismatches)
 - `experiments/evidence/printer_loop.json` — verificación molde a molde (0/299,593)
-- `experiments/catalog_cache/catalog_e6dfb345.json` — catálogo de referencia Classic (299,593; sha de contenido `bce358642b3bac3719c53bb99d401545bce6f432aabd9957b37528d9dc669ccc`; la copia stale quedó en `catalog_e6dfb345.legacy-stale.json.backup`)
+- `experiments/evidence/dsl_frontier_HI_len7.json` — D1 re-corrido: 2M programas, 0 hits (`CURRENT`)
+- `experiments/evidence/dsl_catalog_len6.json` — D2 re-corrido: 299K programas, 0 mismatches (`CURRENT`)
+- `experiments/catalog_cache/catalog_e6dfb345.json` — catálogo de referencia Classic (299,593)
 - `experiments/evidence/frontier_HI_len{7,8,9,10}.json` — fronteras negativas (`HISTÓRICO` pre-swap)
-- `experiments/evidence/dsl_frontier_HI_len7.json` / `dsl_catalog_len6.json` — gates DSL (`HISTÓRICO` pre-swap)
-- `experiments/evidence/bench_hardcoded_len8.json` / `bench_dsl_len8.json` — benchmark D3 (`HISTÓRICO` pre-swap)
+- `pub/index.json` — catálogo público content-addressed (130 entries: anchors, traces, manifests, campaigns)
 
 ---
 
@@ -290,14 +288,24 @@ Archivos de evidencia clave:
 
 ```bash
 # Gate 1: paridad aleatoria (417 casos, semántica Classic)
-python experiments/gate1_parity.py
+py experiments/gate1_parity.py
 
 # Gate 2: paridad de catálogo + rendimiento (299,593 entradas)
-python experiments/gate2_catalog.py
+py experiments/gate2_catalog.py
 
 # Impresora de moldes: reconstruye el catálogo con el motor Zig y compara
 # campo a campo contra la referencia Classic (0 mismatches esperado)
-python experiments/printer_loop.py
+py experiments/printer_loop.py
+
+# Gate D1: frontier HI len-7 via DSL (~19 min)
+zig\bolge-dsl.exe experiments\dsl_gate_d1_len7.bolge
+
+# Gate D2: catalog len-6 via DSL (~4 min)
+zig\bolge-dsl.exe experiments\dsl_gate_d2_catalog.bolge
+
+# Catálogo público: genera anchors, traces, manifests y verifica hashes
+py pub_catalog.py          # genera pub/
+py pub_catalog.py --verify # verifica contra disco
 ```
 
 Gate 2 y printer_loop comparan contra el catálogo en cache
@@ -308,9 +316,8 @@ persistido en `experiments/catalog_cache/`) antes de volver a correr los gates;
 un catálogo stale hace fallar printer_loop por diseño (no lo "arregles"
 silenciosamente).
 
-Gates DSL (D1/D2/D3) — medidas `HISTÓRICAS` de la semántica vieja; su re-corrida
-bajo semántica Classic sigue pendiente y la reproducción documentada está en
-`ROADMAP.md`.
+Gates DSL (D1/D2) re-corridos bajo semántica Classic (`CURRENT`); D3
+(benchmark) pendiente por la regresión de rendimiento (~78x).
 
 ---
 
@@ -323,20 +330,24 @@ bajo semántica Classic sigue pendiente y la reproducción documentada está en
 | Sintetizador de programas cortos | ✅ Operativo (catálogo + beam) |
 | Pipeline de verificación | ✅ Gates 1 y 2 + printer_loop PASSED (semántica Classic) |
 | Motor Zig rápido (`bolge.exe`) | ✅ 0 mismatches: 417 (gate1) + 299,593 (catálogo) |
-| Referencia Classic densa (`classic.py`) | ✅ Bucle único compartido, relleno tail-shared (len≤5: 614 s → 19.5 s) |
+| Referencia Classic densa (`classic.py`) | ✅ Sister implementation, bucle único compartido |
 | Catálogo len-6 | ✅ Regenerado: 299,593 entradas, 1,705 outputs distintos |
-| DSL especializado (`bolge-dsl.exe`) | 🕓 HISTÓRICO (medido pre-swap); re-corrida bajo Classic pendiente |
-| Fronteras negativas `HI` (len ≤ 10) | 🕓 HISTÓRICO pre-swap (veredicto sólido: 0 hits en 1.07B) |
+| DSL especializado (`bolge-dsl.exe`) | ✅ Recompilado, D1/D2 re-corridos (0 hits / 0 mismatches) |
+| Fronteras negativas `HI` (len 7) | ✅ Re-corrido: 2M programas, 0 hits, 1153s (semántica actual) |
+| Difftest multi-backend | ✅ 7 campos comparados, forense por campo |
+| Catálogo público (`pub_catalog.py`) | ✅ 130 entries, content-addressed, verificable |
+| Roadmap v2 (F0–F7) | ✅ Completo — anchors, trazas, guía, sustitución, publicación |
 | Prototipo de continuidad por streaming | ✅ `Hi` compuesto desde dos continuaciones en el intérprete de la toolkit |
-| `FRONTIER PREFIX_FILE` | ✅ Busca sufijos con posición correcta tras un seed Classic fijo |
+| `FRONTIER PREFIX_FILE` | ✅ Semilla de fuente con posición correcta; **no** es anchor ni continuación de VM |
 | `BRANCH` acotado multi-caso | 🔬 Búsqueda de primitivas MALDOOM V1; el eco solo no prueba una rama interna |
 | Secuencia ternaria `012 -> 120` | ❌ Sin hit en la frontera acotada de longitud 3 |
-| Orquestador dataflow | ✅ Contratos + artefactos con hash + sin re-runs + difftest sobre la referencia Classic (12/12 tests) |
-| Solver H3/H4, multi-char, Busy Beaver, difftest 428, Atlas | 🕓 HISTÓRICO pre-swap (evidencia preservada) |
+| Orquestador dataflow | ✅ Base v1 funcional (12/12 tests); F0 de v2 agrega manifiesto semántico |
+| Solver H3/H4, multi-char, Busy Beaver, Atlas | 🕓 HISTÓRICO pre-swap (evidencia preservada, etiquetada) |
 
-Detalle en [ROADMAP.md](ROADMAP.md) — ítems 1–6 ejecutados; extensiones
-abiertas son exhaustivos > len 10, benchmark Busy Beaver cross-language y
-re-ensamblaje semántico de bloques.
+La guía vigente está en [ROADMAP.md](ROADMAP.md): F0–F7 construyen v2 sobre
+anchors epochales, trazas verificables y horizontes explícitos de oráculo. Los
+resultados de campañas pre-swap se conservan como evidencia histórica, no como
+gates de v2.
 
 ## Límite de afirmaciones sobre continuación
 

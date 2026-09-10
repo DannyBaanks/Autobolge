@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-import hashlib
 from dataclasses import dataclass
 from typing import Callable, Dict, List, Optional
 
 from .classic import OPCODE_NAMES, OPS_VALID, ClassicDebugger
 from .state import MalbolgeSnapshot, MalbolgeStateWrapper
+from .anchors import memory_root
 
 
 @dataclass(frozen=True)
@@ -43,11 +43,11 @@ class Transition:
         )
 
 
-def snapshot_from_state(state, program: str) -> MalbolgeSnapshot:
+def snapshot_from_state(state, program: str, memory=None) -> MalbolgeSnapshot:
     """Convert a MalbolgeState from the debugger into a MalbolgeSnapshot."""
-    mem_hash = hashlib.sha256(
-        (program + f"|{state.c}").encode()
-    ).hexdigest()[:16]
+    if memory is None:
+        raise ValueError("real VM memory is required for a causal snapshot")
+    mem_hash = memory_root(memory)
     return MalbolgeSnapshot(
         pc=state.c,
         a=state.a,
@@ -132,7 +132,7 @@ def discover_transitions(program: str, input_data: str = "", max_steps: int = 10
     transitions: List[Transition] = []
     dbg = ClassicDebugger(program, input_data, max_steps)
     initial = dbg.get_state()
-    initial_snap = snapshot_from_state(initial, program)
+    initial_snap = snapshot_from_state(initial, program, dbg.memory)
 
     if dbg.is_terminated:
         return transitions
@@ -142,7 +142,7 @@ def discover_transitions(program: str, input_data: str = "", max_steps: int = 10
         test_prog = program + candidate["char"]
         test_dbg = ClassicDebugger(test_prog, input_data, max_steps)
         next_state = test_dbg.step()
-        to_snap = snapshot_from_state(next_state, test_prog)
+        to_snap = snapshot_from_state(next_state, test_prog, test_dbg.memory)
         transitions.append(
             Transition(
                 from_state=initial_snap,

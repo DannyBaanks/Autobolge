@@ -3,7 +3,7 @@ from pathlib import Path
 
 Part A (parity): rebuild the exhaustive len-6 catalog (299,593 programs,
 empty input, max_steps=3000) with the Zig motor and compare EVERY entry
-against the cached reference catalog (built with the malbolge package):
+against the cached Classic dense reference catalog:
 program, output, steps, terminated, stop_reason, final_a, final_pc, final_d
 must be identical.
 
@@ -24,15 +24,18 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from relational import Materialization
 from relational.materialization import DEFAULT_CATALOG_PATH
+from quine_research.dataflow.semantic_manifest import build_semantic_manifest, manifest_sha256
 
 EVIDENCE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "evidence")
 REFERENCE_CACHE = os.path.join(DEFAULT_CATALOG_PATH, "catalog_e6dfb345.json")
 FIELDS = ("program", "output", "steps", "terminated", "stop_reason",
-          "final_a", "final_pc", "final_d")
+           "final_a", "final_pc", "final_d")
+REFERENCE_CACHE_LOGICAL = "experiments/catalog_cache/catalog_e6dfb345.json"
 
 
 def main():
     os.makedirs(EVIDENCE_DIR, exist_ok=True)
+    semantic_manifest = build_semantic_manifest()
 
     # ---------------------------------------------------------------
     print("[A] Parity: rebuild len-6 catalog (fast engine) vs cached reference")
@@ -93,7 +96,7 @@ def main():
     result = {
         "gate": "gate2_catalog",
         "part_a": {
-            "catalog": REFERENCE_CACHE,
+            "catalog": REFERENCE_CACHE_LOGICAL,
             "entries": len(reference),
             "config": {"max_len": 6, "max_steps": 3000, "input_data": ""},
             "rebuilt_entries": len(rebuilt),
@@ -112,6 +115,8 @@ def main():
             "rate_reference_prog_per_s": round(rate_ref, 1),
             "rate_fast_prog_per_s": round(rate_fast, 1),
         },
+        "semantic_manifest": semantic_manifest,
+        "semantic_manifest_sha256": manifest_sha256(semantic_manifest),
     }
 
     out_path = os.path.join(EVIDENCE_DIR, "gate2_catalog.json")

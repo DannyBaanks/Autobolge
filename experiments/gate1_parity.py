@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from relational.execution import run_bounded
 from relational.fast_engine import run_bounded_fast, parse_cells
+from quine_research.dataflow.semantic_manifest import build_semantic_manifest, manifest_sha256
 
 OPS_VALID = (4, 5, 23, 39, 40, 62, 68, 81)
 EVIDENCE_DIR = os.path.join(
@@ -70,6 +71,7 @@ def run_pair(program: str, input_data: str, max_steps: int):
 
 
 def main():
+    semantic_manifest = build_semantic_manifest()
     rng = random.Random(20260817)
     cases = []
 
@@ -146,12 +148,14 @@ def main():
     result = {
         "gate": "gate1_parity",
         "engine": "run_bounded_fast (zig/bolge.exe)",
-        "reference": "run_bounded (referencia Classic densa, toolkit malbolge)",
+        "reference": "run_bounded (sister implementation, Classic dense)",
         "seed": 20260817,
         "cases_total": len(cases),
         "mismatches": len(mismatches),
         "elapsed_s": round(elapsed, 2),
         "sha256": hashlib.sha256(json.dumps(records, sort_keys=True).encode()).hexdigest(),
+        "semantic_manifest": semantic_manifest,
+        "semantic_manifest_sha256": manifest_sha256(semantic_manifest),
         "mismatch_details": mismatches,
     }
 
@@ -166,7 +170,7 @@ def main():
         print("MISMATCH:", json.dumps(m, ensure_ascii=False)[:400])
     if mismatches:
         sys.exit(1)
-    print("GATE1 PASSED - Zig motor is semantically identical to the reference")
+    print("GATE1 PASSED - Zig motor matches sister implementation (Python Classic dense)")
 
 
 if __name__ == "__main__":

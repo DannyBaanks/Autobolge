@@ -26,3 +26,8 @@ quine_research/search_quine_malbolge/translator_hybrid.py
 
 # Artefactos runtime del dataflow (regenerables desde pipelines/).
 runs/
+
+# Catálogo público: regenerable con `py pub_catalog.py`.
+# Los objetos en pub/anchors/, pub/traces/, pub/manifests/ son
+# content-addressed y pequeños; el index.json referencia runs/ (gitignored).
+pub/index.json

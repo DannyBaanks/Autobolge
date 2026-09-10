@@ -39,6 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from relational import Materialization
 from relational.materialization import DEFAULT_CATALOG_PATH
+from quine_research.dataflow.semantic_manifest import build_semantic_manifest, manifest_sha256
 
 ZIG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "zig")
 ZIG_SRC = os.path.join(ZIG_DIR, "bolge.zig")
@@ -46,6 +47,7 @@ ZIG_EXE = os.path.join(ZIG_DIR, "bolge.exe")
 ZIG_BIN = os.environ.get("ZIG_EXE") or shutil.which("zig")
 EVIDENCE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "evidence")
 REFERENCE_CACHE = os.path.join(DEFAULT_CATALOG_PATH, "catalog_e6dfb345.json")
+REFERENCE_CACHE_LOGICAL = "experiments/catalog_cache/catalog_e6dfb345.json"
 FIELDS = ("program", "output", "steps", "terminated", "stop_reason",
           "final_a", "final_pc", "final_d")
 
@@ -90,6 +92,7 @@ def main():
     args = sys.argv[1:]
     rebuild_flag = "--rebuild" in args
     keep_going = "--keep-going" in args
+    semantic_manifest = build_semantic_manifest()
 
     rebuild()
 
@@ -116,7 +119,7 @@ def main():
     os.makedirs(EVIDENCE_DIR, exist_ok=True)
     evidence = {
         "gate": "printer_loop",
-        "catalog": REFERENCE_CACHE,
+        "catalog": REFERENCE_CACHE_LOGICAL,
         "entries": len(reference),
         "mismatches": len(mismatches),
         "fast_rebuild_s": round(fast_s, 3),
@@ -124,6 +127,8 @@ def main():
             json.dumps(fast, sort_keys=True).encode()).hexdigest(),
         "reference_sha256": hashlib.sha256(
             json.dumps(reference, sort_keys=True).encode()).hexdigest(),
+        "semantic_manifest": semantic_manifest,
+        "semantic_manifest_sha256": manifest_sha256(semantic_manifest),
         "mismatch_summary": [
             {"index": i, "program": a["program"],
              "fast": {k: a[k] for k in FIELDS[1:]},

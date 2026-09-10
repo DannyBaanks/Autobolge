@@ -1,7 +1,6 @@
 // bolge.zig - CLI batch de la maquina Malbolge (motor Zig para el hot path
-// del sintetizador). La maquina vive en vm.zig (semantica EXACTA del
-// debugger del paquete `malbolge` con SparseMemory, incluyendo su
-// lazy-fill con overlay).
+// del sintetizador). La maquina vive en vm.zig (semantica Classic densa,
+// con una instancia Vm independiente por record).
 //
 // Interfaz: bolge.exe <in.bin> <out.bin>
 //   in.bin:  "BOLG1" + u64 count + count records
@@ -9,7 +8,8 @@
 //            input_len*u8 + u32 max_steps
 //   out.bin: "BOLG2" + u64 count + count results
 //   result:  u32 output_len + output_len*u8 + u64 steps + u8 terminated +
-//            u8 reason(0=running,1=terminated) + u32 final_c + u32 final_a +
+//            u8 reason(0=step_limit,1=halt,2=input_underflow,3=output_limit)
+//            + u32 final_c + u32 final_a +
 //            u32 final_d
 
 const std = @import("std");
@@ -42,17 +42,18 @@ fn writeU64(alloc: std.mem.Allocator, list: *std.ArrayList(u8), v: u64) !void {
 }
 
 fn runRecord(alloc: std.mem.Allocator, cells: []const u32, input: []const u8, max_steps: u32, out: *std.ArrayList(u8)) !void {
-    const outcome = vm.runProgram(cells, input, max_steps);
+    var machine = vm.Vm.init();
+    const outcome = machine.runProgram(cells, input, max_steps);
     const out_start = out.items.len;
     try out.appendNTimes(alloc, 0, 4); // placeholder para output_len
-    try out.appendSlice(alloc, vm.out_buf[0..outcome.output_len]);
+    try out.appendSlice(alloc, machine.out_buf[0..outcome.output_len]);
     const olen: u32 = @intCast(outcome.output_len);
     var lenbuf: [4]u8 = undefined;
     std.mem.writeInt(u32, &lenbuf, olen, .little);
     @memcpy(out.items[out_start..][0..4], &lenbuf);
     try writeU64(alloc, out, outcome.steps);
     try out.append(alloc, if (outcome.terminated) 1 else 0);
-    try out.append(alloc, if (outcome.terminated) 1 else 0);
+    try out.append(alloc, @intFromEnum(outcome.reason));
     try writeU32(alloc, out, outcome.final_c);
     try writeU32(alloc, out, outcome.final_a);
     try writeU32(alloc, out, outcome.final_d);
