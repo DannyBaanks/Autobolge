@@ -17,11 +17,18 @@ import time
 from pathlib import Path
 
 from .contracts import contract_from_dict, contract_to_dict
+from .semantic_manifest import ROOT, build_semantic_manifest, manifest_sha256
 from .stages import EXECUTORS, STAGES
 
 
 def _sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _sha256_json(value: dict) -> str:
+    return hashlib.sha256(
+        json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()
+    ).hexdigest()
 
 
 class PipelineRunner:
@@ -40,6 +47,8 @@ class PipelineRunner:
         self.runs_root = Path(runs_root) / self.pipeline
         self.force = force
         self.artifacts: dict[str, dict] = {}  # stage_id -> artifact dict
+        self.semantic_manifest = build_semantic_manifest(ROOT)
+        self.semantic_manifest_sha256 = manifest_sha256(self.semantic_manifest)
 
     # ---------- claves ----------
     def stage_key_data(self, stage: dict) -> dict:
@@ -52,14 +61,15 @@ class PipelineRunner:
                              "sha256": art["_meta"]["artifact_sha256"]})
         import inspect
         code_hash = hashlib.sha256(
-            inspect.getsource(STAGES[stage["kind"]]).encode()).hexdigest()[:8]
+            inspect.getsource(STAGES[stage["kind"]]).encode()).hexdigest()
         return {"id": stage["id"], "kind": stage["kind"],
                 "params": stage.get("params", {}), "inputs": upstream,
-                "stage_code": code_hash}
+                "stage_code_sha256": code_hash,
+                "semantic_manifest_sha256": self.semantic_manifest_sha256}
 
     def stage_dir(self, key_data: dict) -> Path:
         digest = hashlib.sha256(
-            json.dumps(key_data, sort_keys=True).encode()).hexdigest()[:8]
+            json.dumps(key_data, sort_keys=True).encode()).hexdigest()
         return self.runs_root / f"{key_data['id']}__{digest}"
 
     # ---------- ejecución ----------
@@ -111,15 +121,18 @@ class PipelineRunner:
                 "executor": executor,
                 "params": stage.get("params", {}),
                 "inputs": key_data["inputs"],
+                "stage_key": key_data,
+                "semantic_manifest": self.semantic_manifest,
+                "semantic_manifest_sha256": self.semantic_manifest_sha256,
                 "elapsed_s": elapsed,
                 "status": "complete",
                 "finished_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
             },
         }
+        # El hash identifica el payload previo al propio campo de hash; no se
+        # pretende hashear recursivamente el archivo ya serializado.
+        artifact["_meta"]["artifact_sha256"] = _sha256_json(artifact)
         tmp = artifact_path.with_suffix(".tmp")
-        tmp.write_text(json.dumps(artifact, indent=2, ensure_ascii=False),
-                       encoding="utf-8")
-        artifact["_meta"]["artifact_sha256"] = _sha256_file(tmp)
         tmp.write_text(json.dumps(artifact, indent=2, ensure_ascii=False),
                        encoding="utf-8")
         tmp.replace(artifact_path)

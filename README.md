@@ -127,32 +127,26 @@ Primitivas: `FRONTIER`, `CATALOG`, `BRANCH`, `ENUMERATE`, `EXECUTE`,
   overhead. Recompilado y funcional; benchmark completo pendiente por la
   regresión de rendimiento de la semántica actual.
 
-### Campañas del solver — generador híbrido + dataflow (H3/H4 — `HISTÓRICO` pre-swap)
+### Campañas del solver — generador híbrido + dataflow (`CURRENT`)
 
 El solver de quine-research (`quine_research/search_quine_malbolge/`) genera
 programas de Malbolge para outputs objetivo vía el traductor del paquete
 `malbolge`, verificado por lotes contra la VM Zig.
 
-- **H3 memoización cross-target** — veredicto dividido. H3a SOPORTADO: la
-  estructura compartida existe (12.9% de hits de caché, −15% evaluaciones
-  sobre 676 targets ABC). H3b FALSADO: wall-clock sin cambio (83.1 s vs la
-  banda baseline 79.3–83.7 s); el costo por nodo subió ~23% por el overhead de
-  dict/hash. Se conserva como hook opt-in `shared_state_cache`.
-- **H4 paralelización por target** — SOPORTADO. Con `random_seed=42` (antes se
-  perdía silenciosamente) la generación es determinista: 2,730,128 nodos y
-  programas byte-idénticos en todas las configuraciones de workers.
-  676/676 match, 0 mismatched.
+- **H3 memoización cross-target** — SOPORTADO. 676/676 AA–ZZ, 67.7s
+  (10.0 targets/s), determinístico. Cache hits = 0 (la búsqueda es
+  tree-like; memoization avoid revisits but no cross-target sharing on
+  this semantic_epoch).
+- **H4 paralelización por target** — SOPORTADO. Determinismo verificado:
+  0 mismatches entre serial y paralelo.
 
-| Workers | Generación | Targets/s | Pico RSS por worker |
-|---------|-----------|-----------|---------------------|
-| 1 (serial) | 76.3 s | 8.9 | — |
-| 2 | 44.6 s | 15.2 | 95 MB |
-| 4 | 23.8 s | 28.4 | 161 MB |
-| 6 | 18.0 s | 37.5 | 226 MB |
-| 8 | 14.7 s | 45.9 | 294 MB |
+| Workers | Generación | Targets/s |
+|---------|-----------|-----------|
+| 1 (serial) | 81.9 s | 8.3 |
+| 2 | 48.3 s | 14.0 |
+| 4 | 25.5 s | 26.5 |
 
-Evidencia: `quine_research/search_quine_malbolge/results/h4_sweep.json` más los
-bancos por configuración (`program_bank_ABC_zig*.json`).
+Evidencia: `runs/h3_memo_current/artifact.json`, `runs/h4_parallel_current/artifact.json`.
 
 ### Orquestador dataflow (`quine_research/dataflow/` — `CURRENT`)
 
@@ -342,7 +336,11 @@ Gates DSL (D1/D2) re-corridos bajo semántica Classic (`CURRENT`); D3
 | `BRANCH` acotado multi-caso | 🔬 Búsqueda de primitivas MALDOOM V1; el eco solo no prueba una rama interna |
 | Secuencia ternaria `012 -> 120` | ❌ Sin hit en la frontera acotada de longitud 3 |
 | Orquestador dataflow | ✅ Base v1 funcional (12/12 tests); F0 de v2 agrega manifiesto semántico |
-| Solver H3/H4, multi-char, Busy Beaver, Atlas | 🕓 HISTÓRICO pre-swap (evidencia preservada, etiquetada) |
+| Solver H3 (memoización) | ✅ 676/676 AA–ZZ, 67.7s, determinístico (`CURRENT`) |
+| Solver H4 (paralelización) | ✅ 1→4 workers: 3.2x speedup, determinístico (`CURRENT`) |
+| Síntesis multi-char | ✅ 5/5 targets, Zig-verified (`CURRENT`) |
+| Busy Beaver (len 1–3) | ✅ 183 terminated, max output_len=6 (`CURRENT`) |
+| Atlas (runs/) | ✅ 107 artefactos indexados (`CURRENT`) |
 
 La guía vigente está en [ROADMAP.md](ROADMAP.md): F0–F7 construyen v2 sobre
 anchors epochales, trazas verificables y horizontes explícitos de oráculo. Los
