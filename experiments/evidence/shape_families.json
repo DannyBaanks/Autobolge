@@ -1,0 +1,59 @@
+{
+  "format": "autobolge-shape-families/1",
+  "engine": {
+    "bolge_exe": "bolge.exe",
+    "bolge_sha256": "10b79ebaf038bb6e1daf51b5eaff2652f27ce8f31d231e43c4e6ba12638196b9"
+  },
+  "shapes_sha256": "341085e659326809b9a25534a86a3135960bc420d28d0aae7191f489e51647eb",
+  "semantic_contract": "classic-dense, input underflow terminates",
+  "families": {
+    "call_return": {
+      "members": 396,
+      "matched": 396,
+      "mismatched": 0,
+      "mismatch_samples": [],
+      "program_length_min": 56,
+      "program_length_max": 130,
+      "exhaustive_space_at_max_length": "8^130",
+      "controls": {
+        "mutants": 2772,
+        "rejected_by_full_prediction": 2772,
+        "load_errors": 0,
+        "accepted_by_output_only_check": 1188
+      }
+    },
+    "rot_sequence": {
+      "members": 34,
+      "matched": 34,
+      "mismatched": 0,
+      "mismatch_samples": [],
+      "program_length_min": 3,
+      "program_length_max": 856,
+      "exhaustive_space_at_max_length": "8^856",
+      "controls": {
+        "mutants": 34,
+        "rejected_by_full_prediction": 34,
+        "load_errors": 0,
+        "accepted_by_output_only_check": 0
+      }
+    }
+  },
+  "interop": {
+    "call_return_k40_r56_equals_calcbolge_example": true,
+    "ascending_staircase_equals_staircase_toy": true,
+    "ascending_staircase_rot_positions": [
+      34,
+      125,
+      216,
+      307,
+      398,
+      489,
+      580,
+      671,
+      762,
+      853
+    ]
+  },
+  "verdict": "SHAPE_FAMILIES=PASS",
+  "seconds": 1.48
+}

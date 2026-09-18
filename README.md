@@ -94,6 +94,50 @@ clases de equivalencia de comportamiento.
 - Referencia single `run_bounded` == `run_bounded_fast` (verificado: Gate 1
   sobre 417 casos + len≤5 exhaustivo de 37,449 programas, 0 mismatches).
 
+### Familias por forma — aritmética de posición (`CURRENT` 2026-09-12)
+
+La fuerza bruta enumera celdas (8^longitud). Una **forma** fija *qué* hace el
+programa y deja que la aritmética de posición fuerce *dónde* va cada
+instrucción: un `jmp` en la celda `k` salta a su propio carácter, un `rot` que
+se lee a sí mismo solo imprime el byte `t` en la celda `(39 − 3t) mod 94`. Así
+se listan familias exactas de programas largos y dispersos, cada miembro con
+su predicción (`output`, `steps`, `final_pc`, `stop_reason`) calculada **antes**
+de ejecutar. Módulo puro: `relational/shapes.py`.
+
+```powershell
+py experiments/shape_families.py
+```
+
+```text
+call_return   members= 396 matched= 396 mismatched=0 lengths=56..130 | controls 2772/2772 rejected, output-only check would accept 1188
+rot_sequence  members=  34 matched=  34 mismatched=0 lengths=3..856 | controls 34/34 rejected, output-only check would accept 0
+call_return_k40_r56_equals_calcbolge_example=True
+ascending_staircase_equals_staircase_toy=True
+ascending_staircase_rot_positions=[34, 125, 216, 307, 398, 489, 580, 671, 762, 853]
+SHAPE_FAMILIES=PASS (1.57 s)
+```
+
+- `call_return`: el principal llama a una subrutina que vuelve a la zona de
+  quien llamó; tras el `jmp`, `d` sigue avanzando desde la llamada y la
+  subrutina lee su dirección de retorno de una celda que el principal saltó.
+  Hasta 130 celdas: por fuerza bruta serían 8^130 candidatos.
+- `rot_sequence`: imprime cualquier secuencia de bytes 11..42 con `rot`
+  autoleídos (INV1 de `MALBOLGE_STAIRCASE_TOY_V0`).
+- **Controles:** mutantes que siguen cargando y conservan la predicción
+  original; todos rechazados. Un chequeo que solo mirara la salida habría
+  aceptado **1,188 de 2,772** mutantes de `call_return`: la salida sola no
+  prueba el comportamiento.
+- **Interoperabilidad:** el generador reproduce byte a byte el ejemplo de
+  Calcbolge `llamada_y_retorno.mal` y el `stairprinter.malbolge` del
+  experimento de escalera, hechos por otros medios.
+- Evidencia: `experiments/evidence/shape_families.json`. Tests:
+  `py -m pytest tests/test_shapes.py`.
+- Límites: alguien propone la forma; dos familias; una sola llamada por
+  programa; entrada fija `AB`.
+- **No está conectado al orquestador dataflow a propósito:**
+  `semantic_manifest.py` hashea `stages.py` y `contracts.py`, así que agregar
+  ahí una etapa invalida la caché de todas las campañas existentes.
+
 ### Escaneos de frontera — negativos honestos (Gate D1 — `CURRENT`)
 
 Escaneos negativos exhaustivos con el motor Zig recompilado: `HI` sin input
@@ -249,6 +293,7 @@ programa canónico de Hello World.
 | `relational/materialization.py` | Catálogos, escaneos de familia, síntesis por haz (engine = "fast"\|"reference") |
 | `relational/fast_engine.py` | Wrapper Python → protocolo por lotes de `bolge.exe` |
 | `relational/transition.py` | Descubrimiento de transiciones con `ClassicDebugger` |
+| `relational/shapes.py` | Familias por forma: programas derivados por aritmética de posición, con predicción previa y controles (`experiments/shape_families.py`) |
 | `experiments/printer_loop.py` | Gate de la impresora: recomprime `bolge.exe`, corre 299,593 moldes, 0 mismatches |
 | `experiments/gate1_parity.py` | Gate 1: 417 casos aleatorios vs `run_bounded` |
 | `experiments/gate2_catalog.py` | Gate 2: paridad de catálogo + rendimiento |
