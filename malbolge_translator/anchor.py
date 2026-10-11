@@ -23,6 +23,7 @@ from malbolge import (
     MalbolgeRuntimeError,
     ProgramGenerator,
 )
+from malbolge.generator import _GenerationStats, _PrefixState
 from .backend import get_backend, MalbolgeBackend
 
 
@@ -104,24 +105,38 @@ class AnchorManager:
             self.create_anchor("default", "")
         return self.anchors["default"]
     
-    def bridge(self, from_m: MalbolgeMachine, to: AnchorState, random_seed: int = 42) -> str:
-        """Generate opcodes to transition from_m -> to.machine state, verifying the result matches target."""
+    def bridge(self, from_m: MalbolgeMachine, to: AnchorState, random_seed: int = 42,
+               max_ops: int = 8) -> str:
+        """Generate opcodes transitioning from_m -> to.machine, verified on the
+        target STATE (registers + tape prefix), not on an output string.
+
+        Raises MalbolgeRuntimeError when no bridge is found within max_ops —
+        it never returns a silent empty string (a '' bridge would corrupt
+        composed programs; see MALPAD evidence/malpad_primitives GATES).
+        If from_m already matches the anchor, returns '' legitimately.
+        """
+        if self._states_match(from_m, to.machine):
+            return ""
         prefix = _PrefixState(opcodes="", output="", machine=from_m.copy())
-        bridge_ops = self._search_bridge(prefix, to, "OK", random_seed=random_seed)
-        
-        # Verify the bridge actually reaches the target anchor state
-        if bridge_ops:
-            br = self.interpreter.execute_from_snapshot(from_m, bridge_ops, capture_machine=True)
-            if br.machine:
-                # Verify critical machine state matches target anchor
-                target_m = to.machine
-                result_m = br.machine
-                if not self._states_match(result_m, target_m):
-                    raise MalbolgeRuntimeError(
-                        f"Bridge verification failed: resulting state does not match target anchor '{to.name}'. "
-                        f"Expected a={target_m.a}, c={target_m.c}, d={target_m.d}, "
-                        f"got a={result_m.a}, c={result_m.c}, d={result_m.d}"
-                    )
+        bridge_ops = self._search_bridge(prefix, to, max_ops=max_ops,
+                                        random_seed=random_seed)
+        if not bridge_ops:
+            raise MalbolgeRuntimeError(
+                f"No bridge found from state hash "
+                f"{self._hash(from_m)[:12]} to anchor '{to.name}' "
+                f"within {max_ops} ops (searched op* alphabet, no output)."
+            )
+        br = self.interpreter.execute_from_snapshot(from_m, bridge_ops, capture_machine=True)
+        if br.machine is None or not self._states_match(br.machine, to.machine):
+            result_m = br.machine
+            raise MalbolgeRuntimeError(
+                f"Bridge verification failed: resulting state does not match "
+                f"target anchor '{to.name}'. "
+                f"Expected a={to.machine.a}, c={to.machine.c}, d={to.machine.d}, "
+                f"got a={result_m.a if result_m else None}, "
+                f"c={result_m.c if result_m else None}, "
+                f"d={result_m.d if result_m else None}"
+            )
         return bridge_ops
     
     def _states_match(self, m1: MalbolgeMachine, m2: MalbolgeMachine) -> bool:
@@ -132,55 +147,40 @@ class AnchorManager:
         min_len = min(len(m1.tape), len(m2.tape), 100)
         return m1.tape[:min_len] == m2.tape[:min_len]
     
-    def _search_bridge(self, prefix, target_anchor: AnchorState, verify: str, random_seed: int = 42) -> str:
-        from malbolge.generator import _GenerationStats
-        from random import Random
-        
-        cfg = GenerationConfig(opcode_choices="op*", max_search_depth=3, random_seed=random_seed)
-        rng = Random(cfg.random_seed)
+    def _search_bridge(self, prefix, target_anchor: AnchorState, max_ops: int = 8,
+                       random_seed: int = 42) -> str:
+        """Depth-limited DFS over the op* alphabet (no '<': a bridge must emit
+        nothing) accepting a node only when its machine STATE matches the
+        target anchor. Returns '' when the whole space is exhausted."""
+        cfg = GenerationConfig(opcode_choices="op*", max_search_depth=max_ops,
+                               random_seed=random_seed)
         interp = self.generator._interpreter
         stats = _GenerationStats()
         cache: dict = {}
-        dead: set = set()
-        
-        cur = prefix
-        target = verify
-        
-        for idx in range(len(target)):
-            found = False
-            combos = list(cfg.opcode_choices)
-            depth = 0
-            tpref = target[:idx+1]
-            
-            while not found and depth < cfg.max_search_depth:
-                depth += 1
-                for cand in combos:
-                    suf = cand + "<"
-                    pk = cur.opcodes + suf
-                    if pk in dead:
-                        stats.pruned += 1
-                        continue
-                    cs, _ = self.generator._get_or_extend_state(cur, suf, interp, cfg, cache, stats)
-                    if cs.machine is None: continue
-                    out = cs.output
-                    if target.startswith(out) and len(out) <= len(target):
-                        if out == tpref:
-                            cur = cs
-                            found = True
-                            break
-                if found: break
-                
-                nf = []
-                for b in combos:
-                    for o in cfg.opcode_choices:
-                        c = b + o
-                        if (cur.opcodes + c + "<") not in dead:
-                            nf.append(c)
-                combos = nf
-                if not combos: break
-        
-        fs, _ = self.generator._get_or_extend_state(cur, "", interp, cfg, cache, stats)
-        return fs.opcodes[len(prefix.opcodes):]
+        alphabet = list(cfg.opcode_choices)
+        target = target_anchor.machine
+
+        stack = [prefix]
+        seen: set = set()
+        while stack:
+            node = stack.pop()
+            if len(node.opcodes) >= max_ops:
+                continue
+            for cand in alphabet:
+                suf = node.opcodes + cand
+                if suf in seen:
+                    stats.pruned += 1
+                    continue
+                seen.add(suf)
+                stats.evaluations += 1
+                cs, _ = self.generator._get_or_extend_state(
+                    node, cand, interp, cfg, cache, stats)
+                if cs.machine is None or cs.output:
+                    continue  # crashed or emitted: not a bridge
+                if self._states_match(cs.machine, target):
+                    return cs.opcodes[len(prefix.opcodes):]
+                stack.append(cs)
+        return ""
     
     def _hash(self, m: MalbolgeMachine) -> str:
         return hashlib.md5(f"{m.a},{m.c},{m.d},{m.tape[:100]}".encode()).hexdigest()
