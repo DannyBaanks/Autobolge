@@ -53,8 +53,12 @@ FIELDS = ("program", "output", "steps", "terminated", "stop_reason",
 
 
 def rebuild():
-    if os.path.exists(ZIG_EXE) and os.path.getmtime(ZIG_EXE) >= os.path.getmtime(ZIG_SRC):
-        print("[1] bolge.exe al dia, sin recompilar")
+    semantic_sources = [ZIG_SRC, os.path.join(ZIG_DIR, "vm.zig")]
+    up_to_date = os.path.exists(ZIG_EXE) and all(
+        os.path.getmtime(ZIG_EXE) >= os.path.getmtime(p) for p in semantic_sources
+    )
+    if up_to_date:
+        print("[1] bolge.exe al dia (bolge.zig + vm.zig), sin recompilar")
         return
     print("[1] recompilando bolge.zig ...")
     if not ZIG_BIN:

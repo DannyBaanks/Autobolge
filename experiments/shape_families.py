@@ -7,12 +7,13 @@ that keep the original prediction and must be rejected.
 
 Also measured: how many mutants an OUTPUT-ONLY check would have accepted.
 
-Run:  py experiments/shape_families.py
+Run:  python3 experiments/shape_families.py
 """
 from __future__ import annotations
 
 import hashlib
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -28,8 +29,14 @@ MAX_STEPS = 10_000
 FIELDS = ("output", "steps", "final_pc", "stop_reason")
 
 # Optional interoperability anchors produced elsewhere, by other means.
-CALCBOLGE_CALL_RETURN = Path(r"C:\Development\ISyCo Git\Calcbolge\ejemplos\llamada_y_retorno\llamada_y_retorno.mal")
-STAIRCASE_TOY = Path(r"C:\Development\ISyCo\experiments0000\MALBOLGE_STAIRCASE_TOY_V0\toys\stairprinter.malbolge")
+# Overrides via env; defaults are home-relative so the gate runs on any host.
+# If a fixture is absent the check fails closed to NOT_RUN (gate verdict FAIL).
+_CALCBOLGE_DEF = Path.home() / "Development" / "ISyCo Git" / "Calcbolge" / \
+    "ejemplos" / "llamada_y_retorno" / "llamada_y_retorno.mal"
+_STAIRCASE_DEF = Path.home() / "Development" / "ISyCo" / \
+    "experiments0000" / "MALBOLGE_STAIRCASE_TOY_V0" / "toys" / "stairprinter.malbolge"
+CALCBOLGE_CALL_RETURN = Path(os.environ.get("AUTOBOLGE_CALCBOLGE_FIXTURE", str(_CALCBOLGE_DEF)))
+STAIRCASE_TOY = Path(os.environ.get("AUTOBOLGE_STAIRCASE_TOY", str(_STAIRCASE_DEF)))
 
 
 def observed(r) -> dict:

@@ -7,12 +7,14 @@ by Autobolge 2.0 against:
 """
 from __future__ import annotations
 
+import os
 import subprocess
 from pathlib import Path
 import pytest
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-MB_REF = Path("/home/danny/Development/ISyCo Git/BolgeForge/mb_ref")
+DEFAULT_MB_REF = Path(__file__).resolve().parents[2] / "BolgeForge" / "mb_ref"
+MB_REF = Path(os.environ.get("AUTOBOLGE_MB_REF", str(DEFAULT_MB_REF)))
 BOLGE_EXE = REPO_ROOT / "zig" / "bolge.exe"
 
 from relational.fast_engine import run_batch_bounded
@@ -20,6 +22,9 @@ from relational.synthesizer import run_on_engine
 
 
 def run_mb_ref(program_content: str, max_steps: int = 500_000) -> tuple[int, str]:
+    if not MB_REF.exists():
+        pytest.skip(f"independent oracle mb_ref not found at {MB_REF} "
+                    f"(env AUTOBOLGE_MB_REF)")
     res = subprocess.run(
         [str(MB_REF), "/dev/stdin", str(max_steps)],
         input=program_content.encode("latin-1"),

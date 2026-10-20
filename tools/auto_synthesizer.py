@@ -21,6 +21,37 @@ sys.path.insert(0, str(REPO_ROOT))
 
 from relational.synthesizer import synthesize_text, run_on_engine
 
+LUTTER_QUINE_BYTES = 59_852  # Matthias Lutter quine (malbolge.org/quine.mal)
+
+
+def _decode_text_literal(s: str) -> str:
+    """Interpreta los escapes \\n \\t \\r \\ \\\" \\' literalmente.
+
+    Cualquier otro escape backslash es error. El texto resultante debe ser
+    ASCII imprimible (33..126) más '\\n': es la cobertura del sintetizador.
+    """
+    escapes = {"n": "\n", "t": "\t", "r": "\r", "\\": "\\", '"': '"', "'": "'"}
+    out = []
+    i = 0
+    while i < len(s):
+        c = s[i]
+        if c == "\\":
+            if i + 1 >= len(s) or s[i + 1] not in escapes:
+                raise ValueError(f"escape desconocido en la posicion {i}: {s[i:i + 2]!r}")
+            out.append(escapes[s[i + 1]])
+            i += 2
+        else:
+            out.append(c)
+            i += 1
+    text = "".join(out)
+    for pos, ch in enumerate(text):
+        b = ord(ch)
+        if b != 10 and not 32 <= b <= 126:
+            raise ValueError(
+                f"caracter {ch!r} (posicion {pos}) no sintetizable: la cobertura "
+                "del sintetizador es ASCII imprimible 32..126 mas '\\n'")
+    return text
+
 
 def format_mal(byte_list: bytes, cols: int = 72) -> bytes:
     lines = [byte_list[i : i + cols] for i in range(0, len(byte_list), cols)]
@@ -37,12 +68,13 @@ def handle_quine():
     cells = [b for b in raw_bytes if 33 <= b <= 126]
 
     print("======================================================================")
-    print("      AUTOBOLGE 2.0 — WORLD RECORD QUINE VERIFICATION (m=281)         ")
+    print("      AUTOBOLGE 2.0 — QUINE VERIFICATION (m=281)                     ")
     print("======================================================================")
     print(f"Quine Artifact:  {quine_path}")
-    print(f"File Size:       {len(raw_bytes):,} bytes (-6,290 B vs Matthias Lutter 2012)")
+    print(f"File Size:       {len(raw_bytes):,} bytes")
+    print(f"  Size Delta:    {len(raw_bytes) - LUTTER_QUINE_BYTES:+,} B vs Lutter ({LUTTER_QUINE_BYTES:,} B, malbolge.org)")
     print(f"Code Cells:      {len(cells):,}")
-    print("Executing 62,239,852 steps on Autobolge Zig native engine (bolge.exe)...")
+    print("Executing on the Autobolge Zig native engine (bolge.exe)...")
 
     t0 = time.perf_counter()
     out_bytes, steps, term, reason = run_on_engine(cells, input_data="", max_steps=100_000_000)
@@ -72,7 +104,7 @@ def main():
         return
 
     target_text = args.text or "Autobolge 2026: Automatic Program Synthesis\n"
-    raw_text = target_text.encode("utf-8").decode("unicode_escape")
+    raw_text = _decode_text_literal(target_text)
 
     print("======================================================================")
     print("           AUTOBOLGE 2.0 — CONSTRUCTIVE PROGRAM SYNTHESIZER            ")

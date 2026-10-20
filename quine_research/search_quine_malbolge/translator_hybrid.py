@@ -72,6 +72,16 @@ class TranslatorCandidateFactory:
             "opcodes": opcodes,
             "target": target,
             "target_len": len(target),
+            # Top-level metrics (H3/H4 evidence reads these directly; kept in
+            # sync with the nested `stats` block for backward compatibility).
+            "evaluations": rstats.get("evaluations", 0),
+            "nodes_expanded": rstats.get("evaluations", 0),
+            "cache_hits": rstats.get("cache_hits", 0),
+            "states_revisited": rstats.get("repeated_state_pruned", 0)
+                                + rstats.get("pruned", 0),
+            "duration_ns": rstats.get("duration_ns", 0),
+            "generation_ms": rstats.get("duration_ns", 0) / 1e6,
+            "solution_length": len(opcodes),
             "stats": {
                 "evaluations": rstats.get("evaluations", 0),
                 "cache_hits": rstats.get("cache_hits", 0),

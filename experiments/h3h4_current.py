@@ -28,7 +28,9 @@ def run_h3():
 
     t0 = time.time()
     factory = TranslatorCandidateFactory(max_search_depth=5)
-    cands = factory.batch(targets)
+    # Se pasa un shared_state_cache real: el hipótesis H3 es memoización
+    # cross-target, así que el mismo dict persiste a través de los targets.
+    cands = factory.batch(targets, shared_state_cache={})
     elapsed = time.time() - t0
 
     matched = sum(1 for c in cands if "program_source" in c)
@@ -48,7 +50,8 @@ def run_h3():
             "states_revisited": c.get("states_revisited", 0),
             "cache_hits": c.get("cache_hits", 0),
             "solution_length": c.get("solution_length", 0),
-            "generation_ms": c.get("generation_ms", 0),
+            "generation_ms": round(c.get("generation_ms", 0.0), 3),
+            "evaluations": c.get("evaluations", 0),
             "verified": "program_source" in c,
         })
 
