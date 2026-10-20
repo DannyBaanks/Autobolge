@@ -17,6 +17,8 @@ build/
 # maquina de build (cwd), asi que ademas de pesar filtran el layout local.
 zig/*.exe
 zig/*.pdb
+zig/test*
+zig/d1_*
 *.pdb
 
 # Dependen del toolkit privado (rutas a un repo que no se publica).

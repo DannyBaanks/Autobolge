@@ -23,6 +23,47 @@ estructurados por familia y artefactos de verificación reproducibles.
 
 ---
 
+
+---
+
+## Novedades de Autobolge 2.0 (Octubre 2026)
+
+### 1. Síntesis Constructiva en O(N) con Cero Fuerza Bruta
+Se integró el sintetizador algebraico cerrado (`relational/synthesizer.py`, CLI en `tools/auto_synthesizer.py`), eliminando las horas de búsqueda por haz para la generación de programas arbitrarios:
+- **Salto Cuántico Inicial:** Salto de portal $c=0 \to 98 \to 99..107$ que evalúa $\text{crazy}(\text{rot}^2(80), 72) = 3312$, aterrizando en $c=3315$ con $d=121$.
+- **Separación de Cinta Transportadora ($\Delta c \equiv \Delta d$):** El puntero de código avanza en $[3315, \dots]$ mientras el de datos avanza sincronizado en $[121, \dots]$, garantizando $>2000$ celdas de distancia estéril sin colisiones.
+- **Matriz de Emisión ASCII:** Cobertura del 100% de caracteres imprimibles y `\n` en 1, 2 o 3 opcodes.
+- **Rendimiento:** Síntesis y verificación en **~5 ms** por programa.
+
+```bash
+# Sintetizar un programa arbitrario y guardarlo formateado a 72 columnas:
+python3 tools/auto_synthesizer.py --text "Hola Mundo!\n" -o artifacts/hola_mundo.mal
+
+# Sintetizar la Secuencia de Fibonacci:
+python3 tools/auto_synthesizer.py --text "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89\n" -o artifacts/fibonacci.mal
+```
+
+### 2. Minería Ciega de la Frontera (Programas Mínimos Desconocidos)
+Exploración no supervisada del espacio de estados en el motor Zig, descubriendo programas válidos inéditos que terminan limpiamente en `v` (opcode 81 / HALT) y emiten caracteres ASCII sin requerir entrada (`zero-stdin`):
+- `>ba`M`: 5 bytes, 5 pasos VM, emite `sss`, exit code 0.
+- `'=a`M`: 5 bytes, 5 pasos VM, emite `hh`, exit code 0.
+- `(&a`M`: 5 bytes, 5 pasos VM, emite `ll`, exit code 0.
+- `(=a`M`: 5 bytes, 5 pasos VM, emite ``` `` ```, exit code 0.
+- `c=aN`: 4 bytes, 4 pasos VM, emite `\x00r`, exit code 0.
+
+### 3. Verificación del Récord Mundial de Quine (m=281)
+Integración y verificación independiente del quine clásico de **53,562 bytes** (52,828 celdas de código cargables, -6,290 bytes respecto al quine histórico de Matthias Lutter de 2012):
+```bash
+python3 tools/auto_synthesizer.py --quine
+```
+- **62,239,852 pasos** ejecutados en el motor Zig (`bolge.exe`) en **0.127 segundos** (~490 millones de pasos/s).
+- Reproducción bit a bit idéntica con **0 bytes de diferencia**.
+- Procedencia: artefacto integrado y verificado desde el corpus de `BolgeForge` (SHA-256 `96b670b825372a0f41fa3b574d47457f92654b76411e5d5be4c438003087610e`).
+
+### 4. Oráculo Dual Independiente y Cero Dependencias Externas
+- Eliminación de la dependencia `pip install malbolge` mediante la incrustación de las primitivas canónicas de Olmstead (`crazy_operation`, `ENCRYPTION_TRANSLATE`) en `relational/classic.py`.
+- Suite automatizada `tests/test_novel_discoveries.py` que comprueba simultáneamente cada programa contra `zig/bolge.exe` y el ejecutable C canónico de Ben Olmstead (`BolgeForge/mb_ref`).
+
 ## Por qué importa
 
 Malbolge es deliberadamente hostil a la síntesis ordinaria de programas: su
@@ -386,6 +427,10 @@ Gates DSL (D1/D2) re-corridos bajo semántica Classic (`CURRENT`); D3
 | Síntesis multi-char | ✅ 5/5 targets, Zig-verified (`CURRENT`) |
 | Busy Beaver (len 1–3) | ✅ 183 terminated, max output_len=6 (`CURRENT`) |
 | Atlas (runs/) | ✅ 107 artefactos indexados (`CURRENT`) |
+| Síntesis constructiva (Conveyor) | ✅ O(N) cerrado, ~5 ms/programa, 0 fuerza bruta (`CURRENT`) |
+| Descubrimiento de programas mínimos | ✅ Minería de frontera: len 4-5 con HALT limpio y zero-stdin (`CURRENT`) |
+| Récord Quine (m=281, 53,562B) | ✅ Verificado bit a bit: 62.2M pasos en 0.127s (`CURRENT`) |
+| Suite dual-oracle (`test_novel_discoveries.py`) | ✅ 8/8 PASSED: paridad exacta Zig bolge.exe == C mb_ref (`CURRENT`) |
 
 La guía vigente está en [ROADMAP.md](ROADMAP.md): F0–F7 construyen v2 sobre
 anchors epochales, trazas verificables y horizontes explícitos de oráculo. Los

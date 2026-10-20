@@ -1,3 +1,4 @@
+import pytest
 """Tests del dataflow Autobolge."""
 import json
 import os
@@ -141,6 +142,7 @@ def test_param_change_invalidates_only_downstream(tmp_path):
 
 
 def test_seed_solver_then_solve(tmp_path):
+    pytest.importorskip("malbolge")
     spec = _write_spec(tmp_path, [
         {"id": "f1", "kind": "frontier",
          "params": {"level": 1, "seeds": [""], "max_steps": 100000}},

@@ -3,8 +3,26 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import List, Optional
 
-from malbolge.encoding import ENCRYPTION_TRANSLATE
-from malbolge.utils import crazy_operation
+ENCRYPTION_TRANSLATE = (
+    "5z]&gqtyfr$(we4{WP)H-Zn,[%\\3dL+Q;>U!pJS72FhOA1C"
+    "B6v^=I_0/8|jsb9m<.TVac`uY*MK'X~xDl}REokN:#?G\"i@"
+)
+
+_CRAZY_TRITS = (
+    (1, 0, 0),
+    (1, 0, 2),
+    (2, 2, 1),
+)
+
+def crazy_operation(x: int, y: int) -> int:
+    res = 0
+    p = 1
+    for _ in range(10):
+        res += _CRAZY_TRITS[y % 3][x % 3] * p
+        x //= 3
+        y //= 3
+        p *= 3
+    return res
 
 MEM_SIZE = 59049
 OUT_CAP = 65536
