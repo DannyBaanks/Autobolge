@@ -134,9 +134,9 @@ clases de equivalencia de comportamiento.
   la toolkit.
 - Paridad: 417 casos de Gate 1 + los 299,593 moldes del catálogo, **0
   mismatches**.
-- Reconstrucción len-6: **230.14 s** con `bolge.exe` (~1,300 programas/s) vs
-  la referencia Classic tail-shared; len-5: referencia 31.29 s vs fast 28.30 s
-  (`experiments/evidence/gate2_catalog.json`, parte B).
+- Reconstrucción len-6: **114.79 s** con `bolge.exe` (~2,610 programas/s) vs
+  la referencia Classic tail-shared; len≤5: referencia 12.24 s vs fast 13.69 s
+  (`experiments/evidence/gate2_catalog.json`, parte B; corrida Linux 2026-10-20).
 - Referencia single `run_bounded` == `run_bounded_fast` (verificado: Gate 1
   sobre 417 casos + len≤5 exhaustivo de 37,449 programas, 0 mismatches).
 
@@ -223,21 +223,25 @@ El solver de quine-research (`quine_research/search_quine_malbolge/`) genera
 programas de Malbolge para outputs objetivo vía el traductor del paquete
 `malbolge`, verificado por lotes contra la VM Zig.
 
-- **H3 memoización cross-target** — `NOT_DEMONSTRATED` (evidencia previa
-  inválida). La corrida histórica (676/676 AA–ZZ, 67.7 s) registró métricas
-  estructuralmente en cero: el artefacto leía los campos en el nivel
-  equivocado (`stats` anidado) y no pasaba un `shared_state_cache` real.
-  Instrumentación corregida en `translator_hybrid.py` +
-  `experiments/h3h4_current.py`; re-run pendiente en un host con
-  `pip install malbolge`.
+- **H3 memoización cross-target** — `NOT_DEMONSTRATED`, hipótesis obsoleta con
+  el toolkit actual. Re-run 2026-10-20 (Linux, toolkit `malbolge-generator
+  0.1.0` / `malbolge 1.0.0` de `github.com/wallstop/MalbolgeGenerator`): la API
+  `generate_for_string(target, *, config)` ya no acepta `shared_state_cache`,
+  así que el mecanismo que H3 queria probar ya no existe upstream. Corrida
+  honesta: 676/676 AA–ZZ en **44.85 s**, `cache_hits=0`,
+  `states_revisited=2,720,974` (métricas top-level reales, ya no en cero por
+  bug de lectura). Instala el toolkit con
+  `pip install git+https://github.com/wallstop/MalbolgeGenerator.git` (el
+  paquete PyPI `malbolge` es otro proyecto).
 - **H4 paralelización por target** — SOPORTADO. Determinismo verificado:
-  0 mismatches entre serial y paralelo.
+  0 mismatches entre serial y paralelo. Escalado real en Linux:
+  45.3 → 24.3 → 12.8 s.
 
 | Workers | Generación | Targets/s |
 |---------|-----------|-----------|
-| 1 (serial) | 81.9 s | 8.3 |
-| 2 | 48.3 s | 14.0 |
-| 4 | 25.5 s | 26.5 |
+| 1 (serial) | 45.3 s | 14.9 |
+| 2 | 24.3 s | 27.8 |
+| 4 | 12.8 s | 52.8 |
 
 Evidencia: `runs/h3_memo_current/artifact.json`, `runs/h4_parallel_current/artifact.json`.
 
@@ -272,7 +276,8 @@ candidato.
 
 ```bash
 # Demo Python (síntesis relacional, beam search, catálogo)
-pip install malbolge pillow
+# NOTA: el PyPI `malbolge` es otro proyecto; el toolkit real es de GitHub.
+pip install pillow git+https://github.com/wallstop/MalbolgeGenerator.git
 python3 experiments/relational_synthesis_demo.py
 
 # Motor Zig rápido (runner por lotes, paridad verificada)
@@ -435,7 +440,7 @@ Gates DSL (D1/D2) re-corridos bajo semántica Classic (`CURRENT`); D3
 | `BRANCH` acotado multi-caso | 🔬 Búsqueda de primitivas MALDOOM V1; el eco solo no prueba una rama interna |
 | Secuencia ternaria `012 -> 120` | ❌ Sin hit en la frontera acotada de longitud 3 |
 | Orquestador dataflow | ✅ Base v1 funcional (12/12 tests); F0 de v2 agrega manifiesto semántico |
-| Solver H3 (memoización) | ⚠️ `NOT_DEMONSTRATED`: métricas en cero por bug de esquema; instrumentación corregida, re-run pendiente |
+| Solver H3 (memoización) | ⚠️ `NOT_DEMONSTRATED` (hipótesis obsoleta): la API actual eliminó `shared_state_cache`; corrida honesta 676/676, 44.85 s, métricas reales |
 | Solver H4 (paralelización) | ✅ 1→4 workers: 3.2x speedup, determinístico (`CURRENT`) |
 | Síntesis multi-char | ✅ 5/5 targets, Zig-verified (`CURRENT`) |
 | Busy Beaver (len 1–3) | ✅ 183 terminated, max output_len=6 (`CURRENT`) |

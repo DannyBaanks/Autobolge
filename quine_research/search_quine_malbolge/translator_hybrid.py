@@ -59,10 +59,15 @@ class TranslatorCandidateFactory:
         )
 
     def generate(self, target: str, shared_state_cache: dict | None = None) -> dict:
-        """Genera un programa que produce `target`. Retorna dict con metadata."""
-        result = self.generator.generate_for_string(
-            target, config=self.config, shared_state_cache=shared_state_cache
-        )
+        """Genera un programa que produce `target`. Retorna dict con metadata.
+
+        `shared_state_cache` queda aceptado por compatibilidad de firma pero
+        NO se transmite: el toolkit actual (malbolge-generator 0.1.0 /
+        malbolge 1.0.0, API `generate_for_string(target, *, config)`) eliminó
+        el kwarg; reenviarlo rompe todos los targets. La memoización
+        cross-target (H3) quedó obsoleta con esta API.
+        """
+        result = self.generator.generate_for_string(target, config=self.config)
         opcodes = result.opcodes
         program_source = "".join(reverse_normalize(opcodes))
         rstats = result.stats

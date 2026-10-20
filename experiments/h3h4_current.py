@@ -28,8 +28,9 @@ def run_h3():
 
     t0 = time.time()
     factory = TranslatorCandidateFactory(max_search_depth=5)
-    # Se pasa un shared_state_cache real: el hipótesis H3 es memoización
-    # cross-target, así que el mismo dict persiste a través de los targets.
+    # La firma batch(shared_state_cache=...) se acepta por compatibilidad
+    # pero la API actual del toolkit (generate_for_string(target, *, config))
+    # eliminó el kwarg: la memoización cross-target H3 quedó obsoleta.
     cands = factory.batch(targets, shared_state_cache={})
     elapsed = time.time() - t0
 
@@ -58,7 +59,7 @@ def run_h3():
     return {
         "hypothesis": "H3 memoization",
         "config": {"targets": len(targets), "max_search_depth": 5},
-        "mode": "memo",
+        "mode": "no_memo_api",
         "gen_time_s": round(elapsed, 2),
         "matched": f"{matched}/{len(targets)}",
         "total_cache_hits": cache_hits,
@@ -69,6 +70,8 @@ def run_h3():
             "semantic_epoch": "autobolge-classic-dense-input-underflow/v1",
             "label": "CURRENT",
             "status": "ok",
+            "toolkit": "malbolge-generator 0.1.0 / malbolge 1.0.0 (PyPI malbolge-generator, GitHub wallstop/MalbolgeGenerator)",
+            "api_note": "generate_for_string(target, *, config) sin shared_state_cache; hipotesis de memoizacion cross-target obsoleta en esta API",
         },
     }
 
