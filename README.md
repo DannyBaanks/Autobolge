@@ -51,8 +51,10 @@ Exploración no supervisada del espacio de estados en el motor Zig, descubriendo
 - `(=a`M`: 5 bytes, 5 pasos VM, emite ``` `` ```, exit code 0.
 - `c=aN`: 4 bytes, 4 pasos VM, emite `\x00r`, exit code 0.
 
-### 3. Verificación del Récord Mundial de Quine (m=281)
-Integración y verificación independiente del quine clásico de **53,562 bytes** (52,828 celdas de código cargables, -6,290 bytes respecto al quine histórico de Matthias Lutter de 2012):
+### 3. Verificación del Quine de 53,562 B (récord solicitado del corpus, m=281)
+Integración y verificación independiente del quine clásico de **53,562 bytes**
+(52,828 celdas de código cargables, -6,290 bytes respecto al quine de
+Matthias Lutter publicado en malbolge.org, 59,852 B):
 ```bash
 python3 tools/auto_synthesizer.py --quine
 ```
@@ -101,12 +103,14 @@ clases de equivalencia de comportamiento.
   referencia single: 0 mismatches.
 - Rendimiento de la referencia: len≤5 de **614 s → 19.5 s**; el catálogo
   len-6 completo se construyó en **152 s** (antes proyectado ~80 min).
-- **GATE1 PASSED**: 417 casos aleatorios, **0 mismatches**, 12.49 s
-  (`experiments/evidence/gate1_parity.json`, sha `ead638ba0187…`).
+- **GATE1 PASSED**: 417 casos aleatorios, **0 mismatches**, 4.51 s
+  (`experiments/evidence/gate1_parity.json`, sha de records
+  `49e0bf898111ffdbabe3a61a68c64417443585bd69ce1348c7f8087a1b98be27`,
+  manifest a commit `14bcf23`, árbol limpio).
 - **GATE2 PASSED**: catálogo regenerado (`catalog_e6dfb345.json`,
   299,593 entradas) y reconstruido con el motor Zig: **0 mismatches**
   (`experiments/evidence/gate2_catalog.json`).
-- **printer_loop GATE PASSED**: 299,593 moldes, **0 mismatches**, 111.37 s con
+- **printer_loop GATE PASSED**: 299,593 moldes, **0 mismatches**, 108.31 s con
   el motor Zig (`experiments/evidence/printer_loop.json`).
 
 ### Catálogo y síntesis (Gates 1 y 2 — PASSED `CURRENT`)
@@ -130,8 +134,9 @@ clases de equivalencia de comportamiento.
   la toolkit.
 - Paridad: 417 casos de Gate 1 + los 299,593 moldes del catálogo, **0
   mismatches**.
-- Reconstrucción len-6: **156.86 s** con `bolge.exe` (~1,910 programas/s) vs
-  la referencia Classic tail-shared; len-5: referencia 19.51 s vs fast 27.74 s.
+- Reconstrucción len-6: **230.14 s** con `bolge.exe` (~1,300 programas/s) vs
+  la referencia Classic tail-shared; len-5: referencia 31.29 s vs fast 28.30 s
+  (`experiments/evidence/gate2_catalog.json`, parte B).
 - Referencia single `run_bounded` == `run_bounded_fast` (verificado: Gate 1
   sobre 417 casos + len≤5 exhaustivo de 37,449 programas, 0 mismatches).
 
@@ -145,8 +150,8 @@ se listan familias exactas de programas largos y dispersos, cada miembro con
 su predicción (`output`, `steps`, `final_pc`, `stop_reason`) calculada **antes**
 de ejecutar. Módulo puro: `relational/shapes.py`.
 
-```powershell
-py experiments/shape_families.py
+```bash
+python3 experiments/shape_families.py
 ```
 
 ```text
@@ -155,7 +160,7 @@ rot_sequence  members=  34 matched=  34 mismatched=0 lengths=3..856 | controls 3
 call_return_k40_r56_equals_calcbolge_example=True
 ascending_staircase_equals_staircase_toy=True
 ascending_staircase_rot_positions=[34, 125, 216, 307, 398, 489, 580, 671, 762, 853]
-SHAPE_FAMILIES=PASS (1.57 s)
+SHAPE_FAMILIES=PASS (1.27 s)
 ```
 
 - `call_return`: el principal llama a una subrutina que vuelve a la zona de
@@ -172,7 +177,7 @@ SHAPE_FAMILIES=PASS (1.57 s)
   Calcbolge `llamada_y_retorno.mal` y el `stairprinter.malbolge` del
   experimento de escalera, hechos por otros medios.
 - Evidencia: `experiments/evidence/shape_families.json`. Tests:
-  `py -m pytest tests/test_shapes.py`.
+  `python3 -m pytest tests/test_shapes.py`.
 - Límites: alguien propone la forma; dos familias; una sola llamada por
   programa; entrada fija `AB`.
 - **No está conectado al orquestador dataflow a propósito:**
@@ -218,10 +223,13 @@ El solver de quine-research (`quine_research/search_quine_malbolge/`) genera
 programas de Malbolge para outputs objetivo vía el traductor del paquete
 `malbolge`, verificado por lotes contra la VM Zig.
 
-- **H3 memoización cross-target** — SOPORTADO. 676/676 AA–ZZ, 67.7s
-  (10.0 targets/s), determinístico. Cache hits = 0 (la búsqueda es
-  tree-like; memoization avoid revisits but no cross-target sharing on
-  this semantic_epoch).
+- **H3 memoización cross-target** — `NOT_DEMONSTRATED` (evidencia previa
+  inválida). La corrida histórica (676/676 AA–ZZ, 67.7 s) registró métricas
+  estructuralmente en cero: el artefacto leía los campos en el nivel
+  equivocado (`stats` anidado) y no pasaba un `shared_state_cache` real.
+  Instrumentación corregida en `translator_hybrid.py` +
+  `experiments/h3h4_current.py`; re-run pendiente en un host con
+  `pip install malbolge`.
 - **H4 paralelización por target** — SOPORTADO. Determinismo verificado:
   0 mismatches entre serial y paralelo.
 
@@ -251,7 +259,9 @@ candidato.
   como **sister implementation**, no como autoridad independiente.
 - **Catálogo público (`pub_catalog.py`)**: content-addressed de anchors,
   traces, manifests y campaigns. 130 entries verificables con
-  `py pub_catalog.py --verify`.
+  `python3 pub_catalog.py --verify` (requiere los artefactos de `runs/` del
+  working tree; un clon limpio regenera 27 y las campañas quedan fuera hasta
+  reconstruirlas).
 - Plantilla de lente (`frontier_campaign.template.json`) con coordenadas
   lógicas (`L1/L2/L3` vía `--var`), rebase de ensamblajes y compartición de
   artefactos por hash.
@@ -263,24 +273,23 @@ candidato.
 ```bash
 # Demo Python (síntesis relacional, beam search, catálogo)
 pip install malbolge pillow
-py experiments/relational_synthesis_demo.py
+python3 experiments/relational_synthesis_demo.py
 
 # Motor Zig rápido (runner por lotes, paridad verificada)
 cd zig
-zig build-exe bolge.zig -O ReleaseFast "-femit-bin=bolge.exe"
-.\bolge.exe in.bin out.bin 3000
+zig build-exe bolge.zig -O ReleaseFast -femit-bin=bolge.exe
+./bolge.exe in.bin out.bin 3000
 
 # DSL especializado (escaneos de frontera en producción)
-zig build-exe dsl.zig -O ReleaseFast "-femit-bin=bolge-dsl.exe"
-.\bolge-dsl.exe ..\experiments\frontier_HI_len10.bolge
+zig build-exe dsl.zig -O ReleaseFast -femit-bin=bolge-dsl.exe
+./bolge-dsl.exe ../experiments/frontier_HI_len10.bolge
 
 # Relación de input con múltiples casos acotados: una fuente debe cumplir TODOS.
-.\bolge-dsl.exe ..\experiments\dsl_maldoom_input_branch_smoke.bolge
+./bolge-dsl.exe ../experiments/dsl_maldoom_input_branch_smoke.bolge
 ```
 
-`zig` se resuelve desde el PATH (0.16.0 en esta máquina, instalado vía
-WinGet); si prefieres un binario explícito, define la variable de entorno
-`ZIG_EXE`.
+`zig` se resuelve desde el PATH (0.16.0 en esta máquina); si prefieres un
+binario explícito, define la variable de entorno `ZIG_EXE`.
 
 La demo carga el catálogo persistido en `experiments/catalog_cache/`, corre
 síntesis exacta y guiada, verifica los programas generados y compara el
@@ -368,24 +377,28 @@ Archivos de evidencia clave:
 
 ```bash
 # Gate 1: paridad aleatoria (417 casos, semántica Classic)
-py experiments/gate1_parity.py
+python3 experiments/gate1_parity.py
 
 # Gate 2: paridad de catálogo + rendimiento (299,593 entradas)
-py experiments/gate2_catalog.py
+python3 experiments/gate2_catalog.py
 
 # Impresora de moldes: reconstruye el catálogo con el motor Zig y compara
 # campo a campo contra la referencia Classic (0 mismatches esperado)
-py experiments/printer_loop.py
+python3 experiments/printer_loop.py
 
-# Gate D1: frontier HI len-7 via DSL (~19 min)
-zig\bolge-dsl.exe experiments\dsl_gate_d1_len7.bolge
+# Gate D1: frontier HI len-7 via DSL (~19 min; compila primero el DSL)
+zig build-exe dsl.zig -O ReleaseFast -femit-bin=bolge-dsl.exe
+./bolge-dsl.exe experiments/dsl_gate_d1_len7.bolge
 
 # Gate D2: catalog len-6 via DSL (~4 min)
-zig\bolge-dsl.exe experiments\dsl_gate_d2_catalog.bolge
+./bolge-dsl.exe experiments/dsl_gate_d2_catalog.bolge
 
 # Catálogo público: genera anchors, traces, manifests y verifica hashes
-py pub_catalog.py          # genera pub/
-py pub_catalog.py --verify # verifica contra disco
+python3 pub_catalog.py          # genera pub/
+python3 pub_catalog.py --verify # verifica contra disco
+
+# Shape families: familias por aritmética posicional + interoperabilidad
+python3 experiments/shape_families.py
 ```
 
 Gate 2 y printer_loop comparan contra el catálogo en cache
@@ -412,7 +425,7 @@ Gates DSL (D1/D2) re-corridos bajo semántica Classic (`CURRENT`); D3
 | Motor Zig rápido (`bolge.exe`) | ✅ 0 mismatches: 417 (gate1) + 299,593 (catálogo) |
 | Referencia Classic densa (`classic.py`) | ✅ Sister implementation, bucle único compartido |
 | Catálogo len-6 | ✅ Regenerado: 299,593 entradas, 1,705 outputs distintos |
-| DSL especializado (`bolge-dsl.exe`) | ✅ Recompilado, D1/D2 re-corridos (0 hits / 0 mismatches) |
+| DSL especializado (`bolge-dsl.exe`) | ✅ D1/D2 re-corridos (0 hits / 0 mismatches); binario gitignored — compilar con `zig build-exe dsl.zig` |
 | Fronteras negativas `HI` (len 7) | ✅ Re-corrido: 2M programas, 0 hits, 1153s (semántica actual) |
 | Difftest multi-backend | ✅ 7 campos comparados, forense por campo |
 | Catálogo público (`pub_catalog.py`) | ✅ 130 entries, content-addressed, verificable |
@@ -422,7 +435,7 @@ Gates DSL (D1/D2) re-corridos bajo semántica Classic (`CURRENT`); D3
 | `BRANCH` acotado multi-caso | 🔬 Búsqueda de primitivas MALDOOM V1; el eco solo no prueba una rama interna |
 | Secuencia ternaria `012 -> 120` | ❌ Sin hit en la frontera acotada de longitud 3 |
 | Orquestador dataflow | ✅ Base v1 funcional (12/12 tests); F0 de v2 agrega manifiesto semántico |
-| Solver H3 (memoización) | ✅ 676/676 AA–ZZ, 67.7s, determinístico (`CURRENT`) |
+| Solver H3 (memoización) | ⚠️ `NOT_DEMONSTRATED`: métricas en cero por bug de esquema; instrumentación corregida, re-run pendiente |
 | Solver H4 (paralelización) | ✅ 1→4 workers: 3.2x speedup, determinístico (`CURRENT`) |
 | Síntesis multi-char | ✅ 5/5 targets, Zig-verified (`CURRENT`) |
 | Busy Beaver (len 1–3) | ✅ 183 terminated, max output_len=6 (`CURRENT`) |
@@ -455,4 +468,4 @@ independiente y la generación completa de Don Quixote permanecen
 
 ## Licencia
 
-MIT. Ver `LICENSE` cuando exista.
+MIT. Ver [`LICENSE`](LICENSE).

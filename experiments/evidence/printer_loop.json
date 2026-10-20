@@ -3,7 +3,7 @@
   "catalog": "experiments/catalog_cache/catalog_e6dfb345.json",
   "entries": 299593,
   "mismatches": 0,
-  "fast_rebuild_s": 223.452,
+  "fast_rebuild_s": 108.308,
   "fast_sha256": "17b5dadf7cc8869a0f4c5b622845ddd40c748c2af5d1ae7bd601961ad814a18e",
   "reference_sha256": "17b5dadf7cc8869a0f4c5b622845ddd40c748c2af5d1ae7bd601961ad814a18e",
   "semantic_manifest": {
@@ -17,10 +17,10 @@
     },
     "repository": {
       "available": true,
-      "commit": "d818dbb42974e6caf76a8101599b140c8ca90896",
+      "commit": "14bcf23bc4af7d5e3e5eeb94bb9cc7f48a30c29f",
       "remote": "https://github.com/DannyBaanks/Autobolge.git",
-      "semantic_dirty": true,
-      "semantic_dirty_sha256": "aede5479d1353f06736aa2c6c8f57d2b6292d4918ab3cbadcf448f74e22d08bd"
+      "semantic_dirty": false,
+      "semantic_dirty_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "authority": {
       "engine": {
@@ -30,7 +30,7 @@
       },
       "repository": {
         "available": true,
-        "commit": "974a5a3f66f3bd1d8e10f8b5c179ea0ebe2f94c8",
+        "commit": "f52307325f08a7b033af2734f0034e4ca9360a32",
         "remote": "https://github.com/DannyBaanks/Malbolge-Translator.git",
         "semantic_dirty": false,
         "semantic_dirty_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -40,7 +40,7 @@
       {
         "path": "zig/vm.zig",
         "present": true,
-        "sha256": "156ed35865c50ebfae7d76feb19df99bc8c1d7948ef09624d2f88ae980d8d917"
+        "sha256": "58c0d3b6b1d11d669e6c31effcfd0a7030a8a8cc5b0b2508cbda96d181789329"
       },
       {
         "path": "zig/bolge.zig",
@@ -50,7 +50,7 @@
       {
         "path": "zig/dsl.zig",
         "present": true,
-        "sha256": "9da8eb86ebd57c9d85c0a6bf768162436ef1b8f268cb7876e3ba2d65c8e61ea0"
+        "sha256": "988804f9968fba365ed1f7f1c2fcf0364abdadfbecf392385c7d12462f3dbbaa"
       },
       {
         "path": "zig/frontier_scan.zig",
@@ -60,7 +60,7 @@
       {
         "path": "experiments/gate1_parity.py",
         "present": true,
-        "sha256": "77fa1788d792df2783775c28232a3dd3751647670068a77516f5f7cb6926ff24"
+        "sha256": "d0d8191b32aa03e401633f81e040cdfc15724020412f5d29e1ffc0914801b39b"
       },
       {
         "path": "experiments/gate2_catalog.py",
@@ -70,42 +70,42 @@
       {
         "path": "experiments/printer_loop.py",
         "present": true,
-        "sha256": "08e8dec4738fe99ba50141f835ecafc5ce98cd4971af3af83e4890b1faeb2383"
+        "sha256": "eb5587b9c980ca91b575df3a7ccf9e04fd30a5f33594c36831c7b250462c01fb"
       },
       {
         "path": "relational/classic.py",
         "present": true,
-        "sha256": "738a9b25a632ab9481b8f9ef79755e46fe3085d3173b06cb2379726b797797b3"
+        "sha256": "bf3dc6dce27d9a2888ffbb37abb75d06e12a35b6cd5d58a349c5b7cf27aa704c"
       },
       {
         "path": "relational/execution.py",
         "present": true,
-        "sha256": "a350325e068403f7746fdd84f45863d48b0c6b1fff70afeb916f4afb4db2f315"
+        "sha256": "ab4b0d3c96126ce4f0a52cdb0c64cd1627def7f386bff18768bc7b0f6b1f4248"
       },
       {
         "path": "relational/fast_engine.py",
         "present": true,
-        "sha256": "022d2321207b4a625f8ff5f1fd31bf4c711ebe51f9a7e086a00c7e8732aa4d3c"
+        "sha256": "d3f54d9b125a9cfbf79279b83055e53681ee1a82d5f326e2d79039e416a71622"
       },
       {
         "path": "relational/materialization.py",
         "present": true,
-        "sha256": "fbe648ffd1190a2960fb8cc91ce0cd90eeb1a508608359bc4bdcf6732b1368ad"
+        "sha256": "6dd63995a08511828e42cb14dc4b3651a8bcd13b16ea0593e616c3cf94b51bda"
       },
       {
         "path": "relational/transition.py",
         "present": true,
-        "sha256": "975c3c2e5abfb965fe0c7d66f5c2bd1f3cc53d9fcdee5f91abb8ef9fbd380fd5"
+        "sha256": "86c181e937546695e2675407e804c0508cb1fdf0f75a4ca9ef21983f4251e8f7"
       },
       {
         "path": "runner/interpreter.py",
         "present": true,
-        "sha256": "b927477797565313131f3a6bfd55dadfb3756bb569ff0ad0a626ceacae907341"
+        "sha256": "034c7654c5b0c34f0bcb12dc6878cc31327e19fc5d5101521cf19b52483eabbd"
       },
       {
         "path": "quine_research/dataflow/contracts.py",
         "present": true,
-        "sha256": "0d4d01110bab25809a59c09ee83e2c1cd9b06ce795aedf6caf203fb4381edd63"
+        "sha256": "afbe011ef1c988a1af9891d2535962e062d65761f0e9a108091719f70e5b41e9"
       },
       {
         "path": "quine_research/dataflow/engine.py",
@@ -120,7 +120,7 @@
       {
         "path": "quine_research/dataflow/stages.py",
         "present": true,
-        "sha256": "57e0309f3908d8ede811bf751b2144393c59a969068b197488f0dc65fc1f68fd"
+        "sha256": "49615195c0775101297c2dda553f06e80599e6f65c4e46c965a3fb5ff310dde4"
       },
       {
         "path": "quine_research/search_quine_malbolge/zig_batch.py",
@@ -132,7 +132,7 @@
       {
         "path": "zig/bolge.exe",
         "present": true,
-        "sha256": "925e8390ebad2128d4eff9845647bca7e7f1a555a3bf7bf60d9a7aba7fd05a03"
+        "sha256": "3c86dfe3c8191baeacea6af01da208c0c45dd473f3e48ead87315a8f119102da"
       },
       {
         "path": "experiments/catalog_cache/catalog_e6dfb345.json",
@@ -143,14 +143,14 @@
     "toolchain": {
       "zig_version": "0.16.0",
       "python_implementation": "CPython",
-      "python_version": "3.12.4",
+      "python_version": "3.12.3",
       "packages": {
         "malbolge": null
       },
-      "os": "Windows",
-      "machine": "AMD64"
+      "os": "Linux",
+      "machine": "x86_64"
     }
   },
-  "semantic_manifest_sha256": "2bbefa037532d6cec83998898ff1623ffa47bc470cde75ae9a29937d77a5653c",
+  "semantic_manifest_sha256": "813f27fb339a89ef5634d5c1863719876b503f1259fbc3688c994a114c069e59",
   "mismatch_summary": []
 }

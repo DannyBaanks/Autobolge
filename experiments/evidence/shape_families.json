@@ -2,7 +2,7 @@
   "format": "autobolge-shape-families/1",
   "engine": {
     "bolge_exe": "bolge.exe",
-    "bolge_sha256": "10b79ebaf038bb6e1daf51b5eaff2652f27ce8f31d231e43c4e6ba12638196b9"
+    "bolge_sha256": "3c86dfe3c8191baeacea6af01da208c0c45dd473f3e48ead87315a8f119102da"
   },
   "shapes_sha256": "341085e659326809b9a25534a86a3135960bc420d28d0aae7191f489e51647eb",
   "semantic_contract": "classic-dense, input underflow terminates",
@@ -55,5 +55,5 @@
     ]
   },
   "verdict": "SHAPE_FAMILIES=PASS",
-  "seconds": 1.48
+  "seconds": 1.27
 }
