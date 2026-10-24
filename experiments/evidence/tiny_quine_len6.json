@@ -1,0 +1,1 @@
+{"mode":"QUINE","input":"","length":6,"max_steps":3000,"total_programs":262144,"elapsed_s":99.482,"rate_prog_per_s":2635.1,"engine":"zig/vm.zig + zig/dsl.zig","hits":[],"negative":true,"sha256":"7dace0a85a52e5936847dc3017b428ac6d9c8ed6d2390605715352b6f30771a9"}

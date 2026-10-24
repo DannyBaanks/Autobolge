@@ -51,3 +51,15 @@ def test_synthesis_performance():
     res = synthesize_text(target, verify=True)
     assert res.output == target
     assert res.elapsed_ms < 50.0, f"Synthesis too slow: {res.elapsed_ms} ms"
+
+
+def test_target_at_sterile_gap_boundary_synthesizes():
+    target = "A" * 1064
+    res = synthesize_text(target, verify=True)
+    assert res.output == target
+    assert res.verified
+
+
+def test_target_beyond_sterile_gap_fails_closed():
+    with pytest.raises(ValueError, match="sterile gap"):
+        synthesize_text("A" * 1065, verify=False)

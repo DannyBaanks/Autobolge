@@ -1,0 +1,216 @@
+{
+  "format": "autobolge-semantic-oracles/1",
+  "label": "CURRENT",
+  "generated_utc": "2026-10-22T05:33:34.562341+00:00",
+  "generated_by": "python3 experiments/semantic_oracles.py",
+  "environment": {
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "zig": "0.16.0"
+  },
+  "oracles": {
+    "toolkit": "zig/bolge.exe (Classic dense: NOP invalid, encryption guarded 33..126, input underflow terminates)",
+    "canonical_strict": "BolgeForge/mb_ref (/home/danny/Development/ISyCo Git/BolgeForge/mb_ref)"
+  },
+  "mb_ref_available": true,
+  "canonical_minis": [
+    {
+      "program": "(&a`M",
+      "program_sha256": "f04d7b29c522a4963bbd8dcc31df21fce4b569d77a3cca0b0a959a43ef693e3d",
+      "expected": "ll",
+      "zig": {
+        "output": "ll",
+        "output_sha256": "f9e012396be65db022bd11de9308a9b40e04e492cc4ee8636c09fb83df4aa27b",
+        "steps": 5,
+        "terminated": true,
+        "reason": 1
+      },
+      "mb_ref": {
+        "rc": 0,
+        "stdout_sha256": "f9e012396be65db022bd11de9308a9b40e04e492cc4ee8636c09fb83df4aa27b",
+        "stdout_len": 2,
+        "stderr": ""
+      },
+      "zig_pass": true,
+      "mb_ref_pass": true
+    },
+    {
+      "program": "(=a`M",
+      "program_sha256": "35243e81291460a764e0a2e22ab014d40131febba795c8905d2a2d23150fb2c1",
+      "expected": "``",
+      "zig": {
+        "output": "``",
+        "output_sha256": "059b850298ae33529c41f5466960be1c7436e9dced68e6ca7a5f5d6dca520d8a",
+        "steps": 5,
+        "terminated": true,
+        "reason": 1
+      },
+      "mb_ref": {
+        "rc": 0,
+        "stdout_sha256": "059b850298ae33529c41f5466960be1c7436e9dced68e6ca7a5f5d6dca520d8a",
+        "stdout_len": 2,
+        "stderr": ""
+      },
+      "zig_pass": true,
+      "mb_ref_pass": true
+    }
+  ],
+  "toolkit_only_minis": [
+    {
+      "program": ">ba`M",
+      "program_sha256": "daeca61d52fe46d7e34dc34770e2cecbc530038a6c37a00c62434132a7eacc74",
+      "expected": "sss",
+      "zig": {
+        "output": "sss",
+        "output_sha256": "a871c47a7f48a12b38a994e48a9659fab5d6376f3dbce37559bcb617efe8662d",
+        "steps": 5,
+        "terminated": true,
+        "reason": 1
+      },
+      "mb_ref": {
+        "rc": 3,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_len": 0,
+        "stderr": "INVALID_ENCRYPTION: cell 0 value 29555 step 0"
+      },
+      "zig_pass": true,
+      "mb_ref_rejects": true
+    },
+    {
+      "program": "'=a`M",
+      "program_sha256": "d21c2c8a88dfe3c22632148f81ff0eac6fa69e083b0eab9c42a3682e0617d619",
+      "expected": "hh",
+      "zig": {
+        "output": "hh",
+        "output_sha256": "72b289ec78e0a928c565480a435453e30acb92eddb3b78ff168b28737cf6a849",
+        "steps": 5,
+        "terminated": true,
+        "reason": 1
+      },
+      "mb_ref": {
+        "rc": 3,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_len": 0,
+        "stderr": "INVALID_ENCRYPTION: cell 0 value 13 step 0"
+      },
+      "zig_pass": true,
+      "mb_ref_rejects": true
+    },
+    {
+      "program": "c=aN",
+      "program_sha256": "4eb7b310899088724f49a39c8ad1b2e69cfd2d81e89006324b6d0d23fc33414b",
+      "expected": "\u0000r",
+      "zig": {
+        "output": "\u0000r",
+        "output_sha256": "6a9997023a65253995105d37bf8f950a39d5e75667f1b8e0a65bf12f2ddf06c2",
+        "steps": 4,
+        "terminated": true,
+        "reason": 1
+      },
+      "mb_ref": {
+        "rc": 3,
+        "stdout_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+        "stdout_len": 1,
+        "stderr": "INVALID_ENCRYPTION: cell 1 value 29554 step 1"
+      },
+      "zig_pass": true,
+      "mb_ref_rejects": true
+    }
+  ],
+  "print_programs": [
+    {
+      "artifact": "fibonacci.mal",
+      "artifact_sha256": "a8924209ce888b173060c368925d52e2d2503ec5455575307dfaf86b507b7248",
+      "expected_output": "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89\n",
+      "zig": {
+        "output": "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89\n",
+        "output_sha256": "bfb04b24542153dd6257161155641c0049c0d23e78c2248ada9e11e8852b3d35",
+        "steps": 121,
+        "terminated": true,
+        "reason": 1
+      },
+      "mb_ref": {
+        "rc": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_len": 0,
+        "stderr": "INVALID_OPCODE: cell 1"
+      },
+      "zig_pass": true,
+      "strict_mb_ref_rejects": true
+    },
+    {
+      "artifact": "primes.mal",
+      "artifact_sha256": "ae9d4994ae49e07389be4efc1fa9101ef0a026506c0fc2035519478bb687e284",
+      "expected_output": "Primes: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47\n",
+      "zig": {
+        "output": "Primes: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47\n",
+        "output_sha256": "3b5d791b78ad3c5d2cdf156d195b92f48ffd41f5152b44277313cb3cec04b08f",
+        "steps": 186,
+        "terminated": true,
+        "reason": 1
+      },
+      "mb_ref": {
+        "rc": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_len": 0,
+        "stderr": "INVALID_OPCODE: cell 1"
+      },
+      "zig_pass": true,
+      "strict_mb_ref_rejects": true
+    },
+    {
+      "artifact": "pi_constant.mal",
+      "artifact_sha256": "c829357e2d9a393547217b540da18a0a9093eadfc708bf9f8ca211123e54c8a4",
+      "expected_output": "PI = 3.141592653589793238462643383279\n",
+      "zig": {
+        "output": "PI = 3.141592653589793238462643383279\n",
+        "output_sha256": "ae956481edff826e96ac047b8518c055e9e724d545d9ca56971f1bc1b7ab0e22",
+        "steps": 124,
+        "terminated": true,
+        "reason": 1
+      },
+      "mb_ref": {
+        "rc": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_len": 0,
+        "stderr": "INVALID_OPCODE: cell 1"
+      },
+      "zig_pass": true,
+      "strict_mb_ref_rejects": true
+    }
+  ],
+  "quine": {
+    "artifact": "artifacts/candidate_m281_53562b.mal",
+    "artifact_sha256": "96b670b825372a0f41fa3b574d47457f92654b76411e5d5be4c438003087610e",
+    "bytes": 53562,
+    "cells": 52828,
+    "zig": {
+      "output_sha256": "96b670b825372a0f41fa3b574d47457f92654b76411e5d5be4c438003087610e",
+      "identical": true,
+      "steps": 62239852,
+      "terminated": true,
+      "reason": 1,
+      "elapsed_s": 0.112703
+    },
+    "mb_ref": {
+      "rc": 0,
+      "stdout_sha256": "96b670b825372a0f41fa3b574d47457f92654b76411e5d5be4c438003087610e",
+      "stdout_len": 53562,
+      "stderr": ""
+    },
+    "mb_ref_identical": true,
+    "halt_budget": {
+      "below_halt_rc": 2,
+      "below_halt_output_identical": true,
+      "at_halt_rc": 0,
+      "at_halt_output_identical": true
+    }
+  },
+  "claims": {
+    "dual_oracle_8_8": "RETIRED: the old 8/8 claim is not reproducible; cases are split by semantics",
+    "canonical_parity_zig_vs_mb_ref": "NOT_DEMONSTRATED: different semantics",
+    "absolute_world_record": "NOT_DEMONSTRATED"
+  },
+  "verdict": "SEMANTIC_ORACLES=PASS",
+  "elapsed_s": 0.714
+}

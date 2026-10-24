@@ -11,6 +11,8 @@
 //     = ENUMERATE + EXECUTE + DEDUP(outputs) + EMIT(catalogo + resumen)
 //   BRANCH LENGTH <n> CASE <input> <output> ... [MAX_STEPS <n>] [EMIT <path>]
 //     = ENUMERATE + EXECUTE(each case) + FILTER(all outputs match) + EMIT
+//   QUINE LENGTH <n> [MAX_STEPS <n>] [INPUT <s>] [EMIT <path>]
+//     = ENUMERATE + EXECUTE + FILTER(output==program) + EMIT(evidencia)
 //
 // Extension de programa: .bolge  (una linea = un comando, '#' = comentario)
 //
@@ -27,6 +29,7 @@ const OPS_VALID = [_]u32{ 4, 5, 23, 39, 40, 62, 68, 81 };
 const MAX_LENGTH: usize = 16;
 const PROGRESS_FRONTIER: u64 = 64 * 1024 * 1024;
 const PROGRESS_CATALOG: u64 = 8 * 1024 * 1024;
+const PROGRESS_QUINE: u64 = 128 * 1024;
 
 const Options = struct {
     target: []const u8 = "",
@@ -177,7 +180,10 @@ fn parseBranchOptions(toks: []const Token, start: usize, opts: *BranchOptions) v
 }
 
 fn writeFile(io: std.Io, path: []const u8, data: []const u8) !void {
-    const file = try std.Io.Dir.createFileAbsolute(io, path, .{});
+    const file = if (std.fs.path.isAbsolute(path))
+        try std.Io.Dir.createFileAbsolute(io, path, .{})
+    else
+        try std.Io.Dir.cwd().createFile(io, path, .{});
     defer file.close(io);
     try file.writeStreamingAll(io, data);
 }
@@ -301,6 +307,110 @@ fn runFrontier(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
         try writeFile(io, opts.emit, json.items);
     }
     std.debug.print("  FRONTIER FINAL: {d} programas en {d:.1}s ({d:.0} prog/s), {d} hits, sha256 {s}\n", .{ total, elapsed_s, rate, n_hits, evidence_hash });
+}
+
+fn runQuine(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
+    if (opts.length == 0 or opts.length > MAX_LENGTH) fail("QUINE: LENGTH debe estar en 1..16");
+
+    var chars: [MAX_LENGTH][8]u8 = undefined;
+    for (0..opts.length) |pos| {
+        for (OPS_VALID, 0..) |op, k| chars[pos][k] = validCharAt(pos, op);
+    }
+
+    const total: u64 = std.math.pow(u64, 8, @intCast(opts.length));
+    var idx: [MAX_LENGTH]u8 = [_]u8{0} ** MAX_LENGTH;
+    var cells: [MAX_LENGTH]u32 = undefined;
+    var prog: [MAX_LENGTH]u8 = undefined;
+    for (0..opts.length) |pos| {
+        cells[pos] = chars[pos][0];
+        prog[pos] = chars[pos][0];
+    }
+
+    const t0 = monoNow(io);
+    var hits = std.ArrayList(u8).empty;
+    try hits.appendSlice(alloc, "[");
+    var n_hits: u64 = 0;
+
+    var index: u64 = 0;
+    while (index < total) : (index += 1) {
+        var machine = vm.Vm.init();
+        const outcome = machine.runProgram(cells[0..opts.length], opts.input, opts.max_steps);
+        const out = machine.out_buf[0..outcome.output_len];
+        if (std.mem.eql(u8, out, prog[0..opts.length])) {
+            if (n_hits > 0) try hits.append(alloc, ',');
+            n_hits += 1;
+
+            try hits.appendSlice(alloc, "{\"program\":\"");
+            try hits.appendSlice(alloc, try escapeJson(alloc, prog[0..opts.length]));
+            try hits.appendSlice(alloc, "\",\"output\":\"");
+            try hits.appendSlice(alloc, try escapeJson(alloc, out));
+            try hits.appendSlice(alloc, "\",\"steps\":");
+            var nb: [32]u8 = undefined;
+            try hits.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{outcome.steps}) catch unreachable);
+            try hits.appendSlice(alloc, ",\"terminated\":");
+            try hits.appendSlice(alloc, if (outcome.terminated) "true" else "false");
+            try hits.appendSlice(alloc, ",\"final_pc\":");
+            try hits.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{outcome.final_c}) catch unreachable);
+            try hits.appendSlice(alloc, ",\"final_a\":");
+            try hits.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{outcome.final_a}) catch unreachable);
+            try hits.appendSlice(alloc, ",\"final_d\":");
+            try hits.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{outcome.final_d}) catch unreachable);
+            try hits.appendSlice(alloc, "}");
+        }
+
+        var pos: usize = opts.length;
+        while (pos > 0) {
+            pos -= 1;
+            if (idx[pos] < 7) {
+                idx[pos] += 1;
+                cells[pos] = chars[pos][idx[pos]];
+                prog[pos] = chars[pos][idx[pos]];
+                break;
+            }
+            idx[pos] = 0;
+            cells[pos] = chars[pos][0];
+            prog[pos] = chars[pos][0];
+        }
+
+        if (index + 1 == total or (index + 1) % PROGRESS_QUINE == 0) {
+            const elapsed_ns = t0.untilNow(io).raw.nanoseconds;
+            const rate: f64 = @as(f64, @floatFromInt(index + 1)) * 1e9 / @as(f64, @floatFromInt(@max(@as(i128, 1), elapsed_ns)));
+            std.debug.print("  {d} / {d} ({d:.0} prog/s)\n", .{ index + 1, total, rate });
+        }
+    }
+    try hits.appendSlice(alloc, "]");
+
+    const elapsed_ns = t0.untilNow(io).raw.nanoseconds;
+    const elapsed_s = @as(f64, @floatFromInt(elapsed_ns)) / 1e9;
+    const rate: f64 = @as(f64, @floatFromInt(total)) * 1e9 / @as(f64, @floatFromInt(@max(@as(i128, 1), elapsed_ns)));
+
+    var json = std.ArrayList(u8).empty;
+    try json.appendSlice(alloc, "{\"mode\":\"QUINE\",\"input\":\"");
+    try json.appendSlice(alloc, try escapeJson(alloc, opts.input));
+    try json.appendSlice(alloc, "\",\"length\":");
+    var nb: [32]u8 = undefined;
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{opts.length}) catch unreachable);
+    try json.appendSlice(alloc, ",\"max_steps\":");
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{opts.max_steps}) catch unreachable);
+    try json.appendSlice(alloc, ",\"total_programs\":");
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d}", .{total}) catch unreachable);
+    try json.appendSlice(alloc, ",\"elapsed_s\":");
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d:.3}", .{elapsed_s}) catch unreachable);
+    try json.appendSlice(alloc, ",\"rate_prog_per_s\":");
+    try json.appendSlice(alloc, std.fmt.bufPrint(&nb, "{d:.1}", .{rate}) catch unreachable);
+    try json.appendSlice(alloc, ",\"engine\":\"zig/vm.zig + zig/dsl.zig\",\"hits\":");
+    try json.appendSlice(alloc, hits.items);
+    try json.appendSlice(alloc, ",\"negative\":");
+    try json.appendSlice(alloc, if (n_hits == 0) "true" else "false");
+    const evidence_hash = try hexDigest(alloc, json.items);
+    try json.appendSlice(alloc, ",\"sha256\":\"");
+    try json.appendSlice(alloc, evidence_hash);
+    try json.appendSlice(alloc, "\"}\n");
+
+    if (opts.emit.len > 0) {
+        try writeFile(io, opts.emit, json.items);
+    }
+    std.debug.print("  QUINE FINAL: {d} programas en {d:.1}s ({d:.0} prog/s), {d} hits, sha256 {s}\n", .{ total, elapsed_s, rate, n_hits, evidence_hash });
 }
 
 fn runBranch(io: std.Io, alloc: std.mem.Allocator, opts: BranchOptions) !void {
@@ -485,7 +595,7 @@ fn runCatalog(io: std.Io, alloc: std.mem.Allocator, opts: Options) !void {
 
             processed += 1;
             if (processed % PROGRESS_CATALOG == 0) {
-            const elapsed_ns = t0.untilNow(io).raw.nanoseconds;
+                const elapsed_ns = t0.untilNow(io).raw.nanoseconds;
                 const rate: f64 = @as(f64, @floatFromInt(processed)) * 1e9 / @as(f64, @floatFromInt(@max(@as(i128, 1), elapsed_ns)));
                 std.debug.print("  {d} / {d} ({d:.0} prog/s)\n", .{ processed, total, rate });
             }
@@ -593,8 +703,14 @@ pub fn main(init: std.process.Init) !void {
             parseBranchOptions(toks.items, 1, &opts);
             std.debug.print("== BRANCH LENGTH {d} MAX_STEPS {d} CASES {d}\n", .{ opts.length, opts.max_steps, opts.case_count });
             try runBranch(io, alloc, opts);
+        } else if (std.ascii.eqlIgnoreCase(cmd, "QUINE")) {
+            if (toks.items.len < 2) fail("QUINE requiere opciones");
+            var opts: Options = .{};
+            parseOptions(toks.items, 1, &opts);
+            std.debug.print("== QUINE LENGTH {d} MAX_STEPS {d}\n", .{ opts.length, opts.max_steps });
+            try runQuine(io, alloc, opts);
         } else {
-            fail("comando desconocido (FRONTIER/CATALOG/BRANCH)");
+            fail("comando desconocido (FRONTIER/CATALOG/BRANCH/QUINE)");
         }
     }
     if (n_cmds == 0) fail("programa vacio");

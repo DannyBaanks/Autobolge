@@ -1,0 +1,2 @@
+# Smoke test: 512 programs, len 3, zero stdin, 3000-step bound.
+QUINE LENGTH 3 MAX_STEPS 3000 EMIT "experiments/evidence/tiny_quine_len3.json"

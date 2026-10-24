@@ -1,0 +1,3 @@
+# Tiny Quine Hunt: exhaustive over the 8-instruction alphabet, len 7.
+# A hit is a program whose output is byte-identical to its own raw source.
+QUINE LENGTH 7 MAX_STEPS 3000 EMIT "experiments/evidence/tiny_quine_len7.json"

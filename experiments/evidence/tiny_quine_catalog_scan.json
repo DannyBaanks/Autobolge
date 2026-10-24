@@ -1,0 +1,19 @@
+{
+  "format": "autobolge-tiny-quine-catalog-scan/1",
+  "label": "CURRENT",
+  "catalog": "experiments/catalog_cache/catalog_e6dfb345.json",
+  "catalog_sha256": "296a4f1125cb2e55cdd0c91143ee3a8467bdcc0905d88dc604e11cf8882596ec",
+  "entries": 299593,
+  "by_length": {
+    "0": 1,
+    "1": 8,
+    "2": 64,
+    "3": 512,
+    "4": 4096,
+    "5": 32768,
+    "6": 262144
+  },
+  "hits": [],
+  "negative": true,
+  "definition": "output bytes == program bytes (raw source, exact)"
+}

@@ -1,0 +1,2 @@
+# Control: 262,144 programs; must agree with the len-6 catalog scan (0 hits).
+QUINE LENGTH 6 MAX_STEPS 3000 EMIT "experiments/evidence/tiny_quine_len6.json"

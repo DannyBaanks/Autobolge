@@ -3,7 +3,8 @@
 
 Synthesizes autonomous Classic Malbolge programs using Conveyor Architecture,
 Quantum Jump Preambles, and Closed-Form Algebraic Emission Recipes.
-Zero brute-force search. Executes on the native Zig engine in milliseconds.
+Zero brute-force search. Executes on the native Zig engine in milliseconds
+for short targets; targets beyond the sterile gap fail closed.
 
 Usage:
   python3 tools/auto_synthesizer.py --text "Hola Mundo!\n"
@@ -73,6 +74,7 @@ def handle_quine():
     print(f"Quine Artifact:  {quine_path}")
     print(f"File Size:       {len(raw_bytes):,} bytes")
     print(f"  Size Delta:    {len(raw_bytes) - LUTTER_QUINE_BYTES:+,} B vs Lutter ({LUTTER_QUINE_BYTES:,} B, malbolge.org)")
+    print("  Claim:         smaller than Lutter; absolute world supremacy NOT_DEMONSTRATED")
     print(f"Code Cells:      {len(cells):,}")
     print("Executing on the Autobolge Zig native engine (bolge.exe)...")
 
@@ -94,7 +96,7 @@ def handle_quine():
 def main():
     parser = argparse.ArgumentParser(description="Autobolge 2.0 Automatic Program Synthesizer")
     parser.add_argument("--text", "-t", type=str, default=None, help="Target text to synthesize")
-    parser.add_argument("--quine", action="store_true", help="Synthesize/verify the 53,562B World Record Quine")
+    parser.add_argument("--quine", action="store_true", help="Verify the 53,562 B quine (smaller than Lutter; no absolute world-record claim)")
     parser.add_argument("--out", "-o", type=str, default=None, help="Output .mal file path")
     parser.add_argument("--cols", type=int, default=72, help="Column wrap for output .mal (default 72)")
     args = parser.parse_args()
@@ -112,7 +114,11 @@ def main():
     print(f"Target String: {raw_text!r} ({len(raw_text)} chars)")
     print("Synthesizing program algebraically...")
 
-    res = synthesize_text(raw_text, verify=True)
+    try:
+        res = synthesize_text(raw_text, verify=True)
+    except ValueError as exc:
+        print(f"\n[FAIL] {exc}")
+        sys.exit(1)
 
     print(f"\n[PASS] Synthesis and Bit-Exact Verification Complete!")
     print(f"  Execution Time:  {res.elapsed_ms:.2f} ms")

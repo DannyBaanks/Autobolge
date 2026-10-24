@@ -9,6 +9,18 @@ La autoridad externa es el `engine.zig` de Malbolge-Translator. Autobolge lo
 trata como solo lectura y registra su remoto, commit, dirty-state y SHA-256 en
 el manifiesto semántico de cada artefacto dataflow.
 
+## Dos semánticas, no una
+
+`zig/vm.zig` replica el `engine.zig` del toolkit (Classic densa: opcodes
+inválidos → NOP, encryption sólo si la celda queda en 33..126, input underflow
+termina). `BolgeForge/mb_ref` implementa la semántica canónica con **loader
+estricto**: rechaza celdas iniciales que no decodifican a una instrucción y
+aborta si la encryption deja una celda no imprimible. No son intercambiables y
+los claims de paridad exacta entre ambos están retirados. El quine y los dos
+mini-programas canónicos pasan ambos oráculos; los tres toolkit-only se
+reportan aparte. Evidencia reproducible:
+`experiments/evidence/semantic_oracles_current.json`.
+
 ## Manifiesto semántico v1
 
 `quine_research/dataflow/semantic_manifest.py` construye

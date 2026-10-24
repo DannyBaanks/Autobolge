@@ -1,7 +1,9 @@
 """relational/synthesizer.py - High-Performance Constructive Malbolge Synthesizer.
 
-Synthesizes autonomous, self-contained, valid Classic Malbolge programs
-for arbitrary text specifications in O(N) time with ZERO brute-force search.
+Synthesizes autonomous, self-contained Classic Malbolge programs that print
+text specifications in O(N) time with ZERO brute-force search. The target must
+fit the sterile gap between the data segment (D_START=121) and the code segment
+(C_START=3315); longer targets fail closed before execution.
 
 Architecture (Conveyor Synthesis):
 1. High-Memory Quantum Jump:
@@ -10,10 +12,10 @@ Architecture (Conveyor Synthesis):
 2. Conveyor Invariant (Delta c == Delta d):
    - Code segment: c in [3315, ...]
    - Data segment: d in [121, ...]
-   - Sterile gap: > 2000 cells. Code and data never collide.
+   - Sterile gap: 3,194 cells (C_START - D_START). Data must fit before 3315.
 3. Constructive Emission Matrix:
-   - '\\n' (ASCII 10): 2 opcodes ('* <', V=118).
-   - 94 printable ASCII characters: 3 opcodes ('* p <', V1, V2).
+   - 12 bytes (including '\\n'): 2 opcodes ('* <', V).
+   - 83 printable bytes: 3 opcodes ('* p <', V1, V2).
    - '+' (ASCII 43): 4 opcodes ('* p p <', V1, V2, V3).
 4. Clean termination 'v' (opcode 81) on exit with zero stdin reads.
 """
@@ -136,7 +138,11 @@ def run_on_engine(cells: bytes | List[int], input_data: str = "", max_steps: int
 
 
 def synthesize_text(target: str, verify: bool = True) -> SynthesisResult:
-    """Synthesizes a standalone Classic Malbolge program that outputs `target`."""
+    """Synthesizes a Classic Malbolge program that prints `target`.
+
+    The target must fit the sterile gap between D_START=121 and C_START=3315;
+    otherwise ValueError is raised before any VM execution.
+    """
     t0 = time.perf_counter()
 
     target_bytes = target.encode("latin-1")
@@ -165,6 +171,16 @@ def synthesize_text(target: str, verify: bool = True) -> SynthesisResult:
     C_START = 3315
     D_START = 121
     TOTAL_LEN = C_START + len(code_ops)
+
+    data_cells = D_START + len(data_bytes)
+    if data_cells > C_START:
+        raise ValueError(
+            "target too long for the conveyor layout: the data segment needs "
+            f"{len(data_bytes)} cells from D_START={D_START}, reaching "
+            f"{data_cells}, but the code starts at C_START={C_START}. "
+            f"The target must fit the sterile gap ({C_START - D_START} cells); "
+            "reduce the target or use a shorter recipe."
+        )
 
     if TOTAL_LEN > 59049:
         raise ValueError(f"Synthesized program length {TOTAL_LEN} exceeds 59,049 Classic memory limit")
