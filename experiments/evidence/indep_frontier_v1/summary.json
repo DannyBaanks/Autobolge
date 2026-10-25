@@ -1,0 +1,829 @@
+{
+  "A_HI_frontier": {
+    "10": {
+      "hit_programs": [
+        "'&%$@#8![|",
+        ">&%$@#8![|",
+        "D&%$@#8![|",
+        "'=%$@#8![|",
+        ">=%$@#8![|",
+        "D=%$@#8![|",
+        "'C%$@#8![|",
+        ">C%$@#8![|",
+        "DC%$@#8![|",
+        "'&<$@#8![|",
+        ">&<$@#8![|",
+        "D&<$@#8![|",
+        "'=<$@#8![|",
+        ">=<$@#8![|",
+        "D=<$@#8![|",
+        "'C<$@#8![|",
+        ">C<$@#8![|",
+        "DC<$@#8![|",
+        "'&B$@#8![|",
+        ">&B$@#8![|",
+        "D&B$@#8![|",
+        "'=B$@#8![|",
+        ">=B$@#8![|",
+        "D=B$@#8![|",
+        "'CB$@#8![|",
+        ">CB$@#8![|",
+        "DCB$@#8![|",
+        "'&B%:98![|",
+        ">&B%:98![|",
+        "D&B%:98![|",
+        "'&&A:98![|",
+        ">&&A:98![|",
+        "D&&A:98![|",
+        "'&%$$?8![|",
+        ">&%$$?8![|",
+        "D&%$$?8![|",
+        "'=%$$?8![|",
+        ">=%$$?8![|",
+        "D=%$$?8![|",
+        "'C%$$?8![|",
+        ">C%$$?8![|",
+        "DC%$$?8![|",
+        "'&<$$?8![|",
+        ">&<$$?8![|",
+        "D&<$$?8![|",
+        "'=<$$?8![|",
+        ">=<$$?8![|",
+        "D=<$$?8![|",
+        "'C<$$?8![|",
+        ">C<$$?8![|",
+        "DC<$$?8![|",
+        "'&B$$?8![|",
+        ">&B$$?8![|",
+        "D&B$$?8![|",
+        "'=B$$?8![|",
+        ">=B$$?8![|",
+        "D=B$$?8![|",
+        "'CB$$?8![|",
+        ">CB$$?8![|",
+        "DCB$$?8![|",
+        "'&%$@#\"7[|",
+        ">&%$@#\"7[|",
+        "D&%$@#\"7[|",
+        "'=%$@#\"7[|",
+        ">=%$@#\"7[|",
+        "D=%$@#\"7[|",
+        "'C%$@#\"7[|",
+        ">C%$@#\"7[|",
+        "DC%$@#\"7[|",
+        "'&<$@#\"7[|",
+        ">&<$@#\"7[|",
+        "D&<$@#\"7[|",
+        "'=<$@#\"7[|",
+        ">=<$@#\"7[|",
+        "D=<$@#\"7[|",
+        "'C<$@#\"7[|",
+        ">C<$@#\"7[|",
+        "DC<$@#\"7[|",
+        "'&B$@#\"7[|",
+        ">&B$@#\"7[|",
+        "D&B$@#\"7[|",
+        "'=B$@#\"7[|",
+        ">=B$@#\"7[|",
+        "D=B$@#\"7[|",
+        "'CB$@#\"7[|",
+        ">CB$@#\"7[|",
+        "DCB$@#\"7[|",
+        "'&B%:9\"7[|",
+        ">&B%:9\"7[|",
+        "D&B%:9\"7[|",
+        "'&&A:9\"7[|",
+        ">&&A:9\"7[|",
+        "D&&A:9\"7[|",
+        "'&%$$?\"7[|",
+        ">&%$$?\"7[|",
+        "D&%$$?\"7[|",
+        "'=%$$?\"7[|",
+        ">=%$$?\"7[|",
+        "D=%$$?\"7[|",
+        "'C%$$?\"7[|",
+        ">C%$$?\"7[|",
+        "DC%$$?\"7[|",
+        "'&<$$?\"7[|",
+        ">&<$$?\"7[|",
+        "D&<$$?\"7[|",
+        "'=<$$?\"7[|",
+        ">=<$$?\"7[|",
+        "D=<$$?\"7[|",
+        "'C<$$?\"7[|",
+        ">C<$$?\"7[|",
+        "DC<$$?\"7[|",
+        "'&B$$?\"7[|",
+        ">&B$$?\"7[|",
+        "D&B$$?\"7[|",
+        "'=B$$?\"7[|",
+        ">=B$$?\"7[|",
+        "D=B$$?\"7[|",
+        "'CB$$?\"7[|",
+        ">CB$$?\"7[|",
+        "DCB$$?\"7[|",
+        "'&B%:#87[|",
+        ">&B%:#87[|",
+        "D&B%:#87[|",
+        "'&&A:#87[|",
+        ">&&A:#87[|",
+        "D&&A:#87[|",
+        "'&B%$987[|",
+        ">&B%$987[|",
+        "D&B%$987[|",
+        "'&&A$987[|",
+        ">&&A$987[|",
+        "D&&A$987[|",
+        "'&&%@987[|",
+        ">&&%@987[|",
+        "D&&%@987[|",
+        "'&%$$#>7[|",
+        ">&%$$#>7[|",
+        "D&%$$#>7[|",
+        "'=%$$#>7[|",
+        ">=%$$#>7[|",
+        "D=%$$#>7[|",
+        "'C%$$#>7[|",
+        ">C%$$#>7[|",
+        "DC%$$#>7[|",
+        "'&<$$#>7[|",
+        ">&<$$#>7[|",
+        "D&<$$#>7[|",
+        "'=<$$#>7[|",
+        ">=<$$#>7[|",
+        "D=<$$#>7[|",
+        "'C<$$#>7[|",
+        ">C<$$#>7[|",
+        "DC<$$#>7[|",
+        "'&B$$#>7[|",
+        ">&B$$#>7[|",
+        "D&B$$#>7[|",
+        "'=B$$#>7[|",
+        ">=B$$#>7[|",
+        "D=B$$#>7[|",
+        "'CB$$#>7[|",
+        ">CB$$#>7[|",
+        "DCB$$#>7[|"
+      ],
+      "hits": 162,
+      "programs": 1073741824
+    },
+    "11": {
+      "hit_programs": [
+        "'&%$$9]~~Z|",
+        ">&%$$9]~~Z|",
+        "D&%$$9]~~Z|",
+        "'=%$$9]~~Z|",
+        ">=%$$9]~~Z|",
+        "D=%$$9]~~Z|",
+        "'C%$$9]~~Z|",
+        ">C%$$9]~~Z|",
+        "DC%$$9]~~Z|",
+        "'&<$$9]~~Z|",
+        ">&<$$9]~~Z|",
+        "D&<$$9]~~Z|",
+        "'=<$$9]~~Z|",
+        ">=<$$9]~~Z|",
+        "D=<$$9]~~Z|",
+        "'C<$$9]~~Z|",
+        ">C<$$9]~~Z|",
+        "DC<$$9]~~Z|",
+        "'&B$$9]~~Z|",
+        ">&B$$9]~~Z|",
+        "D&B$$9]~~Z|",
+        "'=B$$9]~~Z|",
+        ">=B$$9]~~Z|",
+        "D=B$$9]~~Z|",
+        "'CB$$9]~~Z|",
+        ">CB$$9]~~Z|",
+        "DCB$$9]~~Z|",
+        "'&&;:9]~~Z|",
+        ">&&;:9]~~Z|",
+        "D&&;:9]~~Z|",
+        "'&%$$9]~<Z|",
+        ">&%$$9]~<Z|",
+        "D&%$$9]~<Z|",
+        "'=%$$9]~<Z|",
+        ">=%$$9]~<Z|",
+        "D=%$$9]~<Z|",
+        "'C%$$9]~<Z|",
+        ">C%$$9]~<Z|",
+        "DC%$$9]~<Z|",
+        "'&<$$9]~<Z|",
+        ">&<$$9]~<Z|",
+        "D&<$$9]~<Z|",
+        "'=<$$9]~<Z|",
+        ">=<$$9]~<Z|",
+        "D=<$$9]~<Z|",
+        "'C<$$9]~<Z|",
+        ">C<$$9]~<Z|",
+        "DC<$$9]~<Z|",
+        "'&B$$9]~<Z|",
+        ">&B$$9]~<Z|",
+        "D&B$$9]~<Z|",
+        "'=B$$9]~<Z|",
+        ">=B$$9]~<Z|",
+        "D=B$$9]~<Z|",
+        "'CB$$9]~<Z|",
+        ">CB$$9]~<Z|",
+        "DCB$$9]~<Z|",
+        "'&&;:9]~<Z|",
+        ">&&;:9]~<Z|",
+        "D&&;:9]~<Z|",
+        "'=&;$9]~[Y4",
+        "'&&;:9]~[Y4",
+        ">&&;:9]~[Y4",
+        "D&&;:9]~[Y4",
+        "'C&;:9]~[Y4",
+        "DC&;:9]~[Y4",
+        "'=&;@9]~[Y4",
+        "(&B`#987[YG",
+        "(&a$#987[YG",
+        "(&a;#987[YG",
+        "(&aA#987[YG",
+        "'&%$$9]~[l|",
+        ">&%$$9]~[l|",
+        "D&%$$9]~[l|",
+        "'=%$$9]~[l|",
+        ">=%$$9]~[l|",
+        "D=%$$9]~[l|",
+        "'C%$$9]~[l|",
+        ">C%$$9]~[l|",
+        "DC%$$9]~[l|",
+        "'&<$$9]~[l|",
+        ">&<$$9]~[l|",
+        "D&<$$9]~[l|",
+        "'=<$$9]~[l|",
+        ">=<$$9]~[l|",
+        "D=<$$9]~[l|",
+        "'C<$$9]~[l|",
+        ">C<$$9]~[l|",
+        "DC<$$9]~[l|",
+        "'&B$$9]~[l|",
+        ">&B$$9]~[l|",
+        "D&B$$9]~[l|",
+        "'=B$$9]~[l|",
+        ">=B$$9]~[l|",
+        "D=B$$9]~[l|",
+        "'CB$$9]~[l|",
+        ">CB$$9]~[l|",
+        "DCB$$9]~[l|",
+        "'&&;:9]~[l|",
+        ">&&;:9]~[l|",
+        "D&&;:9]~[l|",
+        "('<;$?8![54",
+        "(C<;$?8![54",
+        "('<;:?]7654",
+        "(C<;:?]7654",
+        "('<;:^\"7654",
+        "(C<;:^\"7654",
+        "('<;:^>7654",
+        "(C<;:^>7654",
+        "D'<;_\">7ZH{",
+        "D'<;_\">7[H{"
+      ],
+      "hits": 111,
+      "programs": 8589934592
+    },
+    "2": {
+      "hit_programs": [],
+      "hits": 0,
+      "programs": 64
+    },
+    "3": {
+      "hit_programs": [],
+      "hits": 0,
+      "programs": 512
+    },
+    "4": {
+      "hit_programs": [],
+      "hits": 0,
+      "programs": 4096
+    },
+    "5": {
+      "hit_programs": [],
+      "hits": 0,
+      "programs": 32768
+    },
+    "6": {
+      "hit_programs": [],
+      "hits": 0,
+      "programs": 262144
+    },
+    "7": {
+      "hit_programs": [],
+      "hits": 0,
+      "programs": 2097152
+    },
+    "8": {
+      "hit_programs": [],
+      "hits": 0,
+      "programs": 16777216
+    },
+    "9": {
+      "hit_programs": [],
+      "hits": 0,
+      "programs": 134217728
+    }
+  },
+  "D_two_byte_frontier": {
+    "alnum_pairs_reached": 3504,
+    "alnum_pairs_total": 3844,
+    "alpha_pairs_reached_first_50": [
+      {
+        "min_length": 2,
+        "output": "ss",
+        "witness": ">b"
+      },
+      {
+        "min_length": 4,
+        "output": "TT",
+        "witness": "(=B`"
+      },
+      {
+        "min_length": 4,
+        "output": "WW",
+        "witness": "(=a`"
+      },
+      {
+        "min_length": 4,
+        "output": "hh",
+        "witness": "'=B`"
+      },
+      {
+        "min_length": 4,
+        "output": "pp",
+        "witness": "''B;"
+      },
+      {
+        "min_length": 4,
+        "output": "rr",
+        "witness": "D=B`"
+      },
+      {
+        "min_length": 4,
+        "output": "sm",
+        "witness": ">b<;"
+      },
+      {
+        "min_length": 4,
+        "output": "sw",
+        "witness": ">bBA"
+      },
+      {
+        "min_length": 4,
+        "output": "yy",
+        "witness": "'&B;"
+      },
+      {
+        "min_length": 5,
+        "output": "II",
+        "witness": "''<`_"
+      },
+      {
+        "min_length": 5,
+        "output": "NN",
+        "witness": "(&a`q"
+      },
+      {
+        "min_length": 5,
+        "output": "RR",
+        "witness": "(&a$_"
+      },
+      {
+        "min_length": 5,
+        "output": "SS",
+        "witness": "('%`_"
+      },
+      {
+        "min_length": 5,
+        "output": "TR",
+        "witness": "(=a$_"
+      },
+      {
+        "min_length": 5,
+        "output": "US",
+        "witness": "(=a_$"
+      },
+      {
+        "min_length": 5,
+        "output": "UU",
+        "witness": "(=aA@"
+      },
+      {
+        "min_length": 5,
+        "output": "XX",
+        "witness": "(C<`_"
+      },
+      {
+        "min_length": 5,
+        "output": "ff",
+        "witness": "(&a`@"
+      },
+      {
+        "min_length": 5,
+        "output": "hA",
+        "witness": "'=a_$"
+      },
+      {
+        "min_length": 5,
+        "output": "ii",
+        "witness": "(&a`:"
+      },
+      {
+        "min_length": 5,
+        "output": "ll",
+        "witness": "(&a`M"
+      },
+      {
+        "min_length": 5,
+        "output": "oo",
+        "witness": "(=a%:"
+      },
+      {
+        "min_length": 5,
+        "output": "qq",
+        "witness": ">=<`^"
+      },
+      {
+        "min_length": 5,
+        "output": "sD",
+        "witness": ">b`N$"
+      },
+      {
+        "min_length": 5,
+        "output": "sP",
+        "witness": ">b&_$"
+      },
+      {
+        "min_length": 5,
+        "output": "sR",
+        "witness": ">'a$_"
+      },
+      {
+        "min_length": 5,
+        "output": "sf",
+        "witness": ">b%_$"
+      },
+      {
+        "min_length": 5,
+        "output": "sk",
+        "witness": ">'a%:"
+      },
+      {
+        "min_length": 5,
+        "output": "xx",
+        "witness": "(&`rM"
+      },
+      {
+        "min_length": 5,
+        "output": "yp",
+        "witness": "(&a%:"
+      },
+      {
+        "min_length": 6,
+        "output": "AA",
+        "witness": "(&%_:#"
+      },
+      {
+        "min_length": 6,
+        "output": "GG",
+        "witness": "''&;_]"
+      },
+      {
+        "min_length": 6,
+        "output": "Gb",
+        "witness": "''<`^?"
+      },
+      {
+        "min_length": 6,
+        "output": "HB",
+        "witness": "(&<`:?"
+      },
+      {
+        "min_length": 6,
+        "output": "HH",
+        "witness": "(&<`@?"
+      },
+      {
+        "min_length": 6,
+        "output": "LL",
+        "witness": "(&%A_#"
+      },
+      {
+        "min_length": 6,
+        "output": "QL",
+        "witness": "(=<;_#"
+      },
+      {
+        "min_length": 6,
+        "output": "QQ",
+        "witness": "(&%`@?"
+      },
+      {
+        "min_length": 6,
+        "output": "Tk",
+        "witness": "(=a$:]"
+      },
+      {
+        "min_length": 6,
+        "output": "To",
+        "witness": "('<`^?"
+      },
+      {
+        "min_length": 6,
+        "output": "UL",
+        "witness": "('B;_#"
+      },
+      {
+        "min_length": 6,
+        "output": "WL",
+        "witness": "(C<A_#"
+      },
+      {
+        "min_length": 6,
+        "output": "WU",
+        "witness": "('<A_#"
+      },
+      {
+        "min_length": 6,
+        "output": "XL",
+        "witness": "(=BA_#"
+      },
+      {
+        "min_length": 6,
+        "output": "ZZ",
+        "witness": "''%`@?"
+      },
+      {
+        "min_length": 6,
+        "output": "bC",
+        "witness": "''<`:?"
+      },
+      {
+        "min_length": 6,
+        "output": "bb",
+        "witness": "''<`@?"
+      },
+      {
+        "min_length": 6,
+        "output": "dd",
+        "witness": "'=<;_]"
+      },
+      {
+        "min_length": 6,
+        "output": "ee",
+        "witness": "'&&;_]"
+      },
+      {
+        "min_length": 6,
+        "output": "hH",
+        "witness": "'=a_^?"
+      }
+    ],
+    "longest_min_length_printable": [
+      {
+        "min_length": 11,
+        "output": "!\"",
+        "witness": "(&<A_\"8\\Z|Y"
+      },
+      {
+        "min_length": 11,
+        "output": "!%",
+        "witness": "('%;$^\\[Z;X"
+      },
+      {
+        "min_length": 11,
+        "output": "!)",
+        "witness": "(=&;@^!7[H4"
+      },
+      {
+        "min_length": 11,
+        "output": "!.",
+        "witness": "''&$:^8!6Zk"
+      },
+      {
+        "min_length": 11,
+        "output": "!4",
+        "witness": ">'<;:^!7[Y{"
+      },
+      {
+        "min_length": 11,
+        "output": "!G",
+        "witness": "DC<%:^!7[}G"
+      },
+      {
+        "min_length": 11,
+        "output": "!X",
+        "witness": "''%;_\"][ZZk"
+      },
+      {
+        "min_length": 11,
+        "output": "!d",
+        "witness": "DC<A:#\"\\}ZG"
+      },
+      {
+        "min_length": 11,
+        "output": "!~",
+        "witness": "''%%:9>![5:"
+      },
+      {
+        "min_length": 11,
+        "output": "\")",
+        "witness": "'&&$@^8[Z;k"
+      },
+      {
+        "min_length": 11,
+        "output": "\"+",
+        "witness": "'=<%:9]~[Y4"
+      },
+      {
+        "min_length": 11,
+        "output": "\"1",
+        "witness": "'&&$@^!=Z;{"
+      },
+      {
+        "min_length": 11,
+        "output": "\"4",
+        "witness": ">=<A:^87~54"
+      },
+      {
+        "min_length": 11,
+        "output": "\"X",
+        "witness": "'&<%@9\"\\}Zk"
+      },
+      {
+        "min_length": 11,
+        "output": "\"^",
+        "witness": "('<%$\"]~[;k"
+      },
+      {
+        "min_length": 11,
+        "output": "\"u",
+        "witness": "(&%$:^!!6;X"
+      },
+      {
+        "min_length": 11,
+        "output": "\"w",
+        "witness": ">'&;#\"8\\~5X"
+      },
+      {
+        "min_length": 11,
+        "output": "\"}",
+        "witness": ">CB;_\"8!~54"
+      },
+      {
+        "min_length": 11,
+        "output": "#)",
+        "witness": "('%$:#]7~;Y"
+      },
+      {
+        "min_length": 11,
+        "output": "#+",
+        "witness": "(&B;$^87[Hk"
+      },
+      {
+        "min_length": 11,
+        "output": "#M",
+        "witness": ">=&;:^!7[;G"
+      },
+      {
+        "min_length": 11,
+        "output": "#d",
+        "witness": ">'<A$^!!65:"
+      },
+      {
+        "min_length": 11,
+        "output": "#h",
+        "witness": ">=<;_\"\"7Z;:"
+      },
+      {
+        "min_length": 11,
+        "output": "#w",
+        "witness": "(&B`:?8!Z;|"
+      },
+      {
+        "min_length": 11,
+        "output": "#}",
+        "witness": "('<;_\">7[lG"
+      }
+    ],
+    "new_pairs_by_length": {
+      "2": 3,
+      "3": 7,
+      "4": 50,
+      "5": 141,
+      "6": 522,
+      "7": 931,
+      "8": 2772,
+      "9": 5302,
+      "10": 9348,
+      "11": 10620
+    },
+    "new_printable_pairs_by_length": {
+      "2": 1,
+      "3": 2,
+      "4": 14,
+      "5": 54,
+      "6": 141,
+      "7": 354,
+      "8": 1088,
+      "9": 2105,
+      "10": 2807,
+      "11": 1795
+    },
+    "pairs_reached": 29696,
+    "pairs_total_256x256": 65536,
+    "printable_pairs_reached": 8361,
+    "printable_pairs_total": 9025,
+    "printable_pairs_unreached": 664
+  },
+  "command": "python3 experiments/indep_frontier_v1.py --lmax 11 --threads 12",
+  "control_vs_catalog": {
+    "available": true,
+    "catalog": "experiments/catalog_cache/catalog_e6dfb345.json",
+    "catalog_sha256": "296a4f1125cb2e55cdd0c91143ee3a8467bdcc0905d88dc604e11cf8882596ec",
+    "lengths": {
+      "2": {
+        "hi_hits_equal": true,
+        "one_byte_sets_equal": true,
+        "pass": true,
+        "programs": [
+          64,
+          64
+        ],
+        "stop_reasons_equal": true,
+        "two_byte_sets_equal": true,
+        "two_byte_witnesses_reproduce_in_catalog": true
+      },
+      "3": {
+        "hi_hits_equal": true,
+        "one_byte_sets_equal": true,
+        "pass": true,
+        "programs": [
+          512,
+          512
+        ],
+        "stop_reasons_equal": true,
+        "two_byte_sets_equal": true,
+        "two_byte_witnesses_reproduce_in_catalog": true
+      },
+      "4": {
+        "hi_hits_equal": true,
+        "one_byte_sets_equal": true,
+        "pass": true,
+        "programs": [
+          4096,
+          4096
+        ],
+        "stop_reasons_equal": true,
+        "two_byte_sets_equal": true,
+        "two_byte_witnesses_reproduce_in_catalog": true
+      },
+      "5": {
+        "hi_hits_equal": true,
+        "one_byte_sets_equal": true,
+        "pass": true,
+        "programs": [
+          32768,
+          32768
+        ],
+        "stop_reasons_equal": true,
+        "two_byte_sets_equal": true,
+        "two_byte_witnesses_reproduce_in_catalog": true
+      },
+      "6": {
+        "hi_hits_equal": true,
+        "one_byte_sets_equal": true,
+        "pass": true,
+        "programs": [
+          262144,
+          262144
+        ],
+        "stop_reasons_equal": true,
+        "two_byte_sets_equal": true,
+        "two_byte_witnesses_reproduce_in_catalog": true
+      }
+    },
+    "pass": true
+  },
+  "elapsed_total_s": 328.21,
+  "environment": {
+    "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "host": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "threads": 12
+  },
+  "experiment": "INDEP_FRONTIER_V1",
+  "input": "",
+  "max_steps": 3000,
+  "not_demonstrated": [
+    "Anything about programs longer than LMAX or with more than 3000 steps.",
+    "Anything under the strict canonical loader (mb_ref): toolkit semantics only.",
+    "Programs that read input."
+  ],
+  "scope": "Exhaustive over all 8^L valid-decoding programs, L=2..LMAX, empty stdin, MAX_STEPS=3000, toolkit (lenient) semantics. Programs that do not halt within 3000 steps are counted with their output so far (RUNNING); exact-output matching only.",
+  "semantic_epoch": "autobolge-classic-dense-input-underflow/v1",
+  "timestamp": "2026-10-24T15:14:13-06:00",
+  "tool_sha256": "af095680ce3ef674ff1323693749409b9ff94147445a02c0b97b0f45411c90ca"
+}

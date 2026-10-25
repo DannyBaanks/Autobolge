@@ -186,24 +186,29 @@ SHAPE_FAMILIES=PASS (1.27 s)
   `semantic_manifest.py` hashea `stages.py` y `contracts.py`, así que agregar
   ahí una etapa invalida la caché de todas las campañas existentes.
 
-### Escaneos de frontera — negativos honestos (Gate D1 — `CURRENT`)
+### Escaneos de frontera — negativos honestos y primer hit de `HI` (`CURRENT` 2026-10-25)
 
-Escaneos negativos exhaustivos con el motor Zig recompilado: `HI` sin input
-**no** aparece en todo el espacio de programas válidos a:
+Escaneos exhaustivos sobre todo el espacio de programas válidos ($8^L$ combinaciones, sin input, semántica Classic densa):
 
-- Longitud 7: 2,097,152 programas (1153 s @ 1818 prog/s) — **0 hits confirmado**
-  Evidencia: `experiments/evidence/dsl_frontier_HI_len7.json` (label=`CURRENT`)
-- Longitud 8: 16,777,216 programas — estimado ~3.6 h bajo semántica actual
-- Longitud 9: 134,217,728 programas — estimado ~29 h
-- Longitud 10: 1,073,741,824 programas — evidencia pre-swap conservada
+- **Longitud 2..6**: 299,593 programas — **0 hits** (paridad 100% verificada contra catálogo).
+- **Longitud 7**: 2,097,152 programas — **0 hits confirmado** (`dsl_frontier_HI_len7.json`).
+- **Longitud 8**: 16,777,216 programas — **0 hits confirmado** (0.33 s, 3,885 pares distintos de 2 bytes).
+- **Longitud 9**: 134,217,728 programas — **0 hits confirmado** (4.60 s, 8,238 pares distintos de 2 bytes).
+- **Longitud 10**: 1,073,741,824 programas — **PRIMER HIT: 162 programas** emiten `HI`.
+  - Primer testigo lexicográfico: `'&%$@#8![|` (43 pasos, halt por `INPUT_UNDERFLOW`).
+  - Verificado de forma idéntica en `classic.py`, `bolge.exe` y `mb_indep.c`.
+- **Longitud 11**: 8,589,934,592 programas — **111 programas** emiten `HI` (289.99 s).
 
-Los negativos se conservan como evidencia
-(`experiments/evidence/frontier_HI_len*.json`) en lugar de ocultarse: el
+**Campaña de verificación independiente (INDEP_FRONTIER_V1):**
+Implementación en C multihilo (`tools/indep_scan/frontier_indep.c`) con compartición de cola de cinta `m[L..]` por par de celdas y deshecho de mutaciones por undo-log. Evalúa **>33 millones de programas/s**, eliminando los cuellos de botella de tiempo previos (~3.6 h → 0.33 s en len 8). Evidencia criptográfica reproducible en `experiments/evidence/indep_frontier_v1/`.
+
+**Cartografía de pares de 2 bytes (len ≤ 11):**
+- 8,361 de los 9,025 pares imprimibles ASCII ($95 \times 95$) ya han sido alcanzados.
+- Solo 664 pares imprimibles permanecen no alcanzados a longitud 11 (catálogo completo de testigos en `experiments/evidence/indep_frontier_v1/two_byte_min_length.json`).
+- Par imprimible más corto en Malbolge: `'ss'` a $L=2$ (`>b`).
+
+Los negativos se conservan como evidencia en lugar de ocultarse: el
 registro de investigación incluye tanto construcciones como límites.
-
-**Nota de rendimiento:** la semántica Classic densa actual (~1800 prog/s) es
-~78x más lenta que la pre-swap (~143K prog/s) debido al relleno crazy-fill
-completo de la cinta de 59049 celdas por cada programa.
 
 ### DSL especializado — recompilado y verificado (Gate D3 — `CURRENT`)
 
