@@ -1,8 +1,12 @@
-# Autobolge
+# Autobolge v2.0 — Constructive O(N) Conveyor & XLAT2 Ripple Synthesizer
+
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/DannyBaanks/Autobolge)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://python.org)
+[![Tests](https://img.shields.io/badge/tests-PASS-brightgreen.svg)]()
 
 ![Autobolge relational synthesis](assets/autobolge.gif)
 
-**Autobolge es un sintetizador relacional de Malbolge orientado a evidencia.**
+**Autobolge es un sintetizador relacional de Malbolge orientado a evidencia con síntesis constructiva O(N) y generador de contadores ripple con expansión positiva.**
 
 Hoja de ruta de la campaña: [ROADMAP.md](ROADMAP.md).
 
