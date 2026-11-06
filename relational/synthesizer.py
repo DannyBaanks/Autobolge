@@ -104,37 +104,91 @@ class SynthesisResult:
     verified: bool
 
 
+def run_classic_vm(cells: bytes | List[int], input_data: str = "", max_steps: int = 500000) -> Tuple[bytes, int, bool, int]:
+    """In-process reference Classic Malbolge VM (zero subprocess overhead)."""
+    tape = list(cells)
+    while len(tape) < 59049:
+        p1 = tape[-1] if tape else 0
+        p2 = tape[-2] if len(tape) >= 2 else 0
+        tape.append(crazy_op(p1, p2))
+
+    a = 0
+    c = 0
+    d = 0
+    steps = 0
+    inp_pos = 0
+    out = bytearray()
+
+    while steps < max_steps:
+        steps += 1
+        val = tape[c]
+        op = (val + c) % 94
+        if op == 4:
+            c = tape[d]
+        elif op == 5:
+            out.append(a % 256)
+        elif op == 23:
+            if inp_pos < len(input_data):
+                a = ord(input_data[inp_pos])
+                inp_pos += 1
+            else:
+                a = 59048
+        elif op == 39:
+            r = (tape[d] // 3) + (tape[d] % 3) * 19683
+            tape[d] = r
+            a = r
+        elif op == 40:
+            d = tape[d]
+        elif op == 62:
+            r = crazy_op(a, tape[d])
+            tape[d] = r
+            a = r
+        elif op == 81:
+            return bytes(out), steps, True, 1
+
+        if 33 <= tape[c] <= 126:
+            tape[c] = ord(XLAT2[tape[c] - 33])
+
+        c = 0 if c == 59048 else c + 1
+        d = 0 if d == 59048 else d + 1
+
+    return bytes(out), steps, False, 0
+
+
 def run_on_engine(cells: bytes | List[int], input_data: str = "", max_steps: int = 500000) -> Tuple[bytes, int, bool, int]:
-    """Runs program cells directly on the fast Zig native engine (bolge.exe)."""
+    """Runs program cells on the fast Zig engine (bolge.exe), falling back to in-process VM."""
     cell_list = list(cells)
-    with tempfile.TemporaryDirectory() as tmp:
-        in_p = Path(tmp) / "in.bin"
-        out_p = Path(tmp) / "out.bin"
+    if BOLGE_EXE.exists() and os.access(str(BOLGE_EXE), os.X_OK):
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                in_p = Path(tmp) / "in.bin"
+                out_p = Path(tmp) / "out.bin"
 
-        payload = bytearray(b"BOLG1")
-        payload.extend(struct.pack("<Q", 1))
-        payload.extend(struct.pack("<I", len(cell_list)))
-        for c in cell_list:
-            payload.extend(struct.pack("<I", c))
-        inp_bytes = input_data.encode("latin-1")
-        payload.extend(struct.pack("<I", len(inp_bytes)))
-        payload.extend(inp_bytes)
-        payload.extend(struct.pack("<I", max_steps))
+                payload = bytearray(b"BOLG1")
+                payload.extend(struct.pack("<Q", 1))
+                payload.extend(struct.pack("<I", len(cell_list)))
+                for c in cell_list:
+                    payload.extend(struct.pack("<I", c))
+                inp_bytes = input_data.encode("latin-1")
+                payload.extend(struct.pack("<I", len(inp_bytes)))
+                payload.extend(inp_bytes)
+                payload.extend(struct.pack("<I", max_steps))
 
-        in_p.write_bytes(payload)
+                in_p.write_bytes(payload)
 
-        res = subprocess.run([str(BOLGE_EXE), str(in_p), str(out_p)], capture_output=True)
-        if res.returncode != 0:
-            raise RuntimeError(f"bolge.exe failed: {res.stderr.decode('latin-1', errors='replace')}")
-
-        data = out_p.read_bytes()
-        pos = 5 + 8
-        out_len = struct.unpack_from("<I", data, pos)[0]
-        pos += 4
-        out_bytes = data[pos:pos + out_len]
-        pos += out_len
-        steps, term, reason, fc, fa, fd = struct.unpack_from("<QBBIII", data, pos)
-        return out_bytes, steps, (term == 1), reason
+                res = subprocess.run([str(BOLGE_EXE), str(in_p), str(out_p)], capture_output=True)
+                if res.returncode == 0 and out_p.exists():
+                    data = out_p.read_bytes()
+                    pos = 5 + 8
+                    out_len = struct.unpack_from("<I", data, pos)[0]
+                    pos += 4
+                    out_bytes = data[pos:pos + out_len]
+                    pos += out_len
+                    steps, term, reason, fc, fa, fd = struct.unpack_from("<QBBIII", data, pos)
+                    return out_bytes, steps, (term == 1), reason
+        except Exception:
+            pass
+    return run_classic_vm(cell_list, input_data=input_data, max_steps=max_steps)
 
 
 def synthesize_text(target: str, verify: bool = True) -> SynthesisResult:
